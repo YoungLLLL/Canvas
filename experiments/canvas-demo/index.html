@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#11110f" />
+  <title>Canvas｜可对话的数字博物馆</title>
+  <meta name="description" content="走近梵高的作品，在细节中与艺术家数字化身对话。" />
+  <link rel="preconnect" href="https://commons.wikimedia.org" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Canvas 首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>CANVAS</span>
+      </a>
+      <nav class="topnav" aria-label="主导航">
+        <button class="nav-link active">正在展出</button>
+        <button class="nav-link" data-toast="藏品库将在下一阶段开放">藏品库</button>
+        <button class="nav-link" data-toast="艺术家档案将在下一阶段开放">艺术家</button>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-button" id="soundToggle" aria-label="开启环境声音" title="环境声音">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4.5 3.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12"/></svg>
+        </button>
+        <button class="about-button" id="aboutButton">关于展览</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero map-hero" aria-labelledby="exhibitionTitle">
+        <div class="map-intro">
+          <div class="eyebrow"><span></span> THE WORLD AS A MUSEUM</div>
+          <div class="hero-copy">
+            <p class="kicker">CANVAS · GLOBAL COLLECTION</p>
+            <h1 id="exhibitionTitle">艺术，<br><em>此刻在哪里？</em></h1>
+            <p class="intro">从地图出发，找到作品今天的馆藏地。<br>跨过距离，看清细节，再与创作者谈谈。</p>
+          </div>
+          <div class="map-summary">
+            <span><strong>01</strong> 个馆藏地</span>
+            <span><strong>03</strong> 件数字作品</span>
+          </div>
+        </div>
+
+        <div class="world-map" id="worldMap">
+          <div class="map-heading">
+            <div><span>GLOBAL ART MAP</span><strong>全球馆藏地图</strong></div>
+            <p><i></i> 当前收录</p>
+          </div>
+          <svg class="map-svg" viewBox="0 0 1200 610" role="img" aria-label="世界地图，芝加哥艺术博物馆已收录三件作品">
+            <defs>
+              <pattern id="mapGrid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="currentColor" stroke-width=".6"/></pattern>
+              <filter id="mapGlow"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect class="map-grid" width="1200" height="610" fill="url(#mapGrid)"/>
+            <g class="continents">
+              <path d="M90 119 147 75l95-22 75 22 36 40 58 17 31 52-25 47-47 11-25 42-38 31-8 58-34 14-25-45-42-31-39-49-58-20-32-59 30-39Z"/>
+              <path d="m322 380 52 20 37 43 20 63-24 72-33 26-17-63-30-50-12-65Z"/>
+              <path d="m532 137 40-35 79 1 29 28 60 3 43-21 79 13 64-21 93 24 81 55 39 64-59 20-63-12-42 30-59-15-54 11-37-30-37 11-13 52-45 17-21-51-49-11-28-33-59-7-23-40Z"/>
+              <path d="m610 300 65 8 53 50 13 71-35 90-54 34-24-63-36-58-16-73Z"/>
+              <path d="m952 405 56-18 54 17 31 44-27 34-72 6-51-39Z"/>
+              <path d="m1082 180 21-20 15 21-16 31Z"/>
+            </g>
+            <g class="map-route"><path d="M280 215 C430 80 620 92 786 164"/><circle cx="786" cy="164" r="3"/></g>
+            <g class="map-pin active" data-location="chicago" role="button" tabindex="0" aria-label="芝加哥，3件作品">
+              <circle class="pin-wave" cx="280" cy="215" r="24"/>
+              <circle class="pin-core" cx="280" cy="215" r="7"/>
+              <line x1="280" y1="223" x2="280" y2="254"/>
+              <text x="294" y="208">CHICAGO</text>
+              <text class="pin-sub" x="294" y="226">3 ARTWORKS</text>
+            </g>
+            <g class="map-coordinate"><text x="24" y="585">41.8781° N</text><text x="1100" y="585">87.6298° W</text></g>
+          </svg>
+
+          <article class="location-card active" id="chicagoCard">
+            <div class="location-card-images" aria-hidden="true">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20The%20Bedroom%20-%201926.417%20-%20Art%20Institute%20of%20Chicago.jpg?width=500" alt="" />
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20Self-Portrait%20-%201954.326%20-%20Art%20Institute%20of%20Chicago.jpg?width=300" alt="" />
+            </div>
+            <div class="location-card-body">
+              <span class="location-overline">UNITED STATES · COLLECTION 01</span>
+              <h2>芝加哥</h2>
+              <p>THE ART INSTITUTE OF CHICAGO</p>
+              <div class="location-divider"></div>
+              <span class="collection-label">这里收藏的作品</span>
+              <button class="map-work-button" data-work-index="0"><span>01</span>《卧室》<em>1889</em></button>
+              <button class="map-work-button" data-work-index="1"><span>02</span>《自画像》<em>1887</em></button>
+              <button class="map-work-button" data-work-index="2"><span>03</span>《诗人的花园》<em>1888</em></button>
+              <button class="map-enter" id="enterExhibition">进入芝加哥展厅 <i>↘</i></button>
+              <small>地图表示馆藏机构，不代表作品此刻一定在展厅展出</small>
+            </div>
+          </article>
+
+          <div class="map-footer"><span><i class="active-dot"></i> 已开放馆藏地</span><span><i></i> 更多城市即将抵达</span><strong>点击地标探索馆藏</strong></div>
+        </div>
+        <div class="scroll-cue">EXPLORE THE COLLECTION <span>↓</span></div>
+      </section>
+
+      <section class="gallery" id="gallery" aria-label="作品探索区">
+        <aside class="work-index">
+          <div class="section-label"><span>01</span> 作品</div>
+          <div class="work-list" id="workList"></div>
+          <div class="curator-note">
+            <span>策展人笔记</span>
+            <p>“家”对梵高而言，不只是一个房间，也是一种始终在寻找的安宁。</p>
+          </div>
+        </aside>
+
+        <div class="viewer-column">
+          <div class="viewer-head">
+            <div>
+              <span class="work-count" id="workCount">作品 01 / 03</span>
+              <h2 id="workTitle">卧室</h2>
+            </div>
+            <div class="viewer-meta" id="viewerMeta"></div>
+          </div>
+
+          <div class="art-stage" id="artStage">
+            <div class="art-transform" id="artTransform">
+              <img id="artImage" alt="" draggable="false" />
+              <div id="hotspots"></div>
+            </div>
+            <div class="loading-art" id="loadingArt"><span></span> 正在展开高清作品</div>
+            <div class="art-hint" id="artHint"><span>＋</span> 点击光点，听画面说话</div>
+            <div class="zoom-controls" aria-label="图像缩放控制">
+              <button id="zoomOut" aria-label="缩小">−</button>
+              <span id="zoomValue">100%</span>
+              <button id="zoomIn" aria-label="放大">＋</button>
+              <button id="zoomReset" aria-label="重置画面">↺</button>
+            </div>
+            <button class="fullscreen-button" id="fullscreenButton" aria-label="全屏查看">
+              <svg viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+            </button>
+          </div>
+
+          <div class="work-caption">
+            <p id="workDescription"></p>
+            <a id="sourceLink" href="#" target="_blank" rel="noreferrer">查看馆藏原始资料 ↗</a>
+          </div>
+        </div>
+
+        <aside class="conversation" aria-label="与梵高对话">
+          <div class="conversation-head">
+            <div class="avatar-wrap">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20Self-Portrait%20-%201954.326%20-%20Art%20Institute%20of%20Chicago.jpg?width=300" alt="梵高自画像" />
+              <span></span>
+            </div>
+            <div><h3>文森特</h3><p>基于史料的数字化身 · 在线</p></div>
+            <button class="more-button" aria-label="更多信息" data-toast="回答会区分史实、解读与合理推测">•••</button>
+          </div>
+          <div class="trust-note"><span>i</span> 这是数字化演绎，不代表艺术家真实意识</div>
+          <div class="messages" id="messages" aria-live="polite"></div>
+          <div class="suggestions" id="suggestions"></div>
+          <form class="chat-form" id="chatForm">
+            <textarea id="chatInput" rows="1" maxlength="300" placeholder="问问这幅画……" aria-label="输入问题"></textarea>
+            <button type="submit" aria-label="发送消息">↑</button>
+          </form>
+          <p class="chat-footnote">回答来自作品资料与公开史料 · Demo 暂未接入大模型</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="about-dialog" id="aboutDialog">
+    <button class="dialog-close" id="dialogClose" aria-label="关闭">×</button>
+    <span class="dialog-kicker">ABOUT CANVAS</span>
+    <h2>观看，是一场尚未开始的对话。</h2>
+    <p>Canvas 把开放馆藏中的高清艺术作品带进网页，并用可靠史料构建艺术家数字化身。这个 Demo 展示“看画—发现细节—提出问题—回到画面”的核心体验。</p>
+    <div class="dialog-grid"><div><strong>3</strong><span>件开放馆藏作品</span></div><div><strong>12</strong><span>个可探索细节</span></div><div><strong>CC0</strong><span>图像开放许可</span></div></div>
+    <p class="dialog-source">图像与作品信息来自芝加哥艺术博物馆开放馆藏。对话内容为产品原型，正式版本将接入可追溯的知识检索。</p>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
