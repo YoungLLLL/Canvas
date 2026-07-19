@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--figma-color-text);
+      background: var(--figma-color-bg);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 16px; font-size: 12px; }
+    h1 { margin: 0 0 8px; font-size: 16px; font-weight: 600; }
+    p { margin: 0; color: var(--figma-color-text-secondary); line-height: 1.55; }
+    .section { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--figma-color-border); }
+    .section strong { display: block; margin-bottom: 8px; font-weight: 600; }
+    .check { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+    .check input { margin: 0; }
+    button {
+      width: 100%;
+      min-height: 32px;
+      margin-top: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--figma-color-border);
+      border-radius: 6px;
+      background: var(--figma-color-bg-secondary);
+      color: var(--figma-color-text);
+      font: inherit;
+      cursor: pointer;
+    }
+    button.primary {
+      border-color: var(--figma-color-bg-brand);
+      background: var(--figma-color-bg-brand);
+      color: var(--figma-color-text-onbrand);
+    }
+    button:disabled { cursor: wait; opacity: .55; }
+    #status {
+      min-height: 54px;
+      margin-top: 14px;
+      padding: 10px;
+      border-radius: 6px;
+      background: var(--figma-color-bg-secondary);
+      color: var(--figma-color-text-secondary);
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+    .fine-print { margin-top: 10px; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <h1>Canvas Design Bridge</h1>
+  <p>从当前 Canvas Demo 生成可自由编辑的 Figma 图层。不会调用 Figma AI。</p>
+
+  <div class="section">
+    <strong>生成页面</strong>
+    <label class="check"><input type="checkbox" name="page" value="home" checked> 首页</label>
+    <label class="check"><input type="checkbox" name="page" value="museum" checked> 博物馆页</label>
+    <label class="check"><input type="checkbox" name="page" value="gallery" checked> 画廊页</label>
+    <label class="check"><input type="checkbox" name="page" value="artwork" checked> 作品详情页</label>
+    <button class="primary" id="create">生成可编辑页面</button>
+  </div>
+
+  <div class="section">
+    <strong>导出修改结果</strong>
+    <p>在画布中选中一个或多个由本插件生成的页面 Frame，然后导出 JSON。</p>
+    <button id="export">导出选中页面 JSON</button>
+    <p class="fine-print">JSON 同时包含完整图层结构、CSS 选择器映射和相对初始状态的变化。</p>
+  </div>
+
+  <div id="status" role="status">准备就绪。</div>
+  <button id="close">关闭</button>
+
+  <script>
+    const status = document.getElementById('status');
+    const buttons = [...document.querySelectorAll('button')];
+
+    function setBusy(busy) {
+      buttons.filter(button => button.id !== 'close').forEach(button => button.disabled = busy);
+    }
+
+    document.getElementById('create').onclick = () => {
+      const pages = [...document.querySelectorAll('input[name="page"]:checked')].map(input => input.value);
+      if (!pages.length) {
+        status.textContent = '请至少选择一个页面。';
+        return;
+      }
+      setBusy(true);
+      status.textContent = '正在生成页面和加载作品图片…';
+      parent.postMessage({ pluginMessage: { type: 'create', pages } }, '*');
+    };
+
+    document.getElementById('export').onclick = () => {
+      setBusy(true);
+      status.textContent = '正在整理选中页面的图层与变更…';
+      parent.postMessage({ pluginMessage: { type: 'export' } }, '*');
+    };
+
+    document.getElementById('close').onclick = () => {
+      parent.postMessage({ pluginMessage: { type: 'close' } }, '*');
+    };
+
+    onmessage = event => {
+      const message = event.data.pluginMessage;
+      if (!message) return;
+      if (message.type === 'status') {
+        status.textContent = message.text;
+        setBusy(Boolean(message.busy));
+      }
+      if (message.type === 'download') {
+        const blob = new Blob([message.contents], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.download = message.filename;
+        anchor.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        status.textContent = `已导出 ${message.filename}`;
+        setBusy(false);
+      }
+    };
+  </script>
+</body>
+</html>
