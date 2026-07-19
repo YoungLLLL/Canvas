@@ -73,6 +73,7 @@ const $$=selector=>[...document.querySelectorAll(selector)];
 
 function init(){
   $('#detailEye').src=$('#inputEye').src=eyeImage;
+  renderHomeRecommendation();
   bindNavigation();
   bindPageFlow();
   bindGallery();
@@ -89,6 +90,17 @@ function init(){
   window.addEventListener('scroll',onPageScroll,{passive:true});
   onPageScroll();
   hydrateArtworkCatalog();
+}
+
+function renderHomeRecommendation(){
+  const work=featuredWorks[1];
+  const museum=museums[work.museumId]||museums.artic;
+  $('#homeRecommendationArtwork').textContent=`${work.title} · ${work.original}`;
+  $('#homeRecommendationMuseum').textContent=museum.name;
+  $('#homeRecommendationMuseumEn').textContent=museum.officialName;
+  $('#homeGlobeMuseumName').textContent=museum.name;
+  $('#homeGlobeMuseumMeta').textContent=`${museum.officialName} · ${museum.location}`;
+  $('.globe-home-caption').setAttribute('aria-label',`向下查看${museum.name}`);
 }
 
 async function hydrateArtworkCatalog(){
@@ -187,10 +199,10 @@ function updateGlobeTransition(){
   const progress=raw*raw*(3-2*raw);
   const mobile=innerWidth<720;
   const base=state.globeBase||(mobile?620:900);
-  const startDiameter=mobile?Math.max(innerWidth*1.5,620):Math.max(innerWidth*1.22,1080);
+  const startDiameter=mobile?Math.max(innerWidth*1.5,620):Math.max(innerWidth*2,2200);
   const endDiameter=mobile?Math.min(innerWidth*1.34,innerHeight*.96,900):Math.min(innerWidth*.86,innerHeight*1.48,1700);
-  const startLeft=(innerWidth-startDiameter)/2;
-  const startTop=mobile?Math.max(innerHeight*.70,920):innerHeight*.70;
+  const startLeft=(innerWidth-startDiameter)/2-(mobile?0:innerWidth*.04);
+  const startTop=mobile?Math.max(innerHeight*.70,920):innerHeight*.575-startDiameter*.085;
   const endLeft=mobile?innerWidth-endDiameter*.82:innerWidth*.39;
   const endTop=mobile?innerHeight*.51:Math.max(innerHeight*.1,68);
   const diameter=startDiameter+(endDiameter-startDiameter)*progress;
@@ -200,6 +212,7 @@ function updateGlobeTransition(){
   host.style.top=`${top}px`;
   host.style.transform=`scale(${diameter/base})`;
   host.style.setProperty('--globe-ui-scale',String(base/diameter));
+  host.classList.toggle('home-globe-focus',progress<.45);
   host.style.opacity=String(1);
   state.layoutGlobeLabels?.();
   const caption=$('.globe-home-caption');
@@ -692,7 +705,7 @@ function initGlobe(){
       .htmlElementsData(globeMuseums).htmlLat('lat').htmlLng('lng').htmlAltitude(.012).htmlElement(d=>{
         const marker=document.createElement('button');marker.type='button';marker.dataset.museumId=d.id;marker.className=`globe-marker ${d.status}${state.globeSelection?.id===d.id?' selected':''}`;
         applyMarkerOffset(marker);
-        marker.innerHTML=`<span class="globe-marker-callout"><span class="globe-marker-dot" aria-hidden="true"></span><span class="globe-marker-label">${d.name}</span></span>`;marker.title=d.name;
+        marker.innerHTML=`<span class="globe-marker-callout"><span class="globe-marker-dot" aria-hidden="true"></span><span class="globe-marker-label">${escapeHtml(d.name)}<small>${escapeHtml(d.officialName)}</small></span></span>`;marker.title=d.name;
         marker.addEventListener('pointerdown',event=>event.stopPropagation());
         marker.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();event.stopImmediatePropagation();updateMuseumCard(d);globe.pointOfView({lat:d.lat,lng:d.lng,altitude:1.72},760)});
         return marker;

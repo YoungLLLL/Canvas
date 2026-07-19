@@ -14,9 +14,9 @@
   <header class="site-header" id="siteHeader">
     <button class="wordmark" data-go="home" aria-label="返回 CANVAS 首页">CANVAS</button>
     <nav aria-label="主导航">
-      <button data-scroll="museum">博物馆</button>
-      <button data-toast="艺术家路线将在下一版本开放">艺术家</button>
-      <button data-go="home">每日艺术</button>
+      <button data-go="home"><span>每日艺术</span><small>DAILY ART</small></button>
+      <button data-scroll="museum"><span>博物馆</span><small>MUSEUMS</small></button>
+      <button data-toast="艺术家路线将在下一版本开放"><span>艺术家</span><small>ARTISTS</small></button>
     </nav>
     <button class="search-pill" data-toast="搜索将在下一阶段开放">搜索 <span>↗</span></button>
   </header>
@@ -33,7 +33,7 @@
           <figure class="history-large">
             <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20The%20Poet%27s%20Garden%20-%201933.433%20-%20Art%20Institute%20of%20Chicago.jpg?width=900" alt="梵高《诗人的花园》" />
           </figure>
-          <div class="today-note"><b>今日作品</b><strong>文森特·梵高</strong><span>自画像，1887</span></div>
+          <div class="today-note"><span>EXPLORE ART / 01</span></div>
         </div>
 
         <button class="daily-art" id="dailyArt" aria-label="打开今日作品《自画像》">
@@ -42,18 +42,35 @@
         </button>
 
         <aside class="artist-entry">
+          <button class="recommendation-card" data-scroll="museum" aria-label="查看今日推荐画作所属博物馆">
+            <div class="recommendation-main">
+              <span>TODAY'S RECOMMENDATION / 今日推荐</span>
+              <h2>Today's <i>今日推荐</i><br>Recommendation</h2>
+            </div>
+            <div class="recommendation-footer">
+              <div class="recommendation-details">
+                <strong id="homeRecommendationArtwork">自画像 · Self-Portrait</strong>
+                <span id="homeRecommendationMuseum">芝加哥艺术博物馆</span>
+                <small id="homeRecommendationMuseumEn">Art Institute of Chicago</small>
+              </div>
+              <b aria-hidden="true">↗</b>
+            </div>
+          </button>
           <div class="glass-card">
-            <div class="eye-avatar"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20Self-Portrait%20-%201954.326%20-%20Art%20Institute%20of%20Chicago.jpg?width=400" alt="梵高自画像眼部" /></div>
-            <span>DIGITAL ARTIST / 01</span>
-            <h1>Chat with<br>Van Gogh</h1>
-            <p>从这件作品开始，和梵高聊聊。</p>
-            <button class="prompt-line" id="quickQuestion">你想问他什么？ <i>↗</i></button>
+            <div class="artist-card-heading">
+              <div class="eye-avatar"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20Self-Portrait%20-%201954.326%20-%20Art%20Institute%20of%20Chicago.jpg?width=400" alt="梵高自画像眼部" /></div>
+              <div><span>DIGITAL ARTIST / 数字艺术家</span><h1>Chat with<br>Van Gogh</h1></div>
+            </div>
+            <div class="artist-card-actions">
+              <p>和梵高聊聊 <small>/ CHAT WITH VAN GOGH</small></p>
+              <button class="prompt-line" id="quickQuestion">你想问他什么？ <i>↗</i></button>
+              <button class="primary-wide" id="startChat">开始对话 <small>START CHAT</small><span>⟶</span></button>
+            </div>
           </div>
-          <button class="primary-wide" id="startChat">开始对话 <span>⟶</span></button>
         </aside>
 
         <button class="globe-home-caption" data-scroll="museum" aria-label="向下查看芝加哥艺术博物馆">
-          <span>芝加哥艺术博物馆 · CHICAGO</span>
+          <span class="globe-home-museum"><b id="homeGlobeMuseumName">芝加哥艺术博物馆</b><small id="homeGlobeMuseumMeta">ART INSTITUTE OF CHICAGO · CHICAGO</small></span>
           <strong>CANVAS Library</strong>
         </button>
       </section>
