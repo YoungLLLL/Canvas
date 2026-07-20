@@ -1,0 +1,11 @@
+{
+  "name": "canvas-library",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check data/catalog-service.mjs && node --check data/providers/artic.mjs && node --check data/providers/met.mjs && node --check data/providers/cleveland.mjs && node --check data/providers/wikidata.mjs && node --check ai/prompt-framework.mjs && node --check ai/artist-profiles/van-gogh.mjs && node --check experiments/canvas-demo/app.js",
+    "test": "node --test test/*.test.mjs",
+    "verify:catalog": "node scripts/verify-catalog.mjs"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Canvas Design Bridge",
+  "id": "1549037126485270109",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "https://commons.wikimedia.org",
+      "https://upload.wikimedia.org"
+    ],
+    "reasoning": "Load the same public-domain artwork images already used by the local Canvas demo."
+  }
+}
