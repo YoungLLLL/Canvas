@@ -12,6 +12,7 @@
 - `docs/product/Canvas-PRD-v0.1.md`：Canvas PRD v0.1
 - `docs/product/Canvas-PRD-v0.2.md`：Canvas PRD v0.2（历史版本）
 - `docs/project/Canvas-MVP-Implementation-Plan.md`：Canvas MVP 分阶段实施计划
+- `docs/project/Canvas-Global-Paintings-Catalog-Plan.md`：全球知名美术馆开放画作采集、版权审计与网站接入计划
 - `experiments/canvas-demo/`：可对话的数字博物馆静态前端 Demo
 
 实验项目的运行方式与素材说明见各实验目录内的 README。
