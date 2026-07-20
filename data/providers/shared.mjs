@@ -5,7 +5,7 @@ export async function fetchJson(url, { fetchImpl = fetch, timeoutMs = DEFAULT_TI
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const response = await fetchImpl(url, {
-      headers: { accept: "application/json", "user-agent": "CanvasMuseum/0.1" },
+      headers: { accept: "application/json", "user-agent": "CanviumGallery/0.1" },
       signal: controller.signal,
     });
     if (!response.ok) {

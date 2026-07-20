@@ -269,7 +269,7 @@ createServer(async (request, response) => {
   if (request.method === "GET") return serveStatic(request, response);
   sendJson(response, 405, { error: "不支持的请求方式" });
 }).listen(port, () => {
-  console.log(`Canvas is running at http://localhost:${port}`);
+  console.log(`Canvium Gallery is running at http://localhost:${port}`);
   if (process.env.GEMINI_API_KEY) console.log(`AI provider: Gemini (${process.env.GEMINI_MODEL || "gemini-3.5-flash"})`);
   else if (process.env.OPENAI_API_KEY) console.log(`AI provider: OpenAI (${process.env.OPENAI_MODEL || "gpt-5.6"})`);
   else console.warn("No AI API key is configured; dialogue will use the local fallback opening.");

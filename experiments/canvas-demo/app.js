@@ -650,7 +650,7 @@ function initGlobe(){
     $('#selectedMuseumFeatureLabel').textContent=museum.status==='today'?'今日推荐':'馆藏亮点';
     $('#selectedMuseumFeatureTitle').textContent=museum.featureTitle;
     $('#selectedMuseumFeatureMeta').textContent=museum.featureMeta;
-    $('#selectedMuseumAvailability').textContent=museum.museumId?`精选馆藏已上线 · ${museum.works} 件作品 · ${museum.artists} 位艺术家`:'CANVAS 资料已收录 · 数字馆藏整理中';
+    $('#selectedMuseumAvailability').textContent=museum.museumId?`精选馆藏已上线 · ${museum.works} 件作品 · ${museum.artists} 位艺术家`:'CANVIUM 资料已收录 · 数字馆藏整理中';
     const enter=$('#enterGallery');enter.disabled=!museum.museumId;enter.innerHTML=museum.museumId?'探索馆藏 <span>→</span>':'数字馆藏即将开放';
     const official=$('#selectedMuseumOfficial');official.href=museum.website;official.setAttribute('aria-label',`访问${museum.name}官方网站`);
     $$('.globe-marker').forEach(tag=>tag.classList.toggle('selected',tag.dataset.museumId===museum.id));

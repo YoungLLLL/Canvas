@@ -267,7 +267,7 @@ h1,h2,h3,h4,h5,h6,.wordmark,.library-title,.globe-home-caption strong,.globe-pre
 .globe-home-caption .globe-home-museum{left:15%;top:15%;display:flex;flex-direction:column;gap:3px;min-width:250px;padding:0 0 9px 28px}
 .globe-home-caption .globe-home-museum b{font-size:11px;font-weight:400}
 .globe-home-caption .globe-home-museum small{font-size:7px;letter-spacing:.08em}
-.globe-home-caption strong{left:50%;top:48%;width:max-content;font-size:clamp(78px,10.75vw,158px);line-height:.9;letter-spacing:-.045em;text-align:center;transform:translateX(-50%)}
+.globe-home-caption strong{left:50%;top:48%;width:max-content;font-size:clamp(74px,10.05vw,150px);line-height:.9;letter-spacing:-.045em;text-align:center;transform:translateX(-50%)}
 .globe-marker.selected .globe-marker-label{display:flex;flex-direction:column;gap:4px;min-width:max-content;font-size:9px}
 .globe-marker.selected .globe-marker-label small{color:#706d67;font-size:7px;letter-spacing:.04em;text-transform:uppercase}
 .shared-globe.home-globe-focus canvas{filter:grayscale(1) contrast(.2) brightness(.35) saturate(0)}
@@ -292,12 +292,12 @@ h1,h2,h3,h4,h5,h6,.wordmark,.library-title,.globe-home-caption strong,.globe-pre
   .home-hero .artist-entry{right:3vw;width:31vw}.recommendation-card{height:clamp(156px,21.7vh,198px)}.home-hero .glass-card{height:clamp(202px,28vh,255px)}
   .artist-card-heading{grid-template-columns:54px minmax(0,1fr);gap:12px}.artist-card-heading .eye-avatar{width:54px;height:54px}.artist-card-heading span{margin:1px 0 4px}
   .home-hero .glass-card h1{font-size:clamp(26px,2.75vw,30px);line-height:.92}.artist-card-actions>p{margin-bottom:5px;font-size:15px}.home-hero .prompt-line{height:29px}.home-hero .primary-wide{height:40px;margin-top:7px}
-  .globe-home-caption strong{font-size:10.2vw}.globe-home-caption .globe-home-museum{left:12%}
+  .globe-home-caption strong{font-size:9.6vw}.globe-home-caption .globe-home-museum{left:12%}
 }
 
 @media(max-width:720px){
   .home-hero{min-height:1130px}.home-hero .artist-entry{left:7%;right:auto;top:610px;width:86%;display:grid}
   .recommendation-card{height:184px}.home-hero .glass-card{height:260px}.artist-card-heading{grid-template-columns:58px 1fr}.artist-card-heading .eye-avatar{width:58px;height:58px}
   .home-hero .glass-card h1{font-size:34px}.home-hero .glass-card>p{font-size:16px}
-  .globe-home-caption{height:330px}.globe-home-caption .globe-home-museum{left:14%;top:7%;min-width:245px;font-size:8px}.globe-home-caption strong{left:50%;top:40%;font-size:16.2vw;line-height:.92}
+  .globe-home-caption{height:330px}.globe-home-caption .globe-home-museum{left:14%;top:7%;min-width:245px;font-size:8px}.globe-home-caption strong{left:50%;top:40%;font-size:15vw;line-height:.92}
 }

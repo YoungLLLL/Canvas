@@ -1,12 +1,12 @@
-# Canvas
+# Canvium Gallery
 
-> `Canvas` 是当前项目代号，正式产品名称将在 Showcase v1 阶段 0 中确定。
+> 正式名称：`Canvium Gallery`；简称与主字标：`Canvium`。
 
-一个连接真实博物馆开放馆藏、高清作品观看与可信艺术家对话的个人数字艺术产品。
+一座专注二维绘画、连接真实美术馆与博物馆开放馆藏、高清作品观看和可信艺术家对话的线上美术馆。
 
 ## 当前阶段
 
-项目已有可运行的静态 Demo、开放馆藏适配层、梵高人格实验和四张批准视觉基准图。下一阶段以 [Canvas Showcase v1 工作计划](docs/project/Canvas-Showcase-v1-Plan.md) 为唯一执行基准，首先完成产品命名与品牌命题。
+项目已有可运行的静态 Demo、开放馆藏适配层、梵高人格实验和四张批准视觉基准图。产品名称与基础品牌命题已经确认；下一阶段继续以 [Canvium Gallery Showcase v1 工作计划](docs/project/Canvas-Showcase-v1-Plan.md) 为唯一执行基准。
 
 当前方向：
 
@@ -38,9 +38,12 @@ server.mjs      当前静态服务、馆藏 API 与 AI API 原型
 ## 当前有效文档
 
 - [Showcase v1 工作计划](docs/project/Canvas-Showcase-v1-Plan.md)：当前唯一执行基准。
+- [品牌命名与品牌命题决策稿](docs/project/Canvas-Brand-Naming-Phase-0.md)：阶段 0 的品牌优先级、双语策略、候选名称与首轮风险筛选。
 - [批准视觉交接](docs/handoff/2026-07-18-homepage-approved/STATUS.md)：四张当前视觉参考及交互结论。
 - [全球馆藏接入计划](docs/project/Canvas-Global-Paintings-Catalog-Plan.md)：开放馆藏、版权审计与后续扩展参考。
 - [艺术家 Prompt 框架](docs/product/Canvas-Artist-Prompt-Framework-v0.1.md)：当前人格与证据边界参考。
+- [AI 内容增强与人格 Schema](docs/product/Canvas-AI-Content-and-Persona-Schema-v0.1.md)：批量作品增强、人格证据、版本管理、自动评估与艺术家选择标准。
+- [莫奈候选人格审核稿](docs/product/Canvas-Claude-Monet-Persona-Review-v0.1.md)：按新 Schema 编写的首份候选人格试作，不代表最终艺术家名单。
 - [归档说明](archive/README.md)：历史内容及移动位置。
 
 ## 本地运行

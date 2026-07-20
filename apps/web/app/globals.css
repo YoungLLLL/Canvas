@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #211e1a;
+  --paper: #f1eee7;
+  --paper-raised: #f8f5ee;
+  --line: rgba(33, 30, 26, 0.18);
+  --muted: #6f685f;
+  --accent: #b84d2f;
+  --ocean: #19282b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 76% 8%, rgba(184, 77, 47, 0.08), transparent 28rem), var(--paper);
+  color: var(--ink);
+  font-family: Inter, "Noto Sans SC", system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(184, 77, 47, 0.2);
+}
+
+.shell {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  font-family: "Otomanopee One", "Noto Serif SC", serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.page {
+  min-height: calc(100vh - 77px);
+  padding: clamp(56px, 9vw, 120px) 0;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 850px;
+  margin: 0;
+  font-family: "Otomanopee One", "Noto Serif SC", serif;
+  font-size: clamp(2.6rem, 7vw, 6.6rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.lede {
+  max-width: 640px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.28rem);
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  border: 1px solid var(--ink);
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+.button-primary {
+  background: var(--ink);
+  color: var(--paper-raised);
+}
+
+.status-card {
+  max-width: 720px;
+  margin-top: 48px;
+  border: 1px solid var(--line);
+  background: rgba(248, 245, 238, 0.72);
+  padding: 24px;
+}
+
+.status-card h2 {
+  margin: 0 0 8px;
+  font:
+    500 1.15rem/1.4 "Noto Serif SC",
+    serif;
+}
+
+.status-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.skeleton {
+  overflow: hidden;
+  background: linear-gradient(90deg, #ded9cf 20%, #ece8df 50%, #ded9cf 80%);
+  background-size: 240% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -240% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .nav a:not(:last-child) {
+    display: none;
+  }
+}
