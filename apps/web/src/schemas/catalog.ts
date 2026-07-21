@@ -54,7 +54,10 @@ export const imageAssetSchema = z.object({
     .max(20_000)
     .regex(/^data:image\/(?:gif|jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/)
     .optional(),
-  iiifBaseUrl: z.string().url(),
+  iiifBaseUrl: z.string().url().optional(),
+  directUrl: z.string().url().optional(),
+  directUrl2x: z.string().url().optional(),
+  sourceUrl: z.string().url().optional(),
   zoomable: z.boolean(),
   maxZoomWindowSize: z.number().int().positive().nullable(),
   health: z.enum(["unknown", "ok", "low_resolution", "unavailable"]),
@@ -66,7 +69,7 @@ export const rightsSchema = z.object({
     notice: z.string().min(1).nullable(),
   }),
   image: z.object({
-    licenseCode: z.enum(["CC0-1.0", "restricted", "unknown"]),
+    licenseCode: z.enum(["CC0-1.0", "PDM-1.0", "restricted", "unknown"]),
     licenseUrl: z.string().url().nullable(),
   }),
   metadata: z.object({
@@ -140,13 +143,25 @@ export const artworkSchema = z
     }
     if (
       artwork.eligibility.status === "image_displayable" &&
-      artwork.rights.image.licenseCode !== "CC0-1.0"
+      !["CC0-1.0", "PDM-1.0"].includes(artwork.rights.image.licenseCode)
     ) {
       context.addIssue({
         code: "custom",
         path: ["rights", "image", "licenseCode"],
-        message: "displayable images require a CC0-1.0 license",
+        message: "displayable images require a CC0 or Public Domain Mark license",
       });
+    }
+    const images = [artwork.images.preferred, ...artwork.images.alternates].filter(
+      (image) => image !== null,
+    );
+    for (const [index, image] of images.entries()) {
+      if (!image.iiifBaseUrl && !image.directUrl) {
+        context.addIssue({
+          code: "custom",
+          path: ["images", index === 0 ? "preferred" : "alternates"],
+          message: "image assets require either an IIIF base URL or a direct URL",
+        });
+      }
     }
   });
 
@@ -163,6 +178,12 @@ export const catalogPageSchema = z.object({
     sort: z.enum(["relevance", "recent", "title-asc", "date-asc", "date-desc"]),
   }),
   snapshotVersion: z.string().min(1),
+  dataStatus: z
+    .object({
+      state: z.enum(["fresh", "stale"]),
+      fetchedAt: isoDateTimeSchema,
+    })
+    .default({ state: "fresh", fetchedAt: "1970-01-01T00:00:00Z" }),
 });
 
 export type Source = z.infer<typeof sourceSchema>;

@@ -1,28 +1,40 @@
 import Link from "next/link";
+import { ViewTransition } from "react";
 
-import { copy } from "@/src/i18n/copy";
+import { ShowcaseMotion } from "@/src/components/showcase-motion";
 import type { Locale } from "@/src/i18n/locales";
 
 const museumSlug = "art-institute-of-chicago";
 
 export function SiteShell({ children, locale }: { children: React.ReactNode; locale: Locale }) {
-  const text = copy[locale];
-  const alternateLocale = locale === "en" ? "zh" : "en";
-
   return (
     <div lang={locale}>
-      <header className="shell site-header">
+      <ShowcaseMotion />
+      <header className="site-header" id="siteHeader" style={{ viewTransitionName: "site-header" }}>
         <Link className="wordmark" href={`/${locale}`}>
-          Canvium
+          CANVIUM
         </Link>
-        <nav className="nav" aria-label="Primary navigation">
-          <Link href={`/${locale}`}>{text.navHome}</Link>
-          <Link href={`/${locale}/museums/${museumSlug}`}>{text.navMuseum}</Link>
-          <Link href={`/${locale}/museums/${museumSlug}/collection`}>{text.navCollection}</Link>
-          <Link href={`/${alternateLocale}`}>{alternateLocale.toUpperCase()}</Link>
+        <nav aria-label={locale === "zh" ? "主导航" : "Primary navigation"}>
+          <Link href={`/${locale}`}>
+            <span>{locale === "zh" ? "每日艺术" : "Daily Art"}</span>
+            <small>DAILY ART</small>
+          </Link>
+          <Link href={`/${locale}#museum`}>
+            <span>{locale === "zh" ? "博物馆" : "Museums"}</span>
+            <small>MUSEUMS</small>
+          </Link>
+          <Link href={`/${locale}/artists/van-gogh`}>
+            <span>{locale === "zh" ? "艺术家" : "Artists"}</span>
+            <small>ARTISTS</small>
+          </Link>
         </nav>
+        <Link className="search-pill" href={`/${locale}/museums/${museumSlug}/collection`}>
+          {locale === "zh" ? "搜索" : "Search"} <span>↗</span>
+        </Link>
       </header>
-      {children}
+      <ViewTransition default="none" enter="page-enter" exit="page-exit">
+        {children}
+      </ViewTransition>
     </div>
   );
 }
