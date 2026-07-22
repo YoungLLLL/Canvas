@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { ComponentProps, useEffect } from "react";
 
 const STORAGE_KEY = "canvium:collection-return";
 
@@ -23,20 +23,25 @@ function readState(): ReturnState | null {
 
 export function ArtworkCardLink({
   artworkKey,
+  idSuffix = "",
   children,
-}: {
+  className,
+  onClick,
+  ...linkProps
+}: Omit<ComponentProps<typeof Link>, "href" | "id"> & {
   artworkKey: string;
-  children: React.ReactNode;
+  idSuffix?: string;
 }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   return (
     <Link
-      className="artwork-card"
+      {...linkProps}
+      className={["artwork-card", className].filter(Boolean).join(" ")}
       href={`/${pathname.split("/")[1]}/artworks/${artworkKey}`}
-      id={`card-${artworkKey}`}
-      onClick={() => {
+      id={`card-${artworkKey}${idSuffix}`}
+      onClick={(event) => {
         const query = searchParams.toString();
         sessionStorage.setItem(
           STORAGE_KEY,
@@ -46,6 +51,7 @@ export function ArtworkCardLink({
             scrollY: window.scrollY,
           } satisfies ReturnState),
         );
+        onClick?.(event);
       }}
     >
       {children}

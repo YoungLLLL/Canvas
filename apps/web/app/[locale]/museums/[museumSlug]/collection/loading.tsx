@@ -1,22 +1,29 @@
+import { DemoStyles } from "@/src/components/demo-styles";
+
 export default function CollectionLoading() {
   return (
-    <main className="collection-page" aria-busy="true" aria-label="Loading collection">
-      <section className="shell collection-loading-head">
-        <div className="skeleton" style={{ width: 240, height: 12 }} />
-        <div
-          className="skeleton"
-          style={{ width: "min(760px, 92%)", height: 150, marginTop: 28 }}
-        />
-        <div
-          className="skeleton"
-          style={{ width: "min(780px, 100%)", height: 48, marginTop: 50 }}
-        />
-      </section>
-      <section className="shell artwork-grid" aria-hidden="true">
-        {Array.from({ length: 6 }, (_, index) => (
-          <div className="collection-card-skeleton skeleton" key={index} />
+    <main
+      className="view gallery-view active collection-gallery-loading"
+      aria-busy="true"
+      aria-label="Loading collection"
+    >
+      <DemoStyles />
+      <div className="museum-detail-hero" aria-hidden="true">
+        <div className="museum-title-block">
+          <div className="skeleton loading-kicker" />
+          <div className="skeleton loading-title" />
+        </div>
+        <div className="museum-introduction">
+          <div className="skeleton loading-copy" />
+          <div className="skeleton loading-copy short" />
+        </div>
+      </div>
+      <div className="collection-marquee loading-marquee" aria-hidden="true">
+        {Array.from({ length: 5 }, (_, index) => (
+          <div className={`skeleton loading-artwork loading-artwork-${index + 1}`} key={index} />
         ))}
-      </section>
+      </div>
+      <p className="gallery-instruction">LOADING COLLECTION</p>
     </main>
   );
 }

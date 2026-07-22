@@ -187,6 +187,57 @@ const museums: MuseumNode[] = [
   },
 ];
 
+let twoToneTexturePromise: Promise<string> | undefined;
+
+function loadTextureSource(src: string) {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
+    const image = new Image();
+    image.decoding = "async";
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error(`Unable to load globe texture: ${src}`));
+    image.src = src;
+  });
+}
+
+function getTwoToneTexture() {
+  twoToneTexturePromise ??= (async () => {
+    const source = await loadTextureSource("/vendor/globe/earth-topology.png");
+    const canvas = document.createElement("canvas");
+    canvas.width = 4096;
+    canvas.height = 2048;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    if (!context) throw new Error("Canvas 2D is unavailable");
+
+    context.imageSmoothingEnabled = true;
+    context.imageSmoothingQuality = "high";
+    context.drawImage(source, 0, 0, canvas.width, canvas.height);
+    const texture = context.getImageData(0, 0, canvas.width, canvas.height);
+    const pixels = texture.data;
+    const ocean = [0x10, 0x17, 0x19] as const;
+    const land = [0x59, 0x58, 0x4f] as const;
+
+    for (let index = 0; index < pixels.length; index += 4) {
+      const relief = (pixels[index] + pixels[index + 1] + pixels[index + 2]) / 3;
+      const coverage = relief <= 0.5 ? 0 : Math.min(1, relief / 3.5);
+      const highlight = coverage * Math.min(16, Math.max(0, relief - 4) * 0.075);
+      pixels[index] = ocean[0] + (land[0] - ocean[0]) * coverage + highlight;
+      pixels[index + 1] = ocean[1] + (land[1] - ocean[1]) * coverage + highlight;
+      pixels[index + 2] = ocean[2] + (land[2] - ocean[2]) * coverage + highlight * 0.78;
+      pixels[index + 3] = 255;
+    }
+    context.putImageData(texture, 0, 0);
+
+    const blob = await new Promise<Blob>((resolve, reject) =>
+      canvas.toBlob(
+        (result) => (result ? resolve(result) : reject(new Error("Globe texture export failed"))),
+        "image/png",
+      ),
+    );
+    return URL.createObjectURL(blob);
+  })();
+  return twoToneTexturePromise;
+}
+
 export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
@@ -203,72 +254,77 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
     if (!host || !scriptReady || typeof GlobeFactory !== "function") return;
 
     host.replaceChildren();
+    let disposed = false;
     let globe: GlobeInstance | undefined;
-    try {
-      const size = Math.max(host.clientWidth, 360);
-      globe = GlobeFactory()(host)
-        .width(size)
-        .height(size)
-        .backgroundColor("rgba(0,0,0,0)")
-        .globeImageUrl("/vendor/globe/earth-dark.jpg")
-        .bumpImageUrl("/vendor/globe/earth-topology.png")
-        .showAtmosphere(true)
-        .atmosphereColor("#a7aaa7")
-        .atmosphereAltitude(0.08)
-        .htmlElementsData(museums)
-        .htmlLat("lat")
-        .htmlLng("lng")
-        .htmlAltitude(0.012)
-        .htmlElement((node) => {
-          const marker = document.createElement("button");
-          marker.type = "button";
-          marker.className = `globe-marker ${node.status}${node.id === "artic" ? " selected" : ""}`;
-          marker.title = node.name;
-          marker.innerHTML = `<span class="globe-marker-callout"><span class="globe-marker-dot" aria-hidden="true"></span><span class="globe-marker-label">${node.name}<small>${node.officialName}</small></span></span>`;
-          marker.addEventListener("pointerdown", (event) => event.stopPropagation());
-          marker.addEventListener("click", (event) => {
-            event.stopPropagation();
-            host
-              .querySelectorAll(".globe-marker")
-              .forEach((item) => item.classList.remove("selected"));
-            marker.classList.add("selected");
-            globe?.pointOfView({ lat: node.lat, lng: node.lng, altitude: 1.72 }, 760);
-          });
-          return marker;
-        });
-      globe.pointOfView({ lat: 30, lng: -72, altitude: compact ? 1.58 : 1.72 }, 0);
-      const sharedGlobeScale = root?.closest(".shared-globe")
-        ? window.innerWidth < 720
-          ? 1
-          : Math.max(window.innerWidth * 2, 2200) / 900
-        : 1;
-      globe
-        .renderer()
-        .setPixelRatio(Math.min(3.25, Math.max(window.devicePixelRatio || 1, sharedGlobeScale)));
-      globeRef.current = globe;
-      const controls = globe.controls();
-      controls.autoRotate = false;
-      controls.enableZoom = false;
-      controls.enablePan = false;
-      controls.minPolarAngle = 0.35;
-      controls.maxPolarAngle = Math.PI - 0.35;
-      root?.classList.add("is-webgl-ready");
+    let observer: ResizeObserver | undefined;
 
-      const observer = new ResizeObserver(([entry]) => {
-        const next = Math.max(Math.round(entry.contentRect.width), 360);
-        globe?.width(next).height(next);
-      });
-      observer.observe(host);
-      return () => {
-        observer.disconnect();
-        globe?._destructor?.();
-        globeRef.current = null;
-        host.replaceChildren();
-        root?.classList.remove("is-webgl-ready");
-      };
-    } catch {
+    void getTwoToneTexture()
+      .then((textureUrl) => {
+        if (disposed) return;
+        const size = Math.max(host.clientWidth, 360);
+        globe = GlobeFactory()(host)
+          .width(size)
+          .height(size)
+          .backgroundColor("rgba(0,0,0,0)")
+          .globeImageUrl(textureUrl)
+          .showAtmosphere(true)
+          .atmosphereColor("#d0ccc3")
+          .atmosphereAltitude(0.055)
+          .htmlElementsData(museums)
+          .htmlLat("lat")
+          .htmlLng("lng")
+          .htmlAltitude(0.012)
+          .htmlElement((node) => {
+            const marker = document.createElement("button");
+            marker.type = "button";
+            marker.className = `globe-marker ${node.status}${node.id === "artic" ? " selected" : ""}`;
+            marker.title = node.name;
+            marker.innerHTML = `<span class="globe-marker-callout"><span class="globe-marker-dot" aria-hidden="true"></span><span class="globe-marker-label">${node.name}<small>${node.officialName}</small></span></span>`;
+            marker.addEventListener("pointerdown", (event) => event.stopPropagation());
+            marker.addEventListener("click", (event) => {
+              event.stopPropagation();
+              host
+                .querySelectorAll(".globe-marker")
+                .forEach((item) => item.classList.remove("selected"));
+              marker.classList.add("selected");
+              globe?.pointOfView({ lat: node.lat, lng: node.lng, altitude: 1.72 }, 760);
+            });
+            return marker;
+          });
+        globe.pointOfView({ lat: 30, lng: -72, altitude: compact ? 1.58 : 1.72 }, 0);
+        const sharedGlobeScale = root?.closest(".shared-globe")
+          ? window.innerWidth < 720
+            ? 1
+            : Math.max(window.innerWidth * 2, 2200) / 900
+          : 1;
+        globe
+          .renderer()
+          .setPixelRatio(Math.min(3.25, Math.max(window.devicePixelRatio || 1, sharedGlobeScale)));
+        globeRef.current = globe;
+        const controls = globe.controls();
+        controls.autoRotate = false;
+        controls.enableZoom = false;
+        controls.enablePan = false;
+        controls.minPolarAngle = 0.35;
+        controls.maxPolarAngle = Math.PI - 0.35;
+        root?.classList.add("is-webgl-ready");
+
+        observer = new ResizeObserver(([entry]) => {
+          const next = Math.max(Math.round(entry.contentRect.width), 360);
+          globe?.width(next).height(next);
+        });
+        observer.observe(host);
+      })
+      .catch(() => root?.classList.remove("is-webgl-ready"));
+
+    return () => {
+      disposed = true;
+      observer?.disconnect();
+      globe?._destructor?.();
+      globeRef.current = null;
+      host.replaceChildren();
       root?.classList.remove("is-webgl-ready");
-    }
+    };
   }, [compact, scriptReady]);
 
   return (

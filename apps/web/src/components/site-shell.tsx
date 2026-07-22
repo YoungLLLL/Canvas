@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ViewTransition } from "react";
+import { Suspense, ViewTransition } from "react";
 
+import { LocaleSwitch } from "@/src/components/locale-switch";
 import { ShowcaseMotion } from "@/src/components/showcase-motion";
 import type { Locale } from "@/src/i18n/locales";
 
@@ -14,7 +15,7 @@ export function SiteShell({ children, locale }: { children: React.ReactNode; loc
         <Link className="wordmark" href={`/${locale}`}>
           CANVIUM
         </Link>
-        <nav aria-label={locale === "zh" ? "主导航" : "Primary navigation"}>
+        <nav className="nav" aria-label={locale === "zh" ? "主导航" : "Primary navigation"}>
           <Link href={`/${locale}`}>
             <span>{locale === "zh" ? "每日艺术" : "Daily Art"}</span>
             <small>DAILY ART</small>
@@ -28,9 +29,14 @@ export function SiteShell({ children, locale }: { children: React.ReactNode; loc
             <small>ARTISTS</small>
           </Link>
         </nav>
-        <Link className="search-pill" href={`/${locale}/museums/${museumSlug}/collection`}>
-          {locale === "zh" ? "搜索" : "Search"} <span>↗</span>
-        </Link>
+        <div className="site-actions">
+          <Suspense fallback={<span aria-hidden="true">{locale === "en" ? "ZH" : "EN"}</span>}>
+            <LocaleSwitch locale={locale} />
+          </Suspense>
+          <Link className="search-pill" href={`/${locale}/museums/${museumSlug}/collection`}>
+            {locale === "zh" ? "搜索" : "Search"} <span>↗</span>
+          </Link>
+        </div>
       </header>
       <ViewTransition default="none" enter="page-enter" exit="page-exit">
         {children}

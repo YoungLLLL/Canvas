@@ -69,6 +69,10 @@ export function DemoLanding({ locale }: { locale: Locale }) {
       globe.style.removeProperty("top");
       globe.style.removeProperty("transform");
       globe.style.removeProperty("--globe-ui-scale");
+      globe.style.removeProperty("opacity");
+      globe.classList.remove("home-globe-focus");
+      header?.classList.remove("scrolled");
+      caption?.style.removeProperty("opacity");
     };
   }, []);
 
@@ -82,7 +86,10 @@ export function DemoLanding({ locale }: { locale: Locale }) {
       { threshold: 0.2 },
     );
     reveals.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      reveals.forEach((element) => element.classList.remove("visible"));
+    };
   }, []);
 
   const scrollToMuseum = () =>

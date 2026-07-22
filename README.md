@@ -48,20 +48,27 @@ server.mjs      当前静态服务、馆藏 API 与 AI API 原型
 
 ## 本地运行
 
-复制环境变量示例并按需配置 Gemini 或 OpenAI API Key：
+正式应用位于 `apps/web/`。复制它的环境变量示例，填写 ARTIC 要求的项目联系地址，然后从仓库根目录启动：
 
 ```bash
-cp .env.example .env
-npm start
+cp apps/web/.env.example apps/web/.env.local
+npm run dev
 ```
 
-默认访问地址以终端输出为准。未配置 AI Key 时，页面仍可运行，并使用本地备用开场。
+默认访问 `http://localhost:3000`。当前未发布任何艺术家人格，因此正式应用不会显示模拟的实时艺术家回答。
+
+旧静态 Demo 只作为视觉与交互参考保留，需要对照时单独运行：
+
+```bash
+npm run demo
+```
 
 ## 开发检查
 
 ```bash
 npm run check
 npm test
+npm run test:e2e
 npm run verify:catalog
 ```
 

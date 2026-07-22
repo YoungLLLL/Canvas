@@ -46,21 +46,18 @@ export default async function CollectionPage({
     );
 
   const catalog = await getArticCollection(query.data);
-  const liveArtworks = catalog.items.flatMap((artwork) => {
+  const liveArtworks = catalog.items.map((artwork) => {
     const image = artwork.images.preferred;
-    if (!image) return [];
-    return [
-      {
-        sourceId: artwork.sourceId,
-        title: artwork.display.title,
-        artist: artwork.display.artistDisplay,
-        date: artwork.display.dateDisplay || "Date unknown",
-        medium: artwork.display.mediumDisplay || "COLLECTION",
-        origin: artwork.classification.departmentTitle || "CHICAGO",
-        imageUrl: image.directUrl || iiifImageUrl(image, 843),
-        ratio: image.width && image.height ? image.width / image.height : 1.2,
-      },
-    ];
+    return {
+      sourceId: artwork.sourceId,
+      title: artwork.display.title,
+      artist: artwork.display.artistDisplay,
+      date: artwork.display.dateDisplay || (locale === "zh" ? "年代不详" : "Date unknown"),
+      medium: artwork.display.mediumDisplay || "COLLECTION",
+      origin: artwork.classification.departmentTitle || "CHICAGO",
+      imageUrl: image ? image.directUrl || iiifImageUrl(image, 843) : null,
+      ratio: image?.width && image.height ? image.width / image.height : 0.78,
+    };
   });
   const featuredArtworks = [
     {
@@ -97,14 +94,16 @@ export default async function CollectionPage({
       ratio: 92.1 / 73,
     },
   ];
-  const artworks = query.data.q
-    ? liveArtworks
-    : [
-        ...featuredArtworks,
-        ...liveArtworks.filter(
-          (artwork) => !featuredArtworks.some((featured) => featured.sourceId === artwork.sourceId),
-        ),
-      ];
+  const artworks =
+    query.data.q || query.data.availability === "metadata"
+      ? liveArtworks
+      : [
+          ...featuredArtworks,
+          ...liveArtworks.filter(
+            (artwork) =>
+              !featuredArtworks.some((featured) => featured.sourceId === artwork.sourceId),
+          ),
+        ];
 
   const pageHref = (page: number) => {
     const qs = collectionQueryString(query.data, page);
@@ -125,6 +124,7 @@ export default async function CollectionPage({
             Art Institute
             <br />
             of Chicago
+            <span className="sr-only"> paintings collection</span>
           </h1>
           <a href="https://www.artic.edu" target="_blank" rel="noreferrer">
             CHICAGO　·　UNITED STATES ↗
@@ -149,18 +149,100 @@ export default async function CollectionPage({
         </p>
       )}
 
-      <form className="sr-only" action={`/${locale}/museums/${museumSlug}/collection`}>
-        <label>
-          {locale === "zh" ? "搜索馆藏" : "Search collection"}
-          <input defaultValue={query.data.q} name="q" />
-        </label>
-        <button type="submit">{locale === "zh" ? "搜索" : "Search"}</button>
-      </form>
-      <nav className="sr-only" aria-label="Pagination">
-        {query.data.page > 1 ? <Link href={pageHref(query.data.page - 1)}>Previous</Link> : null}
+      <details className="collection-tools">
+        <summary>{locale === "zh" ? "搜索与筛选" : "Search & filter"}</summary>
+        <form action={`/${locale}/museums/${museumSlug}/collection`}>
+          {query.data.artist.map((artist) => (
+            <input key={artist} name="artist" type="hidden" value={artist} />
+          ))}
+          <label className="collection-tools-search">
+            <span>{locale === "zh" ? "搜索馆藏" : "Search collection"}</span>
+            <input
+              aria-label={locale === "zh" ? "搜索馆藏" : "Search collection"}
+              defaultValue={query.data.q}
+              name="q"
+              placeholder={locale === "zh" ? "作品或艺术家" : "Artwork or artist"}
+              type="search"
+            />
+          </label>
+          <div className="collection-tools-grid">
+            <label>
+              <span>{locale === "zh" ? "起始年份" : "From year"}</span>
+              <input defaultValue={query.data.from} inputMode="numeric" name="from" />
+            </label>
+            <label>
+              <span>{locale === "zh" ? "结束年份" : "To year"}</span>
+              <input defaultValue={query.data.to} inputMode="numeric" name="to" />
+            </label>
+            <label>
+              <span>{locale === "zh" ? "图片状态" : "Image availability"}</span>
+              <select defaultValue={query.data.availability} name="availability">
+                <option value="image">{locale === "zh" ? "有图片" : "With image"}</option>
+                <option value="metadata">{locale === "zh" ? "仅资料" : "Metadata only"}</option>
+                <option value="all">{locale === "zh" ? "全部" : "All records"}</option>
+              </select>
+            </label>
+            <label>
+              <span>{locale === "zh" ? "排序" : "Sort"}</span>
+              <select
+                aria-label={locale === "zh" ? "排序" : "Sort"}
+                defaultValue={query.data.sort}
+                name="sort"
+              >
+                {query.data.q ? (
+                  <option value="relevance">{locale === "zh" ? "相关度" : "Relevance"}</option>
+                ) : null}
+                <option value="recent">{locale === "zh" ? "最近更新" : "Recently updated"}</option>
+                <option value="title-asc">{locale === "zh" ? "标题" : "Title"}</option>
+                <option value="date-asc">{locale === "zh" ? "年代升序" : "Date ascending"}</option>
+                <option value="date-desc">
+                  {locale === "zh" ? "年代降序" : "Date descending"}
+                </option>
+              </select>
+            </label>
+          </div>
+          <div className="collection-tools-actions">
+            <Link href={`/${locale}/museums/${museumSlug}/collection`}>
+              {locale === "zh" ? "清除" : "Clear"}
+            </Link>
+            <button type="submit">{locale === "zh" ? "应用筛选" : "Apply filters"}</button>
+          </div>
+        </form>
+      </details>
+      <nav
+        className="collection-pagination"
+        id="collection-pagination"
+        aria-label={locale === "zh" ? "馆藏分页" : "Collection pagination"}
+      >
+        <span>
+          {query.data.page > 1 ? (
+            <Link
+              href={pageHref(query.data.page - 1)}
+              aria-label={locale === "zh" ? "上一页" : "Previous page"}
+            >
+              ←
+            </Link>
+          ) : (
+            <i aria-hidden="true">←</i>
+          )}
+        </span>
+        <p>
+          <strong>{String(query.data.page).padStart(2, "0")}</strong>
+          <small>
+            {catalog.pageInfo.totalEligible.toLocaleString(locale)}{" "}
+            {locale === "zh" ? "件可访问作品" : "accessible works"}
+          </small>
+        </p>
         {catalog.pageInfo.hasNextPage ? (
-          <Link href={pageHref(query.data.page + 1)}>Next</Link>
-        ) : null}
+          <Link
+            href={pageHref(query.data.page + 1)}
+            aria-label={locale === "zh" ? "下一页" : "Next page"}
+          >
+            →
+          </Link>
+        ) : (
+          <i aria-hidden="true">→</i>
+        )}
       </nav>
     </main>
   );

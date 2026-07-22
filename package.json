@@ -3,9 +3,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.mjs",
-    "check": "node --check server.mjs && node --check data/catalog-service.mjs && node --check data/providers/artic.mjs && node --check data/providers/met.mjs && node --check data/providers/cleveland.mjs && node --check data/providers/wikidata.mjs && node --check ai/prompt-framework.mjs && node --check ai/artist-profiles/van-gogh.mjs && node --check experiments/canvas-demo/app.js",
-    "test": "node --test test/*.test.mjs",
-    "verify:catalog": "node scripts/verify-catalog.mjs"
+    "dev": "npm --prefix apps/web run dev",
+    "build": "npm --prefix apps/web run build",
+    "start": "npm --prefix apps/web run start",
+    "demo": "node server.mjs",
+    "check": "npm --prefix apps/web run check && npm run check:legacy",
+    "check:legacy": "node --check server.mjs && node --check data/catalog-service.mjs && node --check data/providers/artic.mjs && node --check data/providers/met.mjs && node --check data/providers/cleveland.mjs && node --check data/providers/wikidata.mjs && node --check ai/prompt-framework.mjs && node --check ai/artist-profiles/van-gogh.mjs && node --check experiments/canvas-demo/app.js",
+    "test": "npm --prefix apps/web run test && npm run test:legacy",
+    "test:legacy": "node --test test/*.test.mjs",
+    "test:e2e": "npm --prefix apps/web run test:e2e",
+    "verify:catalog": "node scripts/verify-catalog.mjs",
+    "verify:stage5": "node scripts/verify-stage5.mjs"
   }
 }

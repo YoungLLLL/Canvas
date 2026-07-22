@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 
 type DemoArtworkProps = {
   locale: "en" | "zh";
@@ -25,20 +25,8 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
   const router = useRouter();
   const [scale, setScale] = useState(1);
   const [loaded, setLoaded] = useState(true);
-  const [question, setQuestion] = useState("");
-  const [messages, setMessages] = useState<string[]>([]);
   const [sourcesOpen, setSourcesOpen] = useState(false);
   const zh = props.locale === "zh";
-
-  const ask = (text: string) => {
-    if (!text.trim()) return;
-    setMessages((items) => [...items, text.trim()]);
-    setQuestion("");
-  };
-  const submit = (event: FormEvent) => {
-    event.preventDefault();
-    ask(question);
-  };
 
   return (
     <main
@@ -65,7 +53,17 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
               src={props.imageUrl}
               style={{ transform: `scale(${scale})`, viewTransitionName: "artwork-image" }}
             />
-          ) : null}
+          ) : (
+            <div className="artwork-no-image" role="status">
+              <span>IMAGE / NOT DISPLAYED</span>
+              <strong>{zh ? "无可展示图片" : "No displayed image"}</strong>
+              <p>
+                {zh
+                  ? "作品资料仍可查看；Canvium 不会在图片权利或精确来源未满足规则时展示图像。"
+                  : "The record remains available. Canvium does not display an image until its rights and exact source meet the publication rules."}
+              </p>
+            </div>
+          )}
           <div className={`loading${loaded || !props.imageUrl ? " hidden" : ""}`}>
             {zh ? "正在展开高清作品…" : "Opening high-resolution artwork…"}
           </div>
@@ -96,9 +94,11 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
           <h1>{props.title}</h1>
           <p className="artwork-original-title">{props.originalTitle}</p>
           <div className="artist-meta">
-            <span className="eye-avatar">
-              <img src={props.imageUrl || ""} alt="" />
-            </span>
+            {props.imageUrl ? (
+              <span className="eye-avatar">
+                <img src={props.imageUrl} alt="" />
+              </span>
+            ) : null}
             <b>
               {props.artist} · {props.date} · {zh ? "巴黎" : "Paris"}
             </b>
@@ -120,60 +120,44 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
           </dl>
         </section>
         <div className="conversation-title">
-          <span>CONVERSATION / 01</span>
-          <button onClick={() => setMessages([])}>{zh ? "关闭对话" : "Clear"}　×</button>
+          <span>ARTIST PERSONA / NOT PUBLISHED</span>
         </div>
-        <div className="messages" aria-live="polite">
-          <div className="message assistant">
-            <span className="eye-avatar msg-eye">
-              <img src={props.imageUrl || ""} alt="" />
-            </span>
-            <b>VINCENT VAN GOGH</b>
+        <div className="messages ai-unavailable" role="status" aria-live="polite">
+          <section aria-labelledby="ai-unavailable-title">
+            <span className="ai-status-label">AI DIALOGUE / UNAVAILABLE</span>
+            <h2 id="ai-unavailable-title">
+              {zh ? "艺术家数字化身尚未开放" : "The artist persona is not available yet"}
+            </h2>
             <p>
               {zh
-                ? "哦，你正在看我的自画像。这是我住在巴黎时画的；没有模特时，我自己就是最方便的对象。有人愿意认真看看这张脸，我很高兴。"
-                : "You are looking at my self-portrait, painted while I lived in Paris. When a model was unavailable, I was the most convenient subject."}
+                ? "该艺术家的人格资料、史料边界与回答依据仍在审核中。在正式发布前，Canvium 不会模拟艺术家的身份回答。"
+                : "This artist's persona, historical boundaries, and supporting evidence are still under review. Canvium will not simulate the artist before publication."}
             </p>
-            <div className="evidence-row">
-              <span>{zh ? "依据馆藏资料生成" : "Grounded in collection records"}</span>
-              <button className="evidence-button" onClick={() => setSourcesOpen(true)}>
-                {zh ? "查看依据" : "View sources"}
-              </button>
-            </div>
-          </div>
-          {messages.map((message, index) => (
-            <div className="message user" key={`${message}-${index}`}>
-              <small>YOU</small>
-              <p>{message}</p>
-            </div>
-          ))}
-        </div>
-        <div className="suggestions">
-          {[
-            zh ? "为什么画这么多自画像？" : "Why so many self-portraits?",
-            zh ? "这些短笔触从哪里来？" : "Where do these short strokes come from?",
-          ].map((suggestion) => (
-            <button key={suggestion} onClick={() => ask(suggestion)}>
-              {suggestion}
+            <button className="evidence-button" onClick={() => setSourcesOpen(true)}>
+              {zh ? "查看作品资料与来源" : "View artwork records and sources"}
             </button>
-          ))}
+          </section>
         </div>
-        <form className="chat-form" onSubmit={submit}>
-          <span className="eye-avatar tiny">
-            <img src={props.imageUrl || ""} alt="" />
+        <div
+          className="observation-prompts"
+          aria-label={zh ? "独立观看提示" : "Independent looking prompts"}
+        >
+          <span>
+            {zh ? "不依赖 AI，也可以先这样观看" : "Look independently while AI is unavailable"}
           </span>
-          <textarea
-            aria-label={zh ? "输入问题" : "Ask a question"}
-            maxLength={240}
-            onChange={(event) => setQuestion(event.target.value)}
-            placeholder={zh ? "继续问梵高…" : "Ask Van Gogh…"}
-            rows={1}
-            value={question}
-          />
-          <button type="submit" aria-label={zh ? "发送" : "Send"}>
-            ↗
-          </button>
-        </form>
+          <ul>
+            <li>
+              {zh
+                ? "画面中最强的明暗或色彩对比在哪里？"
+                : "Where is the strongest contrast of light or color?"}
+            </li>
+            <li>
+              {zh
+                ? "笔触、边缘与留白如何引导你的视线？"
+                : "How do brushwork, edges, and empty space guide your eye?"}
+            </li>
+          </ul>
+        </div>
       </aside>
       <div
         className={`source-backdrop${sourcesOpen ? " open" : ""}`}
@@ -184,19 +168,19 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
         aria-label={zh ? "回答依据" : "Sources"}
       >
         <button onClick={() => setSourcesOpen(false)}>{zh ? "关闭" : "Close"}　×</button>
-        <span>SOURCES / 02</span>
+        <span>SOURCES / ARTWORK</span>
         <h2>
           {zh ? (
             <>
-              这段回答
+              这件作品的
               <br />
-              从哪里来？
+              资料从哪里来？
             </>
           ) : (
             <>
-              Where did this
+              Sources for
               <br />
-              answer come from?
+              this artwork
             </>
           )}
         </h2>
