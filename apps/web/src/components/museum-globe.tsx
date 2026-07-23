@@ -187,6 +187,16 @@ const museums: MuseumNode[] = [
   },
 ];
 
+const featuredMuseumCamera = {
+  // The homepage only reveals the upper rim of a much larger globe. Centering
+  // Chicago in the full canvas would place it far below the viewport, so the
+  // camera intentionally looks south of the museum and projects Chicago onto
+  // the middle of the visible cap.
+  lat: -3,
+  lng: -86.5,
+  altitude: 1.72,
+} as const;
+
 let twoToneTexturePromise: Promise<string> | undefined;
 
 function loadTextureSource(src: string) {
@@ -257,6 +267,7 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
     let disposed = false;
     let globe: GlobeInstance | undefined;
     let observer: ResizeObserver | undefined;
+    const focusTimers: number[] = [];
 
     void getTwoToneTexture()
       .then((textureUrl) => {
@@ -268,8 +279,8 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
           .backgroundColor("rgba(0,0,0,0)")
           .globeImageUrl(textureUrl)
           .showAtmosphere(true)
-          .atmosphereColor("#d0ccc3")
-          .atmosphereAltitude(0.055)
+          .atmosphereColor("#f1eee7")
+          .atmosphereAltitude(0.11)
           .htmlElementsData(museums)
           .htmlLat("lat")
           .htmlLng("lng")
@@ -279,7 +290,7 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
             marker.type = "button";
             marker.className = `globe-marker ${node.status}${node.id === "artic" ? " selected" : ""}`;
             marker.title = node.name;
-            marker.innerHTML = `<span class="globe-marker-callout"><span class="globe-marker-dot" aria-hidden="true"></span><span class="globe-marker-label">${node.name}<small>${node.officialName}</small></span></span>`;
+            marker.innerHTML = `<span class="globe-marker-callout"><span class="globe-marker-dot" aria-hidden="true"></span><span class="globe-marker-line" aria-hidden="true"></span><span class="globe-marker-label">${node.name}<small>${node.officialName}</small></span></span>`;
             marker.addEventListener("pointerdown", (event) => event.stopPropagation());
             marker.addEventListener("click", (event) => {
               event.stopPropagation();
@@ -291,7 +302,20 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
             });
             return marker;
           });
-        globe.pointOfView({ lat: 30, lng: -72, altitude: compact ? 1.58 : 1.72 }, 0);
+        const targetCamera = {
+          ...featuredMuseumCamera,
+          altitude: compact ? 1.58 : featuredMuseumCamera.altitude,
+        };
+        globe.pointOfView(targetCamera, 0);
+
+        const sharedHomepageGlobe = Boolean(root?.closest(".shared-globe"));
+        if (sharedHomepageGlobe) {
+          focusTimers.push(
+            window.setTimeout(() => root?.classList.add("is-camera-calibrated"), 1050),
+          );
+        } else {
+          root?.classList.add("is-camera-calibrated");
+        }
         const sharedGlobeScale = root?.closest(".shared-globe")
           ? window.innerWidth < 720
             ? 1
@@ -319,11 +343,12 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
 
     return () => {
       disposed = true;
+      focusTimers.forEach((timer) => window.clearTimeout(timer));
       observer?.disconnect();
       globe?._destructor?.();
       globeRef.current = null;
       host.replaceChildren();
-      root?.classList.remove("is-webgl-ready");
+      root?.classList.remove("is-webgl-ready", "is-camera-calibrated");
     };
   }, [compact, scriptReady]);
 

@@ -29,17 +29,26 @@ export default async function MuseumPage({ params }: PageProps<"/[locale]/museum
         CANVIUM Gallery
       </div>
       <section className="museum-summary motion-reveal" aria-labelledby="museum-name">
-        <span className="eyebrow">TODAY&apos;S MUSEUM / 01</span>
+        <span className="eyebrow">今日博物馆 / TODAY&apos;S MUSEUM · 01</span>
         <h1 id="museum-name">{copy[locale].museumTitle}</h1>
-        <p className="museum-official-name">Art Institute of Chicago</p>
+        <p className="museum-official-name">
+          {zh ? "Art Institute of Chicago" : "芝加哥艺术博物馆"}
+        </p>
         <a href="https://www.artic.edu" rel="noreferrer" target="_blank">
           CHICAGO · UNITED STATES ↗
         </a>
-        <p className="museum-description">
-          {zh
-            ? "收藏横跨五千年艺术史，尤以印象派、后印象派及美国现代艺术闻名。进入一座连接真实馆藏记录的安静数字画廊。"
-            : "Spanning five millennia of art, the museum is celebrated for Impressionist, Post-Impressionist, and modern American works. Enter a quiet digital gallery connected to trusted collection records."}
-        </p>
+        <div className="museum-description">
+          <p>
+            {zh
+              ? "收藏横跨五千年艺术史，尤以印象派、后印象派及美国现代艺术闻名。进入一座连接真实馆藏记录的安静数字画廊。"
+              : "Spanning five millennia of art, the museum is celebrated for Impressionist, Post-Impressionist, and modern American works. Enter a quiet digital gallery connected to trusted collection records."}
+          </p>
+          <p className="museum-description-secondary">
+            {zh
+              ? "Spanning five millennia of art, with celebrated Impressionist, Post-Impressionist, and modern American collections."
+              : "收藏横跨五千年艺术史，尤以印象派、后印象派及美国现代艺术闻名。"}
+          </p>
+        </div>
         <div className="museum-feature">
           <figure>
             <img
@@ -48,14 +57,19 @@ export default async function MuseumPage({ params }: PageProps<"/[locale]/museum
             />
           </figure>
           <div>
-            <small>{zh ? "今日推荐" : "TODAY'S HIGHLIGHT"}</small>
-            <strong>{zh ? "自画像" : "Self-Portrait"}</strong>
-            <span>{zh ? "文森特·梵高 · 1887" : "Vincent van Gogh · 1887"}</span>
-            <em>{zh ? "实时开放馆藏" : "LIVE OPEN COLLECTION"}</em>
+            <small>今日推荐 / TODAY&apos;S HIGHLIGHT</small>
+            <strong>{zh ? "自画像 / SELF-PORTRAIT" : "SELF-PORTRAIT / 自画像"}</strong>
+            <span>
+              {zh
+                ? "文森特·梵高 / VINCENT VAN GOGH · 1887"
+                : "VINCENT VAN GOGH / 文森特·梵高 · 1887"}
+            </span>
+            <em>实时开放馆藏 / LIVE OPEN COLLECTION</em>
           </div>
         </div>
         <Link className="museum-enter" href={`/${locale}/museums/${museumSlug}/collection`}>
-          {zh ? "进入数字画廊" : "ENTER THE GALLERY"} <span>→</span>
+          {zh ? "进入数字画廊 / ENTER THE GALLERY" : "ENTER THE GALLERY / 进入数字画廊"}{" "}
+          <span>→</span>
         </Link>
         <a
           className="museum-official"
@@ -63,7 +77,7 @@ export default async function MuseumPage({ params }: PageProps<"/[locale]/museum
           rel="noreferrer"
           target="_blank"
         >
-          {zh ? "官方网站" : "OFFICIAL WEBSITE"} ↗
+          {zh ? "官方网站 / OFFICIAL WEBSITE" : "OFFICIAL WEBSITE / 官方网站"} ↗
         </a>
       </section>
       <section className="museum-globe-stage motion-reveal">
@@ -74,12 +88,12 @@ export default async function MuseumPage({ params }: PageProps<"/[locale]/museum
         </div>
         <MuseumGlobe />
         <p className="museum-drag-cue">
-          ↔　{zh ? "拖动旋转 · 方向键浏览" : "DRAG TO ROTATE · USE ARROW KEYS"}
+          ↔　拖动旋转 / DRAG TO ROTATE · 方向键浏览 / USE ARROW KEYS
         </p>
         <div className="museum-globe-legend" aria-hidden="true">
-          <span>●　{zh ? "已开放" : "OPEN"}</span>
-          <span>○　{zh ? "即将开放" : "COMING SOON"}</span>
-          <span>◉　{zh ? "今日推荐" : "TODAY"}</span>
+          <span>●　已开放 / OPEN</span>
+          <span>○　即将开放 / COMING SOON</span>
+          <span>◉　今日推荐 / TODAY</span>
         </div>
       </section>
     </main>

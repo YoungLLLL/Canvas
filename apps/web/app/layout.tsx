@@ -46,6 +46,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${displayFont.variable} ${latinBodyFont.variable} ${chineseBodyFont.variable} ${chineseDisplayFont.variable}`}
       lang="en"
     >
+      <head>
+        <link
+          as="font"
+          crossOrigin="anonymous"
+          href="/fonts/otomanopee-one-v11.ttf"
+          rel="preload"
+          type="font/ttf"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense, ViewTransition } from "react";
 
+import { CanviumIntro } from "@/src/components/canvium-intro";
 import { LocaleSwitch } from "@/src/components/locale-switch";
 import { ShowcaseMotion } from "@/src/components/showcase-motion";
 import type { Locale } from "@/src/i18n/locales";
@@ -10,6 +11,7 @@ const museumSlug = "art-institute-of-chicago";
 export function SiteShell({ children, locale }: { children: React.ReactNode; locale: Locale }) {
   return (
     <div lang={locale}>
+      <CanviumIntro />
       <ShowcaseMotion />
       <header className="site-header" id="siteHeader" style={{ viewTransitionName: "site-header" }}>
         <Link className="wordmark" href={`/${locale}`}>
@@ -34,7 +36,9 @@ export function SiteShell({ children, locale }: { children: React.ReactNode; loc
             <LocaleSwitch locale={locale} />
           </Suspense>
           <Link className="search-pill" href={`/${locale}/museums/${museumSlug}/collection`}>
-            {locale === "zh" ? "搜索" : "Search"} <span>↗</span>
+            <span>{locale === "zh" ? "搜索" : "Search"}</span>
+            <small>{locale === "zh" ? "SEARCH" : "搜索"}</small>
+            <b aria-hidden="true">↗</b>
           </Link>
         </div>
       </header>

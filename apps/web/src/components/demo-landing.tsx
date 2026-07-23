@@ -43,7 +43,7 @@ export function DemoLanding({ locale }: { locale: Locale }) {
         (window.innerWidth - startDiameter) / 2 - (mobile ? 0 : window.innerWidth * 0.04);
       const startTop = mobile
         ? Math.max(window.innerHeight * 0.7, 920)
-        : window.innerHeight * 0.575 - startDiameter * 0.085;
+        : window.innerHeight * 0.635 - startDiameter * 0.085;
       const endLeft = mobile ? window.innerWidth - endDiameter * 0.82 : window.innerWidth * 0.39;
       const endTop = mobile ? window.innerHeight * 0.51 : Math.max(window.innerHeight * 0.1, 68);
       const diameter = startDiameter + (endDiameter - startDiameter) * progress;
@@ -123,14 +123,15 @@ export function DemoLanding({ locale }: { locale: Locale }) {
           className="search-pill"
           onClick={() => router.push(`/${locale}/museums/${museumSlug}/collection`)}
         >
-          {zh ? "搜索" : "Search"} <span>↗</span>
+          <span>{zh ? "搜索" : "Search"}</span>
+          <small>{zh ? "SEARCH" : "搜索"}</small>
+          <b aria-hidden="true">↗</b>
         </button>
       </header>
 
       <main>
         <div className="view active" id="homeView" data-view="home">
           <section className="home-hero" id="home">
-            <p className="side-label">EXPLORE ART / 01</p>
             <div
               className="art-history"
               aria-label={zh ? "之前推荐的作品" : "Previous recommendations"}
@@ -140,16 +141,35 @@ export function DemoLanding({ locale }: { locale: Locale }) {
                   src="https://commons.wikimedia.org/wiki/Special:FilePath/Meisje%20met%20de%20parel.jpg?width=500"
                   alt={zh ? "维米尔《戴珍珠耳环的少女》" : "Vermeer, Girl with a Pearl Earring"}
                 />
+                <figcaption>
+                  <strong>
+                    {zh ? "戴珍珠耳环的少女" : "Girl with a Pearl Earring"}
+                    <small>{zh ? "GIRL WITH A PEARL EARRING" : "戴珍珠耳环的少女"}</small>
+                  </strong>
+                  <span>
+                    {zh
+                      ? "7 月 21 日推荐 / RECOMMENDED JUL 21"
+                      : "RECOMMENDED JUL 21 / 7 月 21 日推荐"}
+                  </span>
+                </figcaption>
               </figure>
               <figure className="history-large">
                 <img
                   src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20The%20Poet%27s%20Garden%20-%201933.433%20-%20Art%20Institute%20of%20Chicago.jpg?width=900"
                   alt={zh ? "梵高《诗人的花园》" : "Van Gogh, The Poet's Garden"}
                 />
+                <figcaption>
+                  <strong>
+                    {zh ? "诗人的花园" : "The Poet's Garden"}
+                    <small>{zh ? "THE POET'S GARDEN" : "诗人的花园"}</small>
+                  </strong>
+                  <span>
+                    {zh
+                      ? "7 月 22 日推荐 / RECOMMENDED JUL 22"
+                      : "RECOMMENDED JUL 22 / 7 月 22 日推荐"}
+                  </span>
+                </figcaption>
               </figure>
-              <div className="today-note">
-                <span>EXPLORE ART / 01</span>
-              </div>
             </div>
 
             <button
@@ -163,6 +183,17 @@ export function DemoLanding({ locale }: { locale: Locale }) {
               />
               <span className="daily-index">
                 <b>01</b> / 03
+              </span>
+              <span className="daily-caption">
+                <strong>
+                  {zh ? "自画像" : "Self-Portrait"}
+                  <i>{zh ? "SELF-PORTRAIT" : "自画像"}</i>
+                </strong>
+                <small>
+                  {zh
+                    ? "今日推荐 · 7 月 23 日 / TODAY'S RECOMMENDATION · JUL 23"
+                    : "TODAY'S RECOMMENDATION · JUL 23 / 今日推荐 · 7 月 23 日"}
+                </small>
               </span>
             </button>
 
@@ -210,7 +241,9 @@ export function DemoLanding({ locale }: { locale: Locale }) {
                     className="prompt-line"
                     onClick={() => router.push(`/${locale}/artworks/artic-80607`)}
                   >
-                    你想问他什么？ <i>↗</i>
+                    <span>{zh ? "你想问他什么？" : "What would you ask?"}</span>
+                    <small>{zh ? "WHAT WOULD YOU ASK?" : "你想问他什么？"}</small>
+                    <i>↗</i>
                   </button>
                   <button
                     className="primary-wide"
@@ -224,10 +257,6 @@ export function DemoLanding({ locale }: { locale: Locale }) {
             </aside>
 
             <button className="globe-home-caption" onClick={scrollToMuseum}>
-              <span className="globe-home-museum">
-                <b>芝加哥艺术博物馆</b>
-                <small>ART INSTITUTE OF CHICAGO · CHICAGO</small>
-              </span>
               <strong>CANVIUM Gallery</strong>
             </button>
           </section>
