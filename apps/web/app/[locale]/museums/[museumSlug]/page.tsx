@@ -25,18 +25,27 @@ export default async function MuseumPage({ params }: PageProps<"/[locale]/museum
 
   return (
     <main className="museum-page">
-      <div aria-hidden="true" className="museum-library-title motion-reveal">
-        CANVIUM Gallery
-      </div>
-      <section className="museum-summary motion-reveal" aria-labelledby="museum-name">
-        <span className="eyebrow">今日博物馆 / TODAY&apos;S MUSEUM · 01</span>
-        <h1 id="museum-name">{copy[locale].museumTitle}</h1>
-        <p className="museum-official-name">
-          {zh ? "Art Institute of Chicago" : "芝加哥艺术博物馆"}
+      <div className="museum-masthead">
+        <div aria-hidden="true" className="museum-library-title">
+          CANVIUM Gallery
+        </div>
+        <p aria-hidden="true" className="museum-page-index">
+          <span>INSTITUTION INDEX</span>
+          <b>01</b>
+          <small>/ 01</small>
         </p>
-        <a href="https://www.artic.edu" rel="noreferrer" target="_blank">
-          CHICAGO · UNITED STATES ↗
-        </a>
+      </div>
+      <section className="museum-summary" aria-labelledby="museum-name">
+        <span className="eyebrow">今日博物馆 / TODAY&apos;S MUSEUM · 01</span>
+        <div className="museum-name-lockup">
+          <h1 id="museum-name">{copy[locale].museumTitle}</h1>
+          <p className="museum-official-name">
+            {zh ? "Art Institute of Chicago" : "芝加哥艺术博物馆"}
+          </p>
+          <a href="https://www.artic.edu" rel="noreferrer" target="_blank">
+            CHICAGO · UNITED STATES ↗
+          </a>
+        </div>
         <div className="museum-description">
           <p>
             {zh
@@ -51,6 +60,7 @@ export default async function MuseumPage({ params }: PageProps<"/[locale]/museum
         </div>
         <div className="museum-feature">
           <figure>
+            <span aria-hidden="true">01</span>
             <img
               alt={zh ? "馆藏亮点：梵高自画像" : "Collection highlight: Van Gogh Self-Portrait"}
               src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20Self-Portrait%20-%201954.326%20-%20Art%20Institute%20of%20Chicago.jpg?width=500"
@@ -67,20 +77,27 @@ export default async function MuseumPage({ params }: PageProps<"/[locale]/museum
             <em>实时开放馆藏 / LIVE OPEN COLLECTION</em>
           </div>
         </div>
-        <Link className="museum-enter" href={`/${locale}/museums/${museumSlug}/collection`}>
-          {zh ? "进入数字画廊 / ENTER THE GALLERY" : "ENTER THE GALLERY / 进入数字画廊"}{" "}
-          <span>→</span>
-        </Link>
-        <a
-          className="museum-official"
-          href="https://www.artic.edu"
-          rel="noreferrer"
-          target="_blank"
-        >
-          {zh ? "官方网站 / OFFICIAL WEBSITE" : "OFFICIAL WEBSITE / 官方网站"} ↗
-        </a>
+        <div className="museum-actions">
+          <Link className="museum-enter" href={`/${locale}/museums/${museumSlug}/collection`}>
+            {zh ? "进入数字画廊 / ENTER THE GALLERY" : "ENTER THE GALLERY / 进入数字画廊"}{" "}
+            <span>→</span>
+          </Link>
+          <a
+            className="museum-official"
+            href="https://www.artic.edu"
+            rel="noreferrer"
+            target="_blank"
+          >
+            {zh ? "官方网站 / OFFICIAL WEBSITE" : "OFFICIAL WEBSITE / 官方网站"} ↗
+          </a>
+        </div>
       </section>
-      <section className="museum-globe-stage motion-reveal">
+      <section className="museum-globe-stage">
+        <p className="museum-globe-kicker" aria-hidden="true">
+          <span>FEATURED LOCATION</span>
+          <b>41.8796° N</b>
+          <b>87.6237° W</b>
+        </p>
         <div className="museum-region-stats" aria-hidden="true">
           <strong>NORTH AMERICA</strong>
           <span>01　MUSEUM OPEN</span>

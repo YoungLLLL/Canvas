@@ -1,8 +1,9 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+import { CollectionBackLink } from "@/src/components/collection-state";
 
 type DemoArtworkProps = {
   locale: "en" | "zh";
@@ -22,7 +23,6 @@ type DemoArtworkProps = {
 };
 
 export function DemoArtworkDetail(props: DemoArtworkProps) {
-  const router = useRouter();
   const [scale, setScale] = useState(1);
   const [loaded, setLoaded] = useState(true);
   const [sourcesOpen, setSourcesOpen] = useState(false);
@@ -33,13 +33,13 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
       className="view artwork-view active"
       style={{ "--detail-ratio": props.ratio } as React.CSSProperties}
     >
-      <button
+      <CollectionBackLink
         className="back-gallery"
-        onClick={() => router.back()}
-        aria-label={zh ? "关闭作品详情，返回画廊" : "Close artwork and return to gallery"}
+        defaultHref={`/${props.locale}/museums/art-institute-of-chicago/collection`}
+        label={zh ? "关闭作品详情，返回画廊" : "Close artwork and return to gallery"}
       >
         <span aria-hidden="true" />
-      </button>
+      </CollectionBackLink>
       <div className="art-pane">
         <div
           className={`art-viewport${scale > 1 ? " zoomed" : ""}`}

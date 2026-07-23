@@ -215,6 +215,7 @@ export function normalizeArticArtwork(
     },
     display: {
       title,
+      localizedTitles: { en: title },
       altTitles: (raw.alt_titles ?? []).map((item) => item.trim()).filter(Boolean),
       artistDisplay: clean(raw.artist_display) ?? artistName ?? "Unknown artist",
       dateDisplay,
@@ -381,6 +382,14 @@ async function attachCommonsImages(items: Artwork[]) {
     }
     return artworkSchema.parse({
       ...item,
+      display: {
+        ...item.display,
+        localizedTitles: {
+          ...item.display.localizedTitles,
+          ...(commons.titleEn ? { en: commons.titleEn } : {}),
+          ...(commons.titleZh ? { zh: commons.titleZh } : {}),
+        },
+      },
       images: {
         preferred: {
           id: `commons:${item.sourceId}`,

@@ -8,6 +8,7 @@ import { ArtworkCardLink } from "@/src/components/collection-state";
 type MarqueeArtwork = {
   sourceId: string;
   title: string;
+  secondaryTitle?: string;
   artist: string;
   date: string;
   medium: string;
@@ -172,6 +173,7 @@ export function CollectionMarquee({
             .toUpperCase()}
         </p>
         <h2>{selected?.title}</h2>
+        {selected?.secondaryTitle ? <h3>{selected.secondaryTitle}</h3> : null}
         <span>{[selected?.artist, selected?.date].filter(Boolean).join(" · ")}</span>
       </aside>
       <p className={`gallery-instruction${selected ? " quiet" : ""}`}>

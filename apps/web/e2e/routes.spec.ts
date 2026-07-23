@@ -59,6 +59,7 @@ test("loads the editorial fonts and keeps the Demo motion interactive", async ({
         const rect = element.getBoundingClientRect();
         const style = getComputedStyle(element);
         return (
+          !element.closest(".canvium-loading-screen") &&
           element.children.length === 0 &&
           Boolean(element.textContent?.trim()) &&
           rect.width > 0 &&
@@ -93,7 +94,7 @@ test("loads the editorial fonts and keeps the Demo motion interactive", async ({
 
 test("browses the live ARTIC collection and opens a shareable artwork route", async ({ page }) => {
   await page.goto("/en/museums/art-institute-of-chicago/collection");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("paintings");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Art Institute");
   await page.getByRole("button", { name: "Pause motion" }).click();
 
   const firstArtwork = await artworkInViewport(page);
@@ -113,31 +114,32 @@ test("browses the live ARTIC collection and opens a shareable artwork route", as
   await expect(page.getByRole("link", { name: "View museum record" })).toBeVisible();
 });
 
-test("writes submitted filters to a canonical shareable URL and keeps them on language switch", async ({
+test("shows bilingual museum and artwork titles with the agreed editorial fonts", async ({
   page,
 }) => {
   await page.goto("/en/museums/art-institute-of-chicago/collection");
-  await page.getByText("Search & filter", { exact: true }).click();
-  await page.getByRole("searchbox").fill("monet");
-  await page.getByLabel("From year").fill("1800");
-  await page.getByLabel("Sort").selectOption("title-asc");
-  await page.getByRole("button", { name: /Apply filters/ }).click();
-
-  await expect(page).toHaveURL(
-    /\/en\/museums\/art-institute-of-chicago\/collection\?q=monet&from=1800&sort=title-asc$/,
-  );
-  await page.getByRole("link", { name: "ZH" }).click();
-  await expect(page).toHaveURL(
-    /\/zh\/museums\/art-institute-of-chicago\/collection\?q=monet&from=1800&sort=title-asc$/,
-  );
+  await page.getByRole("link", { name: "Browse the full collection" }).click();
+  await expect(page.getByRole("heading", { name: /馆藏作品.*THE COLLECTION/ })).toBeVisible();
+  await expect(page.getByText("芝加哥艺术博物馆", { exact: true }).last()).toBeVisible();
+  await expect(page.getByText("ART INSTITUTE OF CHICAGO", { exact: true }).last()).toBeVisible();
+  const firstCard = page.locator(".collection-result-card").first();
+  await expect(firstCard.locator("h3")).toBeVisible();
+  await expect(firstCard.locator("h4")).toBeVisible();
+  expect(
+    await firstCard.locator("h3").evaluate((node) => getComputedStyle(node).fontFamily),
+  ).toMatch(/Noto Serif SC/i);
+  expect(
+    await firstCard.locator("h4").evaluate((node) => getComputedStyle(node).fontFamily),
+  ).toMatch(/Otomanopee One/i);
+  await expect(page.getByRole("searchbox")).toHaveCount(0);
 });
 
 test("restores collection URL, scroll position, and card focus after opening an artwork", async ({
   page,
 }) => {
-  await page.goto("/en/museums/art-institute-of-chicago/collection?q=monet");
-  await page.getByRole("button", { name: "Pause motion" }).click();
-  const card = await artworkInViewport(page);
+  await page.goto("/en/museums/art-institute-of-chicago/collection");
+  await page.getByRole("link", { name: "Browse the full collection" }).click();
+  const card = page.locator(".collection-result-card").first();
   await card.scrollIntoViewIfNeeded();
   const collectionUrl = page.url();
   const scrollBefore = await page.evaluate(() => window.scrollY);
@@ -152,30 +154,27 @@ test("restores collection URL, scroll position, and card focus after opening an 
   await expect.poll(() => page.evaluate(() => document.activeElement?.id)).toBe(cardId);
 });
 
-test("shows rights-safe metadata-only paintings without fabricating an image", async ({ page }) => {
-  await page.goto("/en/museums/art-institute-of-chicago/collection?availability=metadata");
-  await page.getByRole("button", { name: "Pause motion" }).click();
-  await expect(page.locator(".metadata-artwork-card").first()).toBeVisible();
-  await expect(
-    page.locator(".metadata-artwork-card").first().getByText("Metadata-only record"),
-  ).toBeVisible();
-  await (await artworkInViewport(page)).click();
-  await expect(page.locator(".artwork-no-image")).toBeVisible();
-  await expect(page.getByText("No displayed image")).toBeVisible();
-  await page.getByRole("button", { name: "View artwork records and sources" }).click();
-  await expect(page.getByRole("link", { name: "View museum record" })).toBeVisible();
+test("loads more collection works automatically near the end of the page", async ({ page }) => {
+  await page.goto("/en/museums/art-institute-of-chicago/collection");
+  await page.getByRole("link", { name: "Browse the full collection" }).click();
+  const cards = page.locator(".collection-result-card");
+  const initialCount = await cards.count();
+  expect(initialCount).toBeGreaterThan(0);
+  await page.locator(".collection-load-sentinel").scrollIntoViewIfNeeded();
+  await expect.poll(() => cards.count(), { timeout: 20_000 }).toBeGreaterThan(initialCount);
+  await expect(page.locator("#collection-pagination")).toHaveCount(0);
 });
 
-test("keeps filters, results, rights, and navigation usable at a mobile viewport", async ({
+test("keeps bilingual results and automatic loading usable at a mobile viewport", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/zh/museums/art-institute-of-chicago/collection?q=monet");
-  await page.getByText("搜索与筛选", { exact: true }).click();
-  await expect(page.getByRole("searchbox")).toHaveValue("monet");
-  await expect(page.getByLabel("图片状态")).toBeVisible();
-  await expect(page.locator(".artwork-card").first()).toBeVisible();
-  await expect(page.locator("#collection-pagination")).toBeVisible();
+  await page.goto("/zh/museums/art-institute-of-chicago/collection");
+  await page.getByRole("link", { name: /浏览完整馆藏/ }).click();
+  await expect(page.locator(".collection-result-card").first()).toBeVisible();
+  await expect(page.locator(".collection-museum-copy")).toContainText("芝加哥艺术博物馆");
+  await expect(page.getByRole("searchbox")).toHaveCount(0);
+  await expect(page.locator("#collection-pagination")).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,
   );

@@ -18,6 +18,8 @@ type GlobeControls = {
   enableZoom: boolean;
   minPolarAngle: number;
   maxPolarAngle: number;
+  addEventListener?: (type: "change", listener: () => void) => void;
+  removeEventListener?: (type: "change", listener: () => void) => void;
 };
 
 type GlobeInstance = {
@@ -187,13 +189,31 @@ const museums: MuseumNode[] = [
   },
 ];
 
-const featuredMuseumCamera = {
+const homepageMuseumCamera = {
   // The homepage only reveals the upper rim of a much larger globe. Centering
   // Chicago in the full canvas would place it far below the viewport, so the
   // camera intentionally looks south of the museum and projects Chicago onto
   // the middle of the visible cap.
   lat: -3,
   lng: -86.5,
+  altitude: 1.72,
+} as const;
+
+const landingMuseumCamera = {
+  // The museum section shows the upper portion of a large fixed globe. Aim
+  // slightly south of Chicago so its marker lands in the optical center of
+  // that visible crop instead of near the top edge.
+  lat: 16,
+  lng: -86.5,
+  altitude: 1.72,
+} as const;
+
+const detailMuseumCamera = {
+  // On the dedicated museum page the whole sphere is visible, so the selected
+  // institution can sit near the optical center rather than compensating for
+  // the homepage's cropped globe.
+  lat: 30,
+  lng: -91,
   altitude: 1.72,
 } as const;
 
@@ -267,6 +287,10 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
     let disposed = false;
     let globe: GlobeInstance | undefined;
     let observer: ResizeObserver | undefined;
+    let landingFocusObserver: MutationObserver | undefined;
+    let globeControls: GlobeControls | undefined;
+    let scheduleMarkerVisibility: (() => void) | undefined;
+    let markerVisibilityFrame = 0;
     const focusTimers: number[] = [];
 
     void getTwoToneTexture()
@@ -289,6 +313,7 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
             const marker = document.createElement("button");
             marker.type = "button";
             marker.className = `globe-marker ${node.status}${node.id === "artic" ? " selected" : ""}`;
+            marker.dataset.museumId = node.id;
             marker.title = node.name;
             marker.innerHTML = `<span class="globe-marker-callout"><span class="globe-marker-dot" aria-hidden="true"></span><span class="globe-marker-line" aria-hidden="true"></span><span class="globe-marker-label">${node.name}<small>${node.officialName}</small></span></span>`;
             marker.addEventListener("pointerdown", (event) => event.stopPropagation());
@@ -302,14 +327,37 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
             });
             return marker;
           });
-        const targetCamera = {
-          ...featuredMuseumCamera,
-          altitude: compact ? 1.58 : featuredMuseumCamera.altitude,
-        };
-        globe.pointOfView(targetCamera, 0);
+        const sharedGlobeHost = root?.closest(".shared-globe");
+        const sharedHomepageGlobe = Boolean(sharedGlobeHost);
+        const camera = sharedHomepageGlobe
+          ? sharedGlobeHost?.classList.contains("home-globe-focus")
+            ? homepageMuseumCamera
+            : landingMuseumCamera
+          : detailMuseumCamera;
+        globe.pointOfView(
+          {
+            ...camera,
+            altitude: compact ? 1.58 : camera.altitude,
+          },
+          0,
+        );
 
-        const sharedHomepageGlobe = Boolean(root?.closest(".shared-globe"));
         if (sharedHomepageGlobe) {
+          let homepageFocused = sharedGlobeHost?.classList.contains("home-globe-focus");
+          landingFocusObserver = new MutationObserver(() => {
+            const nextHomepageFocused = sharedGlobeHost?.classList.contains("home-globe-focus");
+            if (nextHomepageFocused === homepageFocused) return;
+            homepageFocused = nextHomepageFocused;
+            const nextCamera = nextHomepageFocused ? homepageMuseumCamera : landingMuseumCamera;
+            globe?.pointOfView(
+              nextCamera,
+              window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 900,
+            );
+          });
+          landingFocusObserver.observe(sharedGlobeHost as Element, {
+            attributes: true,
+            attributeFilter: ["class"],
+          });
           focusTimers.push(
             window.setTimeout(() => root?.classList.add("is-camera-calibrated"), 1050),
           );
@@ -326,11 +374,55 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
           .setPixelRatio(Math.min(3.25, Math.max(window.devicePixelRatio || 1, sharedGlobeScale)));
         globeRef.current = globe;
         const controls = globe.controls();
+        globeControls = controls;
         controls.autoRotate = false;
         controls.enableZoom = false;
         controls.enablePan = false;
         controls.minPolarAngle = 0.35;
         controls.maxPolarAngle = Math.PI - 0.35;
+
+        if (sharedGlobeHost) {
+          const updateMarkerVisibility = () => {
+            markerVisibilityFrame = 0;
+            const bounds = root?.getBoundingClientRect();
+            if (!bounds) return;
+            const homepageFocused = sharedGlobeHost.classList.contains("home-globe-focus");
+            const visibleRadius = Math.min(bounds.width, bounds.height) * 0.418;
+            const centerX = bounds.left + bounds.width / 2;
+            const centerY = bounds.top + bounds.height / 2;
+            host.querySelectorAll<HTMLElement>(".globe-marker").forEach((marker) => {
+              if (homepageFocused) {
+                marker.style.removeProperty("visibility");
+                marker.style.removeProperty("pointer-events");
+                return;
+              }
+              const dot = marker.querySelector<HTMLElement>(".globe-marker-dot");
+              const dotBounds = dot?.getBoundingClientRect();
+              if (!dotBounds) return;
+              const dotX = dotBounds.left + dotBounds.width / 2;
+              const dotY = dotBounds.top + dotBounds.height / 2;
+              const insideGlobe =
+                Math.hypot(dotX - centerX, dotY - centerY) <= visibleRadius &&
+                dotX >= 0 &&
+                dotX <= window.innerWidth &&
+                dotY >= 0 &&
+                dotY <= window.innerHeight;
+              marker.style.visibility = insideGlobe ? "visible" : "hidden";
+              marker.style.pointerEvents = insideGlobe ? "auto" : "none";
+            });
+          };
+          scheduleMarkerVisibility = () => {
+            if (markerVisibilityFrame) return;
+            markerVisibilityFrame = window.requestAnimationFrame(updateMarkerVisibility);
+          };
+          controls.addEventListener?.("change", scheduleMarkerVisibility);
+          root?.addEventListener("pointermove", scheduleMarkerVisibility, { passive: true });
+          window.addEventListener("resize", scheduleMarkerVisibility);
+          focusTimers.push(
+            window.setTimeout(scheduleMarkerVisibility, 80),
+            window.setTimeout(scheduleMarkerVisibility, 1100),
+          );
+        }
         root?.classList.add("is-webgl-ready");
 
         observer = new ResizeObserver(([entry]) => {
@@ -345,6 +437,13 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
       disposed = true;
       focusTimers.forEach((timer) => window.clearTimeout(timer));
       observer?.disconnect();
+      landingFocusObserver?.disconnect();
+      if (markerVisibilityFrame) window.cancelAnimationFrame(markerVisibilityFrame);
+      if (scheduleMarkerVisibility) {
+        globeControls?.removeEventListener?.("change", scheduleMarkerVisibility);
+        root?.removeEventListener("pointermove", scheduleMarkerVisibility);
+        window.removeEventListener("resize", scheduleMarkerVisibility);
+      }
       globe?._destructor?.();
       globeRef.current = null;
       host.replaceChildren();

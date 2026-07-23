@@ -1,11 +1,12 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 import { MuseumGlobe } from "@/src/components/museum-globe";
 import { DemoStyles } from "@/src/components/demo-styles";
+import { navigateWithCurtain, signalRouteCurtainReady } from "@/src/components/route-curtain";
 import type { Locale } from "@/src/i18n/locales";
 
 const museumSlug = "art-institute-of-chicago";
@@ -15,6 +16,89 @@ const selfPortrait =
 export function DemoLanding({ locale }: { locale: Locale }) {
   const router = useRouter();
   const zh = locale === "zh";
+  const collectionHref = `/${locale}/museums/${museumSlug}/collection`;
+  const collectionTransitioning = useRef(false);
+
+  const enterCollection = useCallback(() => {
+    if (collectionTransitioning.current) return;
+    collectionTransitioning.current = true;
+
+    navigateWithCurtain({ href: collectionHref });
+  }, [collectionHref]);
+
+  useEffect(() => {
+    router.prefetch(collectionHref);
+
+    let wheelDelta = 0;
+    let wheelReset = 0;
+    const museum = document.querySelector<HTMLElement>("#museum");
+
+    const isMuseumEnd = () => {
+      if (!museum) return false;
+      const rect = museum.getBoundingClientRect();
+      const pageEnd =
+        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3;
+      return rect.top <= 3 && (rect.bottom <= window.innerHeight + 3 || pageEnd);
+    };
+
+    const onWheel = (event: WheelEvent) => {
+      if (event.ctrlKey || event.deltaY <= 1 || !isMuseumEnd()) {
+        if (event.deltaY < 0) wheelDelta = 0;
+        return;
+      }
+
+      event.preventDefault();
+      if (collectionTransitioning.current) return;
+
+      wheelDelta += event.deltaY;
+      window.clearTimeout(wheelReset);
+      wheelReset = window.setTimeout(() => {
+        wheelDelta = 0;
+      }, 160);
+
+      if (wheelDelta < 36) return;
+      wheelDelta = 0;
+      enterCollection();
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.ctrlKey ||
+        event.metaKey ||
+        ["INPUT", "TEXTAREA", "SELECT"].includes(
+          (document.activeElement?.tagName ?? "").toUpperCase(),
+        )
+      ) {
+        return;
+      }
+      if ((event.key === "ArrowDown" || event.key === "PageDown") && isMuseumEnd()) {
+        event.preventDefault();
+        enterCollection();
+      }
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false, capture: true });
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("wheel", onWheel, { capture: true });
+      window.removeEventListener("keydown", onKeyDown);
+      window.clearTimeout(wheelReset);
+      document.documentElement.classList.remove("collection-transitioning");
+    };
+  }, [collectionHref, enterCollection, router]);
+
+  useEffect(() => {
+    signalRouteCurtainReady();
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash !== "#museum") return;
+    const frame = window.requestAnimationFrame(() => {
+      document.querySelector("#museum")?.scrollIntoView({ behavior: "auto", block: "start" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
 
   useEffect(() => {
     const header = document.querySelector<HTMLElement>("#demoSiteHeader");
@@ -114,15 +198,12 @@ export function DemoLanding({ locale }: { locale: Locale }) {
             <span>{zh ? "博物馆" : "Museums"}</span>
             <small>MUSEUMS</small>
           </button>
-          <button onClick={() => router.push(`/${locale}/museums/${museumSlug}/collection`)}>
+          <button onClick={enterCollection}>
             <span>{zh ? "艺术家" : "Artists"}</span>
             <small>ARTISTS</small>
           </button>
         </nav>
-        <button
-          className="search-pill"
-          onClick={() => router.push(`/${locale}/museums/${museumSlug}/collection`)}
-        >
+        <button className="search-pill" onClick={enterCollection}>
           <span>{zh ? "搜索" : "Search"}</span>
           <small>{zh ? "SEARCH" : "搜索"}</small>
           <b aria-hidden="true">↗</b>
@@ -289,6 +370,29 @@ export function DemoLanding({ locale }: { locale: Locale }) {
                   ? "收藏跨越五千年艺术史，以印象派、后印象派及美国现代艺术收藏闻名。"
                   : "A collection spanning five thousand years, celebrated for Impressionist, Post-Impressionist, and modern American art."}
               </p>
+              <dl
+                className="museum-collection-facts"
+                aria-label={zh ? "馆藏概览" : "Collection overview"}
+              >
+                <div>
+                  <dt>5,000+</dt>
+                  <dd>{zh ? "艺术史跨度 / YEARS OF ART" : "YEARS OF ART / 艺术史跨度"}</dd>
+                </div>
+                <div>
+                  <dt>03</dt>
+                  <dd>{zh ? "精选作品 / FEATURED WORKS" : "FEATURED WORKS / 精选作品"}</dd>
+                </div>
+                <div>
+                  <dt>01</dt>
+                  <dd>{zh ? "艺术家 / ARTIST" : "ARTIST / 艺术家"}</dd>
+                </div>
+              </dl>
+              <div className="museum-location-signature" aria-hidden="true">
+                <b>01</b>
+                <span>
+                  41.8796° N · 87.6237° W<small>CHICAGO / UNITED STATES</small>
+                </span>
+              </div>
               <div className="museum-feature">
                 <img
                   src={selfPortrait}
@@ -301,10 +405,7 @@ export function DemoLanding({ locale }: { locale: Locale }) {
                   <em>精选馆藏已上线 · 03 件作品 · 01 位艺术家</em>
                 </div>
               </div>
-              <button
-                className="enter-gallery"
-                onClick={() => router.push(`/${locale}/museums/${museumSlug}/collection`)}
-              >
+              <button className="enter-gallery" onClick={enterCollection}>
                 {zh ? "探索馆藏" : "Explore collection"} <span>↗</span>
               </button>
               <a className="official" href="https://www.artic.edu" target="_blank" rel="noreferrer">

@@ -65,6 +65,8 @@ type Binding = z.infer<typeof sparqlSchema>["results"]["bindings"][number];
 type ImageInfo = z.infer<typeof imageInfoSchema>;
 
 export type ArticCommonsImage = {
+  titleEn?: string;
+  titleZh?: string;
   src: string;
   src2x?: string;
   originalUrl: string;
@@ -287,7 +289,7 @@ export async function getCommonsImagesForArticIds(articIds: string[]) {
   if (!safeIds.length) return new Map<string, ArticCommonsImage>();
   const values = safeIds.map((id) => `"${id}"`).join(" ");
   const bindings = await runSparql(`
-    SELECT DISTINCT ?articId ?image WHERE {
+    SELECT DISTINCT ?artwork ?articId ?image WHERE {
       VALUES ?articId { ${values} }
       ?artwork wdt:P4610 ?articId; wdt:P18 ?image.
     }
@@ -296,12 +298,16 @@ export async function getCommonsImagesForArticIds(articIds: string[]) {
     .map((binding) => {
       const articId = binding.articId?.value;
       const imageUrl = binding.image?.value;
-      return articId && imageUrl ? { articId, fileTitle: commonsFileTitle(imageUrl) } : undefined;
+      const artworkId = entityId(binding.artwork?.value);
+      return articId && artworkId && imageUrl
+        ? { articId, artworkId, fileTitle: commonsFileTitle(imageUrl) }
+        : undefined;
     })
     .filter((candidate) => candidate !== undefined);
-  const images = await getCommonsImages(
-    Array.from(new Set(candidates.map((candidate) => candidate.fileTitle))),
-  );
+  const [images, labels] = await Promise.all([
+    getCommonsImages(Array.from(new Set(candidates.map((candidate) => candidate.fileTitle)))),
+    getLabels(Array.from(new Set(candidates.map((candidate) => candidate.artworkId))), "zh"),
+  ]);
   const result = new Map<string, ArticCommonsImage>();
   for (const candidate of candidates) {
     if (result.has(candidate.articId)) continue;
@@ -309,7 +315,10 @@ export async function getCommonsImagesForArticIds(articIds: string[]) {
     if (!info || !isPublicDomainImage(info) || !info.mime.startsWith("image/")) continue;
     const metadata = info.extmetadata ?? {};
     const cc0 = /cc0/i.test(metadata.LicenseShortName?.value ?? "");
+    const entityLabels = labels[candidate.artworkId]?.labels;
     result.set(candidate.articId, {
+      titleEn: entityLabels?.en?.value,
+      titleZh: entityLabels?.zh?.value,
       src: info.thumburl,
       src2x: info.responsiveUrls?.["2"],
       originalUrl: info.url,

@@ -102,6 +102,7 @@ export const artworkSchema = z
     source: sourceSchema,
     display: z.object({
       title: z.string().min(1),
+      localizedTitles: z.record(z.string(), z.string().min(1)).default({}),
       altTitles: z.array(z.string().min(1)).default([]),
       artistDisplay: z.string().min(1),
       dateDisplay: z.string().min(1).optional(),

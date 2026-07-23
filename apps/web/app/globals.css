@@ -270,7 +270,15 @@ select {
 }
 
 .search-pill span {
-  margin-left: 7px;
+  margin-left: 0;
+}
+
+.search-pill small {
+  display: none;
+}
+
+.search-pill b {
+  margin-left: 8px;
 }
 
 .page {
@@ -1439,59 +1447,111 @@ body:has(.demo-faithful) .shell.site-header {
 .museum-page {
   position: relative;
   min-height: calc(100svh - 89px);
-  overflow: hidden;
-  padding: 26px 3vw 40px;
+  overflow: clip;
+  padding: 24px clamp(28px, 3vw, 54px) 44px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 35.8%,
+      rgba(13, 14, 13, 0.1) 35.8% 35.86%,
+      transparent 35.86%
+    ),
+    var(--paper);
+}
+
+.museum-masthead {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: clamp(18px, 2.2vh, 28px);
 }
 
 .museum-library-title {
-  position: relative;
-  z-index: 3;
   margin: 0;
   font:
-    400 clamp(4.5rem, 8vw, 8rem)/1 "Otomanopee One",
+    400 clamp(4.2rem, 7.35vw, 7.4rem)/0.92 "Otomanopee One",
     serif;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.065em;
+}
+
+.museum-page-index {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  gap: 3px 8px;
+  margin: 5px 0 0;
+  color: var(--muted);
+  font: 500 0.68rem/1.2 var(--body);
+  letter-spacing: 0.09em;
+  text-align: right;
+}
+
+.museum-page-index span {
+  grid-column: 1 / -1;
+}
+
+.museum-page-index b {
+  color: var(--ink);
+  font: 400 1.55rem/1 var(--display);
+  letter-spacing: -0.03em;
+}
+
+.museum-page-index small {
+  font-size: 0.68rem;
 }
 
 .museum-summary {
   position: relative;
-  z-index: 4;
-  width: min(32vw, 430px);
-  margin-top: clamp(36px, 6vh, 72px);
+  z-index: 6;
+  width: min(31.5vw, 454px);
+  margin-top: clamp(30px, 4.5vh, 48px);
 }
 
 .museum-summary .eyebrow {
   color: var(--muted);
-  font-weight: 400;
-  letter-spacing: 0.07em;
+  font: 500 0.7rem/1.2 var(--body);
+  letter-spacing: 0.1em;
+}
+
+.museum-name-lockup {
+  margin-top: clamp(18px, 2.4vh, 26px);
+  border-top: 1px solid var(--ink);
+  padding-top: 15px;
 }
 
 .museum-summary h1 {
-  margin: 24px 0 4px;
+  max-width: 12em;
+  margin: 0 0 4px;
   font:
-    500 clamp(2rem, 3vw, 3rem)/1.1 "Noto Serif SC",
+    500 clamp(2.15rem, 3vw, 3rem)/1.08 "Noto Serif SC",
     serif;
+  letter-spacing: -0.045em;
 }
 
 .museum-official-name {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   font:
-    500 1.45rem/1.3 "Noto Serif SC",
+    500 clamp(1.15rem, 1.55vw, 1.42rem)/1.3 var(--display),
     serif;
+  letter-spacing: -0.015em;
 }
 
-.museum-summary > a:not(.museum-enter) {
+.museum-name-lockup > a {
   color: #173c67;
-  font-size: 0.875rem;
+  font: 500 0.72rem/1.3 var(--body);
+  letter-spacing: 0.045em;
   text-decoration: none;
 }
 
 .museum-description {
-  margin: 20px 0;
+  margin: 18px 0 20px;
   border-bottom: 1px solid var(--line);
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   font:
-    400 1rem/1.7 "Noto Serif SC",
+    400 0.94rem/1.68 "Noto Serif SC",
     serif;
 }
 
@@ -1500,26 +1560,41 @@ body:has(.demo-faithful) .shell.site-header {
 }
 
 .museum-description-secondary {
-  margin-top: 10px !important;
+  margin-top: 8px !important;
   color: var(--muted);
   font:
-    400 0.78rem/1.55 var(--font-body),
+    400 0.72rem/1.5 var(--font-body),
     sans-serif !important;
 }
 
 .museum-feature {
-  display: flex;
+  display: grid;
+  grid-template-columns: 104px 1fr;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .museum-feature figure {
   position: relative;
-  width: 116px;
-  height: 150px;
-  flex: none;
+  width: 104px;
+  height: 132px;
   margin: 0;
   background: var(--paper-muted);
+}
+
+.museum-feature figure > span {
+  position: absolute;
+  z-index: 2;
+  top: 7px;
+  left: 7px;
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(13, 14, 13, 0.86);
+  color: white;
+  font: 500 0.63rem/1 var(--body);
 }
 
 .museum-feature img {
@@ -1530,7 +1605,7 @@ body:has(.demo-faithful) .shell.site-header {
 
 .museum-feature div {
   display: grid;
-  gap: 5px;
+  gap: 4px;
 }
 
 .museum-feature small,
@@ -1541,7 +1616,7 @@ body:has(.demo-faithful) .shell.site-header {
 
 .museum-feature strong {
   font:
-    500 1.35rem/1.2 "Noto Serif SC",
+    500 1.22rem/1.2 "Noto Serif SC",
     serif;
 }
 
@@ -1552,18 +1627,28 @@ body:has(.demo-faithful) .shell.site-header {
 }
 
 .museum-feature em {
-  margin-top: 16px;
+  margin-top: 11px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.museum-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  margin-top: 21px;
 }
 
 .museum-enter {
   display: flex;
-  width: min(100%, 280px);
-  min-height: 54px;
+  width: 100%;
+  min-height: 52px;
   align-items: center;
-  justify-content: center;
-  margin-top: 22px;
+  justify-content: space-between;
   background: var(--ink);
   color: white;
+  padding: 0 20px;
   font-size: 0.78rem;
   text-decoration: none;
 }
@@ -1578,24 +1663,45 @@ body:has(.demo-faithful) .shell.site-header {
 }
 
 .museum-official {
-  display: block;
   width: max-content;
-  margin-top: 20px;
+  margin: 0;
   color: var(--ink) !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.035em;
 }
 
 .museum-globe-stage {
   position: absolute;
-  top: 15%;
-  right: -7vw;
-  width: 68vw;
-  height: 68vw;
+  z-index: 2;
+  top: clamp(150px, 16vh, 182px);
+  right: max(-9vw, -150px);
+  width: min(69vw, 1050px);
+  height: min(69vw, 1050px);
+}
+
+.museum-globe-kicker {
+  position: absolute;
+  z-index: 5;
+  top: 1.5%;
+  left: 17%;
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  color: var(--ink);
+  font: 500 0.66rem/1.35 var(--body);
+  letter-spacing: 0.065em;
+}
+
+.museum-globe-kicker span {
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 0.62rem;
 }
 
 .museum-globe {
   position: relative;
-  width: 66vw;
-  height: 66vw;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   border-radius: 50%;
   background: radial-gradient(circle at 34% 27%, #56584f, #252a28 44%, #101719 76%);
@@ -1861,8 +1967,8 @@ body:has(.demo-faithful) .shell.site-header {
 .museum-region-stats {
   position: absolute;
   z-index: 4;
-  top: -4%;
-  right: 17%;
+  top: 1.5%;
+  right: 15%;
   display: grid;
   gap: 8px;
   font-size: 0.75rem;
@@ -1876,8 +1982,8 @@ body:has(.demo-faithful) .shell.site-header {
 .museum-globe-legend {
   position: absolute;
   z-index: 4;
-  top: 72%;
-  right: 12%;
+  top: 73%;
+  right: 13%;
   display: flex;
   gap: 22px;
   color: #f3efe7;
@@ -1887,8 +1993,8 @@ body:has(.demo-faithful) .shell.site-header {
 .museum-drag-cue {
   position: absolute;
   z-index: 4;
-  top: 72%;
-  left: 4%;
+  top: 73%;
+  left: 8%;
   margin: 0;
   color: #f3efe7;
   font-size: 0.75rem;
@@ -1922,10 +2028,18 @@ body:has(.demo-faithful) .shell.site-header {
     width: 40vw;
   }
   .museum-summary {
-    width: 40vw;
+    width: 42vw;
   }
   .museum-globe-stage {
-    right: -22vw;
+    right: -24vw;
+    width: 76vw;
+    height: 76vw;
+  }
+  .museum-globe-kicker {
+    left: 12%;
+  }
+  .museum-region-stats {
+    right: 11%;
   }
 }
 
@@ -1999,48 +2113,111 @@ body:has(.demo-faithful) .shell.site-header {
     font-size: 17vw;
   }
   .museum-page {
-    min-height: 1160px;
-    padding: 22px 18px 48px;
+    min-height: 0;
+    padding: 18px 18px 0;
+    background: var(--paper);
+  }
+  .museum-masthead {
+    align-items: flex-end;
+    padding-bottom: 18px;
   }
   .museum-library-title {
-    max-width: 330px;
-    font-size: clamp(3rem, 13.5vw, 3.7rem);
-    line-height: 0.96;
+    max-width: 258px;
+    font-size: clamp(2.85rem, 13vw, 3.55rem);
+    line-height: 0.9;
+  }
+  .museum-page-index {
+    gap: 2px 5px;
+    margin-bottom: 3px;
+    font-size: 0.55rem;
+  }
+  .museum-page-index span {
+    display: none;
+  }
+  .museum-page-index b {
+    font-size: 1.2rem;
   }
   .museum-summary {
     width: 100%;
-    margin-top: 56px;
+    margin-top: 42px;
   }
   .museum-globe-stage {
-    top: 730px;
-    right: -46vw;
-    width: 145vw;
-    height: 145vw;
+    position: relative;
+    top: auto;
+    right: auto;
+    left: -18vw;
+    width: 136vw;
+    height: 136vw;
+    margin-top: 32px;
   }
   .museum-globe {
-    width: 145vw;
-    height: 145vw;
+    width: 100%;
+    height: 100%;
   }
   .museum-region-stats,
-  .museum-globe-legend,
-  .museum-drag-cue {
+  .museum-globe-legend {
     display: none;
   }
+  .museum-globe-kicker {
+    top: 10%;
+    left: 23%;
+    color: #f3efe7;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  }
+  .museum-globe-kicker span {
+    color: rgba(243, 239, 231, 0.7);
+  }
+  .museum-drag-cue {
+    top: 83%;
+    left: 23%;
+    display: block;
+    max-width: 230px;
+    font-size: 0.64rem;
+    line-height: 1.5;
+  }
+  .museum-globe-stage .globe-marker.selected .globe-marker-label {
+    right: 20px;
+    left: auto;
+    align-items: flex-end;
+    text-align: right;
+  }
+  .museum-name-lockup {
+    margin-top: 18px;
+    padding-top: 13px;
+  }
   .museum-summary h1 {
-    margin-top: 20px;
-    font-size: clamp(2rem, 9vw, 2.35rem);
-    line-height: 1.12;
+    margin-top: 0;
+    font-size: clamp(2.05rem, 9vw, 2.4rem);
+    line-height: 1.08;
   }
   .museum-official-name {
     font-size: 1.2rem;
   }
   .museum-description {
-    margin: 18px 0;
-    font-size: 0.95rem;
-    line-height: 1.75;
+    margin: 20px 0;
+    padding-bottom: 20px;
+    font-size: 0.94rem;
+    line-height: 1.72;
+  }
+  .museum-feature {
+    grid-template-columns: 116px 1fr;
+    gap: 18px;
+  }
+  .museum-feature figure {
+    width: 116px;
+    height: 150px;
+  }
+  .museum-actions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 22px;
   }
   .museum-enter {
     width: 100%;
+    min-height: 54px;
+  }
+  .museum-official {
+    font-size: 0.72rem !important;
   }
 }
 
@@ -2330,6 +2507,117 @@ body {
 
 ::view-transition-new(.page-enter) {
   animation: 420ms 120ms var(--ease-enter) both page-fade-in;
+}
+
+.route-transition-curtain {
+  position: fixed;
+  z-index: 240;
+  inset: 0;
+  visibility: hidden;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+html.collection-transitioning,
+html.collection-transitioning body {
+  overflow: hidden;
+}
+
+html.collection-transitioning .canvium-loading-screen {
+  display: none;
+}
+
+html:has(.route-transition-curtain.covering) .canvium-loading-screen,
+html:has(.route-transition-curtain.revealing) .canvium-loading-screen {
+  display: none;
+}
+
+.route-transition-curtain.covering,
+.route-transition-curtain.revealing {
+  visibility: visible;
+}
+
+.route-transition-curtain .curtain-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 122vh;
+  fill: #080908;
+  transform: translateY(100vh);
+  will-change: transform;
+}
+
+.route-transition-curtain span {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  color: #f2eee6;
+  font:
+    400 9vw/1 "Otomanopee One",
+    var(--font-display-zh),
+    sans-serif;
+  letter-spacing: -0.04em;
+  opacity: 0;
+  transform: translate(-50%, -30%);
+}
+
+.route-transition-curtain.covering .curtain-shape {
+  animation: route-curtain-cover 660ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.route-transition-curtain.revealing .curtain-shape {
+  animation: route-curtain-reveal 600ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.route-transition-curtain.covering span {
+  animation: route-curtain-title-in 660ms var(--ease-enter) both;
+}
+
+.route-transition-curtain.revealing span {
+  animation: route-curtain-title-out 600ms var(--ease-enter) both;
+}
+
+@keyframes route-curtain-cover {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-22vh);
+  }
+}
+
+@keyframes route-curtain-reveal {
+  from {
+    transform: translateY(-22vh);
+  }
+  to {
+    transform: translateY(-145vh);
+  }
+}
+
+@keyframes route-curtain-title-in {
+  0%,
+  45% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes route-curtain-title-out {
+  0%,
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -90px);
+  }
 }
 
 ::view-transition-group(.artwork-morph) {

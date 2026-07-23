@@ -3,6 +3,7 @@ import { Suspense, ViewTransition } from "react";
 
 import { CanviumIntro } from "@/src/components/canvium-intro";
 import { LocaleSwitch } from "@/src/components/locale-switch";
+import { RouteCurtain } from "@/src/components/route-curtain";
 import { ShowcaseMotion } from "@/src/components/showcase-motion";
 import type { Locale } from "@/src/i18n/locales";
 
@@ -13,6 +14,7 @@ export function SiteShell({ children, locale }: { children: React.ReactNode; loc
     <div lang={locale}>
       <CanviumIntro />
       <ShowcaseMotion />
+      <RouteCurtain />
       <header className="site-header" id="siteHeader" style={{ viewTransitionName: "site-header" }}>
         <Link className="wordmark" href={`/${locale}`}>
           CANVIUM

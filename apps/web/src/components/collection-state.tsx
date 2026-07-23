@@ -47,7 +47,7 @@ export function ArtworkCardLink({
           STORAGE_KEY,
           JSON.stringify({
             artworkKey,
-            collectionUrl: `${pathname}${query ? `?${query}` : ""}`,
+            collectionUrl: `${pathname}${query ? `?${query}` : ""}${window.location.hash}`,
             scrollY: window.scrollY,
           } satisfies ReturnState),
         );
@@ -66,30 +66,79 @@ export function CollectionStateRestorer() {
   useEffect(() => {
     const state = readState();
     const query = searchParams.toString();
-    if (!state || state.collectionUrl !== `${pathname}${query ? `?${query}` : ""}`) return;
-    const card = document.getElementById(`card-${state.artworkKey}`);
-    requestAnimationFrame(() => {
+    if (!state) return;
+    const savedUrl = new URL(state.collectionUrl, window.location.origin);
+    const currentUrl = `${pathname}${query ? `?${query}` : ""}`;
+    if (`${savedUrl.pathname}${savedUrl.search}` !== currentUrl) return;
+    const restore = () => {
+      const card = document.getElementById(`card-${state.artworkKey}`);
       window.scrollTo({ top: state.scrollY, behavior: "auto" });
       card?.focus({ preventScroll: true });
+      return Boolean(card);
+    };
+    const frame = requestAnimationFrame(restore);
+    const timers = [80, 280, 600].map((delay) => window.setTimeout(restore, delay));
+    const observer = new MutationObserver(() => {
+      if (restore()) observer.disconnect();
     });
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      timers.forEach((timer) => window.clearTimeout(timer));
+      observer.disconnect();
+    };
   }, [pathname, searchParams]);
 
   return null;
 }
 
-export function CollectionBackLink({ defaultHref, label }: { defaultHref: string; label: string }) {
+export function CollectionBackLink({
+  children,
+  className = "detail-back",
+  defaultHref,
+  label,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+  defaultHref: string;
+  label: string;
+}) {
   const router = useRouter();
   return (
     <button
       aria-label={label}
-      className="detail-back"
+      className={className}
       onClick={() => {
         const state = readState();
-        router.push(state?.collectionUrl ?? defaultHref, { scroll: false });
+        const destination = state?.collectionUrl ?? defaultHref;
+        router.push(destination, { scroll: false });
+        if (!state) return;
+        const savedPath = new URL(state.collectionUrl, window.location.origin).pathname;
+        let attempts = 0;
+        const restoreAfterNavigation = () => {
+          attempts += 1;
+          if (window.location.pathname !== savedPath) {
+            if (attempts < 40) window.setTimeout(restoreAfterNavigation, 50);
+            return;
+          }
+          const card = document.getElementById(`card-${state.artworkKey}`);
+          if (!card) {
+            if (attempts < 40) window.setTimeout(restoreAfterNavigation, 50);
+            return;
+          }
+          const restore = () => {
+            window.scrollTo({ top: state.scrollY, behavior: "auto" });
+            card.focus({ preventScroll: true });
+          };
+          restore();
+          window.setTimeout(restore, 160);
+          window.setTimeout(restore, 480);
+        };
+        window.setTimeout(restoreAfterNavigation, 0);
       }}
       type="button"
     >
-      ×
+      {children ?? "×"}
     </button>
   );
 }
