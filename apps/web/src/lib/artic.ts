@@ -111,8 +111,13 @@ type CacheEntry = {
   freshUntil: number;
   staleUntil: number;
 };
+type CollectionPageCacheEntry = {
+  promise: Promise<CatalogPage>;
+  freshUntil: number;
+};
 
 const responseCache = new Map<string, CacheEntry>();
+const collectionPageCache = new Map<string, CollectionPageCacheEntry>();
 
 class ArticRequestError extends Error {
   constructor(public status: number) {
@@ -418,7 +423,7 @@ async function attachCommonsImages(items: Artwork[]) {
   });
 }
 
-export async function getArticCollection(query: CollectionQuery): Promise<CatalogPage> {
+async function loadArticCollection(query: CollectionQuery): Promise<CatalogPage> {
   const response = await fetchArtic(buildArticCollectionUrl(query));
   const { payload } = response;
   const data = Array.isArray(payload.data) ? payload.data : [payload.data];
@@ -458,6 +463,24 @@ export async function getArticCollection(query: CollectionQuery): Promise<Catalo
     snapshotVersion: `artic-live-page-${query.page}`,
     dataStatus: { state: response.state, fetchedAt: response.fetchedAt },
   });
+}
+
+export function getArticCollection(query: CollectionQuery): Promise<CatalogPage> {
+  const key = buildArticCollectionUrl(query);
+  const cached = collectionPageCache.get(key);
+  if (cached && Date.now() < cached.freshUntil) return cached.promise;
+
+  const promise = loadArticCollection(query).catch((error) => {
+    if (collectionPageCache.get(key)?.promise === promise) {
+      collectionPageCache.delete(key);
+    }
+    throw error;
+  });
+  collectionPageCache.set(key, { promise, freshUntil: Date.now() + 300_000 });
+  if (collectionPageCache.size > 128) {
+    collectionPageCache.delete(collectionPageCache.keys().next().value!);
+  }
+  return promise;
 }
 
 export async function getArticArtwork(sourceId: string): Promise<Artwork | null> {

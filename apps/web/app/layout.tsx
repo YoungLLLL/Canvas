@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter, Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import { Cormorant_Garamond, Inter, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
 
 const displayFont = Cormorant_Garamond({
@@ -23,13 +23,6 @@ const chineseBodyFont = Noto_Sans_SC({
   display: "swap",
 });
 
-const chineseDisplayFont = Noto_Serif_SC({
-  subsets: ["latin"],
-  weight: ["500"],
-  variable: "--font-display-zh",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://canvium.gallery"),
   title: {
@@ -43,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      className={`${displayFont.variable} ${latinBodyFont.variable} ${chineseBodyFont.variable} ${chineseDisplayFont.variable}`}
+      className={`${displayFont.variable} ${latinBodyFont.variable} ${chineseBodyFont.variable}`}
       lang="en"
     >
       <head>

@@ -31,18 +31,39 @@ export function DemoLanding({ locale }: { locale: Locale }) {
 
     let wheelDelta = 0;
     let wheelReset = 0;
+    let museumArmTimer = 0;
+    let museumArmed = false;
     const museum = document.querySelector<HTMLElement>("#museum");
 
-    const isMuseumEnd = () => {
+    const isMuseumCurrent = () => {
       if (!museum) return false;
       const rect = museum.getBoundingClientRect();
       const pageEnd =
         window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3;
-      return rect.top <= 3 && (rect.bottom <= window.innerHeight + 3 || pageEnd);
+      return (
+        pageEnd ||
+        (rect.top <= window.innerHeight * 0.16 && rect.bottom >= window.innerHeight * 0.84)
+      );
+    };
+
+    const updateMuseumArm = () => {
+      if (!isMuseumCurrent()) {
+        museumArmed = false;
+        window.clearTimeout(museumArmTimer);
+        museumArmTimer = 0;
+        wheelDelta = 0;
+        return;
+      }
+      if (museumArmed || museumArmTimer) return;
+      museumArmTimer = window.setTimeout(() => {
+        museumArmed = true;
+        museumArmTimer = 0;
+      }, 180);
     };
 
     const onWheel = (event: WheelEvent) => {
-      if (event.ctrlKey || event.deltaY <= 1 || !isMuseumEnd()) {
+      updateMuseumArm();
+      if (event.ctrlKey || event.deltaY <= 0 || !museumArmed) {
         if (event.deltaY < 0) wheelDelta = 0;
         return;
       }
@@ -56,7 +77,7 @@ export function DemoLanding({ locale }: { locale: Locale }) {
         wheelDelta = 0;
       }, 160);
 
-      if (wheelDelta < 36) return;
+      if (wheelDelta < 8) return;
       wheelDelta = 0;
       enterCollection();
     };
@@ -72,18 +93,22 @@ export function DemoLanding({ locale }: { locale: Locale }) {
       ) {
         return;
       }
-      if ((event.key === "ArrowDown" || event.key === "PageDown") && isMuseumEnd()) {
+      if ((event.key === "ArrowDown" || event.key === "PageDown") && isMuseumCurrent()) {
         event.preventDefault();
         enterCollection();
       }
     };
 
     window.addEventListener("wheel", onWheel, { passive: false, capture: true });
+    window.addEventListener("scroll", updateMuseumArm, { passive: true });
     window.addEventListener("keydown", onKeyDown);
+    updateMuseumArm();
     return () => {
       window.removeEventListener("wheel", onWheel, { capture: true });
+      window.removeEventListener("scroll", updateMuseumArm);
       window.removeEventListener("keydown", onKeyDown);
       window.clearTimeout(wheelReset);
+      window.clearTimeout(museumArmTimer);
       document.documentElement.classList.remove("collection-transitioning");
     };
   }, [collectionHref, enterCollection, router]);

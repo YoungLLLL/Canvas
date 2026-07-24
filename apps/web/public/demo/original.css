@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+SC:wght@300;400;500&family=Otomanopee+One&display=swap');
 
-:root{--paper:#f3f0ea;--ink:#0d0e0d;--muted:#77746f;--line:rgba(13,14,13,.18);--stone:#d9d4cb;--title:'Otomanopee One','Noto Sans SC','PingFang SC',sans-serif;--serif:'Cormorant Garamond','Songti SC','SimSun',serif;--sans:'Noto Sans SC','PingFang SC',sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+:root{--paper:#f3f0ea;--ink:#0d0e0d;--muted:#77746f;--line:rgba(13,14,13,.18);--stone:#d9d4cb;--title:'Otomanopee One','Noto Sans SC',sans-serif;--serif:'Cormorant Garamond','Noto Sans SC',sans-serif;--sans:'Noto Sans SC',sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--paper);scroll-snap-type:y mandatory}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden;overscroll-behavior-y:none}button,textarea{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,textarea:focus-visible{outline:2px solid #9d7240;outline-offset:4px}.view{display:none}.view.active{display:block;animation:viewIn .7s var(--ease)}.home-hero,.museum-section,.gallery-view,.artwork-view{scroll-snap-align:start;scroll-snap-stop:always}
 
 /* Unified display face for semantic headings and title-like labels. */

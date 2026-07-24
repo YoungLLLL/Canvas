@@ -20,6 +20,28 @@ test("moves through the stable home and museum routes", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Art Institute");
 });
 
+test("opens the collection curtain after moving repeatedly between the first two screens", async ({
+  page,
+}) => {
+  await page.goto("/en", { waitUntil: "domcontentloaded" });
+  await page.locator("#museum").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(50);
+  await page.locator("#home").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(50);
+  await page.locator("#museum").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(300);
+
+  await page.mouse.wheel(0, 12);
+
+  const curtain = page.locator(".route-transition-curtain");
+  await expect(curtain).toHaveClass(/covering/);
+  await expect(curtain.getByRole("progressbar")).toBeVisible();
+  await expect
+    .poll(() => curtain.getByRole("progressbar").getAttribute("aria-valuenow"))
+    .not.toBe("0");
+  await expect(curtain.getByRole("progressbar")).toContainText(/%/);
+});
+
 test("keeps the approved Demo composition usable on a mobile screen", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/zh");
@@ -50,7 +72,7 @@ test("loads the editorial fonts and keeps the Demo motion interactive", async ({
     .locator(".recommendation-card h2")
     .evaluate((element) => getComputedStyle(element).fontFamily);
   expect(displayFont).toMatch(/Otomanopee/i);
-  expect(chineseFont).toMatch(/Otomanopee|Noto Serif SC/i);
+  expect(chineseFont).toMatch(/Noto Sans SC/i);
 
   await page.waitForTimeout(1200);
   const unreadableText = await page.evaluate(() =>
@@ -127,7 +149,7 @@ test("shows bilingual museum and artwork titles with the agreed editorial fonts"
   await expect(firstCard.locator("h4")).toBeVisible();
   expect(
     await firstCard.locator("h3").evaluate((node) => getComputedStyle(node).fontFamily),
-  ).toMatch(/Noto Serif SC/i);
+  ).toMatch(/Noto Sans SC/i);
   expect(
     await firstCard.locator("h4").evaluate((node) => getComputedStyle(node).fontFamily),
   ).toMatch(/Otomanopee One/i);
