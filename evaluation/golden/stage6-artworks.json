@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "stage6-job/1.0.0",
+  "jobId": "stage6-artic-golden-v1",
+  "baseUrl": "http://127.0.0.1:3100",
+  "selectionNotes": [
+    "Twenty-four verified ARTIC ids spanning painting, print, textile, image-displayable, and metadata-only paths.",
+    "The full set is a quality fixture, not an instruction to publish every generated candidate.",
+    "Run a small limit first whenever the provider, model, prompt, or schema version changes."
+  ],
+  "items": [
+    { "sourceId": "28560", "locales": ["en", "zh"] },
+    { "sourceId": "27992", "locales": ["en", "zh"] },
+    { "sourceId": "16568", "locales": ["en", "zh"] },
+    { "sourceId": "111628", "locales": ["en", "zh"] },
+    { "sourceId": "6565", "locales": ["en", "zh"] },
+    { "sourceId": "14572", "locales": ["en", "zh"] },
+    { "sourceId": "14620", "locales": ["en", "zh"] },
+    { "sourceId": "64818", "locales": ["en", "zh"] },
+    { "sourceId": "81539", "locales": ["en", "zh"] },
+    { "sourceId": "11723", "locales": ["en", "zh"] },
+    { "sourceId": "27310", "locales": ["en", "zh"] },
+    { "sourceId": "25781", "locales": ["en", "zh"] },
+    { "sourceId": "65940", "locales": ["en", "zh"] },
+    { "sourceId": "90207", "locales": ["en", "zh"] },
+    { "sourceId": "109819", "locales": ["en", "zh"] },
+    { "sourceId": "80607", "locales": ["en", "zh"] },
+    { "sourceId": "16487", "locales": ["en", "zh"] },
+    { "sourceId": "9010", "locales": ["en", "zh"] },
+    { "sourceId": "27993", "locales": ["en", "zh"] },
+    { "sourceId": "61603", "locales": ["en", "zh"] },
+    { "sourceId": "86385", "locales": ["en", "zh"] },
+    { "sourceId": "229393", "locales": ["en", "zh"] },
+    { "sourceId": "24645", "locales": ["en", "zh"] },
+    { "sourceId": "59948", "locales": ["en", "zh"] }
+  ]
+}

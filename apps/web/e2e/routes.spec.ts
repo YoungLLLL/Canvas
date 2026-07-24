@@ -117,6 +117,9 @@ test("loads the editorial fonts and keeps the Demo motion interactive", async ({
 test("browses the live ARTIC collection and opens a shareable artwork route", async ({ page }) => {
   await page.goto("/en/museums/art-institute-of-chicago/collection");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Art Institute");
+  await expect(
+    page.locator(".collection-marquee-set").first().locator(".artwork-marquee-item"),
+  ).toHaveCount(8);
   await page.getByRole("button", { name: "Pause motion" }).click();
 
   const firstArtwork = await artworkInViewport(page);
@@ -136,14 +139,11 @@ test("browses the live ARTIC collection and opens a shareable artwork route", as
   await expect(page.getByRole("link", { name: "View museum record" })).toBeVisible();
 });
 
-test("shows bilingual museum and artwork titles with the agreed editorial fonts", async ({
-  page,
-}) => {
+test("shows bilingual artwork titles with the agreed editorial fonts", async ({ page }) => {
   await page.goto("/en/museums/art-institute-of-chicago/collection");
   await page.getByRole("link", { name: "Browse the full collection" }).click();
   await expect(page.getByRole("heading", { name: /馆藏作品.*THE COLLECTION/ })).toBeVisible();
-  await expect(page.getByText("芝加哥艺术博物馆", { exact: true }).last()).toBeVisible();
-  await expect(page.getByText("ART INSTITUTE OF CHICAGO", { exact: true }).last()).toBeVisible();
+  await expect(page.locator(".collection-museum-introduction")).toHaveCount(0);
   const firstCard = page.locator(".collection-result-card").first();
   await expect(firstCard.locator("h3")).toBeVisible();
   await expect(firstCard.locator("h4")).toBeVisible();
@@ -194,7 +194,7 @@ test("keeps bilingual results and automatic loading usable at a mobile viewport"
   await page.goto("/zh/museums/art-institute-of-chicago/collection");
   await page.getByRole("link", { name: /浏览完整馆藏/ }).click();
   await expect(page.locator(".collection-result-card").first()).toBeVisible();
-  await expect(page.locator(".collection-museum-copy")).toContainText("芝加哥艺术博物馆");
+  await expect(page.locator(".collection-catalog-heading")).toBeVisible();
   await expect(page.getByRole("searchbox")).toHaveCount(0);
   await expect(page.locator("#collection-pagination")).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { CollectionInfiniteGrid } from "@/src/components/collection-infinite-grid";
-import { CollectionMarquee } from "@/src/components/collection-marquee";
+import { CollectionMarquee, type MarqueeArtwork } from "@/src/components/collection-marquee";
 import { CollectionStateRestorer } from "@/src/components/collection-state";
 import { CollectionWheelReturn } from "@/src/components/collection-wheel-return";
 import { DemoStyles } from "@/src/components/demo-styles";
@@ -27,7 +27,7 @@ export default async function CollectionPage({
   if (!isLocale(locale) || !museumSlugSchema.safeParse(museumSlug).success) notFound();
 
   const catalog = await getArticCollection(collectionQuerySchema.parse({}));
-  const featuredArtworks = [
+  const featuredArtworks: MarqueeArtwork[] = [
     {
       sourceId: "28560",
       title: locale === "zh" ? "卧室" : "The Bedroom",
@@ -65,6 +65,27 @@ export default async function CollectionPage({
       ratio: 92.1 / 73,
     },
   ];
+  const featuredIds = new Set(featuredArtworks.map((artwork) => artwork.sourceId));
+  for (const artwork of catalog.items) {
+    if (featuredArtworks.length >= 8) break;
+    const image = artwork.images.preferred;
+    if (!image?.directUrl || featuredIds.has(artwork.sourceId)) continue;
+
+    const englishTitle = artwork.display.localizedTitles.en ?? artwork.display.title;
+    const chineseTitle = artwork.display.localizedTitles.zh;
+    featuredArtworks.push({
+      sourceId: artwork.sourceId,
+      title: locale === "zh" ? chineseTitle || englishTitle : englishTitle,
+      secondaryTitle: locale === "zh" ? englishTitle : chineseTitle,
+      artist: artwork.display.artistDisplay,
+      date: artwork.display.dateDisplay ?? (locale === "zh" ? "年代待考" : "Date unknown"),
+      medium: artwork.display.mediumDisplay ?? artwork.classification.artworkTypeTitle,
+      origin: artwork.classification.departmentTitle ?? "CHICAGO",
+      imageUrl: image.directUrl,
+      ratio: image.width && image.height ? image.width / image.height : 1,
+    });
+    featuredIds.add(artwork.sourceId);
+  }
 
   return (
     <main
@@ -141,24 +162,6 @@ export default async function CollectionPage({
             </a>
           </div>
         </header>
-
-        <div className="collection-museum-introduction">
-          <div>
-            <span>芝加哥艺术博物馆</span>
-            <strong>ART INSTITUTE OF CHICAGO</strong>
-          </div>
-          <div className="collection-museum-copy">
-            <p>
-              芝加哥艺术博物馆汇集跨越多个世纪与文化的艺术收藏，尤以印象派、后印象派及美国现代艺术闻名。这里展示的是目前具有明确公共领域与图片依据、可在线访问的绘画作品。
-            </p>
-            <p lang="en">
-              The Art Institute of Chicago brings together art from across centuries and cultures,
-              with celebrated strengths in Impressionism, Post-Impressionism, and modern American
-              art. This digital selection presents paintings with clear public-domain and image
-              evidence.
-            </p>
-          </div>
-        </div>
 
         <CollectionInfiniteGrid initialPage={catalog} locale={locale} />
       </section>

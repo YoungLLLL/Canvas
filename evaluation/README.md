@@ -31,3 +31,26 @@ npm run verify:stage5 -- --base-url https://example.com --pages 42
 ```
 
 正式长跑前应在 `apps/web/.env.local` 中填写真实的 `ARTIC_USER_AGENT` 联系地址。
+
+## Stage 7 人格黄金题库
+
+`evaluation/golden/stage7-persona-evaluation.mjs` 保存 Monet、Van Gogh 与 Mary Cassatt 的首轮人格评估集。每人固定包含：
+
+- 20 个事实题；
+- 10 个边界题；
+- 3 个当前作品上下文题。
+
+静态测试会检查题目数量、ID 唯一性、主张引用完整性、当前作品隔离，以及四类强制拒答覆盖。真实模型运行结果应另存到 `runs/`，不得覆盖黄金题定义。
+
+## Stage 6 作品知识黄金样本
+
+`evaluation/golden/stage6-artworks.json` 固定了 24 件中英文黄金样本。它覆盖可展示图片、
+仅资料状态，以及不应进入绘画增强流水线的边界类型。先启动正式应用，再运行确定性执行器：
+
+```bash
+npm run generate:stage6 -- --job evaluation/golden/stage6-artworks.json --limit 2
+```
+
+候选默认写入 `data/generated/artwork-knowledge/<artwork>/<locale>/candidates/`。同一作品修订、
+模型和 Prompt 的成功运行会自动跳过；使用 `--force` 才会重跑。`--publish` 只接受
+`review.status=passed` 的候选，确定性夹具不会被误发布。

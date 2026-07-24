@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { ArtworkCardLink } from "@/src/components/collection-state";
 
-type MarqueeArtwork = {
+export type MarqueeArtwork = {
   sourceId: string;
   title: string;
   secondaryTitle?: string;

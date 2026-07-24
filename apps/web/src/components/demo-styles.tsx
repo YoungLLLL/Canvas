@@ -213,14 +213,7 @@ export function DemoStyles() {
         .collection-catalog-summary strong small i{font:500 8px/1 var(--font-body-latin),'Inter',sans-serif;font-style:normal;letter-spacing:.08em}
         .collection-catalog-summary>a{display:grid;gap:3px;color:#343431;font-family:var(--font-body-zh),'Noto Sans SC',sans-serif;text-decoration:none}
         .collection-catalog-summary>a small{font:500 8px/1 var(--font-body-latin),'Inter',sans-serif;letter-spacing:.08em}
-        .collection-museum-introduction{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1.28fr);gap:clamp(44px,8vw,150px);padding:42px 0 56px;border-bottom:1px solid rgba(13,14,13,.18)}
-        .collection-museum-introduction>div:first-child{display:grid;align-content:start;gap:8px}
-        .collection-museum-introduction>div:first-child span{font:500 clamp(24px,2.2vw,34px)/1.15 var(--font-body-zh),'Noto Sans SC',sans-serif}
-        .collection-museum-introduction>div:first-child strong{font:400 12px/1.25 'Otomanopee One',sans-serif;letter-spacing:.025em}
-        .collection-museum-copy{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,52px)}
-        .collection-museum-copy p{margin:0;color:#343431;font:400 15px/1.78 var(--font-body-zh),'Noto Sans SC',sans-serif}
-        .collection-museum-copy p[lang="en"]{color:#5f5b55;font-family:var(--font-body-latin),'Inter','Helvetica Neue',sans-serif;font-size:14px;line-height:1.72}
-        .collection-results-grid{padding-top:56px;gap:54px 20px}
+        .collection-results-grid{padding-top:42px;gap:54px 20px}
         .collection-results-grid:after{content:'';display:block;flex-basis:calc(2.2 * 230px);flex-grow:999}
         .collection-result-card{flex-basis:calc(var(--result-ratio) * 230px);flex-grow:var(--result-ratio);max-width:560px;margin:0!important}
         .collection-result-card>figure{height:auto!important;max-height:none!important;aspect-ratio:var(--result-ratio)!important;overflow:hidden;background:transparent!important}
@@ -252,7 +245,6 @@ export function DemoStyles() {
           .collection-catalog-summary{justify-content:space-between;margin-top:28px;gap:18px}
           .collection-catalog-summary strong{font-size:39px}
           .collection-catalog-summary strong small span{font-size:10px}
-          .collection-museum-introduction{display:block;padding:30px 0 38px}
           .collection-museum-copy{display:grid;grid-template-columns:1fr;gap:14px;margin-top:22px}
           .collection-museum-copy p{font-size:13px;line-height:1.72}
           .collection-museum-copy p[lang="en"]{font-size:12px;line-height:1.62}
