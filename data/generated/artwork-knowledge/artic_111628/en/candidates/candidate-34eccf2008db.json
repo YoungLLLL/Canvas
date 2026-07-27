@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:111628:en:34eccf2008db",
+  "artworkId": "artic:111628",
+  "artworkRevision": "2026-07-23T23:27:30-05:00",
+  "imageRevision": null,
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:111628:museum",
+      "kind": "museum_record",
+      "title": "Nighthawks",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/111628",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:55:15.252Z",
+      "contentHash": "d9788782415abaac1bc87c859af292a1bf8c90f626db7fb3888b960623c08a01",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_111628:museum-record:d9788782415abaac1bc87c859af292a1bf8c90f626db7fb3888b960623c08a01"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:111628:en:title",
+      "subjectId": "artic:111628",
+      "layer": "fact",
+      "text": "The museum records this work as “Nighthawks”.",
+      "predicate": "title",
+      "value": "Nighthawks",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:111628:museum",
+          "sourceId": "source:artic:111628:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:111628:en:artist",
+      "subjectId": "artic:111628",
+      "layer": "fact",
+      "text": "The museum attributes this work to Edward Hopper (American, 1882–1967).",
+      "predicate": "artist",
+      "value": "Edward Hopper (American, 1882–1967)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:111628:museum",
+          "sourceId": "source:artic:111628:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "Nighthawks is attributed to Edward Hopper (American, 1882–1967).",
+      "claimIds": [
+        "claim:artic:111628:en:title",
+        "claim:artic:111628:en:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:111628:en:context",
+      "artworkId": "artic:111628",
+      "locale": "en",
+      "topic": "context",
+      "triggerIntents": [
+        "Nighthawks",
+        "Edward Hopper (American, 1882–1967)",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:111628:en:title",
+        "claim:artic:111628:en:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Use the verified museum title or attribution only when it answers the user's topic.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "34eccf2008db04afdd4eea73431475bbd00678b81b324917bdb538263b1de230",
+      "outputHash": "34eccf2008db04afdd4eea73431475bbd00678b81b324917bdb538263b1de230",
+      "updatedAt": "2026-07-27T03:55:15.252Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "34eccf2008db04afdd4eea73431475bbd00678b81b324917bdb538263b1de230",
+      "outputHash": "34eccf2008db04afdd4eea73431475bbd00678b81b324917bdb538263b1de230",
+      "updatedAt": "2026-07-27T03:55:15.252Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "34eccf2008db04afdd4eea73431475bbd00678b81b324917bdb538263b1de230",
+      "outputHash": "34eccf2008db04afdd4eea73431475bbd00678b81b324917bdb538263b1de230",
+      "updatedAt": "2026-07-27T03:55:15.252Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T03:55:15.252Z",
+    "inputHash": "34eccf2008db04afdd4eea73431475bbd00678b81b324917bdb538263b1de230"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-34eccf2008db"
+  }
+}

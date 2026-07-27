@@ -7,7 +7,11 @@ import {
   type CatalogPage,
 } from "@/src/schemas/catalog";
 import { maxAccessibleSearchPage, type CollectionQuery } from "@/src/schemas/routes";
-import { getCommonsImagesForArticIds, type ArticCommonsImage } from "@/src/lib/wikimedia";
+import {
+  getCommonsImagesForArticIds,
+  type ArticCommonsImage,
+  wikimediaFailureReason,
+} from "@/src/lib/wikimedia";
 
 const API_BASE = "https://api.artic.edu/api/v1";
 const PAGE_SIZE = 12;
@@ -255,6 +259,14 @@ export function normalizeArticArtwork(
       image: {
         licenseCode: publicDomain ? "CC0-1.0" : "restricted",
         licenseUrl: publicDomain ? "https://creativecommons.org/publicdomain/zero/1.0/" : null,
+        usage: publicDomain
+          ? {
+              commercialUseAllowed: true,
+              adaptationsAllowed: true,
+              attributionRequired: false,
+              shareAlike: false,
+            }
+          : null,
       },
       metadata: { defaultLicense: "CC0-1.0", descriptionLicense: "CC-BY-4.0" },
       termsUrl: `${websiteUrl}/terms`,
@@ -356,6 +368,7 @@ async function fetchArtic(url: string, tag = "artic-catalog") {
 
 async function attachCommonsImages(items: Artwork[]) {
   let commonsImages = new Map<string, ArticCommonsImage>();
+  let lookupFailure: string | null = null;
   try {
     commonsImages = await getCommonsImagesForArticIds(
       items
@@ -363,6 +376,7 @@ async function attachCommonsImages(items: Artwork[]) {
         .map((item) => item.sourceId),
     );
   } catch (error) {
+    lookupFailure = wikimediaFailureReason(error);
     console.error("Wikimedia Commons image mapping failed", error);
   }
 
@@ -376,12 +390,14 @@ async function attachCommonsImages(items: Artwork[]) {
         images: { preferred: null, alternates: [] },
         rights: {
           ...item.rights,
-          image: { licenseCode: "unknown", licenseUrl: null },
+          image: { licenseCode: "unknown", licenseUrl: null, usage: null },
         },
         eligibility: {
           ...item.eligibility,
           status: "metadata_only_no_image",
-          reasons: Array.from(new Set([...item.eligibility.reasons, "commons_image_unavailable"])),
+          reasons: Array.from(
+            new Set([...item.eligibility.reasons, lookupFailure ?? "commons_image_unavailable"]),
+          ),
         },
       });
     }
@@ -416,6 +432,7 @@ async function attachCommonsImages(items: Artwork[]) {
         image: {
           licenseCode: commons.licenseCode,
           licenseUrl: commons.licenseUrl,
+          usage: commons.usage,
         },
         attribution: `${item.rights.attribution} Image source: ${commons.attribution}`,
       },

@@ -14,6 +14,7 @@
     "test:e2e": "npm --prefix apps/web run test:e2e",
     "verify:catalog": "node scripts/verify-catalog.mjs",
     "verify:stage5": "node scripts/verify-stage5.mjs",
-    "generate:stage6": "node --env-file-if-exists=.env scripts/generate-stage6.ts"
+    "generate:stage6": "node --env-file-if-exists=.env --env-file-if-exists=apps/web/.env.local scripts/generate-stage6.ts",
+    "evaluate:stage7": "node --env-file-if-exists=apps/web/.env.local evaluation/run-stage7-qwen.mjs"
   }
 }

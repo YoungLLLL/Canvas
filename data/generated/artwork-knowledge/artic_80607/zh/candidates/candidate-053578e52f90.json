@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:80607:zh:053578e52f90",
+  "artworkId": "artic:80607",
+  "artworkRevision": "2026-07-25T23:19:14-05:00",
+  "imageRevision": "commons:80607",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:80607:museum",
+      "kind": "museum_record",
+      "title": "Self-Portrait",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/80607",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:16:47.494Z",
+      "contentHash": "0a78eaf31fb012ae641dcd9ae4dc70fdd2d1553ea49ac122289158918518ec56",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_80607:museum-record:0a78eaf31fb012ae641dcd9ae4dc70fdd2d1553ea49ac122289158918518ec56"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:80607:zh:title",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Self-Portrait》。",
+      "predicate": "title",
+      "value": "Self-Portrait",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:80607:museum",
+          "sourceId": "source:artic:80607:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:80607:zh:artist",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "馆方将本作归于Vincent van Gogh (Dutch, 1853–1890)。",
+      "predicate": "artist",
+      "value": "Vincent van Gogh (Dutch, 1853–1890)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:80607:museum",
+          "sourceId": "source:artic:80607:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:80607:zh:visual-1",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "人物面部有红棕色胡须与络腮胡，头发稀疏呈浅棕黄色，额头宽阔，双眼为蓝绿色，目光直视观者方向。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:80607:zh:1",
+          "imageId": "commons:80607",
+          "basis": "visible",
+          "observation": "人物面部有红棕色胡须与络腮胡，头发稀疏呈浅棕黄色，额头宽阔，双眼为蓝绿色，目光直视观者方向。",
+          "imageRevision": "commons:80607"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:80607:zh:visual-2",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "背景由深蓝、翠绿、橙红等色的小点与短笔触密集排布而成，形成漩涡状视觉动势，与人物轮廓形成对比。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:80607:zh:2",
+          "imageId": "commons:80607",
+          "basis": "visible",
+          "observation": "背景由深蓝、翠绿、橙红等色的小点与短笔触密集排布而成，形成漩涡状视觉动势，与人物轮廓形成对比。",
+          "imageRevision": "commons:80607"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:80607:zh:visual-3",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "人物身穿深色外套，内搭白色高领衬衫与浅蓝色领带；外套表面以红、褐、绿、蓝等多色短笔触并置表现织物质感。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:80607:zh:3",
+          "imageId": "commons:80607",
+          "basis": "visible",
+          "observation": "人物身穿深色外套，内搭白色高领衬衫与浅蓝色领带；外套表面以红、褐、绿、蓝等多色短笔触并置表现织物质感。",
+          "imageRevision": "commons:80607"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:80607:zh:visual-4",
+      "subjectId": "artic:80607",
+      "layer": "interpretation",
+      "text": "画面整体呈现一种高度结构化的笔触组织方式，色彩未在调色板中混合，而是在画布上通过并置产生视觉混合效果。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:80607:zh:4",
+          "imageId": "commons:80607",
+          "basis": "visible",
+          "observation": "画面整体呈现一种高度结构化的笔触组织方式，色彩未在调色板中混合，而是在画布上通过并置产生视觉混合效果。",
+          "imageRevision": "commons:80607"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅男性半身肖像画，采用密集短促的笔触构成画面，人物面部朝向观者左前方，背景为充满动感的点状与短线交织的色块。",
+      "claimIds": [
+        "claim:artic:80607:zh:title",
+        "claim:artic:80607:zh:artist",
+        "claim:artic:80607:zh:visual-1",
+        "claim:artic:80607:zh:visual-2",
+        "claim:artic:80607:zh:visual-3",
+        "claim:artic:80607:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:80607:zh:1",
+        "label": "肖像",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:zh:visual-1",
+          "claim:artic:80607:zh:visual-2",
+          "claim:artic:80607:zh:visual-3",
+          "claim:artic:80607:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:zh:1",
+          "visual:artic:80607:zh:2",
+          "visual:artic:80607:zh:3",
+          "visual:artic:80607:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:zh:2",
+        "label": "油画",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:zh:visual-1",
+          "claim:artic:80607:zh:visual-2",
+          "claim:artic:80607:zh:visual-3",
+          "claim:artic:80607:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:zh:1",
+          "visual:artic:80607:zh:2",
+          "visual:artic:80607:zh:3",
+          "visual:artic:80607:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:zh:3",
+        "label": "短笔触",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:zh:visual-1",
+          "claim:artic:80607:zh:visual-2",
+          "claim:artic:80607:zh:visual-3",
+          "claim:artic:80607:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:zh:1",
+          "visual:artic:80607:zh:2",
+          "visual:artic:80607:zh:3",
+          "visual:artic:80607:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:zh:4",
+        "label": "点彩式笔法",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:zh:visual-1",
+          "claim:artic:80607:zh:visual-2",
+          "claim:artic:80607:zh:visual-3",
+          "claim:artic:80607:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:zh:1",
+          "visual:artic:80607:zh:2",
+          "visual:artic:80607:zh:3",
+          "visual:artic:80607:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:zh:5",
+        "label": "红棕色胡须",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:zh:visual-1",
+          "claim:artic:80607:zh:visual-2",
+          "claim:artic:80607:zh:visual-3",
+          "claim:artic:80607:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:zh:1",
+          "visual:artic:80607:zh:2",
+          "visual:artic:80607:zh:3",
+          "visual:artic:80607:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:zh:6",
+        "label": "蓝绿色眼睛",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:zh:visual-1",
+          "claim:artic:80607:zh:visual-2",
+          "claim:artic:80607:zh:visual-3",
+          "claim:artic:80607:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:zh:1",
+          "visual:artic:80607:zh:2",
+          "visual:artic:80607:zh:3",
+          "visual:artic:80607:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:zh:7",
+        "label": "深色外套",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:zh:visual-1",
+          "claim:artic:80607:zh:visual-2",
+          "claim:artic:80607:zh:visual-3",
+          "claim:artic:80607:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:zh:1",
+          "visual:artic:80607:zh:2",
+          "visual:artic:80607:zh:3",
+          "visual:artic:80607:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一位留红棕色胡须的男子半身像，背景为蓝绿橙交织的点状笔触，身穿深色外套与白衬衫。",
+      "long": "画面中央为一名中年男性半身像，面部转向左前方，目光凝视观者。他有浓密红棕色胡须与络腮胡，浅色头发后梳，露出宽额；双眼呈蓝绿色，鼻梁挺直，嘴唇紧闭。他穿着深色粗纹外套，衣领处可见白色高领衬衫与浅蓝色领带。背景由密集短促的笔触构成，以深蓝、翠绿为主调，穿插橙红小点，形成旋转般的视觉节奏。整幅画以厚涂颜料与明确方向性笔触构建形体与光影，无平滑过渡区域。",
+      "claimIds": [
+        "claim:artic:80607:zh:visual-1",
+        "claim:artic:80607:zh:visual-2",
+        "claim:artic:80607:zh:visual-3",
+        "claim:artic:80607:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:80607:zh:1",
+        "visual:artic:80607:zh:2",
+        "visual:artic:80607:zh:3",
+        "visual:artic:80607:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:80607:zh:visual-1",
+      "artworkId": "artic:80607",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "注意到笔触特别明显",
+        "好奇这种画法叫什么",
+        "想了解颜料怎么堆叠的"
+      ],
+      "claimIds": [
+        "claim:artic:80607:zh:visual-1",
+        "claim:artic:80607:zh:visual-2",
+        "claim:artic:80607:zh:visual-3",
+        "claim:artic:80607:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:80607:zh:1",
+        "visual:artic:80607:zh:2",
+        "visual:artic:80607:zh:3",
+        "visual:artic:80607:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可以指向人物脸颊或背景区域，指出那些短而独立的笔触如何共同构成肤色或背景动态，再引出对绘画手法的讨论。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:80607:zh:visual-2",
+      "artworkId": "artic:80607",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "觉得颜色很鲜艳但又不刺眼",
+        "注意到眼睛颜色特别",
+        "好奇为什么背景用这么多颜色"
+      ],
+      "claimIds": [
+        "claim:artic:80607:zh:visual-1",
+        "claim:artic:80607:zh:visual-2",
+        "claim:artic:80607:zh:visual-3",
+        "claim:artic:80607:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:80607:zh:1",
+        "visual:artic:80607:zh:2",
+        "visual:artic:80607:zh:3",
+        "visual:artic:80607:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "从人物蓝绿色眼睛出发，说明其与背景中蓝绿点的呼应关系，再延伸至整幅画中互补色并置产生的视觉振动效果。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:80607:zh:visual-3",
+      "artworkId": "artic:80607",
+      "locale": "zh",
+      "topic": "subject",
+      "triggerIntents": [
+        "想知道他是谁",
+        "觉得表情很严肃",
+        "注意到耳朵画得很细致"
+      ],
+      "claimIds": [
+        "claim:artic:80607:zh:visual-1",
+        "claim:artic:80607:zh:visual-2",
+        "claim:artic:80607:zh:visual-3",
+        "claim:artic:80607:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:80607:zh:1",
+        "visual:artic:80607:zh:2",
+        "visual:artic:80607:zh:3",
+        "visual:artic:80607:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "聚焦于右耳的精细刻画——耳廓褶皱与阴影用数条平行短笔触表现——再自然过渡到对人物神态与身份的开放性提问。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "outputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "updatedAt": "2026-07-27T04:16:47.494Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "outputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "updatedAt": "2026-07-27T04:16:47.494Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "outputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "updatedAt": "2026-07-27T04:16:47.494Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "outputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "updatedAt": "2026-07-27T04:16:47.494Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "outputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b",
+      "updatedAt": "2026-07-27T04:16:47.494Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:16:47.494Z",
+    "inputHash": "053578e52f90362be241d9b82bcd72cfb3700c60b79525b5af8869e10bd9f49b"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-053578e52f90"
+  }
+}

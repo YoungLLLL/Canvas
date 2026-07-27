@@ -34,9 +34,9 @@ export function assemblePersonaDialogue({
     .filter((claim) => claim.subjectId === persona.artistId)
     .map((claim) => claim.claimId);
   const selectedClaimIds = unique([
-    ...artistClaimIds,
-    ...artworkContext.claimIds,
     ...(selectedCue?.claimIds ?? []),
+    ...artworkContext.claimIds,
+    ...artistClaimIds,
   ]).slice(0, persona.retrieval.maxClaims);
   const claims = persona.claims.filter((claim) =>
     selectedClaimIds.includes(claim.claimId),

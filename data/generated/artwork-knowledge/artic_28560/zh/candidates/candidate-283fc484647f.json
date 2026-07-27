@@ -1,0 +1,495 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:28560:zh:283fc484647f",
+  "artworkId": "artic:28560",
+  "artworkRevision": "2026-07-25T23:27:29-05:00",
+  "imageRevision": "commons:28560",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:28560:museum",
+      "kind": "museum_record",
+      "title": "The Bedroom",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/28560",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:29:35.990Z",
+      "contentHash": "d7a43fde08391aa62b4f1540e537bf8df62f97f856482b63aceb581a4e426ee7",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_28560:museum-record:d7a43fde08391aa62b4f1540e537bf8df62f97f856482b63aceb581a4e426ee7"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:28560:zh:title",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "馆方将本作记录为《The Bedroom》。",
+      "predicate": "title",
+      "value": "The Bedroom",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:28560:museum",
+          "sourceId": "source:artic:28560:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:artist",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "馆方将本作归于Vincent van Gogh (Dutch, 1853–1890)。",
+      "predicate": "artist",
+      "value": "Vincent van Gogh (Dutch, 1853–1890)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:28560:museum",
+          "sourceId": "source:artic:28560:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-1",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "The walls are painted a dominant bright blue, with visible vertical brushstrokes suggesting wood paneling or wallpaper texture.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:1",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "The walls are painted a dominant bright blue, with visible vertical brushstrokes suggesting wood paneling or wallpaper texture.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-2",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "A wooden bed with a high headboard occupies the right foreground; its frame is rendered in warm yellow-orange tones with pronounced vertical grain lines.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:2",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "A wooden bed with a high headboard occupies the right foreground; its frame is rendered in warm yellow-orange tones with pronounced vertical grain lines.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-3",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "Two matching wooden chairs with woven rush seats sit near the left wall and beside the table; both show similar yellow-orange coloring and textured brushwork.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:3",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "Two matching wooden chairs with woven rush seats sit near the left wall and beside the table; both show similar yellow-orange coloring and textured brushwork.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-4",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "An open green-shuttered window on the left wall reveals a bright yellow-green exterior light source, casting illumination into the room.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:4",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "An open green-shuttered window on the left wall reveals a bright yellow-green exterior light source, casting illumination into the room.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-5",
+      "subjectId": "artic:28560",
+      "layer": "interpretation",
+      "text": "Multiple framed pictures hang askew on the blue wall above the bed and near the door, including one with a landscape and others appearing as portraits or abstract shapes.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:5",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "Multiple framed pictures hang askew on the blue wall above the bed and near the door, including one with a landscape and others appearing as portraits or abstract shapes.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted interior scene of a bedroom with vivid blue walls, a wooden bed, two chairs, a table, and an open window.",
+      "claimIds": [
+        "claim:artic:28560:zh:title",
+        "claim:artic:28560:zh:artist",
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4",
+        "claim:artic:28560:zh:visual-5"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:28560:zh:1",
+        "label": "bedroom",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4",
+          "claim:artic:28560:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4",
+          "visual:artic:28560:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:2",
+        "label": "blue walls",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4",
+          "claim:artic:28560:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4",
+          "visual:artic:28560:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:3",
+        "label": "wooden furniture",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4",
+          "claim:artic:28560:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4",
+          "visual:artic:28560:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:4",
+        "label": "open window",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4",
+          "claim:artic:28560:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4",
+          "visual:artic:28560:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:5",
+        "label": "hanging frames",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4",
+          "claim:artic:28560:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4",
+          "visual:artic:28560:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:6",
+        "label": "brushstroke texture",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4",
+          "claim:artic:28560:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4",
+          "visual:artic:28560:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:7",
+        "label": "interior scene",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4",
+          "claim:artic:28560:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4",
+          "visual:artic:28560:zh:5"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Painted bedroom with blue walls, yellow-orange wooden bed and chairs, green-shuttered window, and hanging pictures.",
+      "long": "A vibrant interior painting depicting a modest bedroom. The walls are a striking blue with visible vertical brushwork. A large wooden bed with a high headboard dominates the right side, covered with white bedding and a red blanket. Two matching wooden chairs with woven seats stand near a small wooden table holding a pitcher, basin, and bottles. An open window with green shutters on the left wall lets in bright light. Several framed pictures hang unevenly on the wall above the bed and near the door. The floor is rendered in patchy green, pink, and brown tones, suggesting worn wooden planks.",
+      "claimIds": [
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4",
+        "claim:artic:28560:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:zh:1",
+        "visual:artic:28560:zh:2",
+        "visual:artic:28560:zh:3",
+        "visual:artic:28560:zh:4",
+        "visual:artic:28560:zh:5"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:28560:zh:visual-1",
+      "artworkId": "artic:28560",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "what colors stand out",
+        "why so much blue",
+        "how colors interact"
+      ],
+      "claimIds": [
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4",
+        "claim:artic:28560:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:zh:1",
+        "visual:artic:28560:zh:2",
+        "visual:artic:28560:zh:3",
+        "visual:artic:28560:zh:4",
+        "visual:artic:28560:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the contrast between the cool blue walls and the warm yellow-orange furniture—this chromatic tension defines the room’s visual energy.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:28560:zh:visual-2",
+      "artworkId": "artic:28560",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "brushstrokes visible",
+        "texture of paint"
+      ],
+      "claimIds": [
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4",
+        "claim:artic:28560:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:zh:1",
+        "visual:artic:28560:zh:2",
+        "visual:artic:28560:zh:3",
+        "visual:artic:28560:zh:4",
+        "visual:artic:28560:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace the thick, directional brushstrokes across the bed frame and floor—they’re not smoothed out, which emphasizes material presence over realism.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:28560:zh:visual-3",
+      "artworkId": "artic:28560",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "is the room realistic",
+        "perspective feels off",
+        "why objects tilt"
+      ],
+      "claimIds": [
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4",
+        "claim:artic:28560:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:zh:1",
+        "visual:artic:28560:zh:2",
+        "visual:artic:28560:zh:3",
+        "visual:artic:28560:zh:4",
+        "visual:artic:28560:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Notice how the floorboards converge inconsistently and the picture frames hang crookedly—these deliberate spatial distortions create intimacy rather than architectural accuracy.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "outputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "updatedAt": "2026-07-27T03:29:35.990Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "outputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "updatedAt": "2026-07-27T03:29:35.990Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "outputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "updatedAt": "2026-07-27T03:29:35.990Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "outputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "updatedAt": "2026-07-27T03:29:35.990Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "outputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6",
+      "updatedAt": "2026-07-27T03:29:35.990Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v1",
+    "generatedAt": "2026-07-27T03:29:35.990Z",
+    "inputHash": "283fc484647fbe4e353f81070f14dbe878d3d848b3f82e9a61d26e4173fce5b6"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-283fc484647f"
+  }
+}

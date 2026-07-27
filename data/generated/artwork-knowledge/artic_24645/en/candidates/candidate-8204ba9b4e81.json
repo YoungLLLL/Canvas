@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:24645:en:8204ba9b4e81",
+  "artworkId": "artic:24645",
+  "artworkRevision": "2026-07-25T23:27:06-05:00",
+  "imageRevision": null,
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:24645:museum",
+      "kind": "museum_record",
+      "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\"",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/24645",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:28:43.614Z",
+      "contentHash": "81ace80bb5fc723932c7c622d3ed942f0a4f03692d089448de4ab2ed58d93792",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_24645:museum-record:81ace80bb5fc723932c7c622d3ed942f0a4f03692d089448de4ab2ed58d93792"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:24645:en:title",
+      "subjectId": "artic:24645",
+      "layer": "fact",
+      "text": "The museum records this work as “Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\"”.",
+      "predicate": "title",
+      "value": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\"",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:24645:museum",
+          "sourceId": "source:artic:24645:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:24645:en:artist",
+      "subjectId": "artic:24645",
+      "layer": "fact",
+      "text": "The museum attributes this work to Katsushika Hokusai 葛飾 北斎 \nJapanese, 1760-1849.",
+      "predicate": "artist",
+      "value": "Katsushika Hokusai 葛飾 北斎 \nJapanese, 1760-1849",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:24645:museum",
+          "sourceId": "source:artic:24645:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\" is attributed to Katsushika Hokusai 葛飾 北斎 \nJapanese, 1760-1849.",
+      "claimIds": [
+        "claim:artic:24645:en:title",
+        "claim:artic:24645:en:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:24645:en:context",
+      "artworkId": "artic:24645",
+      "locale": "en",
+      "topic": "context",
+      "triggerIntents": [
+        "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of ",
+        "Katsushika Hokusai 葛飾 北斎 \nJapanese, 1760-1849",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:24645:en:title",
+        "claim:artic:24645:en:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Use the verified museum title or attribution only when it answers the user's topic.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "8204ba9b4e81457dec0f609909a0547fb1b9a228e2af71514cc0e9f7f1522bed",
+      "outputHash": "8204ba9b4e81457dec0f609909a0547fb1b9a228e2af71514cc0e9f7f1522bed",
+      "updatedAt": "2026-07-27T04:28:43.614Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "8204ba9b4e81457dec0f609909a0547fb1b9a228e2af71514cc0e9f7f1522bed",
+      "outputHash": "8204ba9b4e81457dec0f609909a0547fb1b9a228e2af71514cc0e9f7f1522bed",
+      "updatedAt": "2026-07-27T04:28:43.614Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "8204ba9b4e81457dec0f609909a0547fb1b9a228e2af71514cc0e9f7f1522bed",
+      "outputHash": "8204ba9b4e81457dec0f609909a0547fb1b9a228e2af71514cc0e9f7f1522bed",
+      "updatedAt": "2026-07-27T04:28:43.614Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:28:43.614Z",
+    "inputHash": "8204ba9b4e81457dec0f609909a0547fb1b9a228e2af71514cc0e9f7f1522bed"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-8204ba9b4e81"
+  }
+}

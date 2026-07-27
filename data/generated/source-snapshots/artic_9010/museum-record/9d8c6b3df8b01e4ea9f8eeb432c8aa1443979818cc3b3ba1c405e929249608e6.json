@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:01:17.320Z",
+  "artwork": {
+    "id": "artic:9010",
+    "sourceId": "9010",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/9010",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/9010",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-22T13:20:30-05:00",
+      "accessedAt": "2026-07-27T04:01:16.535Z"
+    },
+    "display": {
+      "title": "L'Estaque",
+      "localizedTitles": {
+        "en": "L'Estaque"
+      },
+      "altTitles": [],
+      "artistDisplay": "Émilie Charmy\nFrench, 1880–1974",
+      "dateDisplay": "c. 1910",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "57.3 × 73.7 cm (22 1/2 × 29 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:4546",
+      "sourceId": "4546",
+      "name": "Émilie Charmy",
+      "display": "Émilie Charmy\nFrench, 1880–1974",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1905,
+      "end": 1915
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Modern Art",
+      "classificationTitles": [
+        "painting",
+        "modern and contemporary art"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "copyrighted",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Émilie Charmy. L'Estaque, c. 1910. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:01:16.535Z",
+      "reasons": [
+        "image_rights_not_open",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Arthur Jerome Eddy Memorial Collection",
+    "mainReferenceNumber": "1931.518",
+    "description": {
+      "html": "Émilie Charmy was among the first women to exhibit paintings in the Fauvist style, marked by an expressionistic and nonnaturalistic use of color. In this boldly hued landscape, she captured the coastal town of L’Estaque, popular with French painters. The swelling shapes along the composition’s edges produce a sense of movement that dissipates at the center in the calm waters of the Bay of Marseille.",
+      "text": "Émilie Charmy was among the first women to exhibit paintings in the Fauvist style, marked by an expressionistic and nonnaturalistic use of color. In this boldly hued landscape, she captured the coastal town of L’Estaque, popular with French painters. The swelling shapes along the composition’s edges produce a sense of movement that dissipates at the center in the calm waters of the Bay of Marseille.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-22T13:20:30-05:00"
+  }
+}

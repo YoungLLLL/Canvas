@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27310:zh:fe6acc621485",
+  "artworkId": "artic:27310",
+  "artworkRevision": "2026-07-26T23:07:38-05:00",
+  "imageRevision": "commons:27310",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:27310:museum",
+      "kind": "museum_record",
+      "title": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27310",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:26:05.989Z",
+      "contentHash": "8c69817dfa51a2e50f9759c3e8aa8cb478473ebff3b5a3e44c963739ec5d3a35",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27310:museum-record:8c69817dfa51a2e50f9759c3e8aa8cb478473ebff3b5a3e44c963739ec5d3a35"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27310:zh:title",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "馆方将本作记录为《The Holy Family with Saints Elizabeth and John the Baptist》。",
+      "predicate": "title",
+      "value": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27310:museum",
+          "sourceId": "source:artic:27310:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:artist",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "馆方将本作归于Peter Paul Rubens (Flemish, 1577–1640)。",
+      "predicate": "artist",
+      "value": "Peter Paul Rubens (Flemish, 1577–1640)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27310:museum",
+          "sourceId": "source:artic:27310:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-1",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "画面中央女性身穿红色长裙，外披深色披肩，内衬蓝色袖子；她怀中抱着一名裸体金发婴儿，婴儿右手触碰其脸颊。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:1",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "画面中央女性身穿红色长裙，外披深色披肩，内衬蓝色袖子；她怀中抱着一名裸体金发婴儿，婴儿右手触碰其脸颊。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-2",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "左侧站立一名蓄浓密胡须的男性，身披灰蓝色斗篷，右手轻触另一名背对观者的幼儿臀部；该幼儿仅以浅色布料遮挡下体，脚穿凉鞋，身旁有一只白色羊羔。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:2",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "左侧站立一名蓄浓密胡须的男性，身披灰蓝色斗篷，右手轻触另一名背对观者的幼儿臀部；该幼儿仅以浅色布料遮挡下体，脚穿凉鞋，身旁有一只白色羊羔。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-3",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "右侧坐有一位年长女性，头裹白巾、身穿深色衣袍，双手交叠置于膝上，目光注视中央母子；其身旁地面放有两个柳条编织篮，内有布料与衣物。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:3",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "右侧坐有一位年长女性，头裹白巾、身穿深色衣袍，双手交叠置于膝上，目光注视中央母子；其身旁地面放有两个柳条编织篮，内有布料与衣物。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-4",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "背景左上方可见蓝灰色天空与云层，暗示室外远景；前景地面为木质地板，光影从左上方投射，在人物与物体下方形成柔和阴影。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:4",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "背景左上方可见蓝灰色天空与云层，暗示室外远景；前景地面为木质地板，光影从左上方投射，在人物与物体下方形成柔和阴影。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅多人物的室内场景绘画，中心为一位身着鲜红长裙的女性怀抱婴儿，周围环绕三位成年人与一名幼儿，地面有羊羔与编织篮筐。",
+      "claimIds": [
+        "claim:artic:27310:zh:title",
+        "claim:artic:27310:zh:artist",
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:27310:zh:1",
+        "label": "多人物构图",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:2",
+        "label": "红色主调服饰",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:3",
+        "label": "婴儿与母性姿态",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:4",
+        "label": "编织篮筐",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:5",
+        "label": "羊羔",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:6",
+        "label": "室内木质地面",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:7",
+        "label": "明暗对比",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一位穿红裙的女子怀抱婴儿，左侧男子与幼儿靠近羊羔，右侧老妇坐于篮筐旁，背景有天空与室内木地。",
+      "long": "画面呈现五位人物与一只羊羔的组合：中央红裙女子坐姿，怀抱裸体金发婴儿，婴儿手触其面颊；左侧胡须男子俯身，手近幼儿臀部，幼儿背对观者、仅以布片遮体，脚穿凉鞋，身旁有白羊；右侧老妇头裹白巾、深衣端坐，双手交叠，凝视母子；地面为浅棕色木板，右下角两个柳条篮内盛布料；背景左上角为蓝灰天空与云，整体光线来自左上方，形成自然阴影。",
+      "claimIds": [
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:zh:1",
+        "visual:artic:27310:zh:2",
+        "visual:artic:27310:zh:3",
+        "visual:artic:27310:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27310:zh:visual-1",
+      "artworkId": "artic:27310",
+      "locale": "zh",
+      "topic": "composition",
+      "triggerIntents": [
+        "注意到人物围成半圆",
+        "好奇为何幼儿背对观众"
+      ],
+      "claimIds": [
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:zh:1",
+        "visual:artic:27310:zh:2",
+        "visual:artic:27310:zh:3",
+        "visual:artic:27310:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可以指出四人视线都朝向中央母子，而背对的幼儿反而成为视觉动线的起点——他的姿态引导我们看向母亲与婴儿。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27310:zh:visual-2",
+      "artworkId": "artic:27310",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "被红色裙子吸引",
+        "想了解蓝色袖子的作用"
+      ],
+      "claimIds": [
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:zh:1",
+        "visual:artic:27310:zh:2",
+        "visual:artic:27310:zh:3",
+        "visual:artic:27310:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "红色长裙占据画面最大面积，而内衬的蓝色袖子在暗色披肩下形成冷暖对比，可结合光影说明它如何强化手臂的立体感。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27310:zh:visual-3",
+      "artworkId": "artic:27310",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "疑惑背景天空是否真实",
+        "注意到地面与人物比例"
+      ],
+      "claimIds": [
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:zh:1",
+        "visual:artic:27310:zh:2",
+        "visual:artic:27310:zh:3",
+        "visual:artic:27310:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "左上角的天空与前景木质地面之间没有明确墙体分隔，这种空间处理让室内外产生微妙连结，可聚焦于人物脚部与地板接触的细节来讨论深度营造。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "outputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "updatedAt": "2026-07-27T04:26:05.989Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "outputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "updatedAt": "2026-07-27T04:26:05.989Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "outputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "updatedAt": "2026-07-27T04:26:05.989Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "outputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "updatedAt": "2026-07-27T04:26:05.989Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "outputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39",
+      "updatedAt": "2026-07-27T04:26:05.989Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v6",
+    "generatedAt": "2026-07-27T04:26:05.989Z",
+    "inputHash": "fe6acc621485d5177c58f94b1fef100a8fb6fdd7d0f3699db68aa95da1725c39"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-fe6acc621485"
+  }
+}

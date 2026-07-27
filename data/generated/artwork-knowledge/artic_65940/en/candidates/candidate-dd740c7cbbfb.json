@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:65940:en:dd740c7cbbfb",
+  "artworkId": "artic:65940",
+  "artworkRevision": "2026-07-26T22:52:34-05:00",
+  "imageRevision": null,
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:65940:museum",
+      "kind": "museum_record",
+      "title": "Still Life No. 3",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/65940",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:59:14.159Z",
+      "contentHash": "3a65122d9021e56ff2b054e9dd52c067a7e6d0af5afedbf40d05d3165c21e6c2",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_65940:museum-record:3a65122d9021e56ff2b054e9dd52c067a7e6d0af5afedbf40d05d3165c21e6c2"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:65940:en:title",
+      "subjectId": "artic:65940",
+      "layer": "fact",
+      "text": "The museum records this work as “Still Life No. 3”.",
+      "predicate": "title",
+      "value": "Still Life No. 3",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:65940:museum",
+          "sourceId": "source:artic:65940:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:65940:en:artist",
+      "subjectId": "artic:65940",
+      "layer": "fact",
+      "text": "The museum attributes this work to Marsden Hartley (American, 1877–1943).",
+      "predicate": "artist",
+      "value": "Marsden Hartley (American, 1877–1943)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:65940:museum",
+          "sourceId": "source:artic:65940:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "Still Life No. 3 is attributed to Marsden Hartley (American, 1877–1943).",
+      "claimIds": [
+        "claim:artic:65940:en:title",
+        "claim:artic:65940:en:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:65940:en:context",
+      "artworkId": "artic:65940",
+      "locale": "en",
+      "topic": "context",
+      "triggerIntents": [
+        "Still Life No. 3",
+        "Marsden Hartley (American, 1877–1943)",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:65940:en:title",
+        "claim:artic:65940:en:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Use the verified museum title or attribution only when it answers the user's topic.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "dd740c7cbbfb63653694f7a98312d8a34b8c359a66251a27fe9d75904856289a",
+      "outputHash": "dd740c7cbbfb63653694f7a98312d8a34b8c359a66251a27fe9d75904856289a",
+      "updatedAt": "2026-07-27T03:59:14.159Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "dd740c7cbbfb63653694f7a98312d8a34b8c359a66251a27fe9d75904856289a",
+      "outputHash": "dd740c7cbbfb63653694f7a98312d8a34b8c359a66251a27fe9d75904856289a",
+      "updatedAt": "2026-07-27T03:59:14.159Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "dd740c7cbbfb63653694f7a98312d8a34b8c359a66251a27fe9d75904856289a",
+      "outputHash": "dd740c7cbbfb63653694f7a98312d8a34b8c359a66251a27fe9d75904856289a",
+      "updatedAt": "2026-07-27T03:59:14.159Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T03:59:14.159Z",
+    "inputHash": "dd740c7cbbfb63653694f7a98312d8a34b8c359a66251a27fe9d75904856289a"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-dd740c7cbbfb"
+  }
+}

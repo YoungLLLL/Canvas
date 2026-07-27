@@ -1,0 +1,492 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27310:zh:c6fe1381df5d",
+  "artworkId": "artic:27310",
+  "artworkRevision": "2026-07-26T22:52:40-05:00",
+  "imageRevision": "commons:27310",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:27310:museum",
+      "kind": "museum_record",
+      "title": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27310",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:58:50.898Z",
+      "contentHash": "04482a6a28d394b0e9e3ef8bcf1faf81b7df8f7eb5a42af9cb05e34999a1feaa",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27310:museum-record:04482a6a28d394b0e9e3ef8bcf1faf81b7df8f7eb5a42af9cb05e34999a1feaa"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27310:zh:title",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "馆方将本作记录为《The Holy Family with Saints Elizabeth and John the Baptist》。",
+      "predicate": "title",
+      "value": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27310:museum",
+          "sourceId": "source:artic:27310:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:artist",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "馆方将本作归于Peter Paul Rubens (Flemish, 1577–1640)。",
+      "predicate": "artist",
+      "value": "Peter Paul Rubens (Flemish, 1577–1640)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27310:museum",
+          "sourceId": "source:artic:27310:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-1",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "中央女性身着鲜红色长裙，外披深色披肩，内衬蓝色袖子的衣衫，怀中抱一裸体金发婴儿，婴儿一手触碰她脸颊。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:1",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "中央女性身着鲜红色长裙，外披深色披肩，内衬蓝色袖子的衣衫，怀中抱一裸体金发婴儿，婴儿一手触碰她脸颊。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-2",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "左侧男子留浓密棕色胡须，穿灰蓝色斗篷，右手轻搭在婴儿背部，身体前倾凝视婴儿。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:2",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "左侧男子留浓密棕色胡须，穿灰蓝色斗篷，右手轻搭在婴儿背部，身体前倾凝视婴儿。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-3",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "左下角另一名金发幼儿仅以浅色布片遮挡下体，赤脚站立，侧身面向羊，手似欲触碰羊身。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:3",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "左下角另一名金发幼儿仅以浅色布片遮挡下体，赤脚站立，侧身面向羊，手似欲触碰羊身。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-4",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "右侧老年女性头裹白巾，穿深色衣袍，双手交叠置于膝上，面前放一柳条篮，篮内有白布与绿色织物。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:4",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "右侧老年女性头裹白巾，穿深色衣袍，双手交叠置于膝上，面前放一柳条篮，篮内有白布与绿色织物。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:zh:visual-5",
+      "subjectId": "artic:27310",
+      "layer": "interpretation",
+      "text": "画面背景为深棕与蓝灰交织的模糊区域，未明确描绘具体环境，营造出聚焦人物的氛围。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:zh:5",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "画面背景为深棕与蓝灰交织的模糊区域，未明确描绘具体环境，营造出聚焦人物的氛围。",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这幅画呈现一组五位人物与一只羊的室内场景：一位穿红裙的女性怀抱婴儿，左侧一位蓄须男子俯身注视，其旁另一幼儿靠近羊；右侧一位老年女性坐于篮筐旁，目光投向中央母子。",
+      "claimIds": [
+        "claim:artic:27310:zh:title",
+        "claim:artic:27310:zh:artist",
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4",
+        "claim:artic:27310:zh:visual-5"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:27310:zh:1",
+        "label": "人物群像",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4",
+          "claim:artic:27310:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4",
+          "visual:artic:27310:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:2",
+        "label": "红色长裙",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4",
+          "claim:artic:27310:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4",
+          "visual:artic:27310:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:3",
+        "label": "婴儿",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4",
+          "claim:artic:27310:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4",
+          "visual:artic:27310:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:4",
+        "label": "蓄须男子",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4",
+          "claim:artic:27310:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4",
+          "visual:artic:27310:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:5",
+        "label": "老年女性",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4",
+          "claim:artic:27310:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4",
+          "visual:artic:27310:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:6",
+        "label": "柳条篮",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4",
+          "claim:artic:27310:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4",
+          "visual:artic:27310:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:zh:7",
+        "label": "羊",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:zh:visual-1",
+          "claim:artic:27310:zh:visual-2",
+          "claim:artic:27310:zh:visual-3",
+          "claim:artic:27310:zh:visual-4",
+          "claim:artic:27310:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:zh:1",
+          "visual:artic:27310:zh:2",
+          "visual:artic:27310:zh:3",
+          "visual:artic:27310:zh:4",
+          "visual:artic:27310:zh:5"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "五人一羊的室内群像：红裙女子抱婴儿，蓄须男子俯身，幼儿近羊，老妇坐篮旁。",
+      "long": "画面中央为穿鲜红长裙、披深色披肩的女性，怀中抱一裸体金发婴儿；左侧一名蓄浓密胡须、着灰蓝斗篷的男子俯身，右手轻触婴儿背部；其下方另一金发幼儿仅以浅布遮体，赤脚站立并靠近一只白色绵羊；右侧一位头裹白巾的老年女性端坐，双手交叠于膝，面前置一盛有白布与绿布的柳条篮；背景为深棕与蓝灰色调的模糊空间，地面呈暖棕色木质质感。",
+      "claimIds": [
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4",
+        "claim:artic:27310:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:zh:1",
+        "visual:artic:27310:zh:2",
+        "visual:artic:27310:zh:3",
+        "visual:artic:27310:zh:4",
+        "visual:artic:27310:zh:5"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27310:zh:visual-1",
+      "artworkId": "artic:27310",
+      "locale": "zh",
+      "topic": "composition",
+      "triggerIntents": [
+        "注意到人物如何围拢",
+        "好奇为什么有人背对观众"
+      ],
+      "claimIds": [
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4",
+        "claim:artic:27310:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:zh:1",
+        "visual:artic:27310:zh:2",
+        "visual:artic:27310:zh:3",
+        "visual:artic:27310:zh:4",
+        "visual:artic:27310:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "从中央母子向外延伸视线，可看到四人分别占据画面四角，形成环抱式构图——左侧男子与幼儿朝向中心，右侧老妇虽侧身却目光追随，这种安排让观者自然聚焦于红裙女性与婴儿的互动。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27310:zh:visual-2",
+      "artworkId": "artic:27310",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "被红色吸引",
+        "想了解其他颜色的作用"
+      ],
+      "claimIds": [
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4",
+        "claim:artic:27310:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:zh:1",
+        "visual:artic:27310:zh:2",
+        "visual:artic:27310:zh:3",
+        "visual:artic:27310:zh:4",
+        "visual:artic:27310:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "鲜红长裙是视觉重心，而蓝色袖口、灰蓝斗篷与背景的深棕蓝灰形成冷暖对比；注意老妇面前篮中的白布与绿布虽小，却在暗处提供亮色点缀，平衡整体色调。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27310:zh:visual-3",
+      "artworkId": "artic:27310",
+      "locale": "zh",
+      "topic": "subject",
+      "triggerIntents": [
+        "数清人数",
+        "疑惑羊的角色"
+      ],
+      "claimIds": [
+        "claim:artic:27310:zh:visual-1",
+        "claim:artic:27310:zh:visual-2",
+        "claim:artic:27310:zh:visual-3",
+        "claim:artic:27310:zh:visual-4",
+        "claim:artic:27310:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:zh:1",
+        "visual:artic:27310:zh:2",
+        "visual:artic:27310:zh:3",
+        "visual:artic:27310:zh:4",
+        "visual:artic:27310:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "画面共有五位人物加一只羊；羊位于左下角，紧邻幼儿，其姿态温顺，毛色洁白，与幼儿的浅色裹布呼应，构成一个安静的角落，与中央热烈的亲情场景形成动静对照。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "outputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "updatedAt": "2026-07-27T03:58:50.898Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "outputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "updatedAt": "2026-07-27T03:58:50.898Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "outputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "updatedAt": "2026-07-27T03:58:50.898Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "outputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "updatedAt": "2026-07-27T03:58:50.898Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "outputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e",
+      "updatedAt": "2026-07-27T03:58:50.898Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v3",
+    "generatedAt": "2026-07-27T03:58:50.898Z",
+    "inputHash": "c6fe1381df5dd10e6a575a2cf529acf07aa8547dbf55c7df899365dd23d3e72e"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-c6fe1381df5d"
+  }
+}

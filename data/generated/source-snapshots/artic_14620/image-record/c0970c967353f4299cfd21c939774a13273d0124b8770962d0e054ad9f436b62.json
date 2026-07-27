@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "artwork-image-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:55:56.927Z",
+  "artworkId": "artic:14620",
+  "image": {
+    "id": "commons:14620",
+    "width": 843,
+    "height": 676,
+    "altText": "Painting of a cliff overlooking the sea. Two figures in long dresses, one with a parasol, stand on the cliff beneath blue sky.",
+    "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAAHF2XH98dIF3aHyEf4ODZ4ePaIaBc4WIc4eKd4iIc5GKd5OMeJSMeJuRfn2GkIeVlomZl5eZkJicl46ZrZKbr5qeqoaTs4eUt42XsYGZtIuYsIqZsI6cs4eWugAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUYYHdZ2JZx2lRRDvQMxgFIUSAQRcMoS4KEADs=",
+    "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg/960px-Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg",
+    "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg/1920px-Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg",
+    "zoomable": true,
+    "maxZoomWindowSize": null,
+    "health": "ok"
+  },
+  "rights": {
+    "licenseCode": "PDM-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "attribution": "Claude Monet. Cliff Walk at Pourville, 1882. The Art Institute of Chicago. Image source: Google Arts & Culture: Home page – Image Maximum resolution."
+}

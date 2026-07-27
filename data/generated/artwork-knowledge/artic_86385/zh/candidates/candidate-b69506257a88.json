@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:86385:zh:b69506257a88",
+  "artworkId": "artic:86385",
+  "artworkRevision": "2026-07-25T23:27:01-05:00",
+  "imageRevision": null,
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:86385:museum",
+      "kind": "museum_record",
+      "title": "City Landscape",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/86385",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:28:42.639Z",
+      "contentHash": "196a3adf0b00ccd00773b397491ee6be82ca912e80f107949b1147ac12f61ed7",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_86385:museum-record:196a3adf0b00ccd00773b397491ee6be82ca912e80f107949b1147ac12f61ed7"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:86385:zh:title",
+      "subjectId": "artic:86385",
+      "layer": "fact",
+      "text": "馆方将本作记录为《City Landscape》。",
+      "predicate": "title",
+      "value": "City Landscape",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:86385:museum",
+          "sourceId": "source:artic:86385:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:86385:zh:artist",
+      "subjectId": "artic:86385",
+      "layer": "fact",
+      "text": "馆方将本作归于Joan Mitchell\nAmerican, 1925-1992。",
+      "predicate": "artist",
+      "value": "Joan Mitchell\nAmerican, 1925-1992",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:86385:museum",
+          "sourceId": "source:artic:86385:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "《City Landscape》由馆方归于Joan Mitchell\nAmerican, 1925-1992；当前仅提供经核验的馆方资料，不生成画面描述。",
+      "claimIds": [
+        "claim:artic:86385:zh:title",
+        "claim:artic:86385:zh:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:86385:zh:context",
+      "artworkId": "artic:86385",
+      "locale": "zh",
+      "topic": "context",
+      "triggerIntents": [
+        "City Landscape",
+        "Joan Mitchell\nAmerican, 1925-1992",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:86385:zh:title",
+        "claim:artic:86385:zh:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "仅在回应用户当前话题时使用经核验的馆方标题或作者归属，不补写画面内容。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b69506257a88e1da1d0d14fd7246a40caee0356413ce510dcc42fcd80af657a0",
+      "outputHash": "b69506257a88e1da1d0d14fd7246a40caee0356413ce510dcc42fcd80af657a0",
+      "updatedAt": "2026-07-27T04:28:42.639Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b69506257a88e1da1d0d14fd7246a40caee0356413ce510dcc42fcd80af657a0",
+      "outputHash": "b69506257a88e1da1d0d14fd7246a40caee0356413ce510dcc42fcd80af657a0",
+      "updatedAt": "2026-07-27T04:28:42.639Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b69506257a88e1da1d0d14fd7246a40caee0356413ce510dcc42fcd80af657a0",
+      "outputHash": "b69506257a88e1da1d0d14fd7246a40caee0356413ce510dcc42fcd80af657a0",
+      "updatedAt": "2026-07-27T04:28:42.639Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:28:42.639Z",
+    "inputHash": "b69506257a88e1da1d0d14fd7246a40caee0356413ce510dcc42fcd80af657a0"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-b69506257a88"
+  }
+}

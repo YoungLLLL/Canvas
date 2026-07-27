@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:25781:zh:24d0157b0767",
+  "artworkId": "artic:25781",
+  "artworkRevision": "2026-07-26T23:15:07-05:00",
+  "imageRevision": null,
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:25781:museum",
+      "kind": "museum_record",
+      "title": "Virgin and Child with Two Angels",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/25781",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:26:32.547Z",
+      "contentHash": "f5c664bc8d77c28b0f6989def389f5dccfd6b2c3daa49b56585ecb3ecb12148d",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_25781:museum-record:f5c664bc8d77c28b0f6989def389f5dccfd6b2c3daa49b56585ecb3ecb12148d"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:25781:zh:title",
+      "subjectId": "artic:25781",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Virgin and Child with Two Angels》。",
+      "predicate": "title",
+      "value": "Virgin and Child with Two Angels",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:25781:museum",
+          "sourceId": "source:artic:25781:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:25781:zh:artist",
+      "subjectId": "artic:25781",
+      "layer": "fact",
+      "text": "馆方将本作归于Attributed to Francesco Botticini (Italian, 1446–1497)。",
+      "predicate": "artist",
+      "value": "Attributed to Francesco Botticini (Italian, 1446–1497)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:25781:museum",
+          "sourceId": "source:artic:25781:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "《Virgin and Child with Two Angels》由馆方归于Attributed to Francesco Botticini (Italian, 1446–1497)；当前仅提供经核验的馆方资料，不生成画面描述。",
+      "claimIds": [
+        "claim:artic:25781:zh:title",
+        "claim:artic:25781:zh:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:25781:zh:context",
+      "artworkId": "artic:25781",
+      "locale": "zh",
+      "topic": "context",
+      "triggerIntents": [
+        "Virgin and Child with Two Angels",
+        "Attributed to Francesco Botticini (Italian, 1446–1497)",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:25781:zh:title",
+        "claim:artic:25781:zh:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "仅在回应用户当前话题时使用经核验的馆方标题或作者归属，不补写画面内容。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "24d0157b0767dc3115b75507e5787285c432d067d51f305e895250bb90c15078",
+      "outputHash": "24d0157b0767dc3115b75507e5787285c432d067d51f305e895250bb90c15078",
+      "updatedAt": "2026-07-27T04:26:32.547Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "24d0157b0767dc3115b75507e5787285c432d067d51f305e895250bb90c15078",
+      "outputHash": "24d0157b0767dc3115b75507e5787285c432d067d51f305e895250bb90c15078",
+      "updatedAt": "2026-07-27T04:26:32.547Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "24d0157b0767dc3115b75507e5787285c432d067d51f305e895250bb90c15078",
+      "outputHash": "24d0157b0767dc3115b75507e5787285c432d067d51f305e895250bb90c15078",
+      "updatedAt": "2026-07-27T04:26:32.547Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:26:32.547Z",
+    "inputHash": "24d0157b0767dc3115b75507e5787285c432d067d51f305e895250bb90c15078"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-24d0157b0767"
+  }
+}

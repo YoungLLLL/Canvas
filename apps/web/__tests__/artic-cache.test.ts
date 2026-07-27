@@ -57,6 +57,12 @@ describe("ARTIC short cache and stale fallback", () => {
               licenseCode: "PDM-1.0",
               licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/",
               attribution: "Wikimedia Commons",
+              usage: {
+                commercialUseAllowed: true,
+                adaptationsAllowed: true,
+                attributionRequired: false,
+                shareAlike: false,
+              },
             },
           ],
         ]),

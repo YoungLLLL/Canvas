@@ -1,0 +1,492 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:109819:zh:7e3d1709bb19",
+  "artworkId": "artic:109819",
+  "artworkRevision": "2026-07-25T23:26:54-05:00",
+  "imageRevision": "commons:109819",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:109819:museum",
+      "kind": "museum_record",
+      "title": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/109819",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:26:52.725Z",
+      "contentHash": "67b0ff6c0c7c955563b1cc9f04ceb348aa34737482ad538002779a9dadcda558",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_109819:museum-record:67b0ff6c0c7c955563b1cc9f04ceb348aa34737482ad538002779a9dadcda558"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:109819:zh:title",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Lozenge Composition with Yellow, Black, Blue, Red, and Gray》。",
+      "predicate": "title",
+      "value": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:109819:museum",
+          "sourceId": "source:artic:109819:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:109819:zh:artist",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "馆方将本作归于Piet Mondrian\nDutch, 1872–1944。",
+      "predicate": "artist",
+      "value": "Piet Mondrian\nDutch, 1872–1944",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:109819:museum",
+          "sourceId": "source:artic:109819:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:109819:zh:visual-1",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "画布呈菱形（正方形旋转45度），边缘有浅色画框或装裱边。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:zh:1",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "画布呈菱形（正方形旋转45度），边缘有浅色画框或装裱边。",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:109819:zh:visual-2",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "画面由若干水平与垂直的黑色直线构成网格结构，这些线条在菱形内形成不对称的矩形与三角形区域。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:zh:2",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "画面由若干水平与垂直的黑色直线构成网格结构，这些线条在菱形内形成不对称的矩形与三角形区域。",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:109819:zh:visual-3",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "左上角为一个黄色直角三角形；左侧中部为一黑色正方形；右下角为一蓝色直角三角形；底部中央偏左处有一小块红色直角三角形；其余大部分区域为白色背景。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:zh:3",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "左上角为一个黄色直角三角形；左侧中部为一黑色正方形；右下角为一蓝色直角三角形；底部中央偏左处有一小块红色直角三角形；其余大部分区域为白色背景。",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:109819:zh:visual-4",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "黄色区域表面可见细微龟裂纹（craquelure），暗示颜料层老化或材质特性；蓝色与黑色区域表面相对平滑。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:zh:4",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "黄色区域表面可见细微龟裂纹（craquelure），暗示颜料层老化或材质特性；蓝色与黑色区域表面相对平滑。",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:109819:zh:visual-5",
+      "subjectId": "artic:109819",
+      "layer": "interpretation",
+      "text": "右下角靠近画布边缘处有微小手写签名或标记，含字母‘P.M.’及数字‘61’，但无法确认其归属或含义。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:zh:5",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "右下角靠近画布边缘处有微小手写签名或标记，含字母‘P.M.’及数字‘61’，但无法确认其归属或含义。",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅以菱形画布为基底的抽象构图，由黑色直线分割出多个几何区域，并填充以黄、蓝、黑、红与白色。",
+      "claimIds": [
+        "claim:artic:109819:zh:title",
+        "claim:artic:109819:zh:artist",
+        "claim:artic:109819:zh:visual-1",
+        "claim:artic:109819:zh:visual-2",
+        "claim:artic:109819:zh:visual-3",
+        "claim:artic:109819:zh:visual-4",
+        "claim:artic:109819:zh:visual-5"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:109819:zh:1",
+        "label": "几何抽象",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:zh:visual-1",
+          "claim:artic:109819:zh:visual-2",
+          "claim:artic:109819:zh:visual-3",
+          "claim:artic:109819:zh:visual-4",
+          "claim:artic:109819:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:zh:1",
+          "visual:artic:109819:zh:2",
+          "visual:artic:109819:zh:3",
+          "visual:artic:109819:zh:4",
+          "visual:artic:109819:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:zh:2",
+        "label": "菱形构图",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:zh:visual-1",
+          "claim:artic:109819:zh:visual-2",
+          "claim:artic:109819:zh:visual-3",
+          "claim:artic:109819:zh:visual-4",
+          "claim:artic:109819:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:zh:1",
+          "visual:artic:109819:zh:2",
+          "visual:artic:109819:zh:3",
+          "visual:artic:109819:zh:4",
+          "visual:artic:109819:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:zh:3",
+        "label": "黑色线条",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:zh:visual-1",
+          "claim:artic:109819:zh:visual-2",
+          "claim:artic:109819:zh:visual-3",
+          "claim:artic:109819:zh:visual-4",
+          "claim:artic:109819:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:zh:1",
+          "visual:artic:109819:zh:2",
+          "visual:artic:109819:zh:3",
+          "visual:artic:109819:zh:4",
+          "visual:artic:109819:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:zh:4",
+        "label": "原色运用",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:zh:visual-1",
+          "claim:artic:109819:zh:visual-2",
+          "claim:artic:109819:zh:visual-3",
+          "claim:artic:109819:zh:visual-4",
+          "claim:artic:109819:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:zh:1",
+          "visual:artic:109819:zh:2",
+          "visual:artic:109819:zh:3",
+          "visual:artic:109819:zh:4",
+          "visual:artic:109819:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:zh:5",
+        "label": "白色背景",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:zh:visual-1",
+          "claim:artic:109819:zh:visual-2",
+          "claim:artic:109819:zh:visual-3",
+          "claim:artic:109819:zh:visual-4",
+          "claim:artic:109819:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:zh:1",
+          "visual:artic:109819:zh:2",
+          "visual:artic:109819:zh:3",
+          "visual:artic:109819:zh:4",
+          "visual:artic:109819:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:zh:6",
+        "label": "三角形",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:zh:visual-1",
+          "claim:artic:109819:zh:visual-2",
+          "claim:artic:109819:zh:visual-3",
+          "claim:artic:109819:zh:visual-4",
+          "claim:artic:109819:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:zh:1",
+          "visual:artic:109819:zh:2",
+          "visual:artic:109819:zh:3",
+          "visual:artic:109819:zh:4",
+          "visual:artic:109819:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:zh:7",
+        "label": "正方形",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:zh:visual-1",
+          "claim:artic:109819:zh:visual-2",
+          "claim:artic:109819:zh:visual-3",
+          "claim:artic:109819:zh:visual-4",
+          "claim:artic:109819:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:zh:1",
+          "visual:artic:109819:zh:2",
+          "visual:artic:109819:zh:3",
+          "visual:artic:109819:zh:4",
+          "visual:artic:109819:zh:5"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "菱形画布上的抽象几何构图，含黑线网格、黄/蓝/黑/红块面与白色背景。",
+      "long": "作品呈菱形画布，以黑色垂直与水平线条交叉分割画面，形成多个矩形与三角形区域。左上为黄色直角三角形，左侧中部为黑色正方形，右下为蓝色直角三角形，底部近中心处有一小红色三角形，其余主要为白色。线条粗细均匀，色块边界清晰。黄色区域表面可见细微龟裂纹理，右下角边缘有微小手写标记‘P.M. 61’。",
+      "claimIds": [
+        "claim:artic:109819:zh:visual-1",
+        "claim:artic:109819:zh:visual-2",
+        "claim:artic:109819:zh:visual-3",
+        "claim:artic:109819:zh:visual-4",
+        "claim:artic:109819:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:109819:zh:1",
+        "visual:artic:109819:zh:2",
+        "visual:artic:109819:zh:3",
+        "visual:artic:109819:zh:4",
+        "visual:artic:109819:zh:5"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:109819:zh:visual-1",
+      "artworkId": "artic:109819",
+      "locale": "zh",
+      "topic": "composition",
+      "triggerIntents": [
+        "注意到菱形方向很特别",
+        "为什么选择斜着摆放？"
+      ],
+      "claimIds": [
+        "claim:artic:109819:zh:visual-1",
+        "claim:artic:109819:zh:visual-2",
+        "claim:artic:109819:zh:visual-3",
+        "claim:artic:109819:zh:visual-4",
+        "claim:artic:109819:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:109819:zh:1",
+        "visual:artic:109819:zh:2",
+        "visual:artic:109819:zh:3",
+        "visual:artic:109819:zh:4",
+        "visual:artic:109819:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可从画布朝向切入：‘这幅画被旋转成菱形呈现，使得原本水平垂直的网格线在视觉上产生倾斜感——你是否留意到这种朝向如何影响了你对线条动势的感知？’",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:109819:zh:visual-2",
+      "artworkId": "artic:109819",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "黄色和蓝色的位置好像有呼应",
+        "红色那么小却很抢眼"
+      ],
+      "claimIds": [
+        "claim:artic:109819:zh:visual-1",
+        "claim:artic:109819:zh:visual-2",
+        "claim:artic:109819:zh:visual-3",
+        "claim:artic:109819:zh:visual-4",
+        "claim:artic:109819:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:109819:zh:1",
+        "visual:artic:109819:zh:2",
+        "visual:artic:109819:zh:3",
+        "visual:artic:109819:zh:4",
+        "visual:artic:109819:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "聚焦色块比例与位置关系：‘画面中大面积的白与黑构成骨架，而黄、蓝、红三色以不同大小和位置分布——比如红色仅占极小一角，却因饱和度与对比成为视觉锚点，你觉得这种‘少即是多’的安排有何效果？’",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:109819:zh:visual-3",
+      "artworkId": "artic:109819",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "黄色部分有裂纹，是年代久远吗？",
+        "颜料看起来很平，没有笔触"
+      ],
+      "claimIds": [
+        "claim:artic:109819:zh:visual-1",
+        "claim:artic:109819:zh:visual-2",
+        "claim:artic:109819:zh:visual-3",
+        "claim:artic:109819:zh:visual-4",
+        "claim:artic:109819:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:109819:zh:1",
+        "visual:artic:109819:zh:2",
+        "visual:artic:109819:zh:3",
+        "visual:artic:109819:zh:4",
+        "visual:artic:109819:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "引导观察材质细节：‘黄色区域表面的细密裂纹是颜料干燥收缩形成的自然现象，而其他色块则显得均匀平整——这种肌理差异是否让你联想到不同颜料或绘制步骤的处理方式？’",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "outputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "updatedAt": "2026-07-27T04:26:52.725Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "outputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "updatedAt": "2026-07-27T04:26:52.725Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "outputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "updatedAt": "2026-07-27T04:26:52.725Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "outputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "updatedAt": "2026-07-27T04:26:52.725Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "outputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768",
+      "updatedAt": "2026-07-27T04:26:52.725Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v6",
+    "generatedAt": "2026-07-27T04:26:52.725Z",
+    "inputHash": "7e3d1709bb19097acb42d7945096d9bf3a08e482a6aea60f67b1992612f7f768"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-7e3d1709bb19"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:01:17.697Z",
+  "artwork": {
+    "id": "artic:27993",
+    "sourceId": "27993",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/27993",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/27993",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-05-28T18:15:22-05:00",
+      "accessedAt": "2026-07-27T04:01:17.368Z"
+    },
+    "display": {
+      "title": "The Market-Woman",
+      "localizedTitles": {
+        "en": "The Market-Woman"
+      },
+      "altTitles": [],
+      "artistDisplay": "Sebald Beham\nGerman, 1500-1550",
+      "dateDisplay": "c. 1542",
+      "mediumDisplay": "Engraving in black on ivory laid paper",
+      "dimensionsDisplay": "Image/sheet, trimmed to platemark: 3.9 × 2.6 cm (1 9/16 × 1 1/16 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:33577",
+      "sourceId": "33577",
+      "name": "Hans Sebald Beham",
+      "display": "Sebald Beham\nGerman, 1500-1550",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1537,
+      "end": 1547
+    },
+    "classification": {
+      "artworkTypeId": 18,
+      "artworkTypeTitle": "Print",
+      "departmentTitle": "Prints and Drawings",
+      "classificationTitles": [
+        "engraving",
+        "print",
+        "prints and drawing"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Hans Sebald Beham. The Market-Woman, c. 1542. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:01:17.368Z",
+      "reasons": [
+        "unsupported_type",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Clarence Buckingham Collection",
+    "mainReferenceNumber": "1938.1356.1",
+    "revision": "2026-05-28T18:15:22-05:00"
+  }
+}

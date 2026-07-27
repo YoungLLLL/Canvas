@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:111628:zh:4d14a57bb7d9",
+  "artworkId": "artic:111628",
+  "artworkRevision": "2026-07-23T23:27:30-05:00",
+  "imageRevision": null,
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:111628:museum",
+      "kind": "museum_record",
+      "title": "Nighthawks",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/111628",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:55:15.261Z",
+      "contentHash": "d9788782415abaac1bc87c859af292a1bf8c90f626db7fb3888b960623c08a01",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_111628:museum-record:d9788782415abaac1bc87c859af292a1bf8c90f626db7fb3888b960623c08a01"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:111628:zh:title",
+      "subjectId": "artic:111628",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Nighthawks》。",
+      "predicate": "title",
+      "value": "Nighthawks",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:111628:museum",
+          "sourceId": "source:artic:111628:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:111628:zh:artist",
+      "subjectId": "artic:111628",
+      "layer": "fact",
+      "text": "馆方将本作归于Edward Hopper (American, 1882–1967)。",
+      "predicate": "artist",
+      "value": "Edward Hopper (American, 1882–1967)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:111628:museum",
+          "sourceId": "source:artic:111628:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "《Nighthawks》由馆方归于Edward Hopper (American, 1882–1967)；当前仅提供经核验的馆方资料，不生成画面描述。",
+      "claimIds": [
+        "claim:artic:111628:zh:title",
+        "claim:artic:111628:zh:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:111628:zh:context",
+      "artworkId": "artic:111628",
+      "locale": "zh",
+      "topic": "context",
+      "triggerIntents": [
+        "Nighthawks",
+        "Edward Hopper (American, 1882–1967)",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:111628:zh:title",
+        "claim:artic:111628:zh:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "仅在回应用户当前话题时使用经核验的馆方标题或作者归属，不补写画面内容。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4d14a57bb7d9b4384ed3377c120ee09ec0cb93c1f28ab563afb8629c558eb859",
+      "outputHash": "4d14a57bb7d9b4384ed3377c120ee09ec0cb93c1f28ab563afb8629c558eb859",
+      "updatedAt": "2026-07-27T03:55:15.261Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4d14a57bb7d9b4384ed3377c120ee09ec0cb93c1f28ab563afb8629c558eb859",
+      "outputHash": "4d14a57bb7d9b4384ed3377c120ee09ec0cb93c1f28ab563afb8629c558eb859",
+      "updatedAt": "2026-07-27T03:55:15.261Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4d14a57bb7d9b4384ed3377c120ee09ec0cb93c1f28ab563afb8629c558eb859",
+      "outputHash": "4d14a57bb7d9b4384ed3377c120ee09ec0cb93c1f28ab563afb8629c558eb859",
+      "updatedAt": "2026-07-27T03:55:15.261Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T03:55:15.261Z",
+    "inputHash": "4d14a57bb7d9b4384ed3377c120ee09ec0cb93c1f28ab563afb8629c558eb859"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-4d14a57bb7d9"
+  }
+}

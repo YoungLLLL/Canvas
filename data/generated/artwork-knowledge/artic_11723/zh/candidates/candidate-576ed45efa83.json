@@ -1,0 +1,492 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:11723:zh:576ed45efa83",
+  "artworkId": "artic:11723",
+  "artworkRevision": "2026-07-25T23:27:00-05:00",
+  "imageRevision": "commons:11723",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:11723:museum",
+      "kind": "museum_record",
+      "title": "Woman at Her Toilette",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/11723",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:14:36.322Z",
+      "contentHash": "457487859a0aa58c5affc35cd4e17b1b5703405973272f41f240deb7175e714e",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_11723:museum-record:457487859a0aa58c5affc35cd4e17b1b5703405973272f41f240deb7175e714e"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:11723:zh:title",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Woman at Her Toilette》。",
+      "predicate": "title",
+      "value": "Woman at Her Toilette",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:11723:museum",
+          "sourceId": "source:artic:11723:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:11723:zh:artist",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "馆方将本作归于Berthe Morisot (French, 1841–1895)。",
+      "predicate": "artist",
+      "value": "Berthe Morisot (French, 1841–1895)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:11723:museum",
+          "sourceId": "source:artic:11723:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:11723:zh:visual-1",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "人物背对观者，金色头发盘起，左耳佩戴一颗白色圆形耳饰，颈部系有黑色细带。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:zh:1",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "人物背对观者，金色头发盘起，左耳佩戴一颗白色圆形耳饰，颈部系有黑色细带。",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:zh:visual-2",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "人物身穿白色露背礼服，肩部有蓝色细边装饰，衣料呈现蓬松褶皱感，用厚涂与刮擦笔法表现质感。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:zh:2",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "人物身穿白色露背礼服，肩部有蓝色细边装饰，衣料呈现蓬松褶皱感，用厚涂与刮擦笔法表现质感。",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:zh:visual-3",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "左侧有一面竖立的镜子，镜框为深棕色木质，镜中映出模糊的粉色与白色物体轮廓。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:zh:3",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "左侧有一面竖立的镜子，镜框为深棕色木质，镜中映出模糊的粉色与白色物体轮廓。",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:zh:visual-4",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "人物右前方的小桌上摆放着玻璃容器（内有粉红花朵）、白色绒球状物与一朵黄白相间的花。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:zh:4",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "人物右前方的小桌上摆放着玻璃容器（内有粉红花朵）、白色绒球状物与一朵黄白相间的花。",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:zh:visual-5",
+      "subjectId": "artic:11723",
+      "layer": "interpretation",
+      "text": "背景由多方向、快速涂抹的灰、白、淡蓝、浅褐与少量红紫笔触构成，未明确界定空间边界，营造出动态而模糊的室内氛围。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:zh:5",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "背景由多方向、快速涂抹的灰、白、淡蓝、浅褐与少量红紫笔触构成，未明确界定空间边界，营造出动态而模糊的室内氛围。",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅油画，描绘一位背对观者的女性坐在室内，正对着左侧的镜子。画面以松散、可见的笔触构成，色调以灰白、浅褐与淡蓝为主。",
+      "claimIds": [
+        "claim:artic:11723:zh:title",
+        "claim:artic:11723:zh:artist",
+        "claim:artic:11723:zh:visual-1",
+        "claim:artic:11723:zh:visual-2",
+        "claim:artic:11723:zh:visual-3",
+        "claim:artic:11723:zh:visual-4",
+        "claim:artic:11723:zh:visual-5"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:11723:zh:1",
+        "label": "油画",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:zh:visual-1",
+          "claim:artic:11723:zh:visual-2",
+          "claim:artic:11723:zh:visual-3",
+          "claim:artic:11723:zh:visual-4",
+          "claim:artic:11723:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:zh:1",
+          "visual:artic:11723:zh:2",
+          "visual:artic:11723:zh:3",
+          "visual:artic:11723:zh:4",
+          "visual:artic:11723:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:zh:2",
+        "label": "背影",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:zh:visual-1",
+          "claim:artic:11723:zh:visual-2",
+          "claim:artic:11723:zh:visual-3",
+          "claim:artic:11723:zh:visual-4",
+          "claim:artic:11723:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:zh:1",
+          "visual:artic:11723:zh:2",
+          "visual:artic:11723:zh:3",
+          "visual:artic:11723:zh:4",
+          "visual:artic:11723:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:zh:3",
+        "label": "镜子",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:zh:visual-1",
+          "claim:artic:11723:zh:visual-2",
+          "claim:artic:11723:zh:visual-3",
+          "claim:artic:11723:zh:visual-4",
+          "claim:artic:11723:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:zh:1",
+          "visual:artic:11723:zh:2",
+          "visual:artic:11723:zh:3",
+          "visual:artic:11723:zh:4",
+          "visual:artic:11723:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:zh:4",
+        "label": "女性",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:zh:visual-1",
+          "claim:artic:11723:zh:visual-2",
+          "claim:artic:11723:zh:visual-3",
+          "claim:artic:11723:zh:visual-4",
+          "claim:artic:11723:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:zh:1",
+          "visual:artic:11723:zh:2",
+          "visual:artic:11723:zh:3",
+          "visual:artic:11723:zh:4",
+          "visual:artic:11723:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:zh:5",
+        "label": "室内场景",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:zh:visual-1",
+          "claim:artic:11723:zh:visual-2",
+          "claim:artic:11723:zh:visual-3",
+          "claim:artic:11723:zh:visual-4",
+          "claim:artic:11723:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:zh:1",
+          "visual:artic:11723:zh:2",
+          "visual:artic:11723:zh:3",
+          "visual:artic:11723:zh:4",
+          "visual:artic:11723:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:zh:6",
+        "label": "笔触明显",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:zh:visual-1",
+          "claim:artic:11723:zh:visual-2",
+          "claim:artic:11723:zh:visual-3",
+          "claim:artic:11723:zh:visual-4",
+          "claim:artic:11723:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:zh:1",
+          "visual:artic:11723:zh:2",
+          "visual:artic:11723:zh:3",
+          "visual:artic:11723:zh:4",
+          "visual:artic:11723:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:zh:7",
+        "label": "白色礼服",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:zh:visual-1",
+          "claim:artic:11723:zh:visual-2",
+          "claim:artic:11723:zh:visual-3",
+          "claim:artic:11723:zh:visual-4",
+          "claim:artic:11723:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:zh:1",
+          "visual:artic:11723:zh:2",
+          "visual:artic:11723:zh:3",
+          "visual:artic:11723:zh:4",
+          "visual:artic:11723:zh:5"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一位穿白色露背礼服的金发女性背坐于镜前，身旁小桌上有花与玻璃器皿，背景为松散笔触构成的模糊室内环境。",
+      "long": "画面中央是一位背对观众的女性，金色卷发盘起，左耳戴白色耳钉，颈间系黑色细带；她身着白色露背长裙，肩部饰有淡蓝色细边，裙摆蓬松，以厚实、方向多变的笔触塑造体积与褶皱。其左侧立一面深棕色木框镜子，镜中反射出模糊的粉色与白色形体。右前方小木桌上置有透明玻璃罐（内插一朵粉红小花）、一团白色绒球状物及一朵黄白花瓣的花。背景由大量横向、斜向与点状的灰白、浅褐、淡蓝及零星红紫色笔触交织而成，无清晰墙面或家具轮廓，整体呈现高度概括与即兴的绘画风格。",
+      "claimIds": [
+        "claim:artic:11723:zh:visual-1",
+        "claim:artic:11723:zh:visual-2",
+        "claim:artic:11723:zh:visual-3",
+        "claim:artic:11723:zh:visual-4",
+        "claim:artic:11723:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:zh:1",
+        "visual:artic:11723:zh:2",
+        "visual:artic:11723:zh:3",
+        "visual:artic:11723:zh:4",
+        "visual:artic:11723:zh:5"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:11723:zh:visual-1",
+      "artworkId": "artic:11723",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "注意到笔触很特别",
+        "这画是怎么画出来的"
+      ],
+      "claimIds": [
+        "claim:artic:11723:zh:visual-1",
+        "claim:artic:11723:zh:visual-2",
+        "claim:artic:11723:zh:visual-3",
+        "claim:artic:11723:zh:visual-4",
+        "claim:artic:11723:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:zh:1",
+        "visual:artic:11723:zh:2",
+        "visual:artic:11723:zh:3",
+        "visual:artic:11723:zh:4",
+        "visual:artic:11723:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可指向人物肩部或背景处——那里笔触方向杂乱、颜料堆叠明显，甚至露出底层色块，说明画家并未追求平滑过渡，而是让‘画’本身成为观看的一部分。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:11723:zh:visual-2",
+      "artworkId": "artic:11723",
+      "locale": "zh",
+      "topic": "composition",
+      "triggerIntents": [
+        "为什么她不看我们",
+        "镜子在画面里起什么作用"
+      ],
+      "claimIds": [
+        "claim:artic:11723:zh:visual-1",
+        "claim:artic:11723:zh:visual-2",
+        "claim:artic:11723:zh:visual-3",
+        "claim:artic:11723:zh:visual-4",
+        "claim:artic:11723:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:zh:1",
+        "visual:artic:11723:zh:2",
+        "visual:artic:11723:zh:3",
+        "visual:artic:11723:zh:4",
+        "visual:artic:11723:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "从人物背影引向左侧镜面：她的视线被镜面牵引，而镜中影像又模糊不清，形成‘可见—不可见’的张力；构图因此不对称却平衡，左侧垂直镜框与右侧松散背景形成对比。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:11723:zh:visual-3",
+      "artworkId": "artic:11723",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "颜色好柔和",
+        "为什么几乎没用鲜艳颜色"
+      ],
+      "claimIds": [
+        "claim:artic:11723:zh:visual-1",
+        "claim:artic:11723:zh:visual-2",
+        "claim:artic:11723:zh:visual-3",
+        "claim:artic:11723:zh:visual-4",
+        "claim:artic:11723:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:zh:1",
+        "visual:artic:11723:zh:2",
+        "visual:artic:11723:zh:3",
+        "visual:artic:11723:zh:4",
+        "visual:artic:11723:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "聚焦于礼服边缘的淡蓝细线与背景中零星的粉红、紫红——这些微量暖色在大面积灰白中起到提亮与节奏作用，整体采用低饱和度调和色，避免视觉冲击，强化静谧感。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "outputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "updatedAt": "2026-07-27T04:14:36.322Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "outputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "updatedAt": "2026-07-27T04:14:36.322Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "outputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "updatedAt": "2026-07-27T04:14:36.322Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "outputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "updatedAt": "2026-07-27T04:14:36.322Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "outputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f",
+      "updatedAt": "2026-07-27T04:14:36.322Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:14:36.322Z",
+    "inputHash": "576ed45efa8352b6c0f1f2ae5d1290c4eaca789461eb135b082aea8a9ff6c75f"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-576ed45efa83"
+  }
+}

@@ -40,6 +40,12 @@ const baseArtwork = {
     image: {
       licenseCode: "CC0-1.0",
       licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+      usage: {
+        commercialUseAllowed: true,
+        adaptationsAllowed: true,
+        attributionRequired: false,
+        shareAlike: false,
+      },
     },
     metadata: { defaultLicense: "CC0-1.0", descriptionLicense: "CC-BY-4.0" },
     termsUrl: "https://www.artic.edu/terms",
@@ -307,6 +313,46 @@ describe("runtime domain schemas", () => {
     const result = artworkSchema.safeParse({
       ...baseArtwork,
       images: { preferred: null, alternates: [] },
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("accepts a non-commercial no-derivatives image with explicit constraints", () => {
+    const result = artworkSchema.safeParse({
+      ...baseArtwork,
+      rights: {
+        ...baseArtwork.rights,
+        image: {
+          licenseCode: "CC-BY-NC-ND-4.0",
+          licenseUrl: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+          usage: {
+            commercialUseAllowed: false,
+            adaptationsAllowed: false,
+            attributionRequired: true,
+            shareAlike: false,
+          },
+        },
+      },
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects an NC or ND license whose machine-readable constraints are relaxed", () => {
+    const result = artworkSchema.safeParse({
+      ...baseArtwork,
+      rights: {
+        ...baseArtwork.rights,
+        image: {
+          licenseCode: "CC-BY-NC-ND-4.0",
+          licenseUrl: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+          usage: {
+            commercialUseAllowed: true,
+            adaptationsAllowed: true,
+            attributionRequired: true,
+            shareAlike: false,
+          },
+        },
+      },
     });
     expect(result.success).toBe(false);
   });

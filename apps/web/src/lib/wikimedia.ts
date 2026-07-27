@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import type { Locale } from "@/src/i18n/locales";
+import { readArticCommonsCache, writeArticCommonsCache } from "@/src/lib/wikimedia-cache";
 
 const WIKIDATA_SPARQL_URL = "https://query.wikidata.org/sparql";
 const WIKIDATA_API_URL = "https://www.wikidata.org/w/api.php";
@@ -8,6 +9,21 @@ const COMMONS_API_URL = "https://commons.wikimedia.org/w/api.php";
 const PAGE_SIZE = 12;
 const CANDIDATE_SIZE = 30;
 const USER_AGENT = "CanviumGallery/0.1 (Wikimedia Commons evaluation)";
+const MIN_REQUEST_INTERVAL_MS = 850;
+let requestQueue = Promise.resolve();
+let nextRequestAt = 0;
+
+export class WikimediaRequestError extends Error {
+  readonly status: number;
+  readonly retryAfterMs?: number;
+
+  constructor(status: number, retryAfterMs?: number) {
+    super(`Wikimedia request failed with ${status}`);
+    this.name = "WikimediaRequestError";
+    this.status = status;
+    this.retryAfterMs = retryAfterMs;
+  }
+}
 
 const sparqlSchema = z.object({
   results: z.object({
@@ -73,9 +89,33 @@ export type ArticCommonsImage = {
   sourceUrl: string;
   width: number;
   height: number;
-  licenseCode: "CC0-1.0" | "PDM-1.0";
+  licenseCode: CommonsLicenseCode;
   licenseUrl: string;
   attribution: string;
+  usage: CommonsImageUsage;
+};
+
+export type CommonsLicenseCode =
+  | "CC0-1.0"
+  | "PDM-1.0"
+  | `CC-BY-${string}`
+  | `CC-BY-SA-${string}`
+  | `CC-BY-NC-${string}`
+  | `CC-BY-NC-SA-${string}`
+  | `CC-BY-ND-${string}`
+  | `CC-BY-NC-ND-${string}`;
+
+export type CommonsImageUsage = {
+  commercialUseAllowed: boolean;
+  adaptationsAllowed: boolean;
+  attributionRequired: boolean;
+  shareAlike: boolean;
+};
+
+export type CommonsImageRights = {
+  licenseCode: CommonsLicenseCode;
+  licenseUrl: string;
+  usage: CommonsImageUsage;
 };
 
 export type WikimediaArtwork = {
@@ -129,37 +169,120 @@ function plainText(value: string | undefined) {
     .trim();
 }
 
-export function isPublicDomainImage(info: ImageInfo) {
+export function resolveCommonsImageRights(info: ImageInfo): CommonsImageRights | null {
   const metadata = info.extmetadata ?? {};
-  return (
-    metadata.Copyrighted?.value === "False" ||
-    /public domain|cc0/i.test(metadata.LicenseShortName?.value ?? "")
+  const shortName = metadata.LicenseShortName?.value ?? "";
+  const licenseUrl = metadata.LicenseUrl?.value ?? "";
+
+  if (
+    /cc0/i.test(shortName) ||
+    /creativecommons\.org\/publicdomain\/zero\/1\.0/i.test(licenseUrl)
+  ) {
+    return {
+      licenseCode: "CC0-1.0",
+      licenseUrl: licenseUrl || "https://creativecommons.org/publicdomain/zero/1.0/",
+      usage: {
+        commercialUseAllowed: true,
+        adaptationsAllowed: true,
+        attributionRequired: false,
+        shareAlike: false,
+      },
+    };
+  }
+
+  const ccMatch = licenseUrl.match(
+    /^https?:\/\/creativecommons\.org\/licenses\/(by|by-sa|by-nc|by-nc-sa|by-nd|by-nc-nd)\/(\d\.\d)(?:\/|$)/i,
   );
+  if (ccMatch) {
+    const slug = ccMatch[1].toLowerCase();
+    const version = ccMatch[2];
+    return {
+      licenseCode: `CC-${slug.toUpperCase()}-${version}` as CommonsLicenseCode,
+      licenseUrl,
+      usage: {
+        commercialUseAllowed: !slug.includes("-nc"),
+        adaptationsAllowed: !slug.includes("-nd"),
+        attributionRequired: true,
+        shareAlike: slug.includes("-sa"),
+      },
+    };
+  }
+
+  if (
+    metadata.Copyrighted?.value === "False" ||
+    /public domain|public domain mark/i.test(shortName) ||
+    /creativecommons\.org\/publicdomain\/mark\/1\.0/i.test(licenseUrl)
+  ) {
+    return {
+      licenseCode: "PDM-1.0",
+      licenseUrl: licenseUrl || "https://creativecommons.org/publicdomain/mark/1.0/",
+      usage: {
+        commercialUseAllowed: true,
+        adaptationsAllowed: true,
+        attributionRequired: false,
+        shareAlike: false,
+      },
+    };
+  }
+
+  return null;
 }
 
-async function fetchJson(url: string, init?: RequestInit, attempts = 2): Promise<unknown> {
+export function isAcceptedCommonsImage(info: ImageInfo) {
+  return resolveCommonsImageRights(info) !== null;
+}
+
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function rateLimitedFetch(url: string, init?: RequestInit) {
+  let releaseQueue!: () => void;
+  const previous = requestQueue;
+  requestQueue = new Promise<void>((resolve) => {
+    releaseQueue = resolve;
+  });
+  await previous;
+  try {
+    const waitMs = Math.max(0, nextRequestAt - Date.now());
+    if (waitMs) await delay(waitMs);
+    return await fetch(url, {
+      ...init,
+      headers: {
+        Accept: "application/json",
+        "Api-User-Agent": USER_AGENT,
+        "User-Agent": USER_AGENT,
+        ...init?.headers,
+      },
+      next: { revalidate: 300 },
+    });
+  } finally {
+    nextRequestAt = Date.now() + MIN_REQUEST_INTERVAL_MS;
+    releaseQueue();
+  }
+}
+
+async function fetchJson(url: string, init?: RequestInit, attempts = 5): Promise<unknown> {
   let lastError: unknown;
   for (let attempt = 0; attempt < attempts; attempt += 1) {
     try {
-      const response = await fetch(url, {
-        ...init,
-        headers: {
-          Accept: "application/json",
-          "Api-User-Agent": USER_AGENT,
-          "User-Agent": USER_AGENT,
-          ...init?.headers,
-        },
-        next: { revalidate: 300 },
-      });
+      const response = await rateLimitedFetch(url, init);
       if (!response.ok) {
-        throw new Error(
-          `Wikimedia request to ${new URL(url).hostname} failed with ${response.status}`,
+        const retryAfter = Number(response.headers.get("retry-after"));
+        throw new WikimediaRequestError(
+          response.status,
+          Number.isFinite(retryAfter) ? retryAfter * 1_000 : undefined,
         );
       }
       return await response.json();
     } catch (error) {
       lastError = error;
-      if (attempt + 1 < attempts) await new Promise((resolve) => setTimeout(resolve, 250));
+      const retryable =
+        !(error instanceof WikimediaRequestError) || error.status === 429 || error.status >= 500;
+      if (!retryable || attempt + 1 >= attempts) break;
+      const serverDelay = error instanceof WikimediaRequestError ? error.retryAfterMs : undefined;
+      const backoff = Math.min(30_000, 1_000 * 2 ** attempt);
+      await delay(Math.max(serverDelay ?? 0, backoff) + Math.floor(Math.random() * 300));
     }
   }
   throw lastError;
@@ -287,7 +410,15 @@ async function getCommonsImages(fileTitles: string[]) {
 export async function getCommonsImagesForArticIds(articIds: string[]) {
   const safeIds = Array.from(new Set(articIds.filter((id) => /^\d+$/.test(id))));
   if (!safeIds.length) return new Map<string, ArticCommonsImage>();
-  const values = safeIds.map((id) => `"${id}"`).join(" ");
+  const cached = await readArticCommonsCache(safeIds);
+  const result = new Map<string, ArticCommonsImage>();
+  for (const [articId, entry] of cached) {
+    if (entry.status === "mapped") result.set(articId, entry.image);
+  }
+  const pendingIds = safeIds.filter((articId) => !cached.has(articId));
+  if (!pendingIds.length) return result;
+
+  const values = pendingIds.map((id) => `"${id}"`).join(" ");
   const bindings = await runSparql(`
     SELECT DISTINCT ?artwork ?articId ?image WHERE {
       VALUES ?articId { ${values} }
@@ -308,13 +439,13 @@ export async function getCommonsImagesForArticIds(articIds: string[]) {
     getCommonsImages(Array.from(new Set(candidates.map((candidate) => candidate.fileTitle)))),
     getLabels(Array.from(new Set(candidates.map((candidate) => candidate.artworkId))), "zh"),
   ]);
-  const result = new Map<string, ArticCommonsImage>();
   for (const candidate of candidates) {
     if (result.has(candidate.articId)) continue;
     const info = images.get(candidate.fileTitle.replaceAll("_", " "));
-    if (!info || !isPublicDomainImage(info) || !info.mime.startsWith("image/")) continue;
+    if (!info || !info.mime.startsWith("image/")) continue;
     const metadata = info.extmetadata ?? {};
-    const cc0 = /cc0/i.test(metadata.LicenseShortName?.value ?? "");
+    const rights = resolveCommonsImageRights(info);
+    if (!rights) continue;
     const entityLabels = labels[candidate.artworkId]?.labels;
     result.set(candidate.articId, {
       titleEn: entityLabels?.en?.value,
@@ -325,19 +456,25 @@ export async function getCommonsImagesForArticIds(articIds: string[]) {
       sourceUrl: info.descriptionurl,
       width: info.thumbwidth,
       height: info.thumbheight,
-      licenseCode: cc0 ? "CC0-1.0" : "PDM-1.0",
-      licenseUrl:
-        metadata.LicenseUrl?.value ??
-        (cc0
-          ? "https://creativecommons.org/publicdomain/zero/1.0/"
-          : "https://creativecommons.org/publicdomain/mark/1.0/"),
+      licenseCode: rights.licenseCode,
+      licenseUrl: rights.licenseUrl,
       attribution:
         plainText(metadata.Credit?.value) ??
         plainText(metadata.Artist?.value) ??
         "Wikimedia Commons",
+      usage: rights.usage,
     });
   }
+  await writeArticCommonsCache(
+    new Map(pendingIds.map((articId) => [articId, result.get(articId) ?? null])),
+  );
   return result;
+}
+
+export function wikimediaFailureReason(error: unknown) {
+  return error instanceof WikimediaRequestError && error.status === 429
+    ? "commons_rate_limited"
+    : "commons_temporarily_unavailable";
 }
 
 function firstValue(bindings: Binding[], key: string) {
@@ -408,7 +545,7 @@ export async function getWikimediaCollection({
     if (!imageValue) continue;
     const fileTitle = commonsFileTitle(imageValue);
     const image = commonsImages.get(fileTitle.replaceAll("_", " "));
-    if (!image || !isPublicDomainImage(image) || !image.mime.startsWith("image/")) continue;
+    if (!image || !isAcceptedCommonsImage(image) || !image.mime.startsWith("image/")) continue;
 
     const creatorId = entityId(firstValue(bindings, "creator"));
     const collectionId = entityId(firstValue(bindings, "collection"));

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:01:18.736Z",
+  "artwork": {
+    "id": "artic:229393",
+    "sourceId": "229393",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/229393",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/229393",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:20:05-05:00",
+      "accessedAt": "2026-07-27T04:01:18.437Z"
+    },
+    "display": {
+      "title": "Untitled",
+      "localizedTitles": {
+        "en": "Untitled"
+      },
+      "altTitles": [],
+      "artistDisplay": "Tanaka Atsuko\nJapanese, 1932-2005",
+      "dateDisplay": "1964",
+      "mediumDisplay": "Enamel on canvas",
+      "dimensionsDisplay": "90.5 × 72.5 cm (35 5/8 × 28 1/2 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:58851",
+      "sourceId": "58851",
+      "name": "Tanaka Atsuko",
+      "display": "Tanaka Atsuko\nJapanese, 1932-2005",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1964,
+      "end": 1964
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Contemporary Art",
+      "classificationTitles": [
+        "painting"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "copyrighted",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Tanaka Atsuko. Untitled, 1964. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:01:18.437Z",
+      "reasons": [
+        "image_rights_not_open",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Through prior purchase from the Mary and Leigh Block Fund",
+    "mainReferenceNumber": "2015.176",
+    "revision": "2026-07-25T23:20:05-05:00"
+  }
+}

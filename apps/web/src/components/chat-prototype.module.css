@@ -1,0 +1,584 @@
+.page {
+  --blue: #137fae;
+  --mint: #8bd9a9;
+  --yellow: #ffea58;
+  --cream: #f4f1e9;
+  --black: #050606;
+  display: grid;
+  grid-template-columns: minmax(360px, 1fr) minmax(560px, 1fr);
+  height: 100svh;
+  min-height: 680px;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--black);
+}
+
+.artworkPanel {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: #75aaa2;
+}
+
+.artwork {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  transition: transform 180ms ease-out;
+  will-change: transform;
+}
+
+.artworkWash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(3, 16, 16, 0.16), transparent 24%, transparent 62%, rgba(1, 17, 16, 0.34)),
+    linear-gradient(90deg, rgba(0, 17, 16, 0.1), transparent 38%);
+  pointer-events: none;
+}
+
+.wordmark {
+  position: absolute;
+  top: clamp(24px, 3.8vw, 62px);
+  left: clamp(24px, 4.2vw, 70px);
+  color: white;
+  font-family: "Otomanopee One", var(--font-body-zh), sans-serif;
+  font-size: clamp(1.2rem, 1.55vw, 2rem);
+  letter-spacing: -0.055em;
+  text-decoration: none;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.15);
+}
+
+.artworkReset {
+  position: absolute;
+  top: clamp(24px, 3.8vw, 62px);
+  right: clamp(18px, 2vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(6, 12, 12, 0.5);
+  color: white;
+  font-family: var(--font-body-zh), "Noto Sans", sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  backdrop-filter: blur(7px);
+  cursor: pointer;
+}
+
+.artworkReset:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.artworkCaption {
+  position: absolute;
+  bottom: clamp(30px, 4.2vw, 74px);
+  left: clamp(24px, 3.1vw, 54px);
+  max-width: calc(100% - 48px);
+  margin: 0;
+  color: white;
+  font-family: var(--font-body-zh), "Noto Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: -2.2px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+}
+
+.artworkCaption div,
+.artworkCaption dd {
+  margin: 0;
+}
+
+.artistLine {
+  margin-bottom: 10px !important;
+}
+
+.artistLine dd {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  text-transform: none;
+}
+
+.artistLine strong {
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -3px;
+}
+
+.artistLine span {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.chatPanel {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 4%, rgba(19, 127, 174, 0.035), transparent 27%),
+    var(--cream);
+}
+
+.chatHeader {
+  position: relative;
+  z-index: 2;
+  padding: clamp(22px, 2.7vw, 46px) clamp(30px, 4vw, 70px) 2px;
+  background: linear-gradient(180deg, var(--cream) 85%, rgba(244, 241, 233, 0));
+}
+
+.titleLine {
+  display: grid;
+  grid-template-columns: auto auto auto minmax(80px, 1fr);
+  align-items: center;
+  gap: clamp(10px, 1.35vw, 24px);
+  white-space: nowrap;
+}
+
+.titleLine h1,
+.hash,
+.at {
+  margin: 0;
+  font-family: var(--font-body-latin), Inter, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(2.5rem, 3.8vw, 4.8rem);
+  font-weight: 450;
+  line-height: 0.92;
+  letter-spacing: -0.075em;
+}
+
+.titleLine h1 b {
+  font-weight: 500;
+}
+
+.titleLine h1 span {
+  font-weight: 400;
+}
+
+.hash,
+.at {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.avatar {
+  display: block;
+  width: 100%;
+  min-width: 64px;
+  height: clamp(36px, 3.1vw, 60px);
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
+}
+
+.quoteMarks {
+  display: flex;
+  justify-content: space-between;
+  height: clamp(25px, 2.8vw, 50px);
+  margin-top: clamp(7px, 0.8vw, 14px);
+  color: var(--blue);
+  font-family: Arial, sans-serif;
+  font-size: clamp(3rem, 4.6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.8;
+}
+
+.feed {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: clamp(12px, 1.4vw, 24px);
+  overflow-y: auto;
+  padding: clamp(12px, 1.2vw, 20px) clamp(30px, 4vw, 70px) 28px;
+  scrollbar-color: rgba(5, 6, 6, 0.22) transparent;
+  scrollbar-width: thin;
+}
+
+.message {
+  position: relative;
+  display: flex;
+  width: min(100%, 980px);
+  padding-left: 18px;
+  animation: messageIn 440ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.question {
+  align-self: flex-end;
+  width: min(86%, 820px);
+  padding-left: 0;
+  padding-right: 18px;
+}
+
+.messageBody {
+  width: 100%;
+  border-radius: 26px;
+  padding: clamp(12px, 0.9vw, 17px) clamp(17px, 1.35vw, 25px);
+  background: white;
+}
+
+.question .messageBody {
+  text-align: right;
+}
+
+.answer .messageBody {
+  border-radius: 0;
+  background: transparent;
+  padding-block: 5px;
+}
+
+.bracket,
+.inputBracket {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 14px;
+  border-left: 7px solid var(--black);
+}
+
+.bracket::before,
+.bracket::after,
+.inputBracket::before,
+.inputBracket::after {
+  position: absolute;
+  left: 0;
+  width: 10px;
+  height: 7px;
+  background: var(--black);
+  content: "";
+}
+
+.bracket::before,
+.inputBracket::before {
+  top: 0;
+}
+
+.bracket::after,
+.inputBracket::after {
+  bottom: 0;
+}
+
+.question .bracket {
+  right: 0;
+  left: auto;
+  border-right: 7px solid var(--black);
+  border-left: 0;
+}
+
+.question .bracket::before,
+.question .bracket::after {
+  right: 0;
+  left: auto;
+}
+
+.chinese,
+.english {
+  margin: 0;
+  font-family: var(--font-body-latin), var(--font-body-zh), sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.chinese {
+  font-size: clamp(1.15rem, 1.65vw, 2.05rem);
+  font-weight: 600;
+  line-height: 1.14;
+}
+
+.chinese b {
+  margin-right: 8px;
+  color: var(--mint);
+  font-size: 1.2em;
+}
+
+.answer .chinese b {
+  color: var(--blue);
+}
+
+.chinese i {
+  margin-left: 8px;
+  color: var(--mint);
+  font-size: 1.15em;
+  font-style: normal;
+}
+
+.english {
+  margin-top: 4px;
+  font-size: clamp(1rem, 1.45vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.english mark {
+  background: transparent;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.answer .english {
+  display: inline;
+  padding: 0 6px 4px;
+  background: linear-gradient(var(--yellow), var(--yellow)) 0 88% / 100% 76% no-repeat;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.composerArea {
+  position: relative;
+  z-index: 3;
+  padding: 10px clamp(30px, 4vw, 70px) clamp(20px, 2.2vw, 40px);
+  background: linear-gradient(180deg, rgba(244, 241, 233, 0), var(--cream) 18%);
+}
+
+.suggestions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.suggestions button {
+  flex: none;
+  border: 1px solid rgba(5, 6, 6, 0.16);
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: rgba(255, 255, 255, 0.56);
+  color: rgba(5, 6, 6, 0.67);
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.composer {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 9px;
+  padding-left: 18px;
+}
+
+.composer input {
+  min-width: 0;
+  border: 0;
+  border-radius: 14px;
+  padding: 0 18px;
+  background: white;
+  color: var(--black);
+  outline: none;
+}
+
+.composer input::placeholder {
+  color: rgba(5, 6, 6, 0.32);
+}
+
+.voiceButton,
+.sendButton {
+  min-width: 82px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 18px;
+  background: #0b0d0e;
+  color: white;
+  cursor: pointer;
+}
+
+.sendButton {
+  min-width: 68px;
+  background: var(--blue);
+}
+
+.sendButton:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.voiceButton.listening {
+  background: #c83e38;
+  animation: listening 1.2s ease-in-out infinite;
+}
+
+.disclaimer {
+  margin: 8px 0 0 18px;
+  color: rgba(5, 6, 6, 0.36);
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
+}
+
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes listening {
+  50% {
+    box-shadow: 0 0 0 6px rgba(200, 62, 56, 0.13);
+  }
+}
+
+@media (max-width: 980px) {
+  .page {
+    grid-template-columns: minmax(260px, 40vw) 1fr;
+  }
+
+  .chatHeader,
+  .feed,
+  .composerArea {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
+  .artworkCaption {
+    font-size: clamp(0.8rem, 2vw, 1.25rem);
+  }
+
+  .titleLine h1,
+  .hash,
+  .at {
+    font-size: clamp(2.35rem, 5.4vw, 3.7rem);
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    display: block;
+    min-height: 100svh;
+    height: auto;
+    overflow: visible;
+  }
+
+  .artworkPanel {
+    height: 38svh;
+    min-height: 280px;
+  }
+
+  .artwork {
+    object-position: 50% 35%;
+  }
+
+  .artworkCaption {
+    bottom: 22px;
+    left: 22px;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -1px;
+  }
+
+  .artistLine {
+    margin-bottom: 6px !important;
+  }
+
+  .artistLine strong {
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: -1.5px;
+  }
+
+  .artistLine span {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .wordmark {
+    top: 20px;
+    left: 22px;
+  }
+
+  .artworkReset {
+    top: 18px;
+    right: 16px;
+  }
+
+  .chatPanel {
+    min-height: 72svh;
+    grid-template-rows: auto minmax(240px, 1fr) auto;
+    overflow: visible;
+  }
+
+  .chatHeader {
+    padding: 28px 20px 4px;
+  }
+
+  .titleLine {
+    grid-template-columns: auto auto auto minmax(42px, 1fr);
+    gap: 6px;
+  }
+
+  .titleLine h1,
+  .hash,
+  .at {
+    font-size: clamp(2.15rem, 9.5vw, 2.8rem);
+  }
+
+  .avatar {
+    min-width: 0;
+    height: 38px;
+  }
+
+  .quoteMarks {
+    height: 30px;
+    margin-top: 8px;
+    font-size: 3.3rem;
+  }
+
+  .feed {
+    max-height: 56svh;
+    padding: 16px 20px 28px;
+  }
+
+  .message,
+  .question {
+    width: 100%;
+  }
+
+  .messageBody {
+    border-radius: 24px;
+  }
+
+  .chinese {
+    font-size: 1.15rem;
+  }
+
+  .english {
+    font-size: 1rem;
+  }
+
+  .composerArea {
+    position: relative;
+    padding: 10px 20px 18px;
+  }
+
+  .composer {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .voiceButton {
+    min-width: 66px;
+    padding-inline: 14px;
+  }
+
+  .sendButton {
+    grid-column: 1 / -1;
+    border-radius: 12px;
+    padding-block: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .message,
+  .voiceButton.listening {
+    animation: none;
+  }
+}

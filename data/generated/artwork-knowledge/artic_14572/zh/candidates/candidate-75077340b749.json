@@ -1,0 +1,415 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:14572:zh:75077340b749",
+  "artworkId": "artic:14572",
+  "artworkRevision": "2026-07-25T23:27:08-05:00",
+  "imageRevision": "commons:14572",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:14572:museum",
+      "kind": "museum_record",
+      "title": "The Millinery Shop",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/14572",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:55:33.405Z",
+      "contentHash": "5e82f395d7af01de2436451783f143606804f15869708b2a8b328fffb5cb1204",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_14572:museum-record:5e82f395d7af01de2436451783f143606804f15869708b2a8b328fffb5cb1204"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:14572:zh:title",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "馆方将本作记录为《The Millinery Shop》。",
+      "predicate": "title",
+      "value": "The Millinery Shop",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:14572:museum",
+          "sourceId": "source:artic:14572:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:14572:zh:artist",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "馆方将本作归于Edgar Degas (French, 1834–1917)。",
+      "predicate": "artist",
+      "value": "Edgar Degas (French, 1834–1917)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:14572:museum",
+          "sourceId": "source:artic:14572:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:14572:zh:visual-1",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "画面右侧有一位女性，身穿橄榄绿色长袖连衣裙，坐在木制桌旁，右手举着一顶浅橙色带毛边的帽子，目光注视该帽。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14572:zh:1",
+          "imageId": "commons:14572",
+          "basis": "visible",
+          "observation": "画面右侧有一位女性，身穿橄榄绿色长袖连衣裙，坐在木制桌旁，右手举着一顶浅橙色带毛边的帽子，目光注视该帽。",
+          "imageRevision": "commons:14572"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14572:zh:visual-2",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "前景桌面上放着一顶浅蓝色带大蝴蝶结的软质帽饰；左侧立柱支架上展示一顶白色蓬松帽，饰有黄色缎带与花结；中间偏左位置有一顶棕色宽檐帽；女性身后立着一顶米色宽檐帽，顶部缀满绿白相间的花卉与羽毛装饰。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14572:zh:2",
+          "imageId": "commons:14572",
+          "basis": "visible",
+          "observation": "前景桌面上放着一顶浅蓝色带大蝴蝶结的软质帽饰；左侧立柱支架上展示一顶白色蓬松帽，饰有黄色缎带与花结；中间偏左位置有一顶棕色宽檐帽；女性身后立着一顶米色宽檐帽，顶部缀满绿白相间的花卉与羽毛装饰。",
+          "imageRevision": "commons:14572"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14572:zh:visual-3",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "背景为深蓝绿色调的垂直笔触墙面，与前景暖色调木质桌面形成对比；人物面部与手部用较薄颜料处理，衣物质感以厚涂短笔触表现。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14572:zh:3",
+          "imageId": "commons:14572",
+          "basis": "visible",
+          "observation": "背景为深蓝绿色调的垂直笔触墙面，与前景暖色调木质桌面形成对比；人物面部与手部用较薄颜料处理，衣物质感以厚涂短笔触表现。",
+          "imageRevision": "commons:14572"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14572:zh:visual-4",
+      "subjectId": "artic:14572",
+      "layer": "interpretation",
+      "text": "画面构图呈不对称布局，人物位于右侧，左侧留出较多空间展示帽饰，形成视觉平衡；人物姿态自然，似在挑选或整理商品。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14572:zh:4",
+          "imageId": "commons:14572",
+          "basis": "visible",
+          "observation": "画面构图呈不对称布局，人物位于右侧，左侧留出较多空间展示帽饰，形成视觉平衡；人物姿态自然，似在挑选或整理商品。",
+          "imageRevision": "commons:14572"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅描绘室内帽饰店场景的油画，画面中一位女性正手持一顶帽子，周围陈列着多顶装饰繁复的女帽。",
+      "claimIds": [
+        "claim:artic:14572:zh:title",
+        "claim:artic:14572:zh:artist",
+        "claim:artic:14572:zh:visual-1",
+        "claim:artic:14572:zh:visual-2",
+        "claim:artic:14572:zh:visual-3",
+        "claim:artic:14572:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:14572:zh:1",
+        "label": "女帽",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:zh:visual-1",
+          "claim:artic:14572:zh:visual-2",
+          "claim:artic:14572:zh:visual-3",
+          "claim:artic:14572:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:zh:1",
+          "visual:artic:14572:zh:2",
+          "visual:artic:14572:zh:3",
+          "visual:artic:14572:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:zh:2",
+        "label": "室内场景",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:zh:visual-1",
+          "claim:artic:14572:zh:visual-2",
+          "claim:artic:14572:zh:visual-3",
+          "claim:artic:14572:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:zh:1",
+          "visual:artic:14572:zh:2",
+          "visual:artic:14572:zh:3",
+          "visual:artic:14572:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:zh:3",
+        "label": "女性人物",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:zh:visual-1",
+          "claim:artic:14572:zh:visual-2",
+          "claim:artic:14572:zh:visual-3",
+          "claim:artic:14572:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:zh:1",
+          "visual:artic:14572:zh:2",
+          "visual:artic:14572:zh:3",
+          "visual:artic:14572:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:zh:4",
+        "label": "静物陈列",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:zh:visual-1",
+          "claim:artic:14572:zh:visual-2",
+          "claim:artic:14572:zh:visual-3",
+          "claim:artic:14572:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:zh:1",
+          "visual:artic:14572:zh:2",
+          "visual:artic:14572:zh:3",
+          "visual:artic:14572:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:zh:5",
+        "label": "印象派笔触",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:zh:visual-1",
+          "claim:artic:14572:zh:visual-2",
+          "claim:artic:14572:zh:visual-3",
+          "claim:artic:14572:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:zh:1",
+          "visual:artic:14572:zh:2",
+          "visual:artic:14572:zh:3",
+          "visual:artic:14572:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一位穿绿裙的女子坐在桌旁手持帽子; 周围陈列多顶装饰华丽的女帽，背景为蓝绿色墙面。",
+      "long": "油画呈现一个室内帽饰店角落：右侧一位女性身着橄榄绿高领长裙，坐于橙棕色木桌旁，右手举起一顶浅橙色毛边帽，侧脸凝视；她前方桌上置一顶浅蓝绒质帽，系大蓝蝴蝶结；左侧支架上展示一顶白底黄饰蓬松帽；中间后方立一顶棕色宽檐帽；其身后另有一顶米色宽檐帽，顶部堆叠绿白花卉与羽毛。背景为深蓝绿垂直笔触墙面，整体用色温暖，笔触可见，具明显油画肌理。",
+      "claimIds": [
+        "claim:artic:14572:zh:visual-1",
+        "claim:artic:14572:zh:visual-2",
+        "claim:artic:14572:zh:visual-3",
+        "claim:artic:14572:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14572:zh:1",
+        "visual:artic:14572:zh:2",
+        "visual:artic:14572:zh:3",
+        "visual:artic:14572:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:14572:zh:visual-1",
+      "artworkId": "artic:14572",
+      "locale": "zh",
+      "topic": "composition",
+      "triggerIntents": [
+        "注意到画面左边空得多，右边人多",
+        "为什么帽子摆得这么密"
+      ],
+      "claimIds": [
+        "claim:artic:14572:zh:visual-1",
+        "claim:artic:14572:zh:visual-2",
+        "claim:artic:14572:zh:visual-3",
+        "claim:artic:14572:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14572:zh:1",
+        "visual:artic:14572:zh:2",
+        "visual:artic:14572:zh:3",
+        "visual:artic:14572:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可以指向左侧支架与中间帽子之间的留白区域，说明画家如何用物品分布引导视线向右移动至人物。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:14572:zh:visual-2",
+      "artworkId": "artic:14572",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "绿色裙子和蓝色帽子颜色很搭",
+        "背景为什么是冷色"
+      ],
+      "claimIds": [
+        "claim:artic:14572:zh:visual-1",
+        "claim:artic:14572:zh:visual-2",
+        "claim:artic:14572:zh:visual-3",
+        "claim:artic:14572:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14572:zh:1",
+        "visual:artic:14572:zh:2",
+        "visual:artic:14572:zh:3",
+        "visual:artic:14572:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "从前景蓝帽与绿裙的邻近色关系切入，再对比背景蓝绿色调如何衬托暖色主体。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:14572:zh:visual-3",
+      "artworkId": "artic:14572",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "笔触看起来很随意但又很准",
+        "衣服和帽子的画法不一样"
+      ],
+      "claimIds": [
+        "claim:artic:14572:zh:visual-1",
+        "claim:artic:14572:zh:visual-2",
+        "claim:artic:14572:zh:visual-3",
+        "claim:artic:14572:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14572:zh:1",
+        "visual:artic:14572:zh:2",
+        "visual:artic:14572:zh:3",
+        "visual:artic:14572:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "引导观察人物手臂薄涂与帽子厚堆叠笔触的差异，说明不同材质的表现手法。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "outputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "updatedAt": "2026-07-27T03:55:33.405Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "outputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "updatedAt": "2026-07-27T03:55:33.405Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "outputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "updatedAt": "2026-07-27T03:55:33.405Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "outputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "updatedAt": "2026-07-27T03:55:33.405Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "outputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908",
+      "updatedAt": "2026-07-27T03:55:33.405Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v3",
+    "generatedAt": "2026-07-27T03:55:33.405Z",
+    "inputHash": "75077340b7497a082dfde57554fd79c821dafd9c14e310e9899eb39c15d4e908"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-75077340b749"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "artwork-image-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:59:51.652Z",
+  "artworkId": "artic:80607",
+  "image": {
+    "id": "commons:80607",
+    "width": 843,
+    "height": 1069,
+    "altText": "Painting of a red-haired, bearded man with light skin, painted in short brushstrokes and multicolored dots. The background is likewise a mass of small, closely spaced colored dots, these in green, blue, and red-orange.",
+    "lqip": "data:image/gif;base64,R0lGODlhBAAFAPQAAD49PEA3NEA6OUY/OEw+OzpAO09EPFZFO1dGPDxGQEBIQ0ZMRU9PRVFNRV9MQmxUQmJZSnttWIdfSaGHaQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAEAAUAAAURoMJAQBFNQ/JIwoI4QUMYRwgAOw==",
+    "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg/960px-Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg",
+    "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/3/37/Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg",
+    "zoomable": true,
+    "maxZoomWindowSize": null,
+    "health": "ok"
+  },
+  "rights": {
+    "licenseCode": "PDM-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "attribution": "Vincent van Gogh. Self-Portrait, 1887. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/80607"
+}

@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27992:zh:d420a7765493",
+  "artworkId": "artic:27992",
+  "artworkRevision": "2026-07-25T23:27:51-05:00",
+  "imageRevision": "commons:27992",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:27992:museum",
+      "kind": "museum_record",
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27992",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:30:28.977Z",
+      "contentHash": "a4bf8b023464d600c0382f6a9aff8de0945d961c230b7836a8d1e09e567517fd",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27992:museum-record:a4bf8b023464d600c0382f6a9aff8de0945d961c230b7836a8d1e09e567517fd"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27992:zh:title",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "馆方将本作记录为《A Sunday on La Grande Jatte — 1884》。",
+      "predicate": "title",
+      "value": "A Sunday on La Grande Jatte — 1884",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27992:museum",
+          "sourceId": "source:artic:27992:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:artist",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "馆方将本作归于Georges Seurat (French, 1859–1891)。",
+      "predicate": "artist",
+      "value": "Georges Seurat (French, 1859–1891)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27992:museum",
+          "sourceId": "source:artic:27992:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-1",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "The entire surface is composed of small, distinct dots of color—primarily greens, yellows, blues, reds, and blacks—applied in a regular, systematic pattern without visible brushstrokes blending colors on the canvas.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:1",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "The entire surface is composed of small, distinct dots of color—primarily greens, yellows, blues, reds, and blacks—applied in a regular, systematic pattern without visible brushstrokes blending colors on the canvas.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-2",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "Figures are arranged across multiple planes: foreground figures (including seated adults, a reclining man, two dogs, and a standing woman with a parasol), midground groups under trees and umbrellas, and background figures near water with sailboats.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:2",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "Figures are arranged across multiple planes: foreground figures (including seated adults, a reclining man, two dogs, and a standing woman with a parasol), midground groups under trees and umbrellas, and background figures near water with sailboats.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-3",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "Many figures wear late 19th-century attire: men in dark suits and top hats, women in long dresses with bustles and bonnets or hats; several hold parasols, and one child wears a white dress with a blue sash.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:3",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "Many figures wear late 19th-century attire: men in dark suits and top hats, women in long dresses with bustles and bonnets or hats; several hold parasols, and one child wears a white dress with a blue sash.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-4",
+      "subjectId": "artic:27992",
+      "layer": "interpretation",
+      "text": "The composition uses strong verticals (trees, standing figures) and horizontals (grass bank, waterline), creating a structured, almost staged arrangement rather than a spontaneous snapshot.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:4",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "The composition uses strong verticals (trees, standing figures) and horizontals (grass bank, waterline), creating a structured, almost staged arrangement rather than a spontaneous snapshot.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A large-scale painting depicting numerous figures in a sunlit park beside a body of water, rendered in a distinctive dot-based technique.",
+      "claimIds": [
+        "claim:artic:27992:zh:title",
+        "claim:artic:27992:zh:artist",
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:27992:zh:1",
+        "label": "pointillism",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:2",
+        "label": "park scene",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:3",
+        "label": "figures in leisure",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:4",
+        "label": "parasols",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:5",
+        "label": "sailboats",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:6",
+        "label": "dogs",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:7",
+        "label": "19th-century fashion",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Pointillist painting of people relaxing in a riverside park with trees, umbrellas, and boats.",
+      "long": "A horizontally oriented painting showing a crowded park scene under bright daylight. The image is built from thousands of tiny colored dots. In the foreground, a man reclines on grass next to a seated woman and two black dogs; a standing woman in a dark dress holds a black parasol. Midground features groups of people sitting and standing under green trees, some holding red, blue, or black parasols. In the background, a calm river hosts small sailboats and rowboats, with more distant figures along the far bank. The color palette is dominated by vibrant greens and yellows for the grass and foliage, contrasting with deep blues, blacks, and reds in clothing and accessories.",
+      "claimIds": [
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:zh:1",
+        "visual:artic:27992:zh:2",
+        "visual:artic:27992:zh:3",
+        "visual:artic:27992:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27992:zh:visual-1",
+      "artworkId": "artic:27992",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "what style is this",
+        "why does it look pixelated"
+      ],
+      "claimIds": [
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:zh:1",
+        "visual:artic:27992:zh:2",
+        "visual:artic:27992:zh:3",
+        "visual:artic:27992:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the uniform dot pattern across the grass and sky, noting how adjacent dots of different hues create optical mixing rather than physical blending.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27992:zh:visual-2",
+      "artworkId": "artic:27992",
+      "locale": "zh",
+      "topic": "composition",
+      "triggerIntents": [
+        "how are the people arranged",
+        "is there a focal point"
+      ],
+      "claimIds": [
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:zh:1",
+        "visual:artic:27992:zh:2",
+        "visual:artic:27992:zh:3",
+        "visual:artic:27992:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace the vertical alignment of the standing woman with the parasol, the central tree trunk, and the distant sailboat mast to show deliberate structural symmetry.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27992:zh:visual-3",
+      "artworkId": "artic:27992",
+      "locale": "zh",
+      "topic": "subject",
+      "triggerIntents": [
+        "who are these people",
+        "what are they doing"
+      ],
+      "claimIds": [
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:zh:1",
+        "visual:artic:27992:zh:2",
+        "visual:artic:27992:zh:3",
+        "visual:artic:27992:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Describe the variety of postures and activities—reclining, seated, standing, walking, holding flowers or canes—to emphasize collective leisure without identifying individuals.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "outputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "updatedAt": "2026-07-27T03:30:28.977Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "outputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "updatedAt": "2026-07-27T03:30:28.977Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "outputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "updatedAt": "2026-07-27T03:30:28.977Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "outputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "updatedAt": "2026-07-27T03:30:28.977Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "outputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7",
+      "updatedAt": "2026-07-27T03:30:28.977Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v1",
+    "generatedAt": "2026-07-27T03:30:28.977Z",
+    "inputHash": "d420a7765493c4ca8f790982a86ceb65a2623777013f4073d7a923a186fb44d7"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-d420a7765493"
+  }
+}

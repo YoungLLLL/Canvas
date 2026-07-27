@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:90207:en:c943264408fe",
+  "artworkId": "artic:90207",
+  "artworkRevision": "2026-07-26T22:52:33-05:00",
+  "imageRevision": null,
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:90207:museum",
+      "kind": "museum_record",
+      "title": "Movement No. 10",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/90207",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:15:46.267Z",
+      "contentHash": "6e227e8b418891463653b49ece866ac52a9f19bddfdcf4fb8c4a2815492c24c2",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_90207:museum-record:6e227e8b418891463653b49ece866ac52a9f19bddfdcf4fb8c4a2815492c24c2"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:90207:en:title",
+      "subjectId": "artic:90207",
+      "layer": "fact",
+      "text": "The museum records this work as “Movement No. 10”.",
+      "predicate": "title",
+      "value": "Movement No. 10",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:90207:museum",
+          "sourceId": "source:artic:90207:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:90207:en:artist",
+      "subjectId": "artic:90207",
+      "layer": "fact",
+      "text": "The museum attributes this work to Marsden Hartley (American, 1877–1943).",
+      "predicate": "artist",
+      "value": "Marsden Hartley (American, 1877–1943)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:90207:museum",
+          "sourceId": "source:artic:90207:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "Movement No. 10 is attributed to Marsden Hartley (American, 1877–1943).",
+      "claimIds": [
+        "claim:artic:90207:en:title",
+        "claim:artic:90207:en:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:90207:en:context",
+      "artworkId": "artic:90207",
+      "locale": "en",
+      "topic": "context",
+      "triggerIntents": [
+        "Movement No. 10",
+        "Marsden Hartley (American, 1877–1943)",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:90207:en:title",
+        "claim:artic:90207:en:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Use the verified museum title or attribution only when it answers the user's topic.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "c943264408feb236c2f16520484f5f6c42ee8076b7dd269b61885f0a5b71123a",
+      "outputHash": "c943264408feb236c2f16520484f5f6c42ee8076b7dd269b61885f0a5b71123a",
+      "updatedAt": "2026-07-27T04:15:46.267Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "c943264408feb236c2f16520484f5f6c42ee8076b7dd269b61885f0a5b71123a",
+      "outputHash": "c943264408feb236c2f16520484f5f6c42ee8076b7dd269b61885f0a5b71123a",
+      "updatedAt": "2026-07-27T04:15:46.267Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "c943264408feb236c2f16520484f5f6c42ee8076b7dd269b61885f0a5b71123a",
+      "outputHash": "c943264408feb236c2f16520484f5f6c42ee8076b7dd269b61885f0a5b71123a",
+      "updatedAt": "2026-07-27T04:15:46.267Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:15:46.267Z",
+    "inputHash": "c943264408feb236c2f16520484f5f6c42ee8076b7dd269b61885f0a5b71123a"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-c943264408fe"
+  }
+}

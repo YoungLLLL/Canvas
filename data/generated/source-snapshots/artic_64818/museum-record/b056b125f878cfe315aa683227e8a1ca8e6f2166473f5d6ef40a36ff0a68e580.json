@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:02:58.706Z",
+  "artwork": {
+    "id": "artic:64818",
+    "sourceId": "64818",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/64818",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/64818",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:26:59-05:00",
+      "accessedAt": "2026-07-27T04:02:57.949Z"
+    },
+    "display": {
+      "title": "Stacks of Wheat (End of Summer)",
+      "localizedTitles": {
+        "en": "Stacks of Wheat (End of Summer)",
+        "zh": "Stacks of Wheat (End of Summer)"
+      },
+      "altTitles": [],
+      "artistDisplay": "Claude Monet (French, 1840–1926)",
+      "dateDisplay": "1890–91",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "60 × 100.5 cm (23 5/8 × 39 9/16 in.); Framed: 75.6 × 116.6 × 7.4 cm (29 3/4 × 45 7/8 × 2 7/8 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:35809",
+      "sourceId": "35809",
+      "name": "Claude Monet",
+      "display": "Claude Monet (French, 1840–1926)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1890,
+      "end": 1891
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "oil on canvas",
+        "paint",
+        "oil paintings (visual works)",
+        "french",
+        "painting",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:64818",
+        "width": 843,
+        "height": 500,
+        "altText": "Painting composed of short, dense brushstrokes depicts two domed stacks of wheat that cast long shadows on a field. The angled light indicates either a rising or setting sun.",
+        "lqip": "data:image/gif;base64,R0lGODlhCAAFAPUAAF5eVW1bVm9eVmpjW3RoXXxyV39yXmdsZmhmaXZtbG11eH57eYl5bYR7dHuAf4mDfo6HfpePdpCFeZSOfJ+VdnZ+g4ODgoCHg4iHgo+GgY2MgpmThJeTipaSjaCcmbWnh6qrpKmopqqtrKusrbGxobq4pLu5qq2zsQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAIAAUAAAYlwJNoFAKRSiZPh7OZRCgfBWJwAAQEBU2D8VgkCAYI5uKoWDKSIAA7",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Claude_Monet_-_Stacks_of_Wheat_%28End_of_Summer%29_-_1985.1103_-_Art_Institute_of_Chicago.jpg/960px-Claude_Monet_-_Stacks_of_Wheat_%28End_of_Summer%29_-_1985.1103_-_Art_Institute_of_Chicago.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Claude_Monet_-_Stacks_of_Wheat_%28End_of_Summer%29_-_1985.1103_-_Art_Institute_of_Chicago.jpg/1920px-Claude_Monet_-_Stacks_of_Wheat_%28End_of_Summer%29_-_1985.1103_-_Art_Institute_of_Chicago.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Stacks_of_Wheat_(End_of_Summer)_-_1985.1103_-_Art_Institute_of_Chicago.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Claude Monet. Stacks of Wheat (End of Summer), 1890–91. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/64818"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:02:57.949Z",
+      "reasons": []
+    },
+    "creditLine": "Gift of Arthur M. Wood, Sr. in memory of Pauline Palmer Wood",
+    "mainReferenceNumber": "1985.1103",
+    "description": {
+      "html": "<p>The monumental stacks that Claude Monet depicted in his series <a href=\"https://www.youtube.com/watch?v=NFPs_cRRGdM&feature=youtu.be\"><em>Stacks of Wheat</em></a> rose fifteen to twenty feet and stood just outside the artist’s farmhouse at Giverny. Through 1890 and 1891, he worked on this series both in the field, painting simultaneously at several easels, and in the studio, refining pictorial harmonies. In May 1891, Monet hung fifteen of these canvases next to each other in one small room in the Galerie Durand-Ruel in Paris. An unprecedented critical and financial success, the exhibition marked a breakthrough in Monet’s career, as well as in the history of French art. In this view, and in nearly all of the autumn views in the series, the conical tops of the stacks break the horizon and push into the sky. But in most of the winter views, which constitute the core of the series, the stacks seem wrapped by bands of hill and field, as if bedded down for the season. For Monet, the stack was a resonant symbol of sustenance and survival. He followed this group with further series depicting poplars, the facade of Rouen Cathedral, and, later, his own garden at Giverny. The Art Institute has the largest group of Monet’s <em>Stacks of Wheat</em> in the world.</p>",
+      "text": "The monumental stacks that Claude Monet depicted in his series Stacks of Wheat rose fifteen to twenty feet and stood just outside the artist’s farmhouse at Giverny. Through 1890 and 1891, he worked on this series both in the field, painting simultaneously at several easels, and in the studio, refining pictorial harmonies. In May 1891, Monet hung fifteen of these canvases next to each other in one small room in the Galerie Durand-Ruel in Paris. An unprecedented critical and financial success, the exhibition marked a breakthrough in Monet’s career, as well as in the history of French art. In this view, and in nearly all of the autumn views in the series, the conical tops of the stacks break the horizon and push into the sky. But in most of the winter views, which constitute the core of the series, the stacks seem wrapped by bands of hill and field, as if bedded down for the season. For Monet, the stack was a resonant symbol of sustenance and survival. He followed this group with further series depicting poplars, the facade of Rouen Cathedral, and, later, his own garden at Giverny. The Art Institute has the largest group of Monet’s Stacks of Wheat in the world.",
+      "sourceField": "description"
+    },
+    "revision": "2026-07-25T23:26:59-05:00"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "artwork-image-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:57:53.278Z",
+  "artworkId": "artic:11723",
+  "image": {
+    "id": "commons:11723",
+    "width": 843,
+    "height": 631,
+    "altText": "Painted portrait dominated by loose, large brushstrokes of a woman, seen from the back, wearing a gauzy white off-the-shoulder dress and black choker, blond hair swept up, examining herself in a mirror at left. The background is a feathered swirl suggesting floral pattern in cool pale tones of gray, purple, pink, and blue.",
+    "lqip": "data:image/gif;base64,R0lGODlhBwAFAPUAAE9MQV1XRl5YRmNdT2JgVGplV3RtW3JsX35wXW9rYHl3cX17eYJ4a4+Hd4GBfoaDf4iEfY6JgYmKhZuXjZWSkJaSkJydlpqZmZqamp+dmpqbnamelqCemqShk6Cgm6ujnK6nn7m0rbSzsgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAHAAUAAAYhwABDYnBYOgTFAvHAcA6JyIZyyQwAFZHGMykIPiEQpBEEADs=",
+    "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg/960px-Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg",
+    "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg/1920px-Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg",
+    "zoomable": true,
+    "maxZoomWindowSize": null,
+    "health": "ok"
+  },
+  "rights": {
+    "licenseCode": "PDM-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "attribution": "Berthe Morisot. Woman at Her Toilette, 1875–80. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/11723"
+}

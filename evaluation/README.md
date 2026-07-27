@@ -20,7 +20,12 @@ npm run verify:stage5 -- --pages 42 --concurrency 1 --page-delay-ms 500 --image-
 - 从全部可展示记录中均匀选择少量图片进行低流量可达性探测；默认最多 5 张，避免对 Wikimedia CDN 进行批量下载，429 限流和超时会单列为“探测受限”，不会误报成失效图片；
 - 作品、图片、元数据许可与来源字段完整性；
 - 重复作品、分页失败和新鲜／陈旧数据状态；
+- Wikimedia 限流或临时错误导致的未决映射，不与确认缺图混合统计；
 - 每页请求、图片探测和缓存复查的耗时。
+
+正式应用默认把 ARTIC→Commons 映射、许可和图片 URL 缓存在
+`apps/web/.cache/wikimedia/artic`，不缓存图片本体。首次长跑用于逐步预热缓存；后续运行会
+优先读取本地记录，从而显著减少 Wikimedia API 请求。
 
 默认通过门槛为映射率不低于 95%、图片可达率与有效探测覆盖率均不低于 98%、权利与来源字段 100% 完整，并且没有分页失败或重复记录。可用 `--help` 查看全部参数。
 
@@ -54,3 +59,30 @@ npm run generate:stage6 -- --job evaluation/golden/stage6-artworks.json --limit 
 候选默认写入 `data/generated/artwork-knowledge/<artwork>/<locale>/candidates/`。同一作品修订、
 模型和 Prompt 的成功运行会自动跳过；使用 `--force` 才会重跑。`--publish` 只接受
 `review.status=passed` 的候选，确定性夹具不会被误发布。
+
+配置 `DASHSCOPE_API_KEY` 后，可运行真实多模态 Provider：
+
+```bash
+npm run generate:stage6 -- --job evaluation/golden/stage6-artworks.json \
+  --provider qwen-vl \
+  --base-url http://127.0.0.1:3000 \
+  --report evaluation/runs/stage6-qwen-v6-full.json
+```
+
+`qwen-vl` 对有合规图片的作品使用 Qwen3-VL Plus；仅资料作品走零模型调用的确定性降级。
+视觉请求不发送标题、艺术家或年代，检测到年代／世纪时先执行文本净化，再确定性删除仍含
+无依据年代的整句或标签。候选仍保持 `needs_review`，不会因生成成功而自动发布。
+
+Stage 7 真实模型首轮：
+
+```bash
+npm run evaluate:stage7 -- --output evaluation/runs/stage7-full-all-run1.json
+```
+
+只重跑上一份报告中的失败与错误：
+
+```bash
+npm run evaluate:stage7 -- \
+  --retry-from evaluation/runs/stage7-full-all-run1.json \
+  --output evaluation/runs/stage7-full-all-run1-retry.json
+```

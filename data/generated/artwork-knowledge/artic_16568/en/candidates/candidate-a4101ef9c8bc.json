@@ -1,0 +1,434 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:16568:en:a4101ef9c8bc",
+  "artworkId": "artic:16568",
+  "artworkRevision": "2026-07-26T03:41:42-05:00",
+  "imageRevision": "commons:16568",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:16568:museum",
+      "kind": "museum_record",
+      "title": "Water Lilies",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/16568",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:02:20.259Z",
+      "contentHash": "b847e0c0ff180ad98a1411863e3c39bb46eb21e61c49ac34977ed6657652e124",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_16568:museum-record:b847e0c0ff180ad98a1411863e3c39bb46eb21e61c49ac34977ed6657652e124"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:16568:en:title",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "The museum records this work as “Water Lilies”.",
+      "predicate": "title",
+      "value": "Water Lilies",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:16568:museum",
+          "sourceId": "source:artic:16568:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:16568:en:artist",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "The museum attributes this work to Claude Monet (French, 1840–1926).",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:16568:museum",
+          "sourceId": "source:artic:16568:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:16568:en:visual-1",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "The painting shows a body of water with clusters of green lily pads and pinkish-white water lilies scattered across the surface; some pads appear as broad, flat shapes while others are suggested by dabs of paint.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:en:1",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "The painting shows a body of water with clusters of green lily pads and pinkish-white water lilies scattered across the surface; some pads appear as broad, flat shapes while others are suggested by dabs of paint.",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16568:en:visual-2",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "The water is rendered in layered strokes of blue, violet, green, and gray, with soft transitions suggesting reflections and depth rather than clear outlines.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:en:2",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "The water is rendered in layered strokes of blue, violet, green, and gray, with soft transitions suggesting reflections and depth rather than clear outlines.",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16568:en:visual-3",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "In the lower right corner, there is a signature in reddish-brown script followed by a date ending in '26'.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:en:3",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "In the lower right corner, there is a signature in reddish-brown script followed by a date ending in '26'.",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16568:en:visual-4",
+      "subjectId": "artic:16568",
+      "layer": "interpretation",
+      "text": "The composition lacks a horizon or sky, focusing entirely on the water’s surface and its vegetation, creating an immersive, near-abstract effect.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:en:4",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "The composition lacks a horizon or sky, focusing entirely on the water’s surface and its vegetation, creating an immersive, near-abstract effect.",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted surface depicting a water scene with floating lily pads and blossoms, rendered in loose, visible brushwork.",
+      "claimIds": [
+        "claim:artic:16568:en:title",
+        "claim:artic:16568:en:artist",
+        "claim:artic:16568:en:visual-1",
+        "claim:artic:16568:en:visual-2",
+        "claim:artic:16568:en:visual-3",
+        "claim:artic:16568:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:16568:en:1",
+        "label": "water",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:en:visual-1",
+          "claim:artic:16568:en:visual-2",
+          "claim:artic:16568:en:visual-3",
+          "claim:artic:16568:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:en:1",
+          "visual:artic:16568:en:2",
+          "visual:artic:16568:en:3",
+          "visual:artic:16568:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:en:2",
+        "label": "lily pads",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:en:visual-1",
+          "claim:artic:16568:en:visual-2",
+          "claim:artic:16568:en:visual-3",
+          "claim:artic:16568:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:en:1",
+          "visual:artic:16568:en:2",
+          "visual:artic:16568:en:3",
+          "visual:artic:16568:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:en:3",
+        "label": "water lilies",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:en:visual-1",
+          "claim:artic:16568:en:visual-2",
+          "claim:artic:16568:en:visual-3",
+          "claim:artic:16568:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:en:1",
+          "visual:artic:16568:en:2",
+          "visual:artic:16568:en:3",
+          "visual:artic:16568:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:en:4",
+        "label": "brushwork",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:en:visual-1",
+          "claim:artic:16568:en:visual-2",
+          "claim:artic:16568:en:visual-3",
+          "claim:artic:16568:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:en:1",
+          "visual:artic:16568:en:2",
+          "visual:artic:16568:en:3",
+          "visual:artic:16568:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:en:5",
+        "label": "reflection",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:en:visual-1",
+          "claim:artic:16568:en:visual-2",
+          "claim:artic:16568:en:visual-3",
+          "claim:artic:16568:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:en:1",
+          "visual:artic:16568:en:2",
+          "visual:artic:16568:en:3",
+          "visual:artic:16568:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:en:6",
+        "label": "impressionistic style",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:en:visual-1",
+          "claim:artic:16568:en:visual-2",
+          "claim:artic:16568:en:visual-3",
+          "claim:artic:16568:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:en:1",
+          "visual:artic:16568:en:2",
+          "visual:artic:16568:en:3",
+          "visual:artic:16568:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Painting of a pond with green lily pads, pink water lilies, and shimmering blue-violet water, signed lower right.",
+      "long": "A square-format oil painting showing a close-up view of a pond surface. Green lily pads of varying sizes float across the frame, interspersed with small pink and white water lily blossoms. The water itself is depicted with thick, textured brushstrokes in shades of turquoise, deep blue, lavender, and muted green, suggesting light reflecting off ripples. No land, sky, or horizon is visible—only the water and its flora. A cursive signature in reddish-brown pigment appears in the lower right corner, accompanied by a four-digit year ending in '26'.",
+      "claimIds": [
+        "claim:artic:16568:en:visual-1",
+        "claim:artic:16568:en:visual-2",
+        "claim:artic:16568:en:visual-3",
+        "claim:artic:16568:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16568:en:1",
+        "visual:artic:16568:en:2",
+        "visual:artic:16568:en:3",
+        "visual:artic:16568:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:16568:en:visual-1",
+      "artworkId": "artic:16568",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "what brushwork is used",
+        "is this oil paint"
+      ],
+      "claimIds": [
+        "claim:artic:16568:en:visual-1",
+        "claim:artic:16568:en:visual-2",
+        "claim:artic:16568:en:visual-3",
+        "claim:artic:16568:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16568:en:1",
+        "visual:artic:16568:en:2",
+        "visual:artic:16568:en:3",
+        "visual:artic:16568:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the visible impasto texture and varied stroke directions—some horizontal, some dabbed—to explain how the surface conveys movement and light without precise detail.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:16568:en:visual-2",
+      "artworkId": "artic:16568",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "why so many blues and purples",
+        "how color creates depth"
+      ],
+      "claimIds": [
+        "claim:artic:16568:en:visual-1",
+        "claim:artic:16568:en:visual-2",
+        "claim:artic:16568:en:visual-3",
+        "claim:artic:16568:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16568:en:1",
+        "visual:artic:16568:en:2",
+        "visual:artic:16568:en:3",
+        "visual:artic:16568:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace how adjacent strokes of cool blue and warm violet interact optically to suggest shadow and reflection, rather than using black or gray for depth.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:16568:en:visual-3",
+      "artworkId": "artic:16568",
+      "locale": "en",
+      "topic": "space",
+      "triggerIntents": [
+        "where is the viewer",
+        "is this from above or at water level"
+      ],
+      "claimIds": [
+        "claim:artic:16568:en:visual-1",
+        "claim:artic:16568:en:visual-2",
+        "claim:artic:16568:en:visual-3",
+        "claim:artic:16568:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16568:en:1",
+        "visual:artic:16568:en:2",
+        "visual:artic:16568:en:3",
+        "visual:artic:16568:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Note the absence of a horizon line and the consistent scale of lily pads, implying a downward or near-horizontal viewpoint that flattens perspective.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "outputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "updatedAt": "2026-07-27T04:02:20.259Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "outputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "updatedAt": "2026-07-27T04:02:20.259Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "outputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "updatedAt": "2026-07-27T04:02:20.259Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "outputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "updatedAt": "2026-07-27T04:02:20.259Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "outputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d",
+      "updatedAt": "2026-07-27T04:02:20.259Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v3",
+    "generatedAt": "2026-07-27T04:02:20.259Z",
+    "inputHash": "a4101ef9c8bc1295bcea6f131135645752d00aec88c6cf058b0dd4b2c19ebd8d"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-a4101ef9c8bc"
+  }
+}

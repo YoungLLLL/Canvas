@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27310:en:cd578d27b0f1",
+  "artworkId": "artic:27310",
+  "artworkRevision": "2026-07-26T22:52:40-05:00",
+  "imageRevision": "commons:27310",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:27310:museum",
+      "kind": "museum_record",
+      "title": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27310",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:14:58.506Z",
+      "contentHash": "04482a6a28d394b0e9e3ef8bcf1faf81b7df8f7eb5a42af9cb05e34999a1feaa",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27310:museum-record:04482a6a28d394b0e9e3ef8bcf1faf81b7df8f7eb5a42af9cb05e34999a1feaa"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27310:en:title",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "The museum records this work as “The Holy Family with Saints Elizabeth and John the Baptist”.",
+      "predicate": "title",
+      "value": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27310:museum",
+          "sourceId": "source:artic:27310:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27310:en:artist",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "The museum attributes this work to Peter Paul Rubens (Flemish, 1577–1640).",
+      "predicate": "artist",
+      "value": "Peter Paul Rubens (Flemish, 1577–1640)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27310:museum",
+          "sourceId": "source:artic:27310:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27310:en:visual-1",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "A woman in a vibrant red gown with blue sleeves holds a nude infant who reaches toward her face; she leans in closely, their foreheads nearly touching.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:en:1",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "A woman in a vibrant red gown with blue sleeves holds a nude infant who reaches toward her face; she leans in closely, their foreheads nearly touching.",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:en:visual-2",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "To the left, a bearded man in a grey robe looks down at a second nude infant standing on a wooden platform, partially draped in white cloth, who appears to be reaching toward the lamb beside him.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:en:2",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "To the left, a bearded man in a grey robe looks down at a second nude infant standing on a wooden platform, partially draped in white cloth, who appears to be reaching toward the lamb beside him.",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:en:visual-3",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "An older woman wearing a white head covering and dark outer garment sits on the right, observing the central group with hands clasped over a green cloth near a woven basket containing folded linens.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:en:3",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "An older woman wearing a white head covering and dark outer garment sits on the right, observing the central group with hands clasped over a green cloth near a woven basket containing folded linens.",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:en:visual-4",
+      "subjectId": "artic:27310",
+      "layer": "interpretation",
+      "text": "The composition uses strong chiaroscuro: light illuminates the central figures and foreground objects while the background remains shadowed and indistinct.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:en:4",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "The composition uses strong chiaroscuro: light illuminates the central figures and foreground objects while the background remains shadowed and indistinct.",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted scene showing four adults and two infants in an interior setting, with rich drapery, a wicker basket, and a small lamb visible.",
+      "claimIds": [
+        "claim:artic:27310:en:title",
+        "claim:artic:27310:en:artist",
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:27310:en:1",
+        "label": "red dress",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:2",
+        "label": "infants",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:3",
+        "label": "wicker basket",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:4",
+        "label": "lamb",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:5",
+        "label": "chiaroscuro",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:6",
+        "label": "drapery",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:7",
+        "label": "interior scene",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Four adults and two infants in a warmly lit interior; central woman in red holds a baby, a man observes another infant beside a lamb, and an older woman sits with a basket.",
+      "long": "A painted group scene featuring four adults and two infants. A central woman in a vivid red gown with blue sleeves cradles a nude infant; they are in close proximity, foreheads nearly touching. To her left, a bearded man in grey drapery watches a second nude infant standing barefoot on a wooden platform, next to a small white lamb. The infant wears a fringed white loincloth and reaches toward the lamb. On the far right, an older woman with a white head covering and dark clothing sits with hands resting on a green cloth beside a wicker basket holding folded white and striped linens. The lighting is dramatic, highlighting skin tones and fabric textures against a dark, undefined background.",
+      "claimIds": [
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:en:1",
+        "visual:artic:27310:en:2",
+        "visual:artic:27310:en:3",
+        "visual:artic:27310:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27310:en:visual-1",
+      "artworkId": "artic:27310",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "how are the figures arranged",
+        "why is the woman in red central"
+      ],
+      "claimIds": [
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:en:1",
+        "visual:artic:27310:en:2",
+        "visual:artic:27310:en:3",
+        "visual:artic:27310:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the triangular grouping formed by the woman, the infant she holds, and the man leaning in—this structure draws the eye inward before expanding to the side figures.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27310:en:visual-2",
+      "artworkId": "artic:27310",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "what stands out color-wise",
+        "why red and blue"
+      ],
+      "claimIds": [
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:en:1",
+        "visual:artic:27310:en:2",
+        "visual:artic:27310:en:3",
+        "visual:artic:27310:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Note how the saturated red of the gown contrasts with the deep shadows and muted greys, while the blue sleeve adds a complementary accent that echoes the cool tones in the background.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27310:en:visual-3",
+      "artworkId": "artic:27310",
+      "locale": "en",
+      "topic": "subject",
+      "triggerIntents": [
+        "who are these people",
+        "what’s happening with the babies"
+      ],
+      "claimIds": [
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:en:1",
+        "visual:artic:27310:en:2",
+        "visual:artic:27310:en:3",
+        "visual:artic:27310:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Describe only what is depicted: two infants interacting differently—one held intimately, the other standing independently near an animal—without assigning identities or narrative roles.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "outputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "updatedAt": "2026-07-27T04:14:58.506Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "outputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "updatedAt": "2026-07-27T04:14:58.506Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "outputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "updatedAt": "2026-07-27T04:14:58.506Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "outputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "updatedAt": "2026-07-27T04:14:58.506Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "outputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c",
+      "updatedAt": "2026-07-27T04:14:58.506Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:14:58.506Z",
+    "inputHash": "cd578d27b0f104e8f61a8edb8fea0469d15532ae4f1fae2aace7369d1d208a1c"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-cd578d27b0f1"
+  }
+}

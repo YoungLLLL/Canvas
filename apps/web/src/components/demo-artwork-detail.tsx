@@ -20,6 +20,9 @@ type DemoArtworkProps = {
   imageSourceUrl?: string;
   licenseLabel: string;
   licenseUrl?: string;
+  imageAttribution: string;
+  adaptationsAllowed: boolean;
+  commercialUseAllowed: boolean;
 };
 
 export function DemoArtworkDetail(props: DemoArtworkProps) {
@@ -94,7 +97,7 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
           <h1>{props.title}</h1>
           <p className="artwork-original-title">{props.originalTitle}</p>
           <div className="artist-meta">
-            {props.imageUrl ? (
+            {props.imageUrl && props.adaptationsAllowed ? (
               <span className="eye-avatar">
                 <img src={props.imageUrl} alt="" />
               </span>
@@ -196,6 +199,7 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
           <article>
             <em>IMAGE / {props.licenseLabel}</em>
             <b>{zh ? "图像来源与许可" : "Image source and license"}</b>
+            <p>{props.imageAttribution}</p>
             <a href={props.imageSourceUrl} target="_blank" rel="noreferrer">
               Wikimedia Commons ↗
             </a>
@@ -203,6 +207,27 @@ export function DemoArtworkDetail(props: DemoArtworkProps) {
               <a href={props.licenseUrl} target="_blank" rel="noreferrer">
                 　{props.licenseLabel} ↗
               </a>
+            ) : null}
+            {!props.commercialUseAllowed ? (
+              <p>
+                {zh
+                  ? "仅限当前非商业项目使用。商业化前必须重新审核或替换。"
+                  : "Non-commercial use only. Re-review or replace before monetization."}
+              </p>
+            ) : null}
+            {!props.adaptationsAllowed ? (
+              <p>
+                {zh
+                  ? "仅展示原图；只允许传输所需的等比例缩放、压缩和格式转换。禁止裁切、调色、叠字及生成式修改。"
+                  : "Original image only. Proportional resizing, compression, and format conversion are allowed for delivery; cropping, recoloring, overlays, and generative edits are prohibited."}
+              </p>
+            ) : null}
+            {props.adaptationsAllowed ? (
+              <p>
+                {zh
+                  ? "当前页面未对图像作内容性修改；浏览器可能按设备进行等比例缩放和压缩。"
+                  : "No content edits are applied; the browser may resize or compress the image for the device."}
+              </p>
             ) : null}
           </article>
         ) : null}

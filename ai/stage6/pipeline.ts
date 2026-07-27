@@ -48,6 +48,12 @@ export type Stage6Provider = {
   model: string;
   promptVersion: string;
   generate(context: Stage6GenerationContext): Promise<unknown>;
+  getUsage?: () => {
+    inputTokens: number;
+    outputTokens: number;
+    totalTokens: number;
+    calls: number;
+  };
 };
 
 export type Stage6RunOptions = {
@@ -75,6 +81,12 @@ export type Stage6RunReport = {
   startedAt: string;
   completedAt: string;
   results: Stage6RunItemResult[];
+  usage?: {
+    inputTokens: number;
+    outputTokens: number;
+    totalTokens: number;
+    calls: number;
+  };
 };
 
 function stableValue(value: unknown): unknown {
@@ -454,5 +466,6 @@ export async function runStage6Job(
     startedAt,
     completedAt: now().toISOString(),
     results,
+    usage: options.provider.getUsage?.(),
   };
 }

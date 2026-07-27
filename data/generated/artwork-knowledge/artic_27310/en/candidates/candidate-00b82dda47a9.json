@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27310:en:00b82dda47a9",
+  "artworkId": "artic:27310",
+  "artworkRevision": "2026-07-26T23:07:38-05:00",
+  "imageRevision": "commons:27310",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:27310:museum",
+      "kind": "museum_record",
+      "title": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27310",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:25:46.684Z",
+      "contentHash": "8c69817dfa51a2e50f9759c3e8aa8cb478473ebff3b5a3e44c963739ec5d3a35",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27310:museum-record:8c69817dfa51a2e50f9759c3e8aa8cb478473ebff3b5a3e44c963739ec5d3a35"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27310:en:title",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "The museum records this work as “The Holy Family with Saints Elizabeth and John the Baptist”.",
+      "predicate": "title",
+      "value": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27310:museum",
+          "sourceId": "source:artic:27310:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27310:en:artist",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "The museum attributes this work to Peter Paul Rubens (Flemish, 1577–1640).",
+      "predicate": "artist",
+      "value": "Peter Paul Rubens (Flemish, 1577–1640)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27310:museum",
+          "sourceId": "source:artic:27310:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27310:en:visual-1",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "A woman in a voluminous red dress with blue sleeves cradles a nude infant; her head is tilted toward the child’s face, and her right hand supports the infant’s back.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:en:1",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "A woman in a voluminous red dress with blue sleeves cradles a nude infant; her head is tilted toward the child’s face, and her right hand supports the infant’s back.",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:en:visual-2",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "A bearded man in a grey draped garment leans forward from the left, his right hand extended toward the standing child’s back or waist.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:en:2",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "A bearded man in a grey draped garment leans forward from the left, his right hand extended toward the standing child’s back or waist.",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:en:visual-3",
+      "subjectId": "artic:27310",
+      "layer": "fact",
+      "text": "A second nude child, seen mostly from behind, stands barefoot on a wooden surface, wearing a white loincloth-like wrap and sandals; the child turns its head toward the seated woman and infant.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:en:3",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "A second nude child, seen mostly from behind, stands barefoot on a wooden surface, wearing a white loincloth-like wrap and sandals; the child turns its head toward the seated woman and infant.",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27310:en:visual-4",
+      "subjectId": "artic:27310",
+      "layer": "interpretation",
+      "text": "An older woman with a white head covering and dark outer garment sits at right, hands clasped, gazing toward the central group; her expression appears attentive and somber.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27310:en:4",
+          "imageId": "commons:27310",
+          "basis": "visible",
+          "observation": "An older woman with a white head covering and dark outer garment sits at right, hands clasped, gazing toward the central group; her expression appears attentive and somber.",
+          "imageRevision": "commons:27310"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted scene with five figures and a lamb: a seated woman in a red gown holds a nude infant, while a bearded man leans in from the left, a second nude child stands beside them, and an older woman observes from the right. A woven basket and cloth rest nearby.",
+      "claimIds": [
+        "claim:artic:27310:en:title",
+        "claim:artic:27310:en:artist",
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:27310:en:1",
+        "label": "red dress",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:2",
+        "label": "nude infant",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:3",
+        "label": "bearded man",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:4",
+        "label": "woven basket",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:5",
+        "label": "lamb",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:6",
+        "label": "oil painting",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27310:en:7",
+        "label": "Baroque style",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27310:en:visual-1",
+          "claim:artic:27310:en:visual-2",
+          "claim:artic:27310:en:visual-3",
+          "claim:artic:27310:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27310:en:1",
+          "visual:artic:27310:en:2",
+          "visual:artic:27310:en:3",
+          "visual:artic:27310:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Five figures including a woman holding a baby, a bearded man, a standing child, an older woman, and a lamb, with a basket nearby.",
+      "long": "A richly colored oil painting depicts five human figures and a lamb in an interior setting. At center, a woman in a vivid red gown with blue sleeves sits and holds a nude infant close to her chest; her gaze is directed downward at the child. To her left, a bearded man in grey drapery leans in, his hand near a second nude child who stands barefoot, wearing a white wrap and sandals, looking toward the woman. To the right, an older woman with a white head covering sits observing the group, hands folded. A woven basket containing cloth rests on the floor beside her, and a small lamb is partially visible near the standing child’s feet. The background includes a dark interior wall and a glimpse of sky or water through an opening.",
+      "claimIds": [
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:en:1",
+        "visual:artic:27310:en:2",
+        "visual:artic:27310:en:3",
+        "visual:artic:27310:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27310:en:visual-1",
+      "artworkId": "artic:27310",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "how are the figures arranged",
+        "why is the woman central",
+        "what draws your eye first"
+      ],
+      "claimIds": [
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:en:1",
+        "visual:artic:27310:en:2",
+        "visual:artic:27310:en:3",
+        "visual:artic:27310:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the diagonal line formed by the man’s arm, the standing child’s posture, and the woman’s gaze—this guides attention toward the infant’s face.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27310:en:visual-2",
+      "artworkId": "artic:27310",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "why red",
+        "what do the colors contrast",
+        "how does blue interact with red"
+      ],
+      "claimIds": [
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:en:1",
+        "visual:artic:27310:en:2",
+        "visual:artic:27310:en:3",
+        "visual:artic:27310:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Note how the saturated red of the gown dominates the lower half, while the blue sleeve creates a cool counterpoint against the warm skin tones and dark background.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27310:en:visual-3",
+      "artworkId": "artic:27310",
+      "locale": "en",
+      "topic": "subject",
+      "triggerIntents": [
+        "who are these people",
+        "is this a family",
+        "what might the lamb mean"
+      ],
+      "claimIds": [
+        "claim:artic:27310:en:visual-1",
+        "claim:artic:27310:en:visual-2",
+        "claim:artic:27310:en:visual-3",
+        "claim:artic:27310:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27310:en:1",
+        "visual:artic:27310:en:2",
+        "visual:artic:27310:en:3",
+        "visual:artic:27310:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Describe only what is shown: two adults, two children, an older woman, and a lamb—without assigning identities or narrative—then invite the viewer to consider possible relationships based on proximity and gesture.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "outputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "updatedAt": "2026-07-27T04:25:46.684Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "outputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "updatedAt": "2026-07-27T04:25:46.684Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "outputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "updatedAt": "2026-07-27T04:25:46.684Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "outputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "updatedAt": "2026-07-27T04:25:46.684Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "outputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f",
+      "updatedAt": "2026-07-27T04:25:46.684Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v6",
+    "generatedAt": "2026-07-27T04:25:46.684Z",
+    "inputHash": "00b82dda47a9ef13ccb0af815e8ca6a86d6d80f4946cb3ee0d07c9a703791c9f"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-00b82dda47a9"
+  }
+}

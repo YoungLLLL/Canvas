@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:02:56.454Z",
+  "artwork": {
+    "id": "artic:111628",
+    "sourceId": "111628",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/111628",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/111628",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:27:26-05:00",
+      "accessedAt": "2026-07-27T04:02:55.295Z"
+    },
+    "display": {
+      "title": "Nighthawks",
+      "localizedTitles": {
+        "en": "Nighthawks"
+      },
+      "altTitles": [],
+      "artistDisplay": "Edward Hopper (American, 1882–1967)",
+      "dateDisplay": "1942",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "84.1 × 152.4 cm (33 1/8 × 60 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:34996",
+      "sourceId": "34996",
+      "name": "Edward Hopper",
+      "display": "Edward Hopper (American, 1882–1967)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1942,
+      "end": 1942
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Arts of the Americas",
+      "classificationTitles": [
+        "modern and contemporary art",
+        "painting"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "copyrighted",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Edward Hopper. Nighthawks, 1942. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:02:55.295Z",
+      "reasons": [
+        "image_rights_not_open",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Friends of American Art Collection",
+    "mainReferenceNumber": "1942.51",
+    "description": {
+      "html": "One of the best-known images of 20th-century art, Edward Hopper's <em>Nighthawks</em> depicts an all-night diner where three customers, all lost in their own thoughts, have congregated. It’s unclear how or why the anonymous and uncommunicative night owls are there. While Hopper mostly avoided commenting on his intent for the work, he did share, “unconsciously, probably, I was painting the loneliness of a large city.”",
+      "text": "One of the best-known images of 20th-century art, Edward Hopper's Nighthawks depicts an all-night diner where three customers, all lost in their own thoughts, have congregated. It’s unclear how or why the anonymous and uncommunicative night owls are there. While Hopper mostly avoided commenting on his intent for the work, he did share, “unconsciously, probably, I was painting the loneliness of a large city.”",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:27:26-05:00"
+  }
+}

@@ -193,7 +193,7 @@ editorialStatus
 
 ### 6.4 权利闸门
 
-默认公开允许：`CC0`、Public Domain Mark、明确的公共领域声明、`CC BY`。`CC BY-SA` 先进入复核；`NC`、`ND`、`NC-ND`、`all rights reserved`、`unknown` 默认不发布图片。
+当前非商业版本自动允许：`CC0`、Public Domain Mark、明确的公共领域声明、`CC BY`、`CC BY-SA`、`CC BY-NC`、`CC BY-NC-SA`、`CC BY-ND`、`CC BY-NC-ND`。所有需要署名的图片必须保留作者、来源、许可链接和修改说明；`NC` 图片标记为仅限非商业使用，商业化前必须重新审核或替换；`ND` 图片只允许为交付所需的等比例缩放、压缩和格式转换，不得裁切、调色、叠字或进行生成式修改。`all rights reserved`、`unknown` 和许可来源不明的图片仍不发布。
 
 权利闸门检查：
 

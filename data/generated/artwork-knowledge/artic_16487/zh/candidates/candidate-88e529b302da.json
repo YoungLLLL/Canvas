@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:16487:zh:88e529b302da",
+  "artworkId": "artic:16487",
+  "artworkRevision": "2026-07-25T23:18:35-05:00",
+  "imageRevision": "commons:16487",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:16487:museum",
+      "kind": "museum_record",
+      "title": "The Bay of Marseille, Seen from L'Estaque",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/16487",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:17:30.260Z",
+      "contentHash": "a5fa2f576d80b8e0e6152fbdf541ef3960eb87f48e1b132969b13b9ca27808a2",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_16487:museum-record:a5fa2f576d80b8e0e6152fbdf541ef3960eb87f48e1b132969b13b9ca27808a2"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:16487:zh:title",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "馆方将本作记录为《The Bay of Marseille, Seen from L'Estaque》。",
+      "predicate": "title",
+      "value": "The Bay of Marseille, Seen from L'Estaque",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:16487:museum",
+          "sourceId": "source:artic:16487:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:16487:zh:artist",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "馆方将本作归于Paul Cezanne (French, 1839–1906)。",
+      "predicate": "artist",
+      "value": "Paul Cezanne (French, 1839–1906)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:16487:museum",
+          "sourceId": "source:artic:16487:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:16487:zh:visual-1",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "前景可见多栋房屋，屋顶呈红棕或土黄色，墙体为浅灰、米白或赭石色；部分建筑带有高耸的深色烟囱，其中一根烟囱正冒出白色烟雾。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16487:zh:1",
+          "imageId": "commons:16487",
+          "basis": "visible",
+          "observation": "前景可见多栋房屋，屋顶呈红棕或土黄色，墙体为浅灰、米白或赭石色；部分建筑带有高耸的深色烟囱，其中一根烟囱正冒出白色烟雾。",
+          "imageRevision": "commons:16487"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16487:zh:visual-2",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "中景为大面积蓝绿色调水域，水面无明显波纹，仅在右下方有白色笔触表现烟雾或水汽升腾效果。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16487:zh:2",
+          "imageId": "commons:16487",
+          "basis": "visible",
+          "observation": "中景为大面积蓝绿色调水域，水面无明显波纹，仅在右下方有白色笔触表现烟雾或水汽升腾效果。",
+          "imageRevision": "commons:16487"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16487:zh:visual-3",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "背景山体以灰蓝、紫灰与淡绿交错涂抹，轮廓起伏平缓，未刻画具体植被或岩石细节，呈现概括性处理。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16487:zh:3",
+          "imageId": "commons:16487",
+          "basis": "visible",
+          "observation": "背景山体以灰蓝、紫灰与淡绿交错涂抹，轮廓起伏平缓，未刻画具体植被或岩石细节，呈现概括性处理。",
+          "imageRevision": "commons:16487"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16487:zh:visual-4",
+      "subjectId": "artic:16487",
+      "layer": "interpretation",
+      "text": "画面整体采用短促、方向多变的笔触堆叠成形，颜料层较厚，尤其在屋顶与山体区域可见明显肌理；色彩以冷暖对比为主，但未追求写实光影过渡。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16487:zh:4",
+          "imageId": "commons:16487",
+          "basis": "visible",
+          "observation": "画面整体采用短促、方向多变的笔触堆叠成形，颜料层较厚，尤其在屋顶与山体区域可见明显肌理；色彩以冷暖对比为主，但未追求写实光影过渡。",
+          "imageRevision": "commons:16487"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅描绘临水城镇与远山的风景画，前景为密集屋舍与烟囱，中景为宽阔水域，背景为连绵山峦，整体以厚涂笔触呈现。",
+      "claimIds": [
+        "claim:artic:16487:zh:title",
+        "claim:artic:16487:zh:artist",
+        "claim:artic:16487:zh:visual-1",
+        "claim:artic:16487:zh:visual-2",
+        "claim:artic:16487:zh:visual-3",
+        "claim:artic:16487:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:16487:zh:1",
+        "label": "风景画",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:zh:visual-1",
+          "claim:artic:16487:zh:visual-2",
+          "claim:artic:16487:zh:visual-3",
+          "claim:artic:16487:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:zh:1",
+          "visual:artic:16487:zh:2",
+          "visual:artic:16487:zh:3",
+          "visual:artic:16487:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:zh:2",
+        "label": "城镇",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:zh:visual-1",
+          "claim:artic:16487:zh:visual-2",
+          "claim:artic:16487:zh:visual-3",
+          "claim:artic:16487:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:zh:1",
+          "visual:artic:16487:zh:2",
+          "visual:artic:16487:zh:3",
+          "visual:artic:16487:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:zh:3",
+        "label": "水域",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:zh:visual-1",
+          "claim:artic:16487:zh:visual-2",
+          "claim:artic:16487:zh:visual-3",
+          "claim:artic:16487:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:zh:1",
+          "visual:artic:16487:zh:2",
+          "visual:artic:16487:zh:3",
+          "visual:artic:16487:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:zh:4",
+        "label": "山峦",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:zh:visual-1",
+          "claim:artic:16487:zh:visual-2",
+          "claim:artic:16487:zh:visual-3",
+          "claim:artic:16487:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:zh:1",
+          "visual:artic:16487:zh:2",
+          "visual:artic:16487:zh:3",
+          "visual:artic:16487:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:zh:5",
+        "label": "烟囱",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:zh:visual-1",
+          "claim:artic:16487:zh:visual-2",
+          "claim:artic:16487:zh:visual-3",
+          "claim:artic:16487:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:zh:1",
+          "visual:artic:16487:zh:2",
+          "visual:artic:16487:zh:3",
+          "visual:artic:16487:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:zh:6",
+        "label": "厚涂法",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:zh:visual-1",
+          "claim:artic:16487:zh:visual-2",
+          "claim:artic:16487:zh:visual-3",
+          "claim:artic:16487:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:zh:1",
+          "visual:artic:16487:zh:2",
+          "visual:artic:16487:zh:3",
+          "visual:artic:16487:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:zh:7",
+        "label": "笔触明显",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:zh:visual-1",
+          "claim:artic:16487:zh:visual-2",
+          "claim:artic:16487:zh:visual-3",
+          "claim:artic:16487:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:zh:1",
+          "visual:artic:16487:zh:2",
+          "visual:artic:16487:zh:3",
+          "visual:artic:16487:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一幅以厚涂笔触绘制的风景画：前景是带烟囱的房屋群，中景为蓝色水域，背景为灰蓝色山峦。",
+      "long": "画面自下而上分为三层：前景为密集低矮建筑，屋顶多为红棕色，墙体浅灰或米白，数根深色烟囱竖立，其中一根正冒出白色烟雾；中景为广阔平静的蓝绿色水域，右侧水面有白色烟雾状笔触；背景为连绵起伏的山丘，以灰蓝、淡紫与浅绿混合涂抹，轮廓柔和。整幅画用短而有力的笔触构建形态，颜料堆积明显，色彩平面化，未强调透视纵深或真实光照效果。",
+      "claimIds": [
+        "claim:artic:16487:zh:visual-1",
+        "claim:artic:16487:zh:visual-2",
+        "claim:artic:16487:zh:visual-3",
+        "claim:artic:16487:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16487:zh:1",
+        "visual:artic:16487:zh:2",
+        "visual:artic:16487:zh:3",
+        "visual:artic:16487:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:16487:zh:visual-1",
+      "artworkId": "artic:16487",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "这画的笔触好特别",
+        "颜料好像堆得很厚"
+      ],
+      "claimIds": [
+        "claim:artic:16487:zh:visual-1",
+        "claim:artic:16487:zh:visual-2",
+        "claim:artic:16487:zh:visual-3",
+        "claim:artic:16487:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16487:zh:1",
+        "visual:artic:16487:zh:2",
+        "visual:artic:16487:zh:3",
+        "visual:artic:16487:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可以指向屋顶或山体处的笔触痕迹，说明画家如何用短促方向变化的笔触塑造体积而不依赖明暗过渡。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:16487:zh:visual-2",
+      "artworkId": "artic:16487",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "为什么房子颜色这么暖，水却这么冷",
+        "这些颜色看起来不太真实"
+      ],
+      "claimIds": [
+        "claim:artic:16487:zh:visual-1",
+        "claim:artic:16487:zh:visual-2",
+        "claim:artic:16487:zh:visual-3",
+        "claim:artic:16487:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16487:zh:1",
+        "visual:artic:16487:zh:2",
+        "visual:artic:16487:zh:3",
+        "visual:artic:16487:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可对比前景土黄/赭石屋顶与中景蓝绿水域的并置，指出画家有意强化冷暖区域划分，而非模拟自然光色。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:16487:zh:visual-3",
+      "artworkId": "artic:16487",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "山怎么看起来扁扁的",
+        "房子和水之间好像没距离感"
+      ],
+      "claimIds": [
+        "claim:artic:16487:zh:visual-1",
+        "claim:artic:16487:zh:visual-2",
+        "claim:artic:16487:zh:visual-3",
+        "claim:artic:16487:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16487:zh:1",
+        "visual:artic:16487:zh:2",
+        "visual:artic:16487:zh:3",
+        "visual:artic:16487:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "引导观察山体缺乏空气透视（如远山未明显变淡变蓝），以及房屋与水面交界处几乎无地平线过渡，体现平面化空间处理。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "outputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "updatedAt": "2026-07-27T04:17:30.260Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "outputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "updatedAt": "2026-07-27T04:17:30.260Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "outputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "updatedAt": "2026-07-27T04:17:30.260Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "outputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "updatedAt": "2026-07-27T04:17:30.260Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "outputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38",
+      "updatedAt": "2026-07-27T04:17:30.260Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:17:30.260Z",
+    "inputHash": "88e529b302da6ae065e5ab6c048cd3392af1853f6242fc69538b181ff2116f38"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-88e529b302da"
+  }
+}

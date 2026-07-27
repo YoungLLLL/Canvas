@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:25:46.679Z",
+  "artwork": {
+    "id": "artic:27310",
+    "sourceId": "27310",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/27310",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/27310",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-26T23:07:38-05:00",
+      "accessedAt": "2026-07-27T04:25:45.708Z"
+    },
+    "display": {
+      "title": "The Holy Family with Saints Elizabeth and John the Baptist",
+      "localizedTitles": {
+        "en": "The Holy Family with Saint Elizabeth and Saint John",
+        "zh": "The Holy Family with Saint Elizabeth and Saint John"
+      },
+      "altTitles": [],
+      "artistDisplay": "Peter Paul Rubens (Flemish, 1577–1640)",
+      "dateDisplay": "c. 1615",
+      "mediumDisplay": "Oil on panel",
+      "dimensionsDisplay": "114.5 × 91.5 cm (45 1/8 × 36 in.); Framed: 137.8 × 115.6 × 12.7 cm (54 1/4 × 45 1/2 × 5 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:36487",
+      "sourceId": "36487",
+      "name": "Peter Paul Rubens",
+      "display": "Peter Paul Rubens (Flemish, 1577–1640)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1610,
+      "end": 1620
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "oil on panel",
+        "paint",
+        "painting",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:27310",
+        "width": 843,
+        "height": 1063,
+        "altText": "Large painting of Holy Family: Mary in red, holding baby Jesus.",
+        "lqip": "data:image/gif;base64,R0lGODlhBAAFAPQAADUrIzgoIT87Ojo/P0Q4LVoyLUE5MXotIWQ/L3AzJFFAL1VEMF5OOWFCLGZOOmNURn5ZRXBeSHJaTJFmUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAAIf8LSW1hZ2VNYWdpY2sOZ2FtbWE9MC40NTQ1NDUALAAAAAAEAAUAAAUR4GAQivBIQDQVAXQgTJM4SwgAOw==",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Peter_Paul_Rubens_-_The_Holy_Family_with_Saints_Elizabeth_and_John_the_Baptist_-_1967.229_-_Art_Institute_of_Chicago.jpg/960px-Peter_Paul_Rubens_-_The_Holy_Family_with_Saints_Elizabeth_and_John_the_Baptist_-_1967.229_-_Art_Institute_of_Chicago.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Peter_Paul_Rubens_-_The_Holy_Family_with_Saints_Elizabeth_and_John_the_Baptist_-_1967.229_-_Art_Institute_of_Chicago.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_The_Holy_Family_with_Saints_Elizabeth_and_John_the_Baptist_-_1967.229_-_Art_Institute_of_Chicago.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Peter Paul Rubens. The Holy Family with Saints Elizabeth and John the Baptist, c. 1615. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/27310"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:25:45.708Z",
+      "reasons": []
+    },
+    "creditLine": "Major Acquisitions Fund",
+    "mainReferenceNumber": "1967.229",
+    "description": {
+      "html": "Here, Rubens presented a distinctly human take on the figures of Jesus, Mary, and Joseph. They lack the halos that often identify them, and the adult characters wear contemporary Flemish attire. Mary’s exposed breast brings to mind Jesus’s need for physical nourishment as the human son of God. Her central placement underscores the growing veneration of Mary in the Catholic community of the Spanish Netherlands.",
+      "text": "Here, Rubens presented a distinctly human take on the figures of Jesus, Mary, and Joseph. They lack the halos that often identify them, and the adult characters wear contemporary Flemish attire. Mary’s exposed breast brings to mind Jesus’s need for physical nourishment as the human son of God. Her central placement underscores the growing veneration of Mary in the Catholic community of the Spanish Netherlands.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-26T23:07:38-05:00"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:00:37.995Z",
+  "artwork": {
+    "id": "artic:16487",
+    "sourceId": "16487",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/16487",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/16487",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:18:35-05:00",
+      "accessedAt": "2026-07-27T04:00:37.434Z"
+    },
+    "display": {
+      "title": "The Bay of Marseille, Seen from L'Estaque",
+      "localizedTitles": {
+        "en": "The Bay of Marseilles, Seen from L'Estaque",
+        "zh": "The Bay of Marseilles, Seen from L'Estaque"
+      },
+      "altTitles": [],
+      "artistDisplay": "Paul Cezanne (French, 1839–1906)",
+      "dateDisplay": "c. 1885",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "80.2 × 100.6 cm (31 5/8 × 39 5/8 in.); Framed: 107.4 × 127.4 × 10.5 cm (42 1/4 × 50 1/8 × 4 1/8 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:40482",
+      "sourceId": "40482",
+      "name": "Paul Cezanne",
+      "display": "Paul Cezanne (French, 1839–1906)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1880,
+      "end": 1890
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "oil on canvas",
+        "french",
+        "oil paintings (visual works)",
+        "paint",
+        "painting",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:16487",
+        "width": 843,
+        "height": 671,
+        "altText": "Impressionist sea landscape, tan houses, blue ocean, distant mountains.",
+        "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAAHx2X15rbk1le1dsfV1wdm9xaWpybnd1YX58ZmRscWJwdIJ1XoJ5Yox/ZZSJb5mIa1NqgVpxiXWDiXeDiHqGjX+Mk4OSmoWTmIqeoo2fpIyeppekoJSlqJmnqAAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUYINdlGrZdVkVJk6EMAhQ1QJEEhPMcC4OEADs=",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Paul_C%C3%A9zanne_-_The_Bay_of_Marseilles%2C_Seen_from_L%27Estaque_-_Google_Art_Project.jpg/960px-Paul_C%C3%A9zanne_-_The_Bay_of_Marseilles%2C_Seen_from_L%27Estaque_-_Google_Art_Project.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Paul_C%C3%A9zanne_-_The_Bay_of_Marseilles%2C_Seen_from_L%27Estaque_-_Google_Art_Project.jpg/1920px-Paul_C%C3%A9zanne_-_The_Bay_of_Marseilles%2C_Seen_from_L%27Estaque_-_Google_Art_Project.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paul_C%C3%A9zanne_-_The_Bay_of_Marseilles,_Seen_from_L%27Estaque_-_Google_Art_Project.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Paul Cezanne. The Bay of Marseille, Seen from L'Estaque, c. 1885. The Art Institute of Chicago. Image source: 1QFFkcktbe4rAg at Google Cultural Institute maximum zoom level"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:00:37.434Z",
+      "reasons": []
+    },
+    "creditLine": "Mr. and Mrs. Martin A. Ryerson Collection",
+    "mainReferenceNumber": "1933.1116",
+    "description": {
+      "html": "<p>In a letter to his friend and teacher <a href=\"https://www.artic.edu/artists/36211/camille-pissarro\">Camille Pissarro</a>, Paul Cézanne compared the view of the sea from L’Estaque to a playing card, with its simple shapes and colors. The landscape’s configuration and color fascinated him. This painting is one of more than a dozen such vistas created by the artist during the 1880s. Cézanne divided the canvas into four zones—architecture, water, mountain, and sky. Although these four elements are seen repeatedly in Impressionist paintings, Cézanne’s work is very different from that of his fellow artists. Whereas their primary purpose was to record the transient effects of light, Cézanne was interested in the underlying structure and composition of the views he painted. Filling the canvas with shapes defined by strong, contrasting colors and a complex grid of horizontal, vertical, and diagonal lines, he created a highly compact, dynamic pattern of water, sky, land, and village that at once refers back to traditionally structured landscape paintings and looks forward to the innovations of Cubism. Using blocklike brushstrokes to build the space, Cézanne created a composition that seems both two- and three-dimensional. Not locked tightly in place, his forms appear to touch and shift continually, creating a sense of volume and space that strengthens the composition and brings it to life.</p>",
+      "text": "In a letter to his friend and teacher Camille Pissarro , Paul Cézanne compared the view of the sea from L’Estaque to a playing card, with its simple shapes and colors. The landscape’s configuration and color fascinated him. This painting is one of more than a dozen such vistas created by the artist during the 1880s. Cézanne divided the canvas into four zones—architecture, water, mountain, and sky. Although these four elements are seen repeatedly in Impressionist paintings, Cézanne’s work is very different from that of his fellow artists. Whereas their primary purpose was to record the transient effects of light, Cézanne was interested in the underlying structure and composition of the views he painted. Filling the canvas with shapes defined by strong, contrasting colors and a complex grid of horizontal, vertical, and diagonal lines, he created a highly compact, dynamic pattern of water, sky, land, and village that at once refers back to traditionally structured landscape paintings and looks forward to the innovations of Cubism. Using blocklike brushstrokes to build the space, Cézanne created a composition that seems both two- and three-dimensional. Not locked tightly in place, his forms appear to touch and shift continually, creating a sense of volume and space that strengthens the composition and brings it to life.",
+      "sourceField": "description"
+    },
+    "revision": "2026-07-25T23:18:35-05:00"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:59:14.061Z",
+  "artwork": {
+    "id": "artic:65940",
+    "sourceId": "65940",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/65940",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/65940",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-26T22:52:34-05:00",
+      "accessedAt": "2026-07-27T03:59:13.183Z"
+    },
+    "display": {
+      "title": "Still Life No. 3",
+      "localizedTitles": {
+        "en": "Still Life No. 3"
+      },
+      "altTitles": [],
+      "artistDisplay": "Marsden Hartley (American, 1877–1943)",
+      "dateDisplay": "1923",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "57.8 × 104.1 cm (22 3/4 × 41 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:34853",
+      "sourceId": "34853",
+      "name": "Marsden Hartley",
+      "display": "Marsden Hartley (American, 1877–1943)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1923,
+      "end": 1923
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Arts of the Americas",
+      "classificationTitles": [
+        "painting",
+        "modern and contemporary art"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Marsden Hartley. Still Life No. 3, 1923. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:59:13.183Z",
+      "reasons": [
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Alfred Stieglitz Collection",
+    "mainReferenceNumber": "1949.550",
+    "revision": "2026-07-26T22:52:34-05:00"
+  }
+}

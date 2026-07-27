@@ -1,0 +1,433 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:64818:zh:a9cbbe0886eb",
+  "artworkId": "artic:64818",
+  "artworkRevision": "2026-07-25T23:26:59-05:00",
+  "imageRevision": "commons:64818",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:64818:museum",
+      "kind": "museum_record",
+      "title": "Stacks of Wheat (End of Summer)",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/64818",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:23:55.746Z",
+      "contentHash": "b056b125f878cfe315aa683227e8a1ca8e6f2166473f5d6ef40a36ff0a68e580",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_64818:museum-record:b056b125f878cfe315aa683227e8a1ca8e6f2166473f5d6ef40a36ff0a68e580"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:64818:zh:title",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Stacks of Wheat (End of Summer)》。",
+      "predicate": "title",
+      "value": "Stacks of Wheat (End of Summer)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:64818:museum",
+          "sourceId": "source:artic:64818:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:artist",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "馆方将本作归于Claude Monet (French, 1840–1926)。",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:64818:museum",
+          "sourceId": "source:artic:64818:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:visual-1",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "画面前景有两座大型圆锥形干草堆，左侧较小、右侧较大；两者均以红棕、赭石与淡紫灰等色块并置构成体积感。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:zh:1",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "画面前景有两座大型圆锥形干草堆，左侧较小、右侧较大；两者均以红棕、赭石与淡紫灰等色块并置构成体积感。",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:visual-2",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "地面由短促、交错的笔触铺成，混合粉红、浅绿、蓝灰与淡黄，形成斑驳的草地效果，未见清晰轮廓线。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:zh:2",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "地面由短促、交错的笔触铺成，混合粉红、浅绿、蓝灰与淡黄，形成斑驳的草地效果，未见清晰轮廓线。",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:visual-3",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "背景为起伏的丘陵与树林带，色调偏紫灰与蓝绿，其间隐约可见数处白色屋顶的小屋，但形态模糊、无明确结构细节。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:zh:3",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "背景为起伏的丘陵与树林带，色调偏紫灰与蓝绿，其间隐约可见数处白色屋顶的小屋，但形态模糊、无明确结构细节。",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:visual-4",
+      "subjectId": "artic:64818",
+      "layer": "interpretation",
+      "text": "天空占据画面上半部约三分之一，呈淡青灰至浅黄绿的渐变，无云朵具体形状，整体氛围柔和朦胧。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:zh:4",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "天空占据画面上半部约三分之一，呈淡青灰至浅黄绿的渐变，无云朵具体形状，整体氛围柔和朦胧。",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅描绘田野中干草堆的风景画，画面以松散的笔触呈现光影与色彩的微妙变化。",
+      "claimIds": [
+        "claim:artic:64818:zh:title",
+        "claim:artic:64818:zh:artist",
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:64818:zh:1",
+        "label": "干草堆",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:2",
+        "label": "田野",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:3",
+        "label": "印象派笔触",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:4",
+        "label": "多色并置",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:5",
+        "label": "朦胧远景",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:6",
+        "label": "水平构图",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一幅以松散笔触描绘田野中两座干草堆的风景画，背景为模糊丘陵与小屋，天空柔和渐变。",
+      "long": "画面横向展开，前景左右各有一座干草堆：左侧较小，右侧较大，均以红棕、赭石、淡紫灰等色块堆叠出体积；地面由粉红、浅绿、蓝灰等短促笔触交织而成，呈现斑驳草地；中景为紫灰与蓝绿色调的丘陵与树林带，其间点缀几处模糊的白顶小屋；上部天空为淡青灰向浅黄绿过渡的平滑渐变，整体无明确线条，强调光色与氛围的即时感受。",
+      "claimIds": [
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:zh:1",
+        "visual:artic:64818:zh:2",
+        "visual:artic:64818:zh:3",
+        "visual:artic:64818:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:64818:zh:visual-1",
+      "artworkId": "artic:64818",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "注意到笔触很特别",
+        "这画是怎么画出来的"
+      ],
+      "claimIds": [
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:zh:1",
+        "visual:artic:64818:zh:2",
+        "visual:artic:64818:zh:3",
+        "visual:artic:64818:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可以指向前景草地或干草堆表面，指出那些短而分离的色块并非为了描摹细节，而是直接记录光线落在物体上的即时效果。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:64818:zh:visual-2",
+      "artworkId": "artic:64818",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "颜色好柔和",
+        "为什么用这么多紫色和粉色"
+      ],
+      "claimIds": [
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:zh:1",
+        "visual:artic:64818:zh:2",
+        "visual:artic:64818:zh:3",
+        "visual:artic:64818:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可引导观察干草堆阴影处的淡紫灰、草地中的粉红与蓝灰——这些并非物体本色，而是周围环境反光与大气影响下的视觉结果。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:64818:zh:visual-3",
+      "artworkId": "artic:64818",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "远处的房子看不太清",
+        "怎么感觉前后距离不远"
+      ],
+      "claimIds": [
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:zh:1",
+        "visual:artic:64818:zh:2",
+        "visual:artic:64818:zh:3",
+        "visual:artic:64818:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可对比前景干草堆的相对清晰色块与背景房屋的模糊处理，说明画家通过降低对比度与细节来暗示空间深度，而非依赖透视线。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "outputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "updatedAt": "2026-07-27T04:23:55.746Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "outputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "updatedAt": "2026-07-27T04:23:55.746Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "outputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "updatedAt": "2026-07-27T04:23:55.746Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "outputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "updatedAt": "2026-07-27T04:23:55.746Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "outputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9",
+      "updatedAt": "2026-07-27T04:23:55.746Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v6",
+    "generatedAt": "2026-07-27T04:23:55.746Z",
+    "inputHash": "a9cbbe0886eb1a68793bd167f5b256ae8f826881db139bcf56c5e0cab85292d9"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-a9cbbe0886eb"
+  }
+}

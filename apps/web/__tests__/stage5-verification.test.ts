@@ -21,6 +21,14 @@ function record({ id, status, reason }: { id: string; status: string; reason?: s
       image: {
         licenseCode: displayable ? "PDM-1.0" : "unknown",
         licenseUrl: displayable ? "https://creativecommons.org/publicdomain/mark/1.0/" : null,
+        usage: displayable
+          ? {
+              commercialUseAllowed: true,
+              adaptationsAllowed: true,
+              attributionRequired: false,
+              shareAlike: false,
+            }
+          : null,
       },
       metadata: { defaultLicense: "CC0-1.0", descriptionLicense: "CC-BY-4.0" },
       termsUrl: "https://www.artic.edu/terms",
@@ -94,6 +102,31 @@ describe("Stage 5 verification report", () => {
     expect(result.passed).toBe(false);
     expect(result.duplicateRecords).toBe(1);
     expect(result.failures.rights).toHaveLength(2);
+  });
+
+  it("accepts constrained CC BY-NC-ND image rights", () => {
+    const constrained = record({ id: "artic:1", status: "image_displayable" });
+    constrained.rights.image = {
+      licenseCode: "CC-BY-NC-ND-4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      usage: {
+        commercialUseAllowed: false,
+        adaptationsAllowed: false,
+        attributionRequired: true,
+        shareAlike: false,
+      },
+    };
+    const result = analyzeRecords(
+      [constrained],
+      [{ id: "artic:1", reachable: true }],
+      [{ page: 1, records: 1, durationMs: 100 }],
+      {
+        minMappingRate: 1,
+        minImageReachabilityRate: 1,
+        minImageProbeCoverageRate: 1,
+      },
+    );
+    expect(result.rightsCompletenessRate).toBe(1);
   });
 
   it("reports rate limiting as inconclusive instead of a broken image", () => {

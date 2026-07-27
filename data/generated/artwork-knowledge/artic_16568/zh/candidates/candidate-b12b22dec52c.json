@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:16568:zh:b12b22dec52c",
+  "artworkId": "artic:16568",
+  "artworkRevision": "2026-07-26T03:41:42-05:00",
+  "imageRevision": "commons:16568",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:16568:museum",
+      "kind": "museum_record",
+      "title": "Water Lilies",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/16568",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:08:49.077Z",
+      "contentHash": "b847e0c0ff180ad98a1411863e3c39bb46eb21e61c49ac34977ed6657652e124",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_16568:museum-record:b847e0c0ff180ad98a1411863e3c39bb46eb21e61c49ac34977ed6657652e124"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:16568:zh:title",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Water Lilies》。",
+      "predicate": "title",
+      "value": "Water Lilies",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:16568:museum",
+          "sourceId": "source:artic:16568:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:16568:zh:artist",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "馆方将本作归于Claude Monet (French, 1840–1926)。",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:16568:museum",
+          "sourceId": "source:artic:16568:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:16568:zh:visual-1",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "画面主体为一片水域，水面以厚涂的蓝、青、紫、灰等冷色调为主，局部混入淡绿与粉紫，形成斑驳的色块过渡。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:zh:1",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "画面主体为一片水域，水面以厚涂的蓝、青、紫、灰等冷色调为主，局部混入淡绿与粉紫，形成斑驳的色块过渡。",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16568:zh:visual-2",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "大量圆形或椭圆形的绿色叶片散布于水面，边缘常带浅黄、白或淡紫提亮，部分叶片重叠，呈现不同朝向与明暗变化。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:zh:2",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "大量圆形或椭圆形的绿色叶片散布于水面，边缘常带浅黄、白或淡紫提亮，部分叶片重叠，呈现不同朝向与明暗变化。",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16568:zh:visual-3",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "数朵粉红至淡橙色的花瓣清晰可见，集中在画面中下部，花瓣形态松散，部分中心区域有深红或紫色点状颜料。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:zh:3",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "数朵粉红至淡橙色的花瓣清晰可见，集中在画面中下部，花瓣形态松散，部分中心区域有深红或紫色点状颜料。",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16568:zh:visual-4",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "右下角可见手写体签名及数字，字迹呈棕红色，颜色较深，与背景形成对比。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:zh:4",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "右下角可见手写体签名及数字，字迹呈棕红色，颜色较深，与背景形成对比。",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16568:zh:visual-5",
+      "subjectId": "artic:16568",
+      "layer": "fact",
+      "text": "整体构图无明确地平线或远景参照物，视觉元素均匀分布于画面各处，未形成单一焦点。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16568:zh:5",
+          "imageId": "commons:16568",
+          "basis": "visible",
+          "observation": "整体构图无明确地平线或远景参照物，视觉元素均匀分布于画面各处，未形成单一焦点。",
+          "imageRevision": "commons:16568"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅以水面为视角的绘画，画面中布满浮于水上的绿色叶片与粉红至淡橙色花朵，水面呈现蓝、紫、绿、灰等色交织的斑驳效果，笔触短促、堆叠，具有明显肌理感。",
+      "claimIds": [
+        "claim:artic:16568:zh:title",
+        "claim:artic:16568:zh:artist",
+        "claim:artic:16568:zh:visual-1",
+        "claim:artic:16568:zh:visual-2",
+        "claim:artic:16568:zh:visual-3",
+        "claim:artic:16568:zh:visual-4",
+        "claim:artic:16568:zh:visual-5"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:16568:zh:1",
+        "label": "水面",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:zh:visual-1",
+          "claim:artic:16568:zh:visual-2",
+          "claim:artic:16568:zh:visual-3",
+          "claim:artic:16568:zh:visual-4",
+          "claim:artic:16568:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:zh:1",
+          "visual:artic:16568:zh:2",
+          "visual:artic:16568:zh:3",
+          "visual:artic:16568:zh:4",
+          "visual:artic:16568:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:zh:2",
+        "label": "厚涂法",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:zh:visual-1",
+          "claim:artic:16568:zh:visual-2",
+          "claim:artic:16568:zh:visual-3",
+          "claim:artic:16568:zh:visual-4",
+          "claim:artic:16568:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:zh:1",
+          "visual:artic:16568:zh:2",
+          "visual:artic:16568:zh:3",
+          "visual:artic:16568:zh:4",
+          "visual:artic:16568:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:zh:3",
+        "label": "植物",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:zh:visual-1",
+          "claim:artic:16568:zh:visual-2",
+          "claim:artic:16568:zh:visual-3",
+          "claim:artic:16568:zh:visual-4",
+          "claim:artic:16568:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:zh:1",
+          "visual:artic:16568:zh:2",
+          "visual:artic:16568:zh:3",
+          "visual:artic:16568:zh:4",
+          "visual:artic:16568:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:zh:4",
+        "label": "蓝色调",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:zh:visual-1",
+          "claim:artic:16568:zh:visual-2",
+          "claim:artic:16568:zh:visual-3",
+          "claim:artic:16568:zh:visual-4",
+          "claim:artic:16568:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:zh:1",
+          "visual:artic:16568:zh:2",
+          "visual:artic:16568:zh:3",
+          "visual:artic:16568:zh:4",
+          "visual:artic:16568:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16568:zh:5",
+        "label": "花卉",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16568:zh:visual-1",
+          "claim:artic:16568:zh:visual-2",
+          "claim:artic:16568:zh:visual-3",
+          "claim:artic:16568:zh:visual-4",
+          "claim:artic:16568:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16568:zh:1",
+          "visual:artic:16568:zh:2",
+          "visual:artic:16568:zh:3",
+          "visual:artic:16568:zh:4",
+          "visual:artic:16568:zh:5"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一幅描绘水面的油画，布满绿色圆形叶片与粉红至淡橙色花朵，水面由蓝、紫、绿、灰等色斑驳构成，笔触厚实可见，右下角有棕红色手写体签名及数字。",
+      "long": "画面为近景俯视角度的水面，占据全部画幅。水面以蓝、青、紫、灰为主，夹杂淡绿与粉紫，通过短促、堆叠的笔触表现色块并置与交界。大量圆形叶片浮于其上，大小相近，边缘用浅黄、白或淡紫提亮；部分叶片重叠，明暗随方向略有变化。中下部可见五至六朵盛开的花朵，花瓣呈粉红至淡橙色，形态松散；中心区域有深红或紫色点状颜料。右下角有棕红色手写体签名及数字，字迹流畅，颜料略凸起。整幅画无天空、岸线或其他空间参照，仅呈现水面与植物的色彩、形状与笔触关系。",
+      "claimIds": [
+        "claim:artic:16568:zh:visual-1",
+        "claim:artic:16568:zh:visual-2",
+        "claim:artic:16568:zh:visual-3",
+        "claim:artic:16568:zh:visual-4",
+        "claim:artic:16568:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16568:zh:1",
+        "visual:artic:16568:zh:2",
+        "visual:artic:16568:zh:3",
+        "visual:artic:16568:zh:4",
+        "visual:artic:16568:zh:5"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:16568:zh:visual-1",
+      "artworkId": "artic:16568",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "这幅画的笔触看起来很特别，能说说吗？",
+        "颜料是不是堆得很厚？"
+      ],
+      "claimIds": [
+        "claim:artic:16568:zh:visual-1",
+        "claim:artic:16568:zh:visual-2",
+        "claim:artic:16568:zh:visual-3",
+        "claim:artic:16568:zh:visual-4",
+        "claim:artic:16568:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16568:zh:1",
+        "visual:artic:16568:zh:2",
+        "visual:artic:16568:zh:3",
+        "visual:artic:16568:zh:4",
+        "visual:artic:16568:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可从右下角签名旁的颜料凸起处切入，指出笔触短促、方向多变，且局部有明显堆叠或刮擦痕迹，例如中左区域蓝与紫交界处的厚涂质感。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:16568:zh:visual-2",
+      "artworkId": "artic:16568",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "为什么水是紫色的？",
+        "这些颜色是怎么搭配的？"
+      ],
+      "claimIds": [
+        "claim:artic:16568:zh:visual-1",
+        "claim:artic:16568:zh:visual-2",
+        "claim:artic:16568:zh:visual-3",
+        "claim:artic:16568:zh:visual-4",
+        "claim:artic:16568:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16568:zh:1",
+        "visual:artic:16568:zh:2",
+        "visual:artic:16568:zh:3",
+        "visual:artic:16568:zh:4",
+        "visual:artic:16568:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "引导注意水面并非单一蓝色，而是由蓝、紫、灰绿等色块并置叠加而成；可对比叶片边缘的浅黄与水中相邻区域的粉紫，说明色彩通过邻近色块相互映照形成视觉混合效果。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:16568:zh:visual-3",
+      "artworkId": "artic:16568",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "画面有没有前后距离？",
+        "怎么看不出哪片叶子更近？"
+      ],
+      "claimIds": [
+        "claim:artic:16568:zh:visual-1",
+        "claim:artic:16568:zh:visual-2",
+        "claim:artic:16568:zh:visual-3",
+        "claim:artic:16568:zh:visual-4",
+        "claim:artic:16568:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16568:zh:1",
+        "visual:artic:16568:zh:2",
+        "visual:artic:16568:zh:3",
+        "visual:artic:16568:zh:4",
+        "visual:artic:16568:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "指出画面缺乏传统透视线索（如清晰遮挡、大小渐变），叶片大小差异微小，重叠边界模糊，色块虚实交替替代了深度表达。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "outputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "updatedAt": "2026-07-27T04:08:49.077Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "outputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "updatedAt": "2026-07-27T04:08:49.077Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "outputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "updatedAt": "2026-07-27T04:08:49.077Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "outputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "updatedAt": "2026-07-27T04:08:49.077Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "outputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3",
+      "updatedAt": "2026-07-27T04:08:49.077Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:08:49.077Z",
+    "inputHash": "b12b22dec52c1d2fa741e86e87a3cd5ef9aa05eead4c5fa0c924cc2ba813a6c3"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-b12b22dec52c"
+  }
+}

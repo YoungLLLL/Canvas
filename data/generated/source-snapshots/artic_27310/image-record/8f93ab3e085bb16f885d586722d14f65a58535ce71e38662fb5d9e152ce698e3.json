@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "artwork-image-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:58:34.805Z",
+  "artworkId": "artic:27310",
+  "image": {
+    "id": "commons:27310",
+    "width": 843,
+    "height": 1063,
+    "altText": "Large painting of Holy Family: Mary in red, holding baby Jesus.",
+    "lqip": "data:image/gif;base64,R0lGODlhBAAFAPQAADUrIzgoIT87Ojo/P0Q4LVoyLUE5MXotIWQ/L3AzJFFAL1VEMF5OOWFCLGZOOmNURn5ZRXBeSHJaTJFmUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAAIf8LSW1hZ2VNYWdpY2sOZ2FtbWE9MC40NTQ1NDUALAAAAAAEAAUAAAUR4GAQivBIQDQVAXQgTJM4SwgAOw==",
+    "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Peter_Paul_Rubens_-_The_Holy_Family_with_Saints_Elizabeth_and_John_the_Baptist_-_1967.229_-_Art_Institute_of_Chicago.jpg/960px-Peter_Paul_Rubens_-_The_Holy_Family_with_Saints_Elizabeth_and_John_the_Baptist_-_1967.229_-_Art_Institute_of_Chicago.jpg",
+    "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Peter_Paul_Rubens_-_The_Holy_Family_with_Saints_Elizabeth_and_John_the_Baptist_-_1967.229_-_Art_Institute_of_Chicago.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_The_Holy_Family_with_Saints_Elizabeth_and_John_the_Baptist_-_1967.229_-_Art_Institute_of_Chicago.jpg",
+    "zoomable": true,
+    "maxZoomWindowSize": null,
+    "health": "ok"
+  },
+  "rights": {
+    "licenseCode": "PDM-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "attribution": "Peter Paul Rubens. The Holy Family with Saints Elizabeth and John the Baptist, c. 1615. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/27310"
+}

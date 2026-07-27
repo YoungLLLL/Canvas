@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:55:15.312Z",
+  "artwork": {
+    "id": "artic:14572",
+    "sourceId": "14572",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/14572",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/14572",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:27:08-05:00",
+      "accessedAt": "2026-07-27T03:52:37.688Z"
+    },
+    "display": {
+      "title": "The Millinery Shop",
+      "localizedTitles": {
+        "en": "The Millinery Shop by Edgar Degas",
+        "zh": "女帽店"
+      },
+      "altTitles": [],
+      "artistDisplay": "Edgar Degas (French, 1834–1917)",
+      "dateDisplay": "1879-86",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "100 × 110.7 cm (39 3/8 × 43 9/16 in.); Framed: 132.1 × 142.3 × 9.6 cm (52 × 56 × 3 3/4 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:40543",
+      "sourceId": "40543",
+      "name": "Hilaire Germain Edgar Degas",
+      "display": "Edgar Degas (French, 1834–1917)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1879,
+      "end": 1886
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "painting",
+        "oil on canvas",
+        "paint",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:14572",
+        "width": 843,
+        "height": 757,
+        "altText": "Impressionist painting of woman wearing green dress trying on hats.",
+        "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAAEMtIk40KE83KlhHLVxELlNPN1hLMVJOP19UN1dYM1lUOVpUP2dAIWlKKHZKKXZLKWRNPGpbMGpaNGtaOkxUTF9dRlJaS15YSV5kUnZpRH12W4ZkM49uRI52VQAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUY4AUtFWZxHZIdExFEybAJQGE00sNQmqOEADs=",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg/960px-Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg/1920px-Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Hilaire Germain Edgar Degas. The Millinery Shop, 1879-86. The Art Institute of Chicago. Image source: WwHCxQrrgG7p2Q at Google Cultural Institute maximum zoom level"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:52:37.688Z",
+      "reasons": []
+    },
+    "creditLine": "Mr. and Mrs. Lewis Larned Coburn Memorial Collection",
+    "mainReferenceNumber": "1933.428",
+    "description": {
+      "html": "<p><em>The Millinery Shop</em> is the largest of Edgar Degas’s paintings focused on milliners, or hatmakers. He arranged the composition carefully, making multiple drawings and pastels of the lone figure, perfecting the woman’s pose and experimenting with her outfit. The final composition highlights the visual ambiguities of class identity that arose in France in the late nineteenth century. The woman sits in a hat shop examining a wide-brimmed hat. She wears a fashionable green wool dress with long, elegant gloves that were just as likely to be worn by wealthy clients as by the employees of the shop. At the time, millinery work was considered a prestigious trade that required skill and taste, incrementally elevating the young women who succeeded in the business. Degas addressed this subtle shift in the class hierarchy through the subject’s fashion: While her dress is nice enough to be worn by an affluent woman, she does not wear a hat of her own, which would have been expected of a high-class young lady. The artist portrayed this newfound uncertainty playfully by positioning the hat with green trimmings so it seems to sit atop the woman’s head.</p>",
+      "text": "The Millinery Shop is the largest of Edgar Degas’s paintings focused on milliners, or hatmakers. He arranged the composition carefully, making multiple drawings and pastels of the lone figure, perfecting the woman’s pose and experimenting with her outfit. The final composition highlights the visual ambiguities of class identity that arose in France in the late nineteenth century. The woman sits in a hat shop examining a wide-brimmed hat. She wears a fashionable green wool dress with long, elegant gloves that were just as likely to be worn by wealthy clients as by the employees of the shop. At the time, millinery work was considered a prestigious trade that required skill and taste, incrementally elevating the young women who succeeded in the business. Degas addressed this subtle shift in the class hierarchy through the subject’s fashion: While her dress is nice enough to be worn by an affluent woman, she does not wear a hat of her own, which would have been expected of a high-class young lady. The artist portrayed this newfound uncertainty playfully by positioning the hat with green trimmings so it seems to sit atop the woman’s head.",
+      "sourceField": "description"
+    },
+    "revision": "2026-07-25T23:27:08-05:00"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:59:15.585Z",
+  "artwork": {
+    "id": "artic:109819",
+    "sourceId": "109819",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/109819",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/109819",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:26:54-05:00",
+      "accessedAt": "2026-07-27T03:59:14.841Z"
+    },
+    "display": {
+      "title": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+      "localizedTitles": {
+        "en": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+        "zh": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray"
+      },
+      "altTitles": [],
+      "artistDisplay": "Piet Mondrian\nDutch, 1872–1944",
+      "dateDisplay": "1921",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "60 × 60 cm (23 5/8 × 23 5/8 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:17549",
+      "sourceId": "17549",
+      "name": "Piet Mondrian",
+      "display": "Piet Mondrian\nDutch, 1872–1944",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1921,
+      "end": 1921
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Modern Art",
+      "classificationTitles": [
+        "oil on canvas",
+        "painting",
+        "Modern Art Highlights"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:109819",
+        "width": 843,
+        "height": 843,
+        "altText": "A square white tile, rotated 90 degrees, crossed by black lines intersecting at 90-degree angles. A few of the shapes thus formed—some partial squares, some rectangles—are colored in a single shade of yellow, blue, black, or red.",
+        "lqip": "data:image/gif;base64,R0lGODlhBQAFAPQAAFlUMJeYn4WQrKeuveDWks3Lt8bJy8nKys3OzsXJ0s3Q2NXW0Nna1+ro3uLk5eTl5unp5+Xm6enq6urq6u3s6e3t7e/u7PLx7+zs8AAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAFAAUAAAUVIPYw0tQQi0MVwDEIUWAkSmUh0BUCADs=",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Piet_Mondrian_-_Lozenge_Composition_with_Yellow%2C_Black%2C_Blue%2C_Red%2C_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg/960px-Piet_Mondrian_-_Lozenge_Composition_with_Yellow%2C_Black%2C_Blue%2C_Red%2C_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Piet_Mondrian_-_Lozenge_Composition_with_Yellow%2C_Black%2C_Blue%2C_Red%2C_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg/1920px-Piet_Mondrian_-_Lozenge_Composition_with_Yellow%2C_Black%2C_Blue%2C_Red%2C_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piet_Mondrian_-_Lozenge_Composition_with_Yellow,_Black,_Blue,_Red,_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Piet Mondrian. Lozenge Composition with Yellow, Black, Blue, Red, and Gray, 1921. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/109819"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:59:14.841Z",
+      "reasons": []
+    },
+    "creditLine": "Gift of Edgar Kaufmann, Jr.",
+    "mainReferenceNumber": "1957.307",
+    "description": {
+      "html": "Piet Mondrian, a founding member of the international movement De Stijl (the Style), said “the straight line tells the truth.” Deceptively simple, his works are the result of continual tinkering to achieve absolute balance and harmony. In this work, Mondrian rotated a square canvas 90 degrees to create a dynamic relationship between the rectilinear composition and the diagonal lines of the painting's edges.",
+      "text": "Piet Mondrian, a founding member of the international movement De Stijl (the Style), said “the straight line tells the truth.” Deceptively simple, his works are the result of continual tinkering to achieve absolute balance and harmony. In this work, Mondrian rotated a square canvas 90 degrees to create a dynamic relationship between the rectilinear composition and the diagonal lines of the painting's edges.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:26:54-05:00"
+  }
+}

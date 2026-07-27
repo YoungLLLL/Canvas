@@ -1,0 +1,492 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27992:zh:aab99ea3e951",
+  "artworkId": "artic:27992",
+  "artworkRevision": "2026-07-25T23:27:51-05:00",
+  "imageRevision": "commons:27992",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:27992:museum",
+      "kind": "museum_record",
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27992",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:08:22.741Z",
+      "contentHash": "a4bf8b023464d600c0382f6a9aff8de0945d961c230b7836a8d1e09e567517fd",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27992:museum-record:a4bf8b023464d600c0382f6a9aff8de0945d961c230b7836a8d1e09e567517fd"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27992:zh:title",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "馆方将本作记录为《A Sunday on La Grande Jatte — 1884》。",
+      "predicate": "title",
+      "value": "A Sunday on La Grande Jatte — 1884",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27992:museum",
+          "sourceId": "source:artic:27992:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:artist",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "馆方将本作归于Georges Seurat (French, 1859–1891)。",
+      "predicate": "artist",
+      "value": "Georges Seurat (French, 1859–1891)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27992:museum",
+          "sourceId": "source:artic:27992:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-1",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "画面以密集、细小的彩色圆点构成所有形象与背景，包括人物衣着、草地、水面与树叶，无传统轮廓线或平涂色块。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:1",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "画面以密集、细小的彩色圆点构成所有形象与背景，包括人物衣着、草地、水面与树叶，无传统轮廓线或平涂色块。",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-2",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "前景右侧一位穿深色长裙、戴高顶帽的女性站立，手持黑色阳伞；其身旁有另一名穿浅色长裙、戴帽的女性，两人姿态静止，面向左方。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:2",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "前景右侧一位穿深色长裙、戴高顶帽的女性站立，手持黑色阳伞；其身旁有另一名穿浅色长裙、戴帽的女性，两人姿态静止，面向左方。",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-3",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "中景草地上有多组人物：左侧一名穿橙红长裙的女性持钓竿垂钓；中央偏左一名穿黑礼服戴高帽的男子坐地，手握手杖；近处一名穿无袖上衣的男子斜躺，旁有一只黑狗低头嗅地。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:3",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "中景草地上有多组人物：左侧一名穿橙红长裙的女性持钓竿垂钓；中央偏左一名穿黑礼服戴高帽的男子坐地，手握手杖；近处一名穿无袖上衣的男子斜躺，旁有一只黑狗低头嗅地。",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-4",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "背景为开阔水域，可见数艘帆船与划艇；岸边有更多人物活动，部分撑伞，部分坐卧，形成疏密有致的人群布局。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:4",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "背景为开阔水域，可见数艘帆船与划艇；岸边有更多人物活动，部分撑伞，部分坐卧，形成疏密有致的人群布局。",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:zh:visual-5",
+      "subjectId": "artic:27992",
+      "layer": "interpretation",
+      "text": "画面整体呈现明亮日光下的户外氛围，阴影区域（如树下、人物背光处）仍由彩色点构成，未使用黑色或深灰调和，体现一种非写实的光色处理方式。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:zh:5",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "画面整体呈现明亮日光下的户外氛围，阴影区域（如树下、人物背光处）仍由彩色点构成，未使用黑色或深灰调和，体现一种非写实的光色处理方式。",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅描绘河畔公园休闲场景的绘画，画面中人物众多，分布于草地、树荫与水岸之间，整体采用点状笔触构成色彩与形体。",
+      "claimIds": [
+        "claim:artic:27992:zh:title",
+        "claim:artic:27992:zh:artist",
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4",
+        "claim:artic:27992:zh:visual-5"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:27992:zh:1",
+        "label": "点彩技法",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4",
+          "claim:artic:27992:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4",
+          "visual:artic:27992:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:2",
+        "label": "户外场景",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4",
+          "claim:artic:27992:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4",
+          "visual:artic:27992:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:3",
+        "label": "人群构图",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4",
+          "claim:artic:27992:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4",
+          "visual:artic:27992:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:4",
+        "label": "河岸",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4",
+          "claim:artic:27992:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4",
+          "visual:artic:27992:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:5",
+        "label": "阳伞",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4",
+          "claim:artic:27992:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4",
+          "visual:artic:27992:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:6",
+        "label": "犬只",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4",
+          "claim:artic:27992:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4",
+          "visual:artic:27992:zh:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:zh:7",
+        "label": "草地",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:zh:visual-1",
+          "claim:artic:27992:zh:visual-2",
+          "claim:artic:27992:zh:visual-3",
+          "claim:artic:27992:zh:visual-4",
+          "claim:artic:27992:zh:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:zh:1",
+          "visual:artic:27992:zh:2",
+          "visual:artic:27992:zh:3",
+          "visual:artic:27992:zh:4",
+          "visual:artic:27992:zh:5"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "点彩风格绘画，表现多人在阳光明媚的河畔草地上休憩、垂钓与社交的场景，含多把阳伞、船只与两只狗。",
+      "long": "画面采用密集彩色圆点构建全部视觉元素。前景右侧立着两位女性，一位穿深蓝长裙持黑伞，另一位穿浅灰长裙；中景有垂钓女子、坐地绅士、斜躺男子及一只黑狗；近处另有一只棕褐色小狗。背景为水面与帆船，岸边散布人群，部分撑红、蓝、黑等色阳伞。树木枝叶以绿、黄点交织，光影通过点的密度与色相变化暗示，无明确阴影边界。",
+      "claimIds": [
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4",
+        "claim:artic:27992:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:zh:1",
+        "visual:artic:27992:zh:2",
+        "visual:artic:27992:zh:3",
+        "visual:artic:27992:zh:4",
+        "visual:artic:27992:zh:5"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27992:zh:visual-1",
+      "artworkId": "artic:27992",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "这画是怎么画出来的？",
+        "为什么看起来像马赛克？"
+      ],
+      "claimIds": [
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4",
+        "claim:artic:27992:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:zh:1",
+        "visual:artic:27992:zh:2",
+        "visual:artic:27992:zh:3",
+        "visual:artic:27992:zh:4",
+        "visual:artic:27992:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可从前景人物衣纹的点状结构切入，指出整幅画均由独立色点并置而成，而非线条勾勒或晕染过渡。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27992:zh:visual-2",
+      "artworkId": "artic:27992",
+      "locale": "zh",
+      "topic": "composition",
+      "triggerIntents": [
+        "人这么多，怎么安排的？",
+        "谁是主角？"
+      ],
+      "claimIds": [
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4",
+        "claim:artic:27992:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:zh:1",
+        "visual:artic:27992:zh:2",
+        "visual:artic:27992:zh:3",
+        "visual:artic:27992:zh:4",
+        "visual:artic:27992:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "引导注意右前景两位站立女性的垂直形态与伞具形成的视觉锚点，再对比中景横向躺卧者与分散坐姿人群的节奏差异。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27992:zh:visual-3",
+      "artworkId": "artic:27992",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "颜色好鲜艳，但不刺眼？",
+        "阴影为什么不是黑的？"
+      ],
+      "claimIds": [
+        "claim:artic:27992:zh:visual-1",
+        "claim:artic:27992:zh:visual-2",
+        "claim:artic:27992:zh:visual-3",
+        "claim:artic:27992:zh:visual-4",
+        "claim:artic:27992:zh:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:zh:1",
+        "visual:artic:27992:zh:2",
+        "visual:artic:27992:zh:3",
+        "visual:artic:27992:zh:4",
+        "visual:artic:27992:zh:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "指向树荫下人物裙摆的紫、蓝、绿点混合，说明阴影由互补色点并置产生视觉灰度，而非直接使用暗色。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "outputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "updatedAt": "2026-07-27T04:08:22.741Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "outputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "updatedAt": "2026-07-27T04:08:22.741Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "outputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "updatedAt": "2026-07-27T04:08:22.741Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "outputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "updatedAt": "2026-07-27T04:08:22.741Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "outputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e",
+      "updatedAt": "2026-07-27T04:08:22.741Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:08:22.741Z",
+    "inputHash": "aab99ea3e951792cd99010fd6e8b6b3e92e0b7cf7120969f4e9ead34fc81c13e"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-aab99ea3e951"
+  }
+}

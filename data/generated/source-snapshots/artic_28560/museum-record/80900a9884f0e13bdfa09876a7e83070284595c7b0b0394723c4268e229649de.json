@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:23:23.288Z",
+  "artwork": {
+    "id": "artic:28560",
+    "sourceId": "28560",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/28560",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/28560",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-23T23:27:33-05:00",
+      "accessedAt": "2026-07-27T03:23:12.881Z"
+    },
+    "display": {
+      "title": "The Bedroom",
+      "localizedTitles": {
+        "en": "Bedroom in Arles",
+        "zh": "Bedroom in Arles"
+      },
+      "altTitles": [],
+      "artistDisplay": "Vincent van Gogh (Dutch, 1853–1890)",
+      "dateDisplay": "1889",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "73.6 × 92.3 cm (29 × 36 5/8 in.); Framed: 88.9 × 108 × 8.9 cm (35 × 42 1/2 × 3 1/2 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:40610",
+      "sourceId": "40610",
+      "name": "Vincent van Gogh",
+      "display": "Vincent van Gogh (Dutch, 1853–1890)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1889,
+      "end": 1889
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "oil on canvas",
+        "dutch",
+        "oil paintings (visual works)",
+        "paint",
+        "painting",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:28560",
+        "width": 843,
+        "height": 658,
+        "altText": "Painting of bedroom, blue walls, green window, tan bed, red bedding.",
+        "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAAHp3ZJttAJdwL5Z6MYt4Sod7V3uDdXmIc3qCe4uATIeCUoWDY4eGZZmOapiObICGdoeEdYqGe42EeIqNeZGOeXyFkHmIoIOIiJSMgZWMgouQhIeNmoCQpZSeqAAAAAAAACH5BAAAAAAAIf8LSW1hZ2VNYWdpY2sOZ2FtbWE9MC40NTQ1NDUALAAAAAAGAAUAAAUYoHUYW8dVyOM01wIwQkAolJYMBYRhUySFADs=",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Vincent_van_Gogh_-_The_Bedroom_-_Google_Art_Project.jpg/960px-Vincent_van_Gogh_-_The_Bedroom_-_Google_Art_Project.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Vincent_van_Gogh_-_The_Bedroom_-_Google_Art_Project.jpg/1920px-Vincent_van_Gogh_-_The_Bedroom_-_Google_Art_Project.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_Bedroom_-_Google_Art_Project.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Vincent van Gogh. The Bedroom, 1889. The Art Institute of Chicago. Image source: rgHdFPzCeCfnxQ at Google Cultural Institute maximum zoom level"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:23:12.881Z",
+      "reasons": []
+    },
+    "creditLine": "Helen Birch Bartlett Memorial Collection",
+    "mainReferenceNumber": "1926.417",
+    "description": {
+      "html": "In 1888, Van Gogh moved into his own home in Arles, France. He dubbed it the “Studio of the South,” hoping that fellow artists would join him there to work. This is one of three versions he painted of his beloved Arles bedroom. While its vivid palette and dramatic perspective seem to burst with nervous vitality, Van Gogh intended the painting \"to express utter repose.\"",
+      "text": "In 1888, Van Gogh moved into his own home in Arles, France. He dubbed it the “Studio of the South,” hoping that fellow artists would join him there to work. This is one of three versions he painted of his beloved Arles bedroom. While its vivid palette and dramatic perspective seem to burst with nervous vitality, Van Gogh intended the painting \"to express utter repose.\"",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-23T23:27:33-05:00"
+  }
+}

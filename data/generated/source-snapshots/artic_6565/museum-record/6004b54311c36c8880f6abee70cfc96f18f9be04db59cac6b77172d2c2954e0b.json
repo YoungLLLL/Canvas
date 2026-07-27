@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:02:56.827Z",
+  "artwork": {
+    "id": "artic:6565",
+    "sourceId": "6565",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/6565",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/6565",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:27:06-05:00",
+      "accessedAt": "2026-07-27T04:02:56.507Z"
+    },
+    "display": {
+      "title": "American Gothic",
+      "localizedTitles": {
+        "en": "American Gothic"
+      },
+      "altTitles": [],
+      "artistDisplay": "Grant Wood (American, 1891–1942)",
+      "dateDisplay": "1930",
+      "mediumDisplay": "Oil on Beaver Board",
+      "dimensionsDisplay": "78 × 65.3 cm (30 3/4 × 25 3/4 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:37343",
+      "sourceId": "37343",
+      "name": "Grant Wood",
+      "display": "Grant Wood (American, 1891–1942)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1930,
+      "end": 1930
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Arts of the Americas",
+      "classificationTitles": [
+        "oil paintings (visual works)",
+        "painting",
+        "modern and contemporary art"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "copyrighted",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Grant Wood. American Gothic, 1930. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:02:56.507Z",
+      "reasons": [
+        "image_rights_not_open",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Friends of American Art Collection",
+    "mainReferenceNumber": "1930.934",
+    "description": {
+      "html": "One of America’s most famous paintings, <em>American Gothic</em> debuted at the Art Institute of Chicago, winning Grant Wood a $300 prize and instant fame. Wood used his sister and dentist as models, depicting them in front of an 1880s-style house. While the painting is often seen as a satirical commentary on the Midwestern character, Wood intended it to a positive statement about rural American values.",
+      "text": "One of America’s most famous paintings, American Gothic debuted at the Art Institute of Chicago, winning Grant Wood a $300 prize and instant fame. Wood used his sister and dentist as models, depicting them in front of an 1880s-style house. While the painting is often seen as a satirical commentary on the Midwestern character, Wood intended it to a positive statement about rural American values.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:27:06-05:00"
+  }
+}

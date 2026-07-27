@@ -1,0 +1,470 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27992:en:1923062bb78f",
+  "artworkId": "artic:27992",
+  "artworkRevision": "2026-07-25T23:27:51-05:00",
+  "imageRevision": "commons:27992",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:27992:museum",
+      "kind": "museum_record",
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27992",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:30:02.448Z",
+      "contentHash": "a4bf8b023464d600c0382f6a9aff8de0945d961c230b7836a8d1e09e567517fd",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27992:museum-record:a4bf8b023464d600c0382f6a9aff8de0945d961c230b7836a8d1e09e567517fd"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27992:en:title",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "The museum records this work as “A Sunday on La Grande Jatte — 1884”.",
+      "predicate": "title",
+      "value": "A Sunday on La Grande Jatte — 1884",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27992:museum",
+          "sourceId": "source:artic:27992:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27992:en:artist",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "The museum attributes this work to Georges Seurat (French, 1859–1891).",
+      "predicate": "artist",
+      "value": "Georges Seurat (French, 1859–1891)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27992:museum",
+          "sourceId": "source:artic:27992:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27992:en:visual-1",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "The entire surface is composed of densely packed, uniform dots of pure color—no visible brushstrokes or blended areas—creating forms and shadows through optical mixing.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:en:1",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "The entire surface is composed of densely packed, uniform dots of pure color—no visible brushstrokes or blended areas—creating forms and shadows through optical mixing.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:en:visual-2",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "Figures are arranged in layered groups across a grassy slope: foreground includes seated and reclining people with dogs; midground shows standing and walking figures under umbrellas; background features trees, water, and sailboats.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:en:2",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "Figures are arranged in layered groups across a grassy slope: foreground includes seated and reclining people with dogs; midground shows standing and walking figures under umbrellas; background features trees, water, and sailboats.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:en:visual-3",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "Strong diagonal shadow patterns fall across the grass from left to right, suggesting a single light source from the upper left; some figures cast sharp, elongated shadows consistent with this direction.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:en:3",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "Strong diagonal shadow patterns fall across the grass from left to right, suggesting a single light source from the upper left; some figures cast sharp, elongated shadows consistent with this direction.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:en:visual-4",
+      "subjectId": "artic:27992",
+      "layer": "interpretation",
+      "text": "Clothing styles include top hats, long dresses with bustles, parasols, and straw hats, indicating late 19th-century fashion.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:en:4",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "Clothing styles include top hats, long dresses with bustles, parasols, and straw hats, indicating late 19th-century fashion.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A large horizontal painting depicting numerous figures in a sunlit park beside a body of water, rendered using small, distinct dots of color.",
+      "claimIds": [
+        "claim:artic:27992:en:title",
+        "claim:artic:27992:en:artist",
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:27992:en:1",
+        "label": "pointillism",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:2",
+        "label": "park scene",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:3",
+        "label": "figures",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:4",
+        "label": "umbrellas",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:5",
+        "label": "dogs",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:6",
+        "label": "sailboats",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:7",
+        "label": "grass",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:8",
+        "label": "trees",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "A dot-painted scene of people relaxing in a sunny riverside park with trees, boats, and dogs.",
+      "long": "A horizontally oriented painting executed entirely in small, unmixed colored dots. In the foreground, several figures sit and lie on green grass, including a man in a top hat holding a cane, a woman in black, and two dogs—one black, one small and brown. A woman in a dark dress and hat stands at right holding a black parasol. Midground features more figures: women in long dresses with parasols (red, blue), children, and seated groups. Background shows leafy trees, a calm river with white-sailed boats, and distant figures along the far bank. Light comes from upper left, casting diagonal shadows across the lawn.",
+      "claimIds": [
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:en:1",
+        "visual:artic:27992:en:2",
+        "visual:artic:27992:en:3",
+        "visual:artic:27992:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27992:en:visual-1",
+      "artworkId": "artic:27992",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this made",
+        "what style is this",
+        "why does it look pixelated"
+      ],
+      "claimIds": [
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:en:1",
+        "visual:artic:27992:en:2",
+        "visual:artic:27992:en:3",
+        "visual:artic:27992:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the uniform dot pattern across the canvas and note how adjacent colors remain separate yet merge visually at distance.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27992:en:visual-2",
+      "artworkId": "artic:27992",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "how are the people arranged",
+        "what’s happening in the foreground"
+      ],
+      "claimIds": [
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:en:1",
+        "visual:artic:27992:en:2",
+        "visual:artic:27992:en:3",
+        "visual:artic:27992:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace the diagonal line of shadow from lower left toward upper right, showing how it organizes figure groupings across depth planes.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27992:en:visual-3",
+      "artworkId": "artic:27992",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "why so many greens",
+        "how do colors interact"
+      ],
+      "claimIds": [
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:en:1",
+        "visual:artic:27992:en:2",
+        "visual:artic:27992:en:3",
+        "visual:artic:27992:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Compare the green grass—built from yellow, blue, and white dots—with the blue water, which uses similar but cooler tones, highlighting optical color mixing.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "outputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "updatedAt": "2026-07-27T03:30:02.448Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "outputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "updatedAt": "2026-07-27T03:30:02.448Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "outputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "updatedAt": "2026-07-27T03:30:02.448Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "outputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "updatedAt": "2026-07-27T03:30:02.448Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "outputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794",
+      "updatedAt": "2026-07-27T03:30:02.448Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v1",
+    "generatedAt": "2026-07-27T03:30:02.448Z",
+    "inputHash": "1923062bb78fc6c70362e90c66d5ee66916cbbd6f0162f92fb387622618b3794"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-1923062bb78f"
+  }
+}

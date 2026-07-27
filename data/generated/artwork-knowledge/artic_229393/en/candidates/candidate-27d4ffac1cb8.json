@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:229393:en:27d4ffac1cb8",
+  "artworkId": "artic:229393",
+  "artworkRevision": "2026-07-25T23:20:05-05:00",
+  "imageRevision": null,
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:229393:museum",
+      "kind": "museum_record",
+      "title": "Untitled",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/229393",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:01:18.740Z",
+      "contentHash": "80bdc7360270174ab351fb18382081c02979dbe86ae0a890617af2ec3abcbe2c",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_229393:museum-record:80bdc7360270174ab351fb18382081c02979dbe86ae0a890617af2ec3abcbe2c"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:229393:en:title",
+      "subjectId": "artic:229393",
+      "layer": "fact",
+      "text": "The museum records this work as “Untitled”.",
+      "predicate": "title",
+      "value": "Untitled",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:229393:museum",
+          "sourceId": "source:artic:229393:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:229393:en:artist",
+      "subjectId": "artic:229393",
+      "layer": "fact",
+      "text": "The museum attributes this work to Tanaka Atsuko\nJapanese, 1932-2005.",
+      "predicate": "artist",
+      "value": "Tanaka Atsuko\nJapanese, 1932-2005",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:229393:museum",
+          "sourceId": "source:artic:229393:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "Untitled is attributed to Tanaka Atsuko\nJapanese, 1932-2005.",
+      "claimIds": [
+        "claim:artic:229393:en:title",
+        "claim:artic:229393:en:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:229393:en:context",
+      "artworkId": "artic:229393",
+      "locale": "en",
+      "topic": "context",
+      "triggerIntents": [
+        "Untitled",
+        "Tanaka Atsuko\nJapanese, 1932-2005",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:229393:en:title",
+        "claim:artic:229393:en:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Use the verified museum title or attribution only when it answers the user's topic.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "27d4ffac1cb86d6066abc75e89128b12338dba5a9e62ec49dd413e5a65235a57",
+      "outputHash": "27d4ffac1cb86d6066abc75e89128b12338dba5a9e62ec49dd413e5a65235a57",
+      "updatedAt": "2026-07-27T04:01:18.740Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "27d4ffac1cb86d6066abc75e89128b12338dba5a9e62ec49dd413e5a65235a57",
+      "outputHash": "27d4ffac1cb86d6066abc75e89128b12338dba5a9e62ec49dd413e5a65235a57",
+      "updatedAt": "2026-07-27T04:01:18.740Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "27d4ffac1cb86d6066abc75e89128b12338dba5a9e62ec49dd413e5a65235a57",
+      "outputHash": "27d4ffac1cb86d6066abc75e89128b12338dba5a9e62ec49dd413e5a65235a57",
+      "updatedAt": "2026-07-27T04:01:18.740Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:01:18.740Z",
+    "inputHash": "27d4ffac1cb86d6066abc75e89128b12338dba5a9e62ec49dd413e5a65235a57"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-27d4ffac1cb8"
+  }
+}

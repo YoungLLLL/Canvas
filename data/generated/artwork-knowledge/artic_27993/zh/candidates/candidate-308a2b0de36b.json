@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27993:zh:308a2b0de36b",
+  "artworkId": "artic:27993",
+  "artworkRevision": "2026-05-28T18:15:22-05:00",
+  "imageRevision": null,
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:27993:museum",
+      "kind": "museum_record",
+      "title": "The Market-Woman",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27993",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:01:17.706Z",
+      "contentHash": "08ccd479d89a756e7a4412dbf77609c3211b14c6c28ac4be189e1824070c396e",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27993:museum-record:08ccd479d89a756e7a4412dbf77609c3211b14c6c28ac4be189e1824070c396e"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27993:zh:title",
+      "subjectId": "artic:27993",
+      "layer": "fact",
+      "text": "馆方将本作记录为《The Market-Woman》。",
+      "predicate": "title",
+      "value": "The Market-Woman",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27993:museum",
+          "sourceId": "source:artic:27993:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27993:zh:artist",
+      "subjectId": "artic:27993",
+      "layer": "fact",
+      "text": "馆方将本作归于Sebald Beham\nGerman, 1500-1550。",
+      "predicate": "artist",
+      "value": "Sebald Beham\nGerman, 1500-1550",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27993:museum",
+          "sourceId": "source:artic:27993:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "《The Market-Woman》由馆方归于Sebald Beham\nGerman, 1500-1550；当前仅提供经核验的馆方资料，不生成画面描述。",
+      "claimIds": [
+        "claim:artic:27993:zh:title",
+        "claim:artic:27993:zh:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27993:zh:context",
+      "artworkId": "artic:27993",
+      "locale": "zh",
+      "topic": "context",
+      "triggerIntents": [
+        "The Market-Woman",
+        "Sebald Beham\nGerman, 1500-1550",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:27993:zh:title",
+        "claim:artic:27993:zh:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "仅在回应用户当前话题时使用经核验的馆方标题或作者归属，不补写画面内容。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "308a2b0de36b40e0bdff26cbe60e576d2bd22f609d88520202269761d6ca519d",
+      "outputHash": "308a2b0de36b40e0bdff26cbe60e576d2bd22f609d88520202269761d6ca519d",
+      "updatedAt": "2026-07-27T04:01:17.706Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "308a2b0de36b40e0bdff26cbe60e576d2bd22f609d88520202269761d6ca519d",
+      "outputHash": "308a2b0de36b40e0bdff26cbe60e576d2bd22f609d88520202269761d6ca519d",
+      "updatedAt": "2026-07-27T04:01:17.706Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "308a2b0de36b40e0bdff26cbe60e576d2bd22f609d88520202269761d6ca519d",
+      "outputHash": "308a2b0de36b40e0bdff26cbe60e576d2bd22f609d88520202269761d6ca519d",
+      "updatedAt": "2026-07-27T04:01:17.706Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:01:17.706Z",
+    "inputHash": "308a2b0de36b40e0bdff26cbe60e576d2bd22f609d88520202269761d6ca519d"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-308a2b0de36b"
+  }
+}

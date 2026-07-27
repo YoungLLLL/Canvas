@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:14572:en:1a7b6d700fe1",
+  "artworkId": "artic:14572",
+  "artworkRevision": "2026-07-25T23:27:08-05:00",
+  "imageRevision": "commons:14572",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:14572:museum",
+      "kind": "museum_record",
+      "title": "The Millinery Shop",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/14572",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:22:14.481Z",
+      "contentHash": "5e82f395d7af01de2436451783f143606804f15869708b2a8b328fffb5cb1204",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_14572:museum-record:5e82f395d7af01de2436451783f143606804f15869708b2a8b328fffb5cb1204"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:14572:en:title",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "The museum records this work as “The Millinery Shop”.",
+      "predicate": "title",
+      "value": "The Millinery Shop",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:14572:museum",
+          "sourceId": "source:artic:14572:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:14572:en:artist",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "The museum attributes this work to Edgar Degas (French, 1834–1917).",
+      "predicate": "artist",
+      "value": "Edgar Degas (French, 1834–1917)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:14572:museum",
+          "sourceId": "source:artic:14572:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:14572:en:visual-1",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "A woman in a green long-sleeved dress sits at a wooden table, holding an orange-brimmed hat in her right hand and looking toward it.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14572:en:1",
+          "imageId": "commons:14572",
+          "basis": "visible",
+          "observation": "A woman in a green long-sleeved dress sits at a wooden table, holding an orange-brimmed hat in her right hand and looking toward it.",
+          "imageRevision": "commons:14572"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14572:en:visual-2",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "Three hat stands are visible: one on the left holds a white ruffled hat with yellow trim; a central stand holds a large beige hat adorned with green and white floral embellishments; and a third stand behind the woman holds a reddish-brown hat.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14572:en:2",
+          "imageId": "commons:14572",
+          "basis": "visible",
+          "observation": "Three hat stands are visible: one on the left holds a white ruffled hat with yellow trim; a central stand holds a large beige hat adorned with green and white floral embellishments; and a third stand behind the woman holds a reddish-brown hat.",
+          "imageRevision": "commons:14572"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14572:en:visual-3",
+      "subjectId": "artic:14572",
+      "layer": "fact",
+      "text": "A light blue frilled hat with a dark blue bow rests on the table in front of the woman.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14572:en:3",
+          "imageId": "commons:14572",
+          "basis": "visible",
+          "observation": "A light blue frilled hat with a dark blue bow rests on the table in front of the woman.",
+          "imageRevision": "commons:14572"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14572:en:visual-4",
+      "subjectId": "artic:14572",
+      "layer": "interpretation",
+      "text": "The background consists of vertical brushstrokes in deep blues and greens, suggesting draped fabric or a wall treatment.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14572:en:4",
+          "imageId": "commons:14572",
+          "basis": "visible",
+          "observation": "The background consists of vertical brushstrokes in deep blues and greens, suggesting draped fabric or a wall treatment.",
+          "imageRevision": "commons:14572"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted interior scene showing a woman seated at a table, surrounded by several ornate hats on stands and in her hands, rendered with visible brushwork and warm, muted tones.",
+      "claimIds": [
+        "claim:artic:14572:en:title",
+        "claim:artic:14572:en:artist",
+        "claim:artic:14572:en:visual-1",
+        "claim:artic:14572:en:visual-2",
+        "claim:artic:14572:en:visual-3",
+        "claim:artic:14572:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:14572:en:1",
+        "label": "hats",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:en:visual-1",
+          "claim:artic:14572:en:visual-2",
+          "claim:artic:14572:en:visual-3",
+          "claim:artic:14572:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:en:1",
+          "visual:artic:14572:en:2",
+          "visual:artic:14572:en:3",
+          "visual:artic:14572:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:en:2",
+        "label": "interior",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:en:visual-1",
+          "claim:artic:14572:en:visual-2",
+          "claim:artic:14572:en:visual-3",
+          "claim:artic:14572:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:en:1",
+          "visual:artic:14572:en:2",
+          "visual:artic:14572:en:3",
+          "visual:artic:14572:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:en:3",
+        "label": "woman",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:en:visual-1",
+          "claim:artic:14572:en:visual-2",
+          "claim:artic:14572:en:visual-3",
+          "claim:artic:14572:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:en:1",
+          "visual:artic:14572:en:2",
+          "visual:artic:14572:en:3",
+          "visual:artic:14572:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:en:4",
+        "label": "table",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:en:visual-1",
+          "claim:artic:14572:en:visual-2",
+          "claim:artic:14572:en:visual-3",
+          "claim:artic:14572:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:en:1",
+          "visual:artic:14572:en:2",
+          "visual:artic:14572:en:3",
+          "visual:artic:14572:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:en:5",
+        "label": "brushwork",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:en:visual-1",
+          "claim:artic:14572:en:visual-2",
+          "claim:artic:14572:en:visual-3",
+          "claim:artic:14572:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:en:1",
+          "visual:artic:14572:en:2",
+          "visual:artic:14572:en:3",
+          "visual:artic:14572:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:en:6",
+        "label": "green dress",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:en:visual-1",
+          "claim:artic:14572:en:visual-2",
+          "claim:artic:14572:en:visual-3",
+          "claim:artic:14572:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:en:1",
+          "visual:artic:14572:en:2",
+          "visual:artic:14572:en:3",
+          "visual:artic:14572:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14572:en:7",
+        "label": "hat stands",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14572:en:visual-1",
+          "claim:artic:14572:en:visual-2",
+          "claim:artic:14572:en:visual-3",
+          "claim:artic:14572:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14572:en:1",
+          "visual:artic:14572:en:2",
+          "visual:artic:14572:en:3",
+          "visual:artic:14572:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Woman in green dress seated at table surrounded by ornate hats on stands and in her hands.",
+      "long": "A painted scene depicts a woman with fair skin and reddish hair, wearing a long-sleeved olive-green dress, seated at a warm-toned wooden table. She holds an orange-brimmed hat in her right hand and gazes at it. To her left, three hat stands display distinct hats: a white ruffled hat with yellow accents, a large beige hat decorated with green and white floral elements, and a reddish-brown hat partially obscured behind her. A light blue frilled hat with a dark blue bow lies on the table before her. The background is composed of vertical strokes in deep blue and green hues, suggesting fabric or wall coverings. Brushwork is visible throughout, contributing to the textured appearance of surfaces and garments.",
+      "claimIds": [
+        "claim:artic:14572:en:visual-1",
+        "claim:artic:14572:en:visual-2",
+        "claim:artic:14572:en:visual-3",
+        "claim:artic:14572:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14572:en:1",
+        "visual:artic:14572:en:2",
+        "visual:artic:14572:en:3",
+        "visual:artic:14572:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:14572:en:visual-1",
+      "artworkId": "artic:14572",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "What’s arranged where?",
+        "How are the objects placed?",
+        "Where does your eye go first?"
+      ],
+      "claimIds": [
+        "claim:artic:14572:en:visual-1",
+        "claim:artic:14572:en:visual-2",
+        "claim:artic:14572:en:visual-3",
+        "claim:artic:14572:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14572:en:1",
+        "visual:artic:14572:en:2",
+        "visual:artic:14572:en:3",
+        "visual:artic:14572:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Note how the hats form a diagonal line from lower left to upper right, guiding attention toward the woman’s face and the hat she holds.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:14572:en:visual-2",
+      "artworkId": "artic:14572",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "What colors stand out?",
+        "How do the colors relate?",
+        "Which hues feel warm or cool?"
+      ],
+      "claimIds": [
+        "claim:artic:14572:en:visual-1",
+        "claim:artic:14572:en:visual-2",
+        "claim:artic:14572:en:visual-3",
+        "claim:artic:14572:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14572:en:1",
+        "visual:artic:14572:en:2",
+        "visual:artic:14572:en:3",
+        "visual:artic:14572:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Observe the contrast between the earthy oranges and browns of the table and floor against the cooler blues and greens of the background and the woman’s dress.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:14572:en:visual-3",
+      "artworkId": "artic:14572",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "How is the paint applied?",
+        "Are the brushstrokes visible?",
+        "Does it feel smooth or textured?"
+      ],
+      "claimIds": [
+        "claim:artic:14572:en:visual-1",
+        "claim:artic:14572:en:visual-2",
+        "claim:artic:14572:en:visual-3",
+        "claim:artic:14572:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14572:en:1",
+        "visual:artic:14572:en:2",
+        "visual:artic:14572:en:3",
+        "visual:artic:14572:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace the thick, directional brushstrokes—especially in the folds of the dress and the floral details on the central hat—to see how texture is built through paint application.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "outputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "updatedAt": "2026-07-27T04:22:14.481Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "outputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "updatedAt": "2026-07-27T04:22:14.481Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "outputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "updatedAt": "2026-07-27T04:22:14.481Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "outputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "updatedAt": "2026-07-27T04:22:14.481Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "outputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c",
+      "updatedAt": "2026-07-27T04:22:14.481Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v6",
+    "generatedAt": "2026-07-27T04:22:14.481Z",
+    "inputHash": "1a7b6d700fe1f7449bc8893f40ddfb865d0d8181454853d33cb874ecc578201c"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-1a7b6d700fe1"
+  }
+}

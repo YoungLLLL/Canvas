@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:57:53.278Z",
+  "artwork": {
+    "id": "artic:11723",
+    "sourceId": "11723",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/11723",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/11723",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:27:00-05:00",
+      "accessedAt": "2026-07-27T03:57:51.874Z"
+    },
+    "display": {
+      "title": "Woman at Her Toilette",
+      "localizedTitles": {
+        "en": "Woman at Her Toilette",
+        "zh": "Woman at Her Toilette"
+      },
+      "altTitles": [],
+      "artistDisplay": "Berthe Morisot (French, 1841–1895)",
+      "dateDisplay": "1875–80",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "60.3 × 80.4 cm (23 3/4 × 31 5/8 in.); Framed: 85.8 × 105.5 × 10.5 cm (33 3/4 × 41 1/2 × 4 1/8 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:35834",
+      "sourceId": "35834",
+      "name": "Berthe Morisot",
+      "display": "Berthe Morisot (French, 1841–1895)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1870,
+      "end": 1880
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "painting",
+        "paint",
+        "oil paintings (visual works)",
+        "oil on canvas",
+        "french",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:11723",
+        "width": 843,
+        "height": 631,
+        "altText": "Painted portrait dominated by loose, large brushstrokes of a woman, seen from the back, wearing a gauzy white off-the-shoulder dress and black choker, blond hair swept up, examining herself in a mirror at left. The background is a feathered swirl suggesting floral pattern in cool pale tones of gray, purple, pink, and blue.",
+        "lqip": "data:image/gif;base64,R0lGODlhBwAFAPUAAE9MQV1XRl5YRmNdT2JgVGplV3RtW3JsX35wXW9rYHl3cX17eYJ4a4+Hd4GBfoaDf4iEfY6JgYmKhZuXjZWSkJaSkJydlpqZmZqamp+dmpqbnamelqCemqShk6Cgm6ujnK6nn7m0rbSzsgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAHAAUAAAYhwABDYnBYOgTFAvHAcA6JyIZyyQwAFZHGMykIPiEQpBEEADs=",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg/960px-Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg/1920px-Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Berthe_Morisot_-_Woman_at_Her_Toilette_-_1924.127_-_Art_Institute_of_Chicago.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Berthe Morisot. Woman at Her Toilette, 1875–80. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/11723"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:57:51.874Z",
+      "reasons": []
+    },
+    "creditLine": "Stickney Fund",
+    "mainReferenceNumber": "1924.127",
+    "description": {
+      "html": "Rendered with feathery brushstrokes in shades of lavender, pink, blue, white, and gray, this Impressionist painting captures a subject often explored by male artists of the day but seldom broached by the period's few women artists. Morisot presents a decidely female perspective, intimate yet not eroticized. She signed her name along the bottom of the mirror, as if to suggest that the image in her painting is as ephemeral as a silvery reﬂection.",
+      "text": "Rendered with feathery brushstrokes in shades of lavender, pink, blue, white, and gray, this Impressionist painting captures a subject often explored by male artists of the day but seldom broached by the period's few women artists. Morisot presents a decidely female perspective, intimate yet not eroticized. She signed her name along the bottom of the mirror, as if to suggest that the image in her painting is as ephemeral as a silvery reﬂection.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:27:00-05:00"
+  }
+}

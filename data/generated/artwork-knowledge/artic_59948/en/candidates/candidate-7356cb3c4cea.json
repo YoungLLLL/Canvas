@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:59948:en:7356cb3c4cea",
+  "artworkId": "artic:59948",
+  "artworkRevision": "2026-04-13T22:46:33-05:00",
+  "imageRevision": null,
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:59948:museum",
+      "kind": "museum_record",
+      "title": "Myrsky (Tempest) (Furnishing Fabric)",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/59948",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:17:54.673Z",
+      "contentHash": "532b77f81110de09ae5676fa6762c4457009de6e2c68688fb8cace55162ca323",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_59948:museum-record:532b77f81110de09ae5676fa6762c4457009de6e2c68688fb8cace55162ca323"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:59948:en:title",
+      "subjectId": "artic:59948",
+      "layer": "fact",
+      "text": "The museum records this work as “Myrsky (Tempest) (Furnishing Fabric)”.",
+      "predicate": "title",
+      "value": "Myrsky (Tempest) (Furnishing Fabric)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:59948:museum",
+          "sourceId": "source:artic:59948:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:59948:en:artist",
+      "subjectId": "artic:59948",
+      "layer": "fact",
+      "text": "The museum attributes this work to Designed by Pentti Rinta (Finnish, born 1946)\nProduced by Marimekko Oy (Founded 1951)\nFinland, Helsinki.",
+      "predicate": "artist",
+      "value": "Designed by Pentti Rinta (Finnish, born 1946)\nProduced by Marimekko Oy (Founded 1951)\nFinland, Helsinki",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:59948:museum",
+          "sourceId": "source:artic:59948:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "Myrsky (Tempest) (Furnishing Fabric) is attributed to Designed by Pentti Rinta (Finnish, born 1946)\nProduced by Marimekko Oy (Founded 1951)\nFinland, Helsinki.",
+      "claimIds": [
+        "claim:artic:59948:en:title",
+        "claim:artic:59948:en:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:59948:en:context",
+      "artworkId": "artic:59948",
+      "locale": "en",
+      "topic": "context",
+      "triggerIntents": [
+        "Myrsky (Tempest) (Furnishing Fabric)",
+        "Designed by Pentti Rinta (Finnish, born 1946)\nProduced by Marimekko Oy (Founded 1951)\nFinland, Helsinki",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:59948:en:title",
+        "claim:artic:59948:en:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Use the verified museum title or attribution only when it answers the user's topic.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7356cb3c4ceae50fb73a44e66a1fc2e1fa89c616786fe46e2dd46d1290b2785c",
+      "outputHash": "7356cb3c4ceae50fb73a44e66a1fc2e1fa89c616786fe46e2dd46d1290b2785c",
+      "updatedAt": "2026-07-27T04:17:54.673Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7356cb3c4ceae50fb73a44e66a1fc2e1fa89c616786fe46e2dd46d1290b2785c",
+      "outputHash": "7356cb3c4ceae50fb73a44e66a1fc2e1fa89c616786fe46e2dd46d1290b2785c",
+      "updatedAt": "2026-07-27T04:17:54.673Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7356cb3c4ceae50fb73a44e66a1fc2e1fa89c616786fe46e2dd46d1290b2785c",
+      "outputHash": "7356cb3c4ceae50fb73a44e66a1fc2e1fa89c616786fe46e2dd46d1290b2785c",
+      "updatedAt": "2026-07-27T04:17:54.673Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:17:54.673Z",
+    "inputHash": "7356cb3c4ceae50fb73a44e66a1fc2e1fa89c616786fe46e2dd46d1290b2785c"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-7356cb3c4cea"
+  }
+}

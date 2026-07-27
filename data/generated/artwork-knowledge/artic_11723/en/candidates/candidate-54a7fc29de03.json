@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:11723:en:54a7fc29de03",
+  "artworkId": "artic:11723",
+  "artworkRevision": "2026-07-25T23:27:00-05:00",
+  "imageRevision": "commons:11723",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:11723:museum",
+      "kind": "museum_record",
+      "title": "Woman at Her Toilette",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/11723",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:14:18.508Z",
+      "contentHash": "457487859a0aa58c5affc35cd4e17b1b5703405973272f41f240deb7175e714e",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_11723:museum-record:457487859a0aa58c5affc35cd4e17b1b5703405973272f41f240deb7175e714e"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:11723:en:title",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "The museum records this work as “Woman at Her Toilette”.",
+      "predicate": "title",
+      "value": "Woman at Her Toilette",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:11723:museum",
+          "sourceId": "source:artic:11723:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:11723:en:artist",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "The museum attributes this work to Berthe Morisot (French, 1841–1895).",
+      "predicate": "artist",
+      "value": "Berthe Morisot (French, 1841–1895)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:11723:museum",
+          "sourceId": "source:artic:11723:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:11723:en:visual-1",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "The figure wears a white dress with thin blue trim along the neckline and sleeves, and a black choker around the neck.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:en:1",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "The figure wears a white dress with thin blue trim along the neckline and sleeves, and a black choker around the neck.",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:en:visual-2",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "A tall, narrow mirror stands to the left, reflecting indistinct shapes and colors; the reflection does not clearly show the figure’s face.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:en:2",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "A tall, narrow mirror stands to the left, reflecting indistinct shapes and colors; the reflection does not clearly show the figure’s face.",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:en:visual-3",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "On a small shelf or table beside the figure are several white flowers (possibly roses), a clear glass jar with a lid and a pink-topped stopper, and a dark object partially obscured.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:en:3",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "On a small shelf or table beside the figure are several white flowers (possibly roses), a clear glass jar with a lid and a pink-topped stopper, and a dark object partially obscured.",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:en:visual-4",
+      "subjectId": "artic:11723",
+      "layer": "interpretation",
+      "text": "The background consists of loosely applied strokes of gray, white, pale blue, and touches of red and green, suggesting an interior space without defined architectural details.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:en:4",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "The background consists of loosely applied strokes of gray, white, pale blue, and touches of red and green, suggesting an interior space without defined architectural details.",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A figure in a white off-the-shoulder garment is shown from behind, seated before a mirror and a small table holding flowers and a glass container; the scene is rendered with visible brushstrokes and a muted, light-dominated palette.",
+      "claimIds": [
+        "claim:artic:11723:en:title",
+        "claim:artic:11723:en:artist",
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:11723:en:1",
+        "label": "white dress",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:2",
+        "label": "black choker",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:3",
+        "label": "mirror",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:4",
+        "label": "flowers",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:5",
+        "label": "glass jar",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:6",
+        "label": "brushwork",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:7",
+        "label": "interior scene",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "A person in a white off-the-shoulder dress with blue trim and a black choker sits facing a mirror; nearby are flowers and a glass jar on a shelf, all painted with loose, visible brushstrokes.",
+      "long": "The painting shows a figure from behind, seated and turned slightly toward a tall, narrow mirror on the left. The figure wears a white dress with thin blue trim at the neckline and sleeves, and a black choker. Their hair is light-colored and gathered up. To the right of the figure, a small shelf holds white flowers, a transparent glass jar with a lidded top and pink stopper, and another dark object. The background is composed of broad, textured brushstrokes in muted tones—grays, whites, pale blues, with sparse accents of red and green—evoking an undefined interior space. The entire surface shows evidence of impasto technique, with thick, directional paint application.",
+      "claimIds": [
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:en:1",
+        "visual:artic:11723:en:2",
+        "visual:artic:11723:en:3",
+        "visual:artic:11723:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:11723:en:visual-1",
+      "artworkId": "artic:11723",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "what kind of brushwork",
+        "why so blurry"
+      ],
+      "claimIds": [
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:en:1",
+        "visual:artic:11723:en:2",
+        "visual:artic:11723:en:3",
+        "visual:artic:11723:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the thick, directional strokes on the dress and background—note how they build form without fine lines.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:11723:en:visual-2",
+      "artworkId": "artic:11723",
+      "locale": "en",
+      "topic": "space",
+      "triggerIntents": [
+        "where is she",
+        "what room is this",
+        "is that a mirror"
+      ],
+      "claimIds": [
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:en:1",
+        "visual:artic:11723:en:2",
+        "visual:artic:11723:en:3",
+        "visual:artic:11723:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace the vertical edge of the mirror and its faint reflection, then contrast it with the ambiguous, stroke-defined background.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:11723:en:visual-3",
+      "artworkId": "artic:11723",
+      "locale": "en",
+      "topic": "subject",
+      "triggerIntents": [
+        "who is she",
+        "what is she doing",
+        "why no face"
+      ],
+      "claimIds": [
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:en:1",
+        "visual:artic:11723:en:2",
+        "visual:artic:11723:en:3",
+        "visual:artic:11723:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Observe her posture and proximity to the mirror and objects—she appears engaged in a moment of preparation or pause, with identity withheld by composition.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "outputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "updatedAt": "2026-07-27T04:14:18.508Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "outputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "updatedAt": "2026-07-27T04:14:18.508Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "outputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "updatedAt": "2026-07-27T04:14:18.508Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "outputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "updatedAt": "2026-07-27T04:14:18.508Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "outputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569",
+      "updatedAt": "2026-07-27T04:14:18.508Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:14:18.508Z",
+    "inputHash": "54a7fc29de03f39b24468888fcfc82431d542e630a41169ea0a734c650d60569"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-54a7fc29de03"
+  }
+}

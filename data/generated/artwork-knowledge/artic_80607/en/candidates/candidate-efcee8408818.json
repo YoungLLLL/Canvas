@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:80607:en:efcee8408818",
+  "artworkId": "artic:80607",
+  "artworkRevision": "2026-07-25T23:19:14-05:00",
+  "imageRevision": "commons:80607",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:80607:museum",
+      "kind": "museum_record",
+      "title": "Self-Portrait",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/80607",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:16:27.342Z",
+      "contentHash": "0a78eaf31fb012ae641dcd9ae4dc70fdd2d1553ea49ac122289158918518ec56",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_80607:museum-record:0a78eaf31fb012ae641dcd9ae4dc70fdd2d1553ea49ac122289158918518ec56"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:80607:en:title",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "The museum records this work as “Self-Portrait”.",
+      "predicate": "title",
+      "value": "Self-Portrait",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:80607:museum",
+          "sourceId": "source:artic:80607:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:80607:en:artist",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "The museum attributes this work to Vincent van Gogh (Dutch, 1853–1890).",
+      "predicate": "artist",
+      "value": "Vincent van Gogh (Dutch, 1853–1890)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:80607:museum",
+          "sourceId": "source:artic:80607:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:80607:en:visual-1",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "The man’s face is painted with visible, short, directional brushstrokes in warm tones—ochre, pink, and white—especially on the forehead and cheeks; his eyes are light blue-green and gaze directly forward.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:80607:en:1",
+          "imageId": "commons:80607",
+          "basis": "visible",
+          "observation": "The man’s face is painted with visible, short, directional brushstrokes in warm tones—ochre, pink, and white—especially on the forehead and cheeks; his eyes are light blue-green and gaze directly forward.",
+          "imageRevision": "commons:80607"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:80607:en:visual-2",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "His beard and mustache are dense and reddish-orange, composed of tightly packed, upward- and outward-flicking strokes that suggest volume and texture.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:80607:en:2",
+          "imageId": "commons:80607",
+          "basis": "visible",
+          "observation": "His beard and mustache are dense and reddish-orange, composed of tightly packed, upward- and outward-flicking strokes that suggest volume and texture.",
+          "imageRevision": "commons:80607"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:80607:en:visual-3",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "The background consists of densely applied dots and short dashes of blue, green, orange, and white, creating a dynamic, swirling effect that contrasts with the figure’s relative stillness.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:80607:en:3",
+          "imageId": "commons:80607",
+          "basis": "visible",
+          "observation": "The background consists of densely applied dots and short dashes of blue, green, orange, and white, creating a dynamic, swirling effect that contrasts with the figure’s relative stillness.",
+          "imageRevision": "commons:80607"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:80607:en:visual-4",
+      "subjectId": "artic:80607",
+      "layer": "fact",
+      "text": "The jacket is dark with multicolored flecks (red, green, blue) and features a distinct collar with vertical blue-white stripes; the shirt beneath has a crisp white edge and a hint of pale blue at the neck.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:80607:en:4",
+          "imageId": "commons:80607",
+          "basis": "visible",
+          "observation": "The jacket is dark with multicolored flecks (red, green, blue) and features a distinct collar with vertical blue-white stripes; the shirt beneath has a crisp white edge and a hint of pale blue at the neck.",
+          "imageRevision": "commons:80607"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A close-up portrait of a man with a reddish beard and receding hairline, rendered in a highly textured, pointillist-style brushwork against a vibrant, speckled background.",
+      "claimIds": [
+        "claim:artic:80607:en:title",
+        "claim:artic:80607:en:artist",
+        "claim:artic:80607:en:visual-1",
+        "claim:artic:80607:en:visual-2",
+        "claim:artic:80607:en:visual-3",
+        "claim:artic:80607:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:80607:en:1",
+        "label": "portrait",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:en:visual-1",
+          "claim:artic:80607:en:visual-2",
+          "claim:artic:80607:en:visual-3",
+          "claim:artic:80607:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:en:1",
+          "visual:artic:80607:en:2",
+          "visual:artic:80607:en:3",
+          "visual:artic:80607:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:en:2",
+        "label": "beard",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:en:visual-1",
+          "claim:artic:80607:en:visual-2",
+          "claim:artic:80607:en:visual-3",
+          "claim:artic:80607:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:en:1",
+          "visual:artic:80607:en:2",
+          "visual:artic:80607:en:3",
+          "visual:artic:80607:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:en:3",
+        "label": "pointillism",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:en:visual-1",
+          "claim:artic:80607:en:visual-2",
+          "claim:artic:80607:en:visual-3",
+          "claim:artic:80607:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:en:1",
+          "visual:artic:80607:en:2",
+          "visual:artic:80607:en:3",
+          "visual:artic:80607:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:en:4",
+        "label": "brushstroke texture",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:en:visual-1",
+          "claim:artic:80607:en:visual-2",
+          "claim:artic:80607:en:visual-3",
+          "claim:artic:80607:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:en:1",
+          "visual:artic:80607:en:2",
+          "visual:artic:80607:en:3",
+          "visual:artic:80607:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:en:5",
+        "label": "direct gaze",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:en:visual-1",
+          "claim:artic:80607:en:visual-2",
+          "claim:artic:80607:en:visual-3",
+          "claim:artic:80607:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:en:1",
+          "visual:artic:80607:en:2",
+          "visual:artic:80607:en:3",
+          "visual:artic:80607:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:en:6",
+        "label": "multicolored background",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:en:visual-1",
+          "claim:artic:80607:en:visual-2",
+          "claim:artic:80607:en:visual-3",
+          "claim:artic:80607:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:en:1",
+          "visual:artic:80607:en:2",
+          "visual:artic:80607:en:3",
+          "visual:artic:80607:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:80607:en:7",
+        "label": "jacket with striped collar",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:80607:en:visual-1",
+          "claim:artic:80607:en:visual-2",
+          "claim:artic:80607:en:visual-3",
+          "claim:artic:80607:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:80607:en:1",
+          "visual:artic:80607:en:2",
+          "visual:artic:80607:en:3",
+          "visual:artic:80607:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Painted portrait of a bearded man in a patterned jacket against a speckled blue-green background, using thick, visible brushstrokes.",
+      "long": "A bust-length portrait of a man with fair skin, a full reddish-orange beard and mustache, and light-colored eyes looking directly at the viewer. His hair is light and receding. He wears a dark, textured jacket with flecks of red, green, and blue, featuring a collar with vertical blue-and-white stripes, over a white shirt with a pale blue inner lining visible at the neck. The background is densely built from small, energetic dabs and strokes of blue, green, orange, and white, giving it a shimmering, almost vibrating quality. The entire surface shows pronounced impasto and directional brushwork.",
+      "claimIds": [
+        "claim:artic:80607:en:visual-1",
+        "claim:artic:80607:en:visual-2",
+        "claim:artic:80607:en:visual-3",
+        "claim:artic:80607:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:80607:en:1",
+        "visual:artic:80607:en:2",
+        "visual:artic:80607:en:3",
+        "visual:artic:80607:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:80607:en:visual-1",
+      "artworkId": "artic:80607",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "what style is this",
+        "why does it look textured"
+      ],
+      "claimIds": [
+        "claim:artic:80607:en:visual-1",
+        "claim:artic:80607:en:visual-2",
+        "claim:artic:80607:en:visual-3",
+        "claim:artic:80607:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:80607:en:1",
+        "visual:artic:80607:en:2",
+        "visual:artic:80607:en:3",
+        "visual:artic:80607:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the visible brushstrokes on the cheek or background and note how each mark remains distinct rather than blended—this reveals the artist’s method of building form through discrete touches of color.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:80607:en:visual-2",
+      "artworkId": "artic:80607",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "why so many colors in the background",
+        "what do the colors mean"
+      ],
+      "claimIds": [
+        "claim:artic:80607:en:visual-1",
+        "claim:artic:80607:en:visual-2",
+        "claim:artic:80607:en:visual-3",
+        "claim:artic:80607:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:80607:en:1",
+        "visual:artic:80607:en:2",
+        "visual:artic:80607:en:3",
+        "visual:artic:80607:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Highlight the contrast between the warm skin tones and the cool, speckled background—observe how orange dots appear within the blue-green field, suggesting optical mixing rather than pre-mixed pigment.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:80607:en:visual-3",
+      "artworkId": "artic:80607",
+      "locale": "en",
+      "topic": "subject",
+      "triggerIntents": [
+        "who is this",
+        "is he looking at us"
+      ],
+      "claimIds": [
+        "claim:artic:80607:en:visual-1",
+        "claim:artic:80607:en:visual-2",
+        "claim:artic:80607:en:visual-3",
+        "claim:artic:80607:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:80607:en:1",
+        "visual:artic:80607:en:2",
+        "visual:artic:80607:en:3",
+        "visual:artic:80607:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Note the direct eye contact and slight head tilt; the gaze is steady and frontal, engaging the viewer without expression—focus on what is literally shown, not inferred identity.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "outputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "updatedAt": "2026-07-27T04:16:27.342Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "outputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "updatedAt": "2026-07-27T04:16:27.342Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "outputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "updatedAt": "2026-07-27T04:16:27.342Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "outputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "updatedAt": "2026-07-27T04:16:27.342Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "outputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a",
+      "updatedAt": "2026-07-27T04:16:27.342Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:16:27.342Z",
+    "inputHash": "efcee8408818143819759842dd7c22e2725d2687268fef7bba796b43c8c1b24a"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-efcee8408818"
+  }
+}

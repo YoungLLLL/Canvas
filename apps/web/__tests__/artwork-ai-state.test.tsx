@@ -21,6 +21,9 @@ const props = {
   museumUrl: "https://www.artic.edu/artworks/1",
   imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Example.jpg",
   licenseLabel: "CC0 1.0",
+  imageAttribution: "Claude Monet. Water Lilies. Wikimedia Commons.",
+  adaptationsAllowed: true,
+  commercialUseAllowed: true,
 };
 
 describe("unpublished artist persona state", () => {

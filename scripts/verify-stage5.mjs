@@ -111,6 +111,7 @@ export function analyzeRecords(records, imageChecks, pageResults, thresholds) {
   const duplicates = [];
   const rightsFailures = [];
   const mappingGaps = [];
+  const mappingTransientFailures = [];
   let displayable = 0;
   let metadataOnly = 0;
   let mappingCandidates = 0;
@@ -128,6 +129,9 @@ export function analyzeRecords(records, imageChecks, pageResults, thresholds) {
     const preferred = record?.images?.preferred;
     const isDisplayable = status === "image_displayable";
     const mappingMissing = reasons.includes("commons_image_unavailable");
+    const mappingTransient = reasons.some((reason) =>
+      ["commons_rate_limited", "commons_temporarily_unavailable"].includes(reason),
+    );
     if (isDisplayable) {
       displayable += 1;
       mappingCandidates += 1;
@@ -141,6 +145,13 @@ export function analyzeRecords(records, imageChecks, pageResults, thresholds) {
           title: record?.display?.title ?? null,
           artist: record?.display?.artistDisplay ?? null,
         });
+      } else if (mappingTransient) {
+        mappingTransientFailures.push({
+          id,
+          reason: reasons.find((reason) =>
+            ["commons_rate_limited", "commons_temporarily_unavailable"].includes(reason),
+          ),
+        });
       }
     }
 
@@ -151,10 +162,19 @@ export function analyzeRecords(records, imageChecks, pageResults, thresholds) {
       typeof record?.rights?.termsUrl === "string" &&
       typeof record?.rights?.attribution === "string" &&
       typeof record?.source?.recordUrl === "string";
+    const licenseCode = record?.rights?.image?.licenseCode;
+    const acceptedImageLicense =
+      ["CC0-1.0", "PDM-1.0"].includes(licenseCode) ||
+      /^CC-BY(?:-SA|-NC(?:-SA|-ND)?|-ND)?-\d\.\d$/.test(licenseCode ?? "");
+    const usage = record?.rights?.image?.usage;
     const imageRightsComplete =
       !isDisplayable ||
-      (["CC0-1.0", "PDM-1.0"].includes(record?.rights?.image?.licenseCode) &&
+      (acceptedImageLicense &&
         typeof record?.rights?.image?.licenseUrl === "string" &&
+        typeof usage?.commercialUseAllowed === "boolean" &&
+        typeof usage?.adaptationsAllowed === "boolean" &&
+        typeof usage?.attributionRequired === "boolean" &&
+        typeof usage?.shareAlike === "boolean" &&
         typeof preferred?.directUrl === "string" &&
         typeof preferred?.sourceUrl === "string");
     if (!baseRightsComplete || !imageRightsComplete) {
@@ -183,6 +203,7 @@ export function analyzeRecords(records, imageChecks, pageResults, thresholds) {
     pageFailures.length === 0 &&
     duplicates.length === 0 &&
     rightsFailures.length === 0 &&
+    mappingTransientFailures.length === 0 &&
     mappingRate >= thresholds.minMappingRate &&
     imageProbeCoverageRate >= (thresholds.minImageProbeCoverageRate ?? 1) &&
     imageReachabilityRate >= thresholds.minImageReachabilityRate;
@@ -208,6 +229,7 @@ export function analyzeRecords(records, imageChecks, pageResults, thresholds) {
     failures: {
       duplicateIds: duplicates.slice(0, 25),
       mappings: mappingGaps.slice(0, 100),
+      transientMappings: mappingTransientFailures.slice(0, 100),
       rights: rightsFailures.slice(0, 25),
       images: imageChecks
         .filter((check) => !check.reachable && !check.inconclusive)
@@ -438,6 +460,11 @@ export async function runVerification(options) {
             record?.eligibility?.status === "image_displayable" ||
             record?.eligibility?.reasons?.includes("commons_image_unavailable"),
         ).length;
+        const transientMappings = pageItems.filter((record) =>
+          record?.eligibility?.reasons?.some((reason) =>
+            ["commons_rate_limited", "commons_temporarily_unavailable"].includes(reason),
+          ),
+        ).length;
         records.push(...pageItems);
         pageResults.push({
           page,
@@ -448,11 +475,12 @@ export async function runVerification(options) {
           mappingRate: mappingCandidates
             ? mappedRecords / mappingCandidates
             : 1,
+          transientMappings,
           dataState: result.payload.dataStatus?.state ?? "unknown",
           fetchedAt: result.payload.dataStatus?.fetchedAt ?? null,
         });
         process.stdout.write(
-          `Page ${page}: ${pageItems.length} records, ${mappedRecords}/${mappingCandidates} mapped in ${result.durationMs}ms\n`,
+          `Page ${page}: ${pageItems.length} records, ${mappedRecords}/${mappingCandidates} mapped${transientMappings ? `, ${transientMappings} transient` : ""} in ${result.durationMs}ms\n`,
         );
       } catch (error) {
         pageResults.push({

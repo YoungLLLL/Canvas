@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "artwork-image-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:54:32.941Z",
+  "artworkId": "artic:16568",
+  "image": {
+    "id": "commons:16568",
+    "width": 843,
+    "height": 810,
+    "altText": "Painting of a pond seen up close spotted with thickly painted pink and white water lilies and a shadow across the top third of the picture.",
+    "lqip": "data:image/gif;base64,R0lGODlhBQAFAPQAAEZcaFFfdVtqbk9ldFBlcVFocllrcFlrd11rdl9sdFZtf15wcWV0d2R2eGByfmd6eGl6e2t9elZxiGF4kWB4kmJ9kGJ8lWeCkWSAnQAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAFAAUAAAUVoJBADXI4TLRMWHU9hmRRCjAURBACADs=",
+    "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/960px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg",
+    "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/1920px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg",
+    "zoomable": true,
+    "maxZoomWindowSize": null,
+    "health": "ok"
+  },
+  "rights": {
+    "licenseCode": "PDM-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "attribution": "Claude Monet. Water Lilies, 1906. The Art Institute of Chicago. Image source: Unknown source Unknown source"
+}

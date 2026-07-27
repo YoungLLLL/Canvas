@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:28560:zh:17cba405a7f2",
+  "artworkId": "artic:28560",
+  "artworkRevision": "2026-07-25T23:27:29-05:00",
+  "imageRevision": "commons:28560",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:28560:museum",
+      "kind": "museum_record",
+      "title": "The Bedroom",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/28560",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:05:55.037Z",
+      "contentHash": "d7a43fde08391aa62b4f1540e537bf8df62f97f856482b63aceb581a4e426ee7",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_28560:museum-record:d7a43fde08391aa62b4f1540e537bf8df62f97f856482b63aceb581a4e426ee7"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:28560:zh:title",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "馆方将本作记录为《The Bedroom》。",
+      "predicate": "title",
+      "value": "The Bedroom",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:28560:museum",
+          "sourceId": "source:artic:28560:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:artist",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "馆方将本作归于Vincent van Gogh (Dutch, 1853–1890)。",
+      "predicate": "artist",
+      "value": "Vincent van Gogh (Dutch, 1853–1890)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:28560:museum",
+          "sourceId": "source:artic:28560:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-1",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "房间主色调为蓝色墙面与绿色地板，床架、桌椅为暖黄色木质结构，床上有红色毯子与白色被褥。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:1",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "房间主色调为蓝色墙面与绿色地板，床架、桌椅为暖黄色木质结构，床上有红色毯子与白色被褥。",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-2",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "左侧有一扇带绿色窗框的双开窗户，窗扇向外开启，透出黄绿色光感；窗下小桌上摆放水壶、杯子与两瓶深色容器。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:2",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "左侧有一扇带绿色窗框的双开窗户，窗扇向外开启，透出黄绿色光感；窗下小桌上摆放水壶、杯子与两瓶深色容器。",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-3",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "墙上挂有多幅装裱画作：中央一幅横向风景画，其左右及上方另有三幅较小肖像或静物画；另有一件衣物悬于门边挂钩。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:3",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "墙上挂有多幅装裱画作：中央一幅横向风景画，其左右及上方另有三幅较小肖像或静物画；另有一件衣物悬于门边挂钩。",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:zh:visual-4",
+      "subjectId": "artic:28560",
+      "layer": "interpretation",
+      "text": "地面由交错的绿、灰、粉红块面构成，呈现木板拼接效果，笔触厚重且方向不一，强化了空间的动态感。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:zh:4",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "地面由交错的绿、灰、粉红块面构成，呈现木板拼接效果，笔触厚重且方向不一，强化了空间的动态感。",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅描绘室内卧室场景的绘画，画面以鲜明的色彩与粗犷的笔触呈现家具、门窗与墙面陈设。",
+      "claimIds": [
+        "claim:artic:28560:zh:title",
+        "claim:artic:28560:zh:artist",
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:28560:zh:1",
+        "label": "卧室",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:2",
+        "label": "木质家具",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:3",
+        "label": "蓝色墙面",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:4",
+        "label": "绿色地板",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:5",
+        "label": "挂画",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:6",
+        "label": "窗户",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:zh:7",
+        "label": "厚涂笔法",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:zh:visual-1",
+          "claim:artic:28560:zh:visual-2",
+          "claim:artic:28560:zh:visual-3",
+          "claim:artic:28560:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:zh:1",
+          "visual:artic:28560:zh:2",
+          "visual:artic:28560:zh:3",
+          "visual:artic:28560:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一间蓝墙绿地板的卧室，内有木床、桌椅、窗户与多幅挂画，用浓重笔触绘制。",
+      "long": "画面展现一个紧凑的卧室内部：右侧为高背木床，铺有白被与红毯；左侧靠墙置一木桌与两把木椅，桌上放陶壶、杯具与瓶子；背景墙为蓝色，挂有五幅不同尺寸的画作；左上方为一扇开启的绿框双窗，透入亮光；地面由绿、灰、粉红等色块交错组成，显现出明显的笔触肌理。",
+      "claimIds": [
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:zh:1",
+        "visual:artic:28560:zh:2",
+        "visual:artic:28560:zh:3",
+        "visual:artic:28560:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:28560:zh:visual-1",
+      "artworkId": "artic:28560",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "这房间的颜色搭配很特别",
+        "为什么用这么多蓝色和绿色"
+      ],
+      "claimIds": [
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:zh:1",
+        "visual:artic:28560:zh:2",
+        "visual:artic:28560:zh:3",
+        "visual:artic:28560:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可从墙面与地板的冷色调对比床与家具的暖色入手，指出颜色并非写实还原，而是通过并置制造视觉张力。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:28560:zh:visual-2",
+      "artworkId": "artic:28560",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "房间看起来有点歪",
+        "透视好像不太对"
+      ],
+      "claimIds": [
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:zh:1",
+        "visual:artic:28560:zh:2",
+        "visual:artic:28560:zh:3",
+        "visual:artic:28560:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "引导注意地板木板走向与家具边缘的倾斜关系，说明空间结构是经主观调整而非严格线性透视。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:28560:zh:visual-3",
+      "artworkId": "artic:28560",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "笔触好明显",
+        "颜料是不是堆得很厚"
+      ],
+      "claimIds": [
+        "claim:artic:28560:zh:visual-1",
+        "claim:artic:28560:zh:visual-2",
+        "claim:artic:28560:zh:visual-3",
+        "claim:artic:28560:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:zh:1",
+        "visual:artic:28560:zh:2",
+        "visual:artic:28560:zh:3",
+        "visual:artic:28560:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "指向床架、地板等处可见的凸起颜料层与方向性笔触，说明这是有意强调材质与运动感的手法。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "outputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "updatedAt": "2026-07-27T04:05:55.037Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "outputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "updatedAt": "2026-07-27T04:05:55.037Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "outputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "updatedAt": "2026-07-27T04:05:55.037Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "outputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "updatedAt": "2026-07-27T04:05:55.037Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "outputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca",
+      "updatedAt": "2026-07-27T04:05:55.037Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v4",
+    "generatedAt": "2026-07-27T04:05:55.037Z",
+    "inputHash": "17cba405a7f224bf0c6ceeb3826cd2ea9d0c3acca4daebdee4af6702e00da5ca"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-17cba405a7f2"
+  }
+}

@@ -1,0 +1,433 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:64818:zh:716527070eee",
+  "artworkId": "artic:64818",
+  "artworkRevision": "2026-07-25T23:26:59-05:00",
+  "imageRevision": "commons:64818",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:64818:museum",
+      "kind": "museum_record",
+      "title": "Stacks of Wheat (End of Summer)",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/64818",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:03:14.224Z",
+      "contentHash": "b056b125f878cfe315aa683227e8a1ca8e6f2166473f5d6ef40a36ff0a68e580",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_64818:museum-record:b056b125f878cfe315aa683227e8a1ca8e6f2166473f5d6ef40a36ff0a68e580"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:64818:zh:title",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Stacks of Wheat (End of Summer)》。",
+      "predicate": "title",
+      "value": "Stacks of Wheat (End of Summer)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:64818:museum",
+          "sourceId": "source:artic:64818:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:artist",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "馆方将本作归于Claude Monet (French, 1840–1926)。",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:64818:museum",
+          "sourceId": "source:artic:64818:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:visual-1",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "画面前景有两堆大型圆锥形干草垛，左侧较小、右侧较大，表面以红棕、赭石与淡紫等色块并置表现质感。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:zh:1",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "画面前景有两堆大型圆锥形干草垛，左侧较小、右侧较大，表面以红棕、赭石与淡紫等色块并置表现质感。",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:visual-2",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "地面由短促、交错的笔触构成，混合粉红、浅绿、蓝灰与淡黄等色彩，未明确勾勒轮廓线。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:zh:2",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "地面由短促、交错的笔触构成，混合粉红、浅绿、蓝灰与淡黄等色彩，未明确勾勒轮廓线。",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:visual-3",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "远景山丘与树林以模糊色块处理，可见白墙屋顶的小屋隐现于树丛间，整体景深较浅。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:zh:3",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "远景山丘与树林以模糊色块处理，可见白墙屋顶的小屋隐现于树丛间，整体景深较浅。",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:zh:visual-4",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "画面左下角可见红色手写签名与年份（部分可辨为'91'），但无法确认署名归属。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:zh:4",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "画面左下角可见红色手写签名与年份（部分可辨为'91'），但无法确认署名归属。",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅描绘田野中两堆干草垛的油画，背景为起伏的山丘与树林，天空呈现柔和的渐变色调。",
+      "claimIds": [
+        "claim:artic:64818:zh:title",
+        "claim:artic:64818:zh:artist",
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:64818:zh:1",
+        "label": "干草垛",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:2",
+        "label": "田野",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:3",
+        "label": "印象派笔触",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:4",
+        "label": "多色并置",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:5",
+        "label": "远景山丘",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:zh:6",
+        "label": "无明确轮廓线",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:zh:visual-1",
+          "claim:artic:64818:zh:visual-2",
+          "claim:artic:64818:zh:visual-3",
+          "claim:artic:64818:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:zh:1",
+          "visual:artic:64818:zh:2",
+          "visual:artic:64818:zh:3",
+          "visual:artic:64818:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "油画描绘两堆干草垛立于多彩田野中，背景为模糊山林与淡色天空。",
+      "long": "画面中央偏右与偏左各有一堆大型干草垛，呈圆锥状，表面以厚涂红棕、紫灰与淡黄笔触表现光影变化；地面由密集短笔触构成，融合粉红、浅绿、蓝灰等色，形成斑驳光感；远处山丘以紫灰与绿褐块面堆叠，其间隐约可见白色屋顶小屋；天空为浅灰至淡黄的水平渐变，整体无清晰线条，强调色块与光效的即时感知。",
+      "claimIds": [
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:zh:1",
+        "visual:artic:64818:zh:2",
+        "visual:artic:64818:zh:3",
+        "visual:artic:64818:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:64818:zh:visual-1",
+      "artworkId": "artic:64818",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "注意到笔触很特别",
+        "这画是怎么画出来的"
+      ],
+      "claimIds": [
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:zh:1",
+        "visual:artic:64818:zh:2",
+        "visual:artic:64818:zh:3",
+        "visual:artic:64818:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可以指向地面或草垛表面的短促笔触，说明画家用并置色点而非混合颜料来营造光感。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:64818:zh:visual-2",
+      "artworkId": "artic:64818",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "颜色好丰富",
+        "为什么草地不是绿色的"
+      ],
+      "claimIds": [
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:zh:1",
+        "visual:artic:64818:zh:2",
+        "visual:artic:64818:zh:3",
+        "visual:artic:64818:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "引导观察地面中粉红、蓝灰与浅绿的交织，指出这是对日光反射与阴影的直接记录，而非固有色。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:64818:zh:visual-3",
+      "artworkId": "artic:64818",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "背景好像很远",
+        "怎么看出前后距离"
+      ],
+      "claimIds": [
+        "claim:artic:64818:zh:visual-1",
+        "claim:artic:64818:zh:visual-2",
+        "claim:artic:64818:zh:visual-3",
+        "claim:artic:64818:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:zh:1",
+        "visual:artic:64818:zh:2",
+        "visual:artic:64818:zh:3",
+        "visual:artic:64818:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "对比前景草垛的厚重笔触与远景山丘的模糊色块，说明通过清晰度与色彩饱和度差异暗示空间层次。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "outputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "updatedAt": "2026-07-27T04:03:14.224Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "outputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "updatedAt": "2026-07-27T04:03:14.224Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "outputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "updatedAt": "2026-07-27T04:03:14.224Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "outputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "updatedAt": "2026-07-27T04:03:14.224Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "outputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76",
+      "updatedAt": "2026-07-27T04:03:14.224Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v3",
+    "generatedAt": "2026-07-27T04:03:14.224Z",
+    "inputHash": "716527070eeeaa06a669cf4643337ce2ab696ab9af341571bcfe8057c21c1a76"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-716527070eee"
+  }
+}

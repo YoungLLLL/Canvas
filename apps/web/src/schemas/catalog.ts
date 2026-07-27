@@ -3,6 +3,10 @@ import { z } from "zod";
 const idSchema = z.string().min(1).max(200);
 const isoDateTimeSchema = z.string().datetime({ offset: true });
 const optionalUrlSchema = z.string().url().optional();
+const openImageLicenseSchema = z.union([
+  z.enum(["CC0-1.0", "PDM-1.0"]),
+  z.string().regex(/^CC-BY(?:-SA|-NC(?:-SA|-ND)?|-ND)?-\d\.\d$/),
+]);
 
 export const sourceSchema = z.object({
   id: idSchema,
@@ -69,8 +73,16 @@ export const rightsSchema = z.object({
     notice: z.string().min(1).nullable(),
   }),
   image: z.object({
-    licenseCode: z.enum(["CC0-1.0", "PDM-1.0", "restricted", "unknown"]),
+    licenseCode: z.union([openImageLicenseSchema, z.enum(["restricted", "unknown"])]),
     licenseUrl: z.string().url().nullable(),
+    usage: z
+      .object({
+        commercialUseAllowed: z.boolean(),
+        adaptationsAllowed: z.boolean(),
+        attributionRequired: z.boolean(),
+        shareAlike: z.boolean(),
+      })
+      .nullable(),
   }),
   metadata: z.object({
     defaultLicense: z.literal("CC0-1.0"),
@@ -144,13 +156,52 @@ export const artworkSchema = z
     }
     if (
       artwork.eligibility.status === "image_displayable" &&
-      !["CC0-1.0", "PDM-1.0"].includes(artwork.rights.image.licenseCode)
+      !openImageLicenseSchema.safeParse(artwork.rights.image.licenseCode).success
     ) {
       context.addIssue({
         code: "custom",
         path: ["rights", "image", "licenseCode"],
-        message: "displayable images require a CC0 or Public Domain Mark license",
+        message: "displayable images require an accepted Public Domain or Creative Commons license",
       });
+    }
+    if (artwork.eligibility.status === "image_displayable" && artwork.rights.image.usage === null) {
+      context.addIssue({
+        code: "custom",
+        path: ["rights", "image", "usage"],
+        message: "displayable images require machine-readable usage constraints",
+      });
+    }
+    const imageLicense = artwork.rights.image.licenseCode;
+    const imageUsage = artwork.rights.image.usage;
+    if (imageUsage && imageLicense.startsWith("CC-BY")) {
+      if (!imageUsage.attributionRequired) {
+        context.addIssue({
+          code: "custom",
+          path: ["rights", "image", "usage", "attributionRequired"],
+          message: "CC BY-family licenses require attribution",
+        });
+      }
+      if (imageLicense.includes("-NC-") && imageUsage.commercialUseAllowed) {
+        context.addIssue({
+          code: "custom",
+          path: ["rights", "image", "usage", "commercialUseAllowed"],
+          message: "NC licenses must prohibit commercial use",
+        });
+      }
+      if (imageLicense.includes("-ND-") && imageUsage.adaptationsAllowed) {
+        context.addIssue({
+          code: "custom",
+          path: ["rights", "image", "usage", "adaptationsAllowed"],
+          message: "ND licenses must prohibit adaptations",
+        });
+      }
+      if (imageLicense.includes("-SA-") && !imageUsage.shareAlike) {
+        context.addIssue({
+          code: "custom",
+          path: ["rights", "image", "usage", "shareAlike"],
+          message: "SA licenses must preserve the share-alike requirement",
+        });
+      }
     }
     const images = [artwork.images.preferred, ...artwork.images.alternates].filter(
       (image) => image !== null,

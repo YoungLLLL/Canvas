@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:86385:en:4e984a6323c1",
+  "artworkId": "artic:86385",
+  "artworkRevision": "2026-07-25T23:27:01-05:00",
+  "imageRevision": null,
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:86385:museum",
+      "kind": "museum_record",
+      "title": "City Landscape",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/86385",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:17:53.228Z",
+      "contentHash": "196a3adf0b00ccd00773b397491ee6be82ca912e80f107949b1147ac12f61ed7",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_86385:museum-record:196a3adf0b00ccd00773b397491ee6be82ca912e80f107949b1147ac12f61ed7"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:86385:en:title",
+      "subjectId": "artic:86385",
+      "layer": "fact",
+      "text": "The museum records this work as “City Landscape”.",
+      "predicate": "title",
+      "value": "City Landscape",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:86385:museum",
+          "sourceId": "source:artic:86385:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:86385:en:artist",
+      "subjectId": "artic:86385",
+      "layer": "fact",
+      "text": "The museum attributes this work to Joan Mitchell\nAmerican, 1925-1992.",
+      "predicate": "artist",
+      "value": "Joan Mitchell\nAmerican, 1925-1992",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:86385:museum",
+          "sourceId": "source:artic:86385:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "City Landscape is attributed to Joan Mitchell\nAmerican, 1925-1992.",
+      "claimIds": [
+        "claim:artic:86385:en:title",
+        "claim:artic:86385:en:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:86385:en:context",
+      "artworkId": "artic:86385",
+      "locale": "en",
+      "topic": "context",
+      "triggerIntents": [
+        "City Landscape",
+        "Joan Mitchell\nAmerican, 1925-1992",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:86385:en:title",
+        "claim:artic:86385:en:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Use the verified museum title or attribution only when it answers the user's topic.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4e984a6323c1bd18895ecab4ff5d1e3694794b4fbe9bffe2a2a42f052a15b47f",
+      "outputHash": "4e984a6323c1bd18895ecab4ff5d1e3694794b4fbe9bffe2a2a42f052a15b47f",
+      "updatedAt": "2026-07-27T04:17:53.228Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4e984a6323c1bd18895ecab4ff5d1e3694794b4fbe9bffe2a2a42f052a15b47f",
+      "outputHash": "4e984a6323c1bd18895ecab4ff5d1e3694794b4fbe9bffe2a2a42f052a15b47f",
+      "updatedAt": "2026-07-27T04:17:53.228Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4e984a6323c1bd18895ecab4ff5d1e3694794b4fbe9bffe2a2a42f052a15b47f",
+      "outputHash": "4e984a6323c1bd18895ecab4ff5d1e3694794b4fbe9bffe2a2a42f052a15b47f",
+      "updatedAt": "2026-07-27T04:17:53.228Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:17:53.228Z",
+    "inputHash": "4e984a6323c1bd18895ecab4ff5d1e3694794b4fbe9bffe2a2a42f052a15b47f"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-4e984a6323c1"
+  }
+}

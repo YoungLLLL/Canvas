@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:01:19.153Z",
+  "artwork": {
+    "id": "artic:24645",
+    "sourceId": "24645",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/24645",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/24645",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:27:06-05:00",
+      "accessedAt": "2026-07-27T04:01:18.764Z"
+    },
+    "display": {
+      "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\"",
+      "localizedTitles": {
+        "en": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\""
+      },
+      "altTitles": [],
+      "artistDisplay": "Katsushika Hokusai 葛飾 北斎 \nJapanese, 1760-1849",
+      "dateDisplay": "1830/33",
+      "mediumDisplay": "Color woodblock print; oban",
+      "dimensionsDisplay": "25.4 × 37.6 cm (10 × 14 3/4 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:31492",
+      "sourceId": "31492",
+      "name": "Katsushika Hokusai",
+      "display": "Katsushika Hokusai 葛飾 北斎 \nJapanese, 1760-1849",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1826,
+      "end": 1836
+    },
+    "classification": {
+      "artworkTypeId": 18,
+      "artworkTypeTitle": "Print",
+      "departmentTitle": "Arts of Asia",
+      "classificationTitles": [
+        "woodblock print",
+        "print",
+        "asian art"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Katsushika Hokusai. Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjūrokkei)\", 1830/33. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:01:18.764Z",
+      "reasons": [
+        "unsupported_type",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Clarence Buckingham Collection",
+    "mainReferenceNumber": "1925.3245",
+    "description": {
+      "html": "<p>Katsushika Hokusai’s much celebrated series, Thirty-Six Views of Mount Fuji (Fugaku sanjûrokkei), was begun in 1830, when the artist was 70 years old. This tour-de-force series established the popularity of landscape prints, which continues to this day. Perhaps most striking about the series is Hokusai’s copious use of the newly affordable Berlin blue pigment, featured in many of the compositions in the color for the sky and water. Mount Fuji is the protagonist in each scene, viewed from afar or up close, during various weather conditions and seasons, and from all directions.</p>\n<p>The most famous image from the set is the &quot;Great Wave&quot; (Kanagawa oki nami ura), in which a diminutive Mount Fuji can be seen in the distance under the crest of a giant wave. The three impressions of Hokusai’s Great Wave in the Art Institute are all later impressions than the first state of the design.</p>",
+      "text": "Katsushika Hokusai’s much celebrated series, Thirty-Six Views of Mount Fuji (Fugaku sanjûrokkei), was begun in 1830, when the artist was 70 years old. This tour-de-force series established the popularity of landscape prints, which continues to this day. Perhaps most striking about the series is Hokusai’s copious use of the newly affordable Berlin blue pigment, featured in many of the compositions in the color for the sky and water. Mount Fuji is the protagonist in each scene, viewed from afar or up close, during various weather conditions and seasons, and from all directions. The most famous image from the set is the \"Great Wave\" (Kanagawa oki nami ura), in which a diminutive Mount Fuji can be seen in the distance under the crest of a giant wave. The three impressions of Hokusai’s Great Wave in the Art Institute are all later impressions than the first state of the design.",
+      "sourceField": "description"
+    },
+    "revision": "2026-07-25T23:27:06-05:00"
+  }
+}

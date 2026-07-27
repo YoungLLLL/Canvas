@@ -6,3 +6,4 @@ Thumbs.db
 .env.*
 !.env.example
 evaluation/runs/*.json
+apps/web/.cache/

@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:14620:en:8657b4e2343c",
+  "artworkId": "artic:14620",
+  "artworkRevision": "2026-07-25T23:25:29-05:00",
+  "imageRevision": "commons:14620",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:14620:museum",
+      "kind": "museum_record",
+      "title": "Cliff Walk at Pourville",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/14620",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:55:56.934Z",
+      "contentHash": "80e2bbb032a650fa293546b4a297263fe8a86bf0cb78421daa3bd760f0bb5fe3",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_14620:museum-record:80e2bbb032a650fa293546b4a297263fe8a86bf0cb78421daa3bd760f0bb5fe3"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:14620:en:title",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "The museum records this work as “Cliff Walk at Pourville”.",
+      "predicate": "title",
+      "value": "Cliff Walk at Pourville",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:14620:museum",
+          "sourceId": "source:artic:14620:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:14620:en:artist",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "The museum attributes this work to Claude Monet (French, 1840–1926).",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:14620:museum",
+          "sourceId": "source:artic:14620:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:14620:en:visual-1",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "Two small human figures stand on the right side of a vegetated cliff edge; one holds a red parasol.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14620:en:1",
+          "imageId": "commons:14620",
+          "basis": "visible",
+          "observation": "Two small human figures stand on the right side of a vegetated cliff edge; one holds a red parasol.",
+          "imageRevision": "commons:14620"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14620:en:visual-2",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "The sea is rendered with short, broken brushstrokes in blues, greens, and whites, suggesting movement and light reflecting on water.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14620:en:2",
+          "imageId": "commons:14620",
+          "basis": "visible",
+          "observation": "The sea is rendered with short, broken brushstrokes in blues, greens, and whites, suggesting movement and light reflecting on water.",
+          "imageRevision": "commons:14620"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14620:en:visual-3",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "The foreground consists of dense, multicolored vegetation—greens, pinks, yellows, and purples—applied with visible impasto texture.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14620:en:3",
+          "imageId": "commons:14620",
+          "basis": "visible",
+          "observation": "The foreground consists of dense, multicolored vegetation—greens, pinks, yellows, and purples—applied with visible impasto texture.",
+          "imageRevision": "commons:14620"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14620:en:visual-4",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "Multiple white-sailed boats are scattered across the midground sea, varying in size and clarity, implying depth.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14620:en:4",
+          "imageId": "commons:14620",
+          "basis": "visible",
+          "observation": "Multiple white-sailed boats are scattered across the midground sea, varying in size and clarity, implying depth.",
+          "imageRevision": "commons:14620"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted coastal scene showing two figures on a grassy cliff overlooking a choppy sea with sailboats, under a partly cloudy sky.",
+      "claimIds": [
+        "claim:artic:14620:en:title",
+        "claim:artic:14620:en:artist",
+        "claim:artic:14620:en:visual-1",
+        "claim:artic:14620:en:visual-2",
+        "claim:artic:14620:en:visual-3",
+        "claim:artic:14620:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:14620:en:1",
+        "label": "coastal landscape",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:en:visual-1",
+          "claim:artic:14620:en:visual-2",
+          "claim:artic:14620:en:visual-3",
+          "claim:artic:14620:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:en:1",
+          "visual:artic:14620:en:2",
+          "visual:artic:14620:en:3",
+          "visual:artic:14620:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:en:2",
+        "label": "cliff",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:en:visual-1",
+          "claim:artic:14620:en:visual-2",
+          "claim:artic:14620:en:visual-3",
+          "claim:artic:14620:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:en:1",
+          "visual:artic:14620:en:2",
+          "visual:artic:14620:en:3",
+          "visual:artic:14620:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:en:3",
+        "label": "sea",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:en:visual-1",
+          "claim:artic:14620:en:visual-2",
+          "claim:artic:14620:en:visual-3",
+          "claim:artic:14620:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:en:1",
+          "visual:artic:14620:en:2",
+          "visual:artic:14620:en:3",
+          "visual:artic:14620:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:en:4",
+        "label": "sailboats",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:en:visual-1",
+          "claim:artic:14620:en:visual-2",
+          "claim:artic:14620:en:visual-3",
+          "claim:artic:14620:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:en:1",
+          "visual:artic:14620:en:2",
+          "visual:artic:14620:en:3",
+          "visual:artic:14620:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:en:5",
+        "label": "figures",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:en:visual-1",
+          "claim:artic:14620:en:visual-2",
+          "claim:artic:14620:en:visual-3",
+          "claim:artic:14620:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:en:1",
+          "visual:artic:14620:en:2",
+          "visual:artic:14620:en:3",
+          "visual:artic:14620:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:en:6",
+        "label": "parasol",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:en:visual-1",
+          "claim:artic:14620:en:visual-2",
+          "claim:artic:14620:en:visual-3",
+          "claim:artic:14620:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:en:1",
+          "visual:artic:14620:en:2",
+          "visual:artic:14620:en:3",
+          "visual:artic:14620:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:en:7",
+        "label": "impressionistic brushwork",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:en:visual-1",
+          "claim:artic:14620:en:visual-2",
+          "claim:artic:14620:en:visual-3",
+          "claim:artic:14620:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:en:1",
+          "visual:artic:14620:en:2",
+          "visual:artic:14620:en:3",
+          "visual:artic:14620:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Painting of two people with a red parasol on a flower-covered cliff above a blue-green sea with sailboats and clouds.",
+      "long": "An oil painting depicting a seaside cliff covered in wildflowers and grasses. Two figures stand near the edge: one holding a bright red parasol, the other wearing light-colored clothing. Below them, a textured sea with white-capped waves contains numerous small sailboats. The sky is pale blue with scattered white cumulus clouds. Brushstrokes are visible throughout, especially in the foliage and water, creating a vibrant, lively surface.",
+      "claimIds": [
+        "claim:artic:14620:en:visual-1",
+        "claim:artic:14620:en:visual-2",
+        "claim:artic:14620:en:visual-3",
+        "claim:artic:14620:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14620:en:1",
+        "visual:artic:14620:en:2",
+        "visual:artic:14620:en:3",
+        "visual:artic:14620:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:14620:en:visual-1",
+      "artworkId": "artic:14620",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "what style is this",
+        "why are the brushstrokes visible"
+      ],
+      "claimIds": [
+        "claim:artic:14620:en:visual-1",
+        "claim:artic:14620:en:visual-2",
+        "claim:artic:14620:en:visual-3",
+        "claim:artic:14620:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14620:en:1",
+        "visual:artic:14620:en:2",
+        "visual:artic:14620:en:3",
+        "visual:artic:14620:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the thick, distinct strokes in the foreground flowers and sea foam to show how paint application conveys texture and motion.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:14620:en:visual-2",
+      "artworkId": "artic:14620",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "why so many colors in the grass",
+        "what colors are used"
+      ],
+      "claimIds": [
+        "claim:artic:14620:en:visual-1",
+        "claim:artic:14620:en:visual-2",
+        "claim:artic:14620:en:visual-3",
+        "claim:artic:14620:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14620:en:1",
+        "visual:artic:14620:en:2",
+        "visual:artic:14620:en:3",
+        "visual:artic:14620:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Highlight the mix of green, pink, yellow, and violet dabs in the cliff vegetation to illustrate how color variation suggests sunlight and shadow without precise outlines.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:14620:en:visual-3",
+      "artworkId": "artic:14620",
+      "locale": "en",
+      "topic": "space",
+      "triggerIntents": [
+        "how do we know distance",
+        "how deep is the scene"
+      ],
+      "claimIds": [
+        "claim:artic:14620:en:visual-1",
+        "claim:artic:14620:en:visual-2",
+        "claim:artic:14620:en:visual-3",
+        "claim:artic:14620:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14620:en:1",
+        "visual:artic:14620:en:2",
+        "visual:artic:14620:en:3",
+        "visual:artic:14620:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Compare the sharp, colorful detail of the foreground plants with the smaller, less-defined sailboats farther out on the water to demonstrate atmospheric perspective.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "outputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "updatedAt": "2026-07-27T03:55:56.934Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "outputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "updatedAt": "2026-07-27T03:55:56.934Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "outputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "updatedAt": "2026-07-27T03:55:56.934Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "outputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "updatedAt": "2026-07-27T03:55:56.934Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "outputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93",
+      "updatedAt": "2026-07-27T03:55:56.934Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v3",
+    "generatedAt": "2026-07-27T03:55:56.934Z",
+    "inputHash": "8657b4e2343ca58c75470c48409eed9635f558dc7a44fa936264afc6affaae93"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-8657b4e2343c"
+  }
+}

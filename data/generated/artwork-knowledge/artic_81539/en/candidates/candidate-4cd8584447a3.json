@@ -1,0 +1,433 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:81539:en:4cd8584447a3",
+  "artworkId": "artic:81539",
+  "artworkRevision": "2026-07-25T23:25:26-05:00",
+  "imageRevision": "commons:81539",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:81539:museum",
+      "kind": "museum_record",
+      "title": "On the Bank of the Seine, Bennecourt",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/81539",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:24:19.988Z",
+      "contentHash": "4b4475bfbe0234dc12f179c8bae23b5f56a77040c3722bb8d8c4cb3ac94106c0",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_81539:museum-record:4b4475bfbe0234dc12f179c8bae23b5f56a77040c3722bb8d8c4cb3ac94106c0"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:81539:en:title",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "The museum records this work as “On the Bank of the Seine, Bennecourt”.",
+      "predicate": "title",
+      "value": "On the Bank of the Seine, Bennecourt",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:81539:museum",
+          "sourceId": "source:artic:81539:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:81539:en:artist",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "The museum attributes this work to Claude Monet (French, 1840–1926).",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:81539:museum",
+          "sourceId": "source:artic:81539:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:81539:en:visual-1",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "A person with dark hair, seen from behind, sits on grass wearing a light-colored striped shirt; a straw hat with a blue band rests beside them.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:81539:en:1",
+          "imageId": "commons:81539",
+          "basis": "visible",
+          "observation": "A person with dark hair, seen from behind, sits on grass wearing a light-colored striped shirt; a straw hat with a blue band rests beside them.",
+          "imageRevision": "commons:81539"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:81539:en:visual-2",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "A small greenish rowboat is beached on the riverbank near the seated figure, with its interior visible and oars absent.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:81539:en:2",
+          "imageId": "commons:81539",
+          "basis": "visible",
+          "observation": "A small greenish rowboat is beached on the riverbank near the seated figure, with its interior visible and oars absent.",
+          "imageRevision": "commons:81539"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:81539:en:visual-3",
+      "subjectId": "artic:81539",
+      "layer": "interpretation",
+      "text": "The composition uses large tree trunks and overhanging foliage in the left foreground to frame the view of the river and distant buildings, creating depth.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:81539:en:3",
+          "imageId": "commons:81539",
+          "basis": "visible",
+          "observation": "The composition uses large tree trunks and overhanging foliage in the left foreground to frame the view of the river and distant buildings, creating depth.",
+          "imageRevision": "commons:81539"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:81539:en:visual-4",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "The water reflects patches of sky, trees, and structures, rendered with broken brushwork rather than smooth blending.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:81539:en:4",
+          "imageId": "commons:81539",
+          "basis": "visible",
+          "observation": "The water reflects patches of sky, trees, and structures, rendered with broken brushwork rather than smooth blending.",
+          "imageRevision": "commons:81539"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted riverside scene viewed from under leafy trees, featuring a seated figure in the foreground, a moored boat, and a village across the water.",
+      "claimIds": [
+        "claim:artic:81539:en:title",
+        "claim:artic:81539:en:artist",
+        "claim:artic:81539:en:visual-1",
+        "claim:artic:81539:en:visual-2",
+        "claim:artic:81539:en:visual-3",
+        "claim:artic:81539:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:81539:en:1",
+        "label": "riverside",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:en:visual-1",
+          "claim:artic:81539:en:visual-2",
+          "claim:artic:81539:en:visual-3",
+          "claim:artic:81539:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:en:1",
+          "visual:artic:81539:en:2",
+          "visual:artic:81539:en:3",
+          "visual:artic:81539:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:en:2",
+        "label": "figure from behind",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:en:visual-1",
+          "claim:artic:81539:en:visual-2",
+          "claim:artic:81539:en:visual-3",
+          "claim:artic:81539:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:en:1",
+          "visual:artic:81539:en:2",
+          "visual:artic:81539:en:3",
+          "visual:artic:81539:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:en:3",
+        "label": "rowboat",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:en:visual-1",
+          "claim:artic:81539:en:visual-2",
+          "claim:artic:81539:en:visual-3",
+          "claim:artic:81539:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:en:1",
+          "visual:artic:81539:en:2",
+          "visual:artic:81539:en:3",
+          "visual:artic:81539:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:en:4",
+        "label": "foliage framing",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:en:visual-1",
+          "claim:artic:81539:en:visual-2",
+          "claim:artic:81539:en:visual-3",
+          "claim:artic:81539:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:en:1",
+          "visual:artic:81539:en:2",
+          "visual:artic:81539:en:3",
+          "visual:artic:81539:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:en:5",
+        "label": "village across water",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:en:visual-1",
+          "claim:artic:81539:en:visual-2",
+          "claim:artic:81539:en:visual-3",
+          "claim:artic:81539:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:en:1",
+          "visual:artic:81539:en:2",
+          "visual:artic:81539:en:3",
+          "visual:artic:81539:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:en:6",
+        "label": "impressionistic brushwork",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:en:visual-1",
+          "claim:artic:81539:en:visual-2",
+          "claim:artic:81539:en:visual-3",
+          "claim:artic:81539:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:en:1",
+          "visual:artic:81539:en:2",
+          "visual:artic:81539:en:3",
+          "visual:artic:81539:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Person sitting under trees by a river with a boat nearby and houses across the water.",
+      "long": "A painted outdoor scene shows a person with dark hair, viewed from behind, seated on grass beneath large trees. They wear a light striped shirt; a straw hat with a blue band lies beside them. A green rowboat rests on the bank near them. The river reflects sky, trees, and distant buildings. Across the water, a cluster of houses with tiled roofs sits on a gentle slope, partially obscured by foliage. Brushstrokes are visible throughout, especially in the leaves and water.",
+      "claimIds": [
+        "claim:artic:81539:en:visual-1",
+        "claim:artic:81539:en:visual-2",
+        "claim:artic:81539:en:visual-3",
+        "claim:artic:81539:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:81539:en:1",
+        "visual:artic:81539:en:2",
+        "visual:artic:81539:en:3",
+        "visual:artic:81539:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:81539:en:visual-1",
+      "artworkId": "artic:81539",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "how the trees shape what we see",
+        "why the figure is placed where it is"
+      ],
+      "claimIds": [
+        "claim:artic:81539:en:visual-1",
+        "claim:artic:81539:en:visual-2",
+        "claim:artic:81539:en:visual-3",
+        "claim:artic:81539:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:81539:en:1",
+        "visual:artic:81539:en:2",
+        "visual:artic:81539:en:3",
+        "visual:artic:81539:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the two prominent tree trunks on the left and the canopy overhead—they form a natural frame that directs attention toward the river and village beyond.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:81539:en:visual-2",
+      "artworkId": "artic:81539",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "what the brushwork tells us",
+        "how the water is painted"
+      ],
+      "claimIds": [
+        "claim:artic:81539:en:visual-1",
+        "claim:artic:81539:en:visual-2",
+        "claim:artic:81539:en:visual-3",
+        "claim:artic:81539:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:81539:en:1",
+        "visual:artic:81539:en:2",
+        "visual:artic:81539:en:3",
+        "visual:artic:81539:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Observe how the water isn’t a uniform color but built from dabs of blue, green, beige, and white—each stroke suggests light and reflection without precise detail.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:81539:en:visual-3",
+      "artworkId": "artic:81539",
+      "locale": "en",
+      "topic": "space",
+      "triggerIntents": [
+        "how distance is shown",
+        "the role of reflection"
+      ],
+      "claimIds": [
+        "claim:artic:81539:en:visual-1",
+        "claim:artic:81539:en:visual-2",
+        "claim:artic:81539:en:visual-3",
+        "claim:artic:81539:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:81539:en:1",
+        "visual:artic:81539:en:2",
+        "visual:artic:81539:en:3",
+        "visual:artic:81539:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Compare the sharpness and detail of the foreground grass and hat with the softer, less-defined forms of the far bank—the contrast creates a clear sense of depth.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "outputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "updatedAt": "2026-07-27T04:24:19.988Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "outputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "updatedAt": "2026-07-27T04:24:19.988Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "outputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "updatedAt": "2026-07-27T04:24:19.988Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "outputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "updatedAt": "2026-07-27T04:24:19.988Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "outputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04",
+      "updatedAt": "2026-07-27T04:24:19.988Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v6",
+    "generatedAt": "2026-07-27T04:24:19.988Z",
+    "inputHash": "4cd8584447a383102127d9cc515dce7d20551bae9132c0814eab3c3b79d29d04"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-4cd8584447a3"
+  }
+}

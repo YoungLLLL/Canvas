@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:16487:en:7f097e9f58fe",
+  "artworkId": "artic:16487",
+  "artworkRevision": "2026-07-25T23:18:35-05:00",
+  "imageRevision": "commons:16487",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:16487:museum",
+      "kind": "museum_record",
+      "title": "The Bay of Marseille, Seen from L'Estaque",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/16487",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:27:59.137Z",
+      "contentHash": "a5fa2f576d80b8e0e6152fbdf541ef3960eb87f48e1b132969b13b9ca27808a2",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_16487:museum-record:a5fa2f576d80b8e0e6152fbdf541ef3960eb87f48e1b132969b13b9ca27808a2"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:16487:en:title",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "The museum records this work as “The Bay of Marseille, Seen from L'Estaque”.",
+      "predicate": "title",
+      "value": "The Bay of Marseille, Seen from L'Estaque",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:16487:museum",
+          "sourceId": "source:artic:16487:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:16487:en:artist",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "The museum attributes this work to Paul Cezanne (French, 1839–1906).",
+      "predicate": "artist",
+      "value": "Paul Cezanne (French, 1839–1906)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:16487:museum",
+          "sourceId": "source:artic:16487:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:16487:en:visual-1",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "The foreground contains clustered buildings with reddish-brown tiled roofs, light-colored walls, and several dark chimneys; one prominent chimney emits a plume of white smoke.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16487:en:1",
+          "imageId": "commons:16487",
+          "basis": "visible",
+          "observation": "The foreground contains clustered buildings with reddish-brown tiled roofs, light-colored walls, and several dark chimneys; one prominent chimney emits a plume of white smoke.",
+          "imageRevision": "commons:16487"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16487:en:visual-2",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "A large body of water dominates the middle ground, rendered in varying shades of blue with visible brushwork suggesting surface texture or movement.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16487:en:2",
+          "imageId": "commons:16487",
+          "basis": "visible",
+          "observation": "A large body of water dominates the middle ground, rendered in varying shades of blue with visible brushwork suggesting surface texture or movement.",
+          "imageRevision": "commons:16487"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16487:en:visual-3",
+      "subjectId": "artic:16487",
+      "layer": "fact",
+      "text": "The background features layered mountain ranges in muted blues, greys, and greens, with soft edges indicating atmospheric distance.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16487:en:3",
+          "imageId": "commons:16487",
+          "basis": "visible",
+          "observation": "The background features layered mountain ranges in muted blues, greys, and greens, with soft edges indicating atmospheric distance.",
+          "imageRevision": "commons:16487"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:16487:en:visual-4",
+      "subjectId": "artic:16487",
+      "layer": "interpretation",
+      "text": "The sky is painted with horizontal brushstrokes in pale blue, grey, and off-white, conveying a diffuse, overcast light condition.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:16487:en:4",
+          "imageId": "commons:16487",
+          "basis": "visible",
+          "observation": "The sky is painted with horizontal brushstrokes in pale blue, grey, and off-white, conveying a diffuse, overcast light condition.",
+          "imageRevision": "commons:16487"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted landscape showing a coastal settlement with terracotta-roofed buildings in the foreground, a wide expanse of blue water, and distant hazy mountains under a pale sky.",
+      "claimIds": [
+        "claim:artic:16487:en:title",
+        "claim:artic:16487:en:artist",
+        "claim:artic:16487:en:visual-1",
+        "claim:artic:16487:en:visual-2",
+        "claim:artic:16487:en:visual-3",
+        "claim:artic:16487:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:16487:en:1",
+        "label": "landscape",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:en:visual-1",
+          "claim:artic:16487:en:visual-2",
+          "claim:artic:16487:en:visual-3",
+          "claim:artic:16487:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:en:1",
+          "visual:artic:16487:en:2",
+          "visual:artic:16487:en:3",
+          "visual:artic:16487:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:en:2",
+        "label": "coastal town",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:en:visual-1",
+          "claim:artic:16487:en:visual-2",
+          "claim:artic:16487:en:visual-3",
+          "claim:artic:16487:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:en:1",
+          "visual:artic:16487:en:2",
+          "visual:artic:16487:en:3",
+          "visual:artic:16487:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:en:3",
+        "label": "chimney smoke",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:en:visual-1",
+          "claim:artic:16487:en:visual-2",
+          "claim:artic:16487:en:visual-3",
+          "claim:artic:16487:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:en:1",
+          "visual:artic:16487:en:2",
+          "visual:artic:16487:en:3",
+          "visual:artic:16487:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:en:4",
+        "label": "brushwork",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:en:visual-1",
+          "claim:artic:16487:en:visual-2",
+          "claim:artic:16487:en:visual-3",
+          "claim:artic:16487:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:en:1",
+          "visual:artic:16487:en:2",
+          "visual:artic:16487:en:3",
+          "visual:artic:16487:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:en:5",
+        "label": "mountains",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:en:visual-1",
+          "claim:artic:16487:en:visual-2",
+          "claim:artic:16487:en:visual-3",
+          "claim:artic:16487:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:en:1",
+          "visual:artic:16487:en:2",
+          "visual:artic:16487:en:3",
+          "visual:artic:16487:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:en:6",
+        "label": "water",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:en:visual-1",
+          "claim:artic:16487:en:visual-2",
+          "claim:artic:16487:en:visual-3",
+          "claim:artic:16487:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:en:1",
+          "visual:artic:16487:en:2",
+          "visual:artic:16487:en:3",
+          "visual:artic:16487:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:16487:en:7",
+        "label": "rooftops",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:16487:en:visual-1",
+          "claim:artic:16487:en:visual-2",
+          "claim:artic:16487:en:visual-3",
+          "claim:artic:16487:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:16487:en:1",
+          "visual:artic:16487:en:2",
+          "visual:artic:16487:en:3",
+          "visual:artic:16487:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Painted view of a hillside village overlooking a bay, with smoke rising from a chimney and mountains in the distance.",
+      "long": "A painted scene depicting a settlement on a sloping hillside in the foreground, featuring houses with terracotta roofs, light beige walls, and multiple dark brick chimneys—some emitting white smoke. Beyond the houses lies a broad expanse of blue water, possibly a bay or sea, with subtle variations in tone and visible impasto brushwork. In the distance, layered mountain ridges appear in soft blues, greys, and muted greens, fading into the horizon. The sky above is composed of blended pale blue, grey, and white strokes, suggesting an overcast or hazy day.",
+      "claimIds": [
+        "claim:artic:16487:en:visual-1",
+        "claim:artic:16487:en:visual-2",
+        "claim:artic:16487:en:visual-3",
+        "claim:artic:16487:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16487:en:1",
+        "visual:artic:16487:en:2",
+        "visual:artic:16487:en:3",
+        "visual:artic:16487:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:16487:en:visual-1",
+      "artworkId": "artic:16487",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "how is the scene arranged",
+        "what draws your eye first",
+        "why are the buildings placed where they are"
+      ],
+      "claimIds": [
+        "claim:artic:16487:en:visual-1",
+        "claim:artic:16487:en:visual-2",
+        "claim:artic:16487:en:visual-3",
+        "claim:artic:16487:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16487:en:1",
+        "visual:artic:16487:en:2",
+        "visual:artic:16487:en:3",
+        "visual:artic:16487:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the diagonal slope of the hill and how it leads the eye from the clustered rooftops toward the water and distant mountains.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:16487:en:visual-2",
+      "artworkId": "artic:16487",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "why so many blues",
+        "what colors stand out",
+        "how do the colors relate"
+      ],
+      "claimIds": [
+        "claim:artic:16487:en:visual-1",
+        "claim:artic:16487:en:visual-2",
+        "claim:artic:16487:en:visual-3",
+        "claim:artic:16487:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16487:en:1",
+        "visual:artic:16487:en:2",
+        "visual:artic:16487:en:3",
+        "visual:artic:16487:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Note the contrast between warm earth tones in the foreground (ochres, reds, greens) and the cool blues and greys dominating the water and sky, and how the white smoke acts as a visual accent.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:16487:en:visual-3",
+      "artworkId": "artic:16487",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "are the brushstrokes visible",
+        "what gives it texture"
+      ],
+      "claimIds": [
+        "claim:artic:16487:en:visual-1",
+        "claim:artic:16487:en:visual-2",
+        "claim:artic:16487:en:visual-3",
+        "claim:artic:16487:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:16487:en:1",
+        "visual:artic:16487:en:2",
+        "visual:artic:16487:en:3",
+        "visual:artic:16487:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Highlight the visible, directional brushstrokes—especially in the sky and water—and how they contribute to the sense of atmosphere rather than precise detail.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "outputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "updatedAt": "2026-07-27T04:27:59.137Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "outputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "updatedAt": "2026-07-27T04:27:59.137Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "outputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "updatedAt": "2026-07-27T04:27:59.137Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "outputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "updatedAt": "2026-07-27T04:27:59.137Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "outputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f",
+      "updatedAt": "2026-07-27T04:27:59.137Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v6",
+    "generatedAt": "2026-07-27T04:27:59.137Z",
+    "inputHash": "7f097e9f58fe5bdae07220a9b0eb79503920784bb9de7bce3f5c605210bc4f3f"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-7f097e9f58fe"
+  }
+}

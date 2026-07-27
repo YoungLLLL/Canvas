@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:61603:en:895e07d40bf6",
+  "artworkId": "artic:61603",
+  "artworkRevision": "2026-03-03T07:21:16-06:00",
+  "imageRevision": null,
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:61603:museum",
+      "kind": "museum_record",
+      "title": "Ballet at the Paris Opéra",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/61603",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:28:42.144Z",
+      "contentHash": "97e2e91c248c1da19981999679c8e3c27a6323f1c76f9d0a9f51ffee493bdd0f",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_61603:museum-record:97e2e91c248c1da19981999679c8e3c27a6323f1c76f9d0a9f51ffee493bdd0f"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:61603:en:title",
+      "subjectId": "artic:61603",
+      "layer": "fact",
+      "text": "The museum records this work as “Ballet at the Paris Opéra”.",
+      "predicate": "title",
+      "value": "Ballet at the Paris Opéra",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:61603:museum",
+          "sourceId": "source:artic:61603:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:61603:en:artist",
+      "subjectId": "artic:61603",
+      "layer": "fact",
+      "text": "The museum attributes this work to Edgar Degas\nFrench, 1834-1917.",
+      "predicate": "artist",
+      "value": "Edgar Degas\nFrench, 1834-1917",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:61603:museum",
+          "sourceId": "source:artic:61603:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "Ballet at the Paris Opéra is attributed to Edgar Degas\nFrench, 1834-1917.",
+      "claimIds": [
+        "claim:artic:61603:en:title",
+        "claim:artic:61603:en:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:61603:en:context",
+      "artworkId": "artic:61603",
+      "locale": "en",
+      "topic": "context",
+      "triggerIntents": [
+        "Ballet at the Paris Opéra",
+        "Edgar Degas\nFrench, 1834-1917",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:61603:en:title",
+        "claim:artic:61603:en:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Use the verified museum title or attribution only when it answers the user's topic.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "895e07d40bf67e180888ec18dc9750fb7a62e5a740f44c800ed205c366e53f7e",
+      "outputHash": "895e07d40bf67e180888ec18dc9750fb7a62e5a740f44c800ed205c366e53f7e",
+      "updatedAt": "2026-07-27T04:28:42.144Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "895e07d40bf67e180888ec18dc9750fb7a62e5a740f44c800ed205c366e53f7e",
+      "outputHash": "895e07d40bf67e180888ec18dc9750fb7a62e5a740f44c800ed205c366e53f7e",
+      "updatedAt": "2026-07-27T04:28:42.144Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "895e07d40bf67e180888ec18dc9750fb7a62e5a740f44c800ed205c366e53f7e",
+      "outputHash": "895e07d40bf67e180888ec18dc9750fb7a62e5a740f44c800ed205c366e53f7e",
+      "updatedAt": "2026-07-27T04:28:42.144Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:28:42.144Z",
+    "inputHash": "895e07d40bf67e180888ec18dc9750fb7a62e5a740f44c800ed205c366e53f7e"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-895e07d40bf6"
+  }
+}

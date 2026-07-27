@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:14620:zh:ffc87e6a38cf",
+  "artworkId": "artic:14620",
+  "artworkRevision": "2026-07-25T23:25:29-05:00",
+  "imageRevision": "commons:14620",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:14620:museum",
+      "kind": "museum_record",
+      "title": "Cliff Walk at Pourville",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/14620",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:23:09.975Z",
+      "contentHash": "80e2bbb032a650fa293546b4a297263fe8a86bf0cb78421daa3bd760f0bb5fe3",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_14620:museum-record:80e2bbb032a650fa293546b4a297263fe8a86bf0cb78421daa3bd760f0bb5fe3"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:14620:zh:title",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "馆方将本作记录为《Cliff Walk at Pourville》。",
+      "predicate": "title",
+      "value": "Cliff Walk at Pourville",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:14620:museum",
+          "sourceId": "source:artic:14620:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:14620:zh:artist",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "馆方将本作归于Claude Monet (French, 1840–1926)。",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:14620:museum",
+          "sourceId": "source:artic:14620:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:14620:zh:visual-1",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "画面右侧有一处深褐色岩石悬崖，其上覆盖着密集的绿色、粉色、黄色与白色交织的野花与草丛；悬崖边缘站立两人，其中一人撑着一把鲜红色阳伞。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14620:zh:1",
+          "imageId": "commons:14620",
+          "basis": "visible",
+          "observation": "画面右侧有一处深褐色岩石悬崖，其上覆盖着密集的绿色、粉色、黄色与白色交织的野花与草丛；悬崖边缘站立两人，其中一人撑着一把鲜红色阳伞。",
+          "imageRevision": "commons:14620"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14620:zh:visual-2",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "海面以短促、交错的笔触表现波光与浪纹，呈现蓝绿、灰白与浅青色的混合层次；远处可见十余艘白色帆船散布于海平线上。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14620:zh:2",
+          "imageId": "commons:14620",
+          "basis": "visible",
+          "observation": "海面以短促、交错的笔触表现波光与浪纹，呈现蓝绿、灰白与浅青色的混合层次；远处可见十余艘白色帆船散布于海平线上。",
+          "imageRevision": "commons:14620"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14620:zh:visual-3",
+      "subjectId": "artic:14620",
+      "layer": "fact",
+      "text": "天空占据画面上半约三分之二，以浅蓝底色铺陈，其上分布多团蓬松的白色云朵，云形不规则，边缘模糊，似随风飘动。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14620:zh:3",
+          "imageId": "commons:14620",
+          "basis": "visible",
+          "observation": "天空占据画面上半约三分之二，以浅蓝底色铺陈，其上分布多团蓬松的白色云朵，云形不规则，边缘模糊，似随风飘动。",
+          "imageRevision": "commons:14620"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:14620:zh:visual-4",
+      "subjectId": "artic:14620",
+      "layer": "interpretation",
+      "text": "整幅画采用厚涂（impasto）技法，颜料堆叠明显，尤其在前景花草与人物衣饰处可见凸起的笔触肌理；右下角有签名与年份字样，但字迹未完全清晰可辨。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:14620:zh:4",
+          "imageId": "commons:14620",
+          "basis": "visible",
+          "observation": "整幅画采用厚涂（impasto）技法，颜料堆叠明显，尤其在前景花草与人物衣饰处可见凸起的笔触肌理；右下角有签名与年份字样，但字迹未完全清晰可辨。",
+          "imageRevision": "commons:14620"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅描绘海岸悬崖边景致的油画，画面以开阔海面与天空为主体，前景为覆盖野花的草坡，右侧有岩石峭壁，数人立于崖顶远眺。",
+      "claimIds": [
+        "claim:artic:14620:zh:title",
+        "claim:artic:14620:zh:artist",
+        "claim:artic:14620:zh:visual-1",
+        "claim:artic:14620:zh:visual-2",
+        "claim:artic:14620:zh:visual-3",
+        "claim:artic:14620:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:14620:zh:1",
+        "label": "海景",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:zh:visual-1",
+          "claim:artic:14620:zh:visual-2",
+          "claim:artic:14620:zh:visual-3",
+          "claim:artic:14620:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:zh:1",
+          "visual:artic:14620:zh:2",
+          "visual:artic:14620:zh:3",
+          "visual:artic:14620:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:zh:2",
+        "label": "悬崖",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:zh:visual-1",
+          "claim:artic:14620:zh:visual-2",
+          "claim:artic:14620:zh:visual-3",
+          "claim:artic:14620:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:zh:1",
+          "visual:artic:14620:zh:2",
+          "visual:artic:14620:zh:3",
+          "visual:artic:14620:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:zh:3",
+        "label": "野花",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:zh:visual-1",
+          "claim:artic:14620:zh:visual-2",
+          "claim:artic:14620:zh:visual-3",
+          "claim:artic:14620:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:zh:1",
+          "visual:artic:14620:zh:2",
+          "visual:artic:14620:zh:3",
+          "visual:artic:14620:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:zh:4",
+        "label": "帆船",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:zh:visual-1",
+          "claim:artic:14620:zh:visual-2",
+          "claim:artic:14620:zh:visual-3",
+          "claim:artic:14620:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:zh:1",
+          "visual:artic:14620:zh:2",
+          "visual:artic:14620:zh:3",
+          "visual:artic:14620:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:zh:5",
+        "label": "阳伞",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:zh:visual-1",
+          "claim:artic:14620:zh:visual-2",
+          "claim:artic:14620:zh:visual-3",
+          "claim:artic:14620:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:zh:1",
+          "visual:artic:14620:zh:2",
+          "visual:artic:14620:zh:3",
+          "visual:artic:14620:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:zh:6",
+        "label": "厚涂笔触",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:zh:visual-1",
+          "claim:artic:14620:zh:visual-2",
+          "claim:artic:14620:zh:visual-3",
+          "claim:artic:14620:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:zh:1",
+          "visual:artic:14620:zh:2",
+          "visual:artic:14620:zh:3",
+          "visual:artic:14620:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:14620:zh:7",
+        "label": "户外写生",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:14620:zh:visual-1",
+          "claim:artic:14620:zh:visual-2",
+          "claim:artic:14620:zh:visual-3",
+          "claim:artic:14620:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:14620:zh:1",
+          "visual:artic:14620:zh:2",
+          "visual:artic:14620:zh:3",
+          "visual:artic:14620:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "油画描绘海边悬崖上两人持红伞观海，前景是繁茂野花，中景为波光粼粼的海面与多艘帆船，背景是蓝天白云。",
+      "long": "画面构图呈左低右高的斜向布局：左侧为广阔海面，水面以短促横向与斜向笔触表现动态波纹，色调以蓝绿为主，间杂白浪；海平线处散布十余艘白色帆船，大小不一，部分仅见帆影。右侧为陡峭岩壁，岩体呈深褐近黑，顶部覆盖浓密植被——由粉、黄、白、绿等色点彩式笔触构成野花丛。崖顶站立两人，一人穿浅色长裙，另一人撑红色阳伞，伞面鲜明突出；人物身形较小，比例符合远景透视。天空占据上部大面积，浅蓝色底上浮着蓬松白色积云，云层厚度与明暗变化通过颜料叠加体现。整体用色明亮，笔触奔放外露，前景草坡处颜料堆积显著，具强烈触感。右下角可见手写签名与数字‘92’，但无法完整释读。",
+      "claimIds": [
+        "claim:artic:14620:zh:visual-1",
+        "claim:artic:14620:zh:visual-2",
+        "claim:artic:14620:zh:visual-3",
+        "claim:artic:14620:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14620:zh:1",
+        "visual:artic:14620:zh:2",
+        "visual:artic:14620:zh:3",
+        "visual:artic:14620:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:14620:zh:visual-1",
+      "artworkId": "artic:14620",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "这画的笔触好特别",
+        "颜料好像堆得很厚"
+      ],
+      "claimIds": [
+        "claim:artic:14620:zh:visual-1",
+        "claim:artic:14620:zh:visual-2",
+        "claim:artic:14620:zh:visual-3",
+        "claim:artic:14620:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14620:zh:1",
+        "visual:artic:14620:zh:2",
+        "visual:artic:14620:zh:3",
+        "visual:artic:14620:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可以指向前景野花处凸起的颜料痕迹，说明这种厚涂方式如何增强光影闪烁感与植物的蓬松质感。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:14620:zh:visual-2",
+      "artworkId": "artic:14620",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "红色阳伞为什么这么抢眼",
+        "海的颜色怎么这么多变"
+      ],
+      "claimIds": [
+        "claim:artic:14620:zh:visual-1",
+        "claim:artic:14620:zh:visual-2",
+        "claim:artic:14620:zh:visual-3",
+        "claim:artic:14620:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14620:zh:1",
+        "visual:artic:14620:zh:2",
+        "visual:artic:14620:zh:3",
+        "visual:artic:14620:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "从红伞作为视觉焦点出发，对比其周围冷色调环境，再引向海面中蓝、绿、灰白交织的笔触如何模拟水光反射。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:14620:zh:visual-3",
+      "artworkId": "artic:14620",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "人怎么显得那么小",
+        "感觉站在高处看海"
+      ],
+      "claimIds": [
+        "claim:artic:14620:zh:visual-1",
+        "claim:artic:14620:zh:visual-2",
+        "claim:artic:14620:zh:visual-3",
+        "claim:artic:14620:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:14620:zh:1",
+        "visual:artic:14620:zh:2",
+        "visual:artic:14620:zh:3",
+        "visual:artic:14620:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "结合悬崖高度与人物尺寸比例，指出画家如何通过压缩近景纵深与拉远海平线来营造开阔视野与临崖观景的现场感。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "outputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "updatedAt": "2026-07-27T04:23:09.975Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "outputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "updatedAt": "2026-07-27T04:23:09.975Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "outputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "updatedAt": "2026-07-27T04:23:09.975Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "outputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "updatedAt": "2026-07-27T04:23:09.975Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "outputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6",
+      "updatedAt": "2026-07-27T04:23:09.975Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v6",
+    "generatedAt": "2026-07-27T04:23:09.975Z",
+    "inputHash": "ffc87e6a38cf112364846005f9ce6ef8e25bb9f9014e4b642c6b5f303c2266b6"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-ffc87e6a38cf"
+  }
+}

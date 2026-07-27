@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:54:32.941Z",
+  "artwork": {
+    "id": "artic:16568",
+    "sourceId": "16568",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/16568",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/16568",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-20T03:37:15-05:00",
+      "accessedAt": "2026-07-27T03:52:35.822Z"
+    },
+    "display": {
+      "title": "Water Lilies",
+      "localizedTitles": {
+        "en": "Water Lilies",
+        "zh": "Water Lilies"
+      },
+      "altTitles": [],
+      "artistDisplay": "Claude Monet (French, 1840–1926)",
+      "dateDisplay": "1906",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "89.9 × 94.1 cm (35 3/8 × 37 1/16 in.); Framed: 103.2 × 107 × 5.8 cm (40 5/8 × 42 1/8 × 2 1/4 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:35809",
+      "sourceId": "35809",
+      "name": "Claude Monet",
+      "display": "Claude Monet (French, 1840–1926)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1906,
+      "end": 1906
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "oil on canvas",
+        "paint",
+        "oil paintings (visual works)",
+        "french",
+        "european painting",
+        "painting",
+        "modern and contemporary art"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:16568",
+        "width": 843,
+        "height": 810,
+        "altText": "Painting of a pond seen up close spotted with thickly painted pink and white water lilies and a shadow across the top third of the picture.",
+        "lqip": "data:image/gif;base64,R0lGODlhBQAFAPQAAEZcaFFfdVtqbk9ldFBlcVFocllrcFlrd11rdl9sdFZtf15wcWV0d2R2eGByfmd6eGl6e2t9elZxiGF4kWB4kmJ9kGJ8lWeCkWSAnQAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAFAAUAAAUVoJBADXI4TLRMWHU9hmRRCjAURBACADs=",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/960px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/1920px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Claude Monet. Water Lilies, 1906. The Art Institute of Chicago. Image source: Unknown source Unknown source"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:52:35.822Z",
+      "reasons": []
+    },
+    "creditLine": "Mr. and Mrs. Martin A. Ryerson Collection",
+    "mainReferenceNumber": "1933.1157",
+    "description": {
+      "html": "<p>Little did Claude Monet know that the water garden he created three years after buying his Giverny, France, property in 1890 would become his primary inspiration over the next two and a half decades. These paintings, numbering around 250, mark Monet’s artistic journey from more straightforward depictions of the pond spanned by the wooden Japanese bridge to the monumental and near-abstract series on the water lily theme he made in preparation for his murals at the Musée de l’Orangerie in Paris between 1914 and 1926.</p>\n<p><em> Water Lilies</em>, one of a group of paintings on the subject made between 1903 and 1908, comes at the midpoint of Monet’s developing style and spatial experimentations. The nearly square format underscores his move away from painting the conventional zones of land, sky, and water to focus solely on the water’s surface. Clusters of water lilies at bottom left and top right frame a watery path, while the water’s surface reflects trees and clouds. Although the dreamlike quality of floating forms might seem to be a natural development for the artist, he considered these works “an obsession,” a sentiment borne out by technical examinations on the Art Institute’s canvas, revealing many significant changes made to the painting in progress.</p>",
+      "text": "Little did Claude Monet know that the water garden he created three years after buying his Giverny, France, property in 1890 would become his primary inspiration over the next two and a half decades. These paintings, numbering around 250, mark Monet’s artistic journey from more straightforward depictions of the pond spanned by the wooden Japanese bridge to the monumental and near-abstract series on the water lily theme he made in preparation for his murals at the Musée de l’Orangerie in Paris between 1914 and 1926. Water Lilies , one of a group of paintings on the subject made between 1903 and 1908, comes at the midpoint of Monet’s developing style and spatial experimentations. The nearly square format underscores his move away from painting the conventional zones of land, sky, and water to focus solely on the water’s surface. Clusters of water lilies at bottom left and top right frame a watery path, while the water’s surface reflects trees and clouds. Although the dreamlike quality of floating forms might seem to be a natural development for the artist, he considered these works “an obsession,” a sentiment borne out by technical examinations on the Art Institute’s canvas, revealing many significant changes made to the painting in progress.",
+      "sourceField": "description"
+    },
+    "revision": "2026-07-20T03:37:15-05:00"
+  }
+}

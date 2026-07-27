@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:01:18.045Z",
+  "artwork": {
+    "id": "artic:61603",
+    "sourceId": "61603",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/61603",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/61603",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-03-03T07:21:16-06:00",
+      "accessedAt": "2026-07-27T04:01:17.721Z"
+    },
+    "display": {
+      "title": "Ballet at the Paris Opéra",
+      "localizedTitles": {
+        "en": "Ballet at the Paris Opéra"
+      },
+      "altTitles": [],
+      "artistDisplay": "Edgar Degas\nFrench, 1834-1917",
+      "dateDisplay": "1877",
+      "mediumDisplay": "Pastel over monotype on cream laid paper",
+      "dimensionsDisplay": "Plate: 35.2 × 70.6 cm (13 7/8 × 27 13/16 in.); Sheet: 35.9 × 71.9 cm (14 3/16 × 28 5/16 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:40543",
+      "sourceId": "40543",
+      "name": "Hilaire Germain Edgar Degas",
+      "display": "Edgar Degas\nFrench, 1834-1917",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1877,
+      "end": 1877
+    },
+    "classification": {
+      "artworkTypeId": 14,
+      "artworkTypeTitle": "Drawing and Watercolor",
+      "departmentTitle": "Prints and Drawings",
+      "classificationTitles": [
+        "pastel",
+        "drawings (visual works)",
+        "prints and drawing",
+        "paper",
+        "monotype"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Hilaire Germain Edgar Degas. Ballet at the Paris Opéra, 1877. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:01:17.721Z",
+      "reasons": [
+        "unsupported_type",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Gift of Mary and Leigh Block",
+    "mainReferenceNumber": "1981.12",
+    "description": {
+      "html": "<p>One of the nineteenth century’s most innovative artists, Edgar Degas often combined traditional techniques in unorthodox ways. In <em>Ballet at the Paris Opéra</em>, the artist creatively joined the monotype technique, rarely used in his time, with the fragile medium of pastel. Described as “the powder of butterfly wings,” pastel was the perfect medium to illustrate the onstage metamorphosis of spindly young dancers into visions of beauty as perfect and short-lived as butterflies. This work, executed on one of the widest monotype plates ever used by the artist, bears Degas’s characteristically cropped forms and odd vantage points, which effectively convey the immediacy of the scene. The view is from the orchestra pit, with the necks of the double basses intruding into the dancers’ zone. The central dancer is in fifth position, <em>en pointe</em>, but the random placement of the corps de ballet, with the dancers’ free-flowing hair, suggests a rehearsal rather than a performance. The Paris Opéra was the official school of the first state-supported ballet, the Académie Royale de Danse, created in 1661.</p>",
+      "text": "One of the nineteenth century’s most innovative artists, Edgar Degas often combined traditional techniques in unorthodox ways. In Ballet at the Paris Opéra , the artist creatively joined the monotype technique, rarely used in his time, with the fragile medium of pastel. Described as “the powder of butterfly wings,” pastel was the perfect medium to illustrate the onstage metamorphosis of spindly young dancers into visions of beauty as perfect and short-lived as butterflies. This work, executed on one of the widest monotype plates ever used by the artist, bears Degas’s characteristically cropped forms and odd vantage points, which effectively convey the immediacy of the scene. The view is from the orchestra pit, with the necks of the double basses intruding into the dancers’ zone. The central dancer is in fifth position, en pointe , but the random placement of the corps de ballet, with the dancers’ free-flowing hair, suggests a rehearsal rather than a performance. The Paris Opéra was the official school of the first state-supported ballet, the Académie Royale de Danse, created in 1661.",
+      "sourceField": "description"
+    },
+    "revision": "2026-03-03T07:21:16-06:00"
+  }
+}

@@ -60,10 +60,11 @@ export default async function ArtworkPage({
         dimensions={artwork.display.dimensionsDisplay || "—"}
         museumUrl={artwork.source.recordUrl}
         imageSourceUrl={image?.sourceUrl}
-        licenseLabel={
-          artwork.rights.image.licenseCode === "PDM-1.0" ? "Public Domain Mark 1.0" : "CC0 1.0"
-        }
+        licenseLabel={artwork.rights.image.licenseCode.replaceAll("-", " ")}
         licenseUrl={artwork.rights.image.licenseUrl || undefined}
+        imageAttribution={artwork.rights.attribution}
+        adaptationsAllowed={artwork.rights.image.usage?.adaptationsAllowed ?? false}
+        commercialUseAllowed={artwork.rights.image.usage?.commercialUseAllowed ?? false}
       />
     </>
   );

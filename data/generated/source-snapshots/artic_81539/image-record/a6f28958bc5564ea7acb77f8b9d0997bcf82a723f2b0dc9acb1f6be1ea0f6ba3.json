@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "artwork-image-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:57:12.892Z",
+  "artworkId": "artic:81539",
+  "image": {
+    "id": "commons:81539",
+    "width": 843,
+    "height": 681,
+    "altText": "Painting of woman in a striped dress seated on the bank of a river, beneath a full, leafy tree, a boat at the shore and a village visible across the river.",
+    "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAADo8JzM3LDw+KTo/NkVPL0FGNEpHMkBHPUNKPlFLM0pLQlFOQVBaR1NjX2dkUHdxW2Nua2xyY3FwYXJwZ3B5cIR8XYJ/apCJa4GDcYmJc42Kc4yJe2N2inaPsAAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUYIFAcCNcJwaBIWWI4T3Ut06ZZGBFRTAOFADs=",
+    "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Claude_Monet_-_On_the_Bank_of_the_Seine%2C_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg/960px-Claude_Monet_-_On_the_Bank_of_the_Seine%2C_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg",
+    "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Claude_Monet_-_On_the_Bank_of_the_Seine%2C_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg/1920px-Claude_Monet_-_On_the_Bank_of_the_Seine%2C_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_On_the_Bank_of_the_Seine,_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg",
+    "zoomable": true,
+    "maxZoomWindowSize": null,
+    "health": "ok"
+  },
+  "rights": {
+    "licenseCode": "PDM-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "attribution": "Claude Monet. On the Bank of the Seine, Bennecourt, 1868. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/81539"
+}

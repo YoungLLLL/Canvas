@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:30:02.442Z",
+  "artwork": {
+    "id": "artic:27992",
+    "sourceId": "27992",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/27992",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/27992",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:27:51-05:00",
+      "accessedAt": "2026-07-27T03:30:01.276Z"
+    },
+    "display": {
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "localizedTitles": {
+        "en": "A Sunday Afternoon on the Island of La Grande Jatte",
+        "zh": "大碗岛的星期天下午"
+      },
+      "altTitles": [],
+      "artistDisplay": "Georges Seurat (French, 1859–1891)",
+      "dateDisplay": "1884–86, border added 1888–89",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "207.5 × 308.1 cm (81 3/4 × 121 1/4 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:40810",
+      "sourceId": "40810",
+      "name": "Georges Seurat",
+      "display": "Georges Seurat (French, 1859–1891)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1884,
+      "end": 1886
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "oil on canvas",
+        "paint",
+        "oil paintings (visual works)",
+        "french",
+        "painting",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:27992",
+        "width": 843,
+        "height": 561,
+        "altText": "Large painting of people in a crowded park, brushstrokes are dots.",
+        "lqip": "data:image/gif;base64,R0lGODlhCAAFAPUAAE1WUFVTU1NWUFZYVllbVlpaW1tcWF1cXVxiWl1jWl9mX2NmVWVnXF9eZlxdaGZkYmpmZWRtYGZuY2htZGpsanBsZXVwZXB5Znp+ZXJwaYSAaYiBaYqIbIeAdI2DcYqFcI+FcoiCd5iRcouJgIyKhoyNi4mMjo2RkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAIAAUAAAYlwBLmMmEkCAHTaRTqfB4QEmgj8mgaGY6lsohIHAXKwQBQIAaCIAA7",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg/960px-A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg/1920px-A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Sunday_on_La_Grande_Jatte,_Georges_Seurat,_1884.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Georges Seurat. A Sunday on La Grande Jatte — 1884, 1884–86, border added 1888–89. The Art Institute of Chicago. Image source: https://www.bostonglobe.com/arts/theater-dance/2016/09/01/huntington-two-georges-one-sondheim/OR1D4DPM8GsME67aXEjWiP/story.html"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:30:01.276Z",
+      "reasons": []
+    },
+    "creditLine": "Helen Birch Bartlett Memorial Collection",
+    "mainReferenceNumber": "1926.224",
+    "description": {
+      "html": "For his largest and best-known painting, Georges Seurat depicted Parisians enjoying all sorts of leisurely activities—strolling, lounging, sailing, and fishing—in the park called La Grande Jatte on the River Seine. He used an innovative technique called Pointillism that was inspired by optical and color theory, applying tiny dabs of different colored paint that viewers would see as a single, and Seurat believed, more brilliant hue.",
+      "text": "For his largest and best-known painting, Georges Seurat depicted Parisians enjoying all sorts of leisurely activities—strolling, lounging, sailing, and fishing—in the park called La Grande Jatte on the River Seine. He used an innovative technique called Pointillism that was inspired by optical and color theory, applying tiny dabs of different colored paint that viewers would see as a single, and Seurat believed, more brilliant hue.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:27:51-05:00"
+  }
+}

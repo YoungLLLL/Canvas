@@ -1,0 +1,492 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:28560:en:88c25d5398b2",
+  "artworkId": "artic:28560",
+  "artworkRevision": "2026-07-25T23:27:29-05:00",
+  "imageRevision": "commons:28560",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:28560:museum",
+      "kind": "museum_record",
+      "title": "The Bedroom",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/28560",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:29:12.462Z",
+      "contentHash": "d7a43fde08391aa62b4f1540e537bf8df62f97f856482b63aceb581a4e426ee7",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_28560:museum-record:d7a43fde08391aa62b4f1540e537bf8df62f97f856482b63aceb581a4e426ee7"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:28560:en:title",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "The museum records this work as “The Bedroom”.",
+      "predicate": "title",
+      "value": "The Bedroom",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:28560:museum",
+          "sourceId": "source:artic:28560:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:28560:en:artist",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "The museum attributes this work to Vincent van Gogh (Dutch, 1853–1890).",
+      "predicate": "artist",
+      "value": "Vincent van Gogh (Dutch, 1853–1890)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:28560:museum",
+          "sourceId": "source:artic:28560:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:28560:en:visual-1",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "The walls are painted blue with vertical brushstrokes; the floor is depicted in intersecting bands of green, pink, and gray, suggesting wooden planks.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:en:1",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "The walls are painted blue with vertical brushstrokes; the floor is depicted in intersecting bands of green, pink, and gray, suggesting wooden planks.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:en:visual-2",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "A wooden bed with a high headboard occupies the right foreground; white bedding and a red blanket or coverlet are visible.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:en:2",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "A wooden bed with a high headboard occupies the right foreground; white bedding and a red blanket or coverlet are visible.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:en:visual-3",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "Two wooden chairs with woven seats sit near a small wooden table holding a pitcher, basin, bottles, and books; one chair is closer to the viewer on the left.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:en:3",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "Two wooden chairs with woven seats sit near a small wooden table holding a pitcher, basin, bottles, and books; one chair is closer to the viewer on the left.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:en:visual-4",
+      "subjectId": "artic:28560",
+      "layer": "fact",
+      "text": "A green-shuttered window with yellow panes is open on the left wall; clothes hang on pegs and a towel hangs from a hook nearby.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:en:4",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "A green-shuttered window with yellow panes is open on the left wall; clothes hang on pegs and a towel hangs from a hook nearby.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:28560:en:visual-5",
+      "subjectId": "artic:28560",
+      "layer": "interpretation",
+      "text": "Several framed pictures hang askew on the blue wall above the bed and table, including one landscape and at least two portraits.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:28560:en:5",
+          "imageId": "commons:28560",
+          "basis": "visible",
+          "observation": "Several framed pictures hang askew on the blue wall above the bed and table, including one landscape and at least two portraits.",
+          "imageRevision": "commons:28560"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted interior scene of a modest bedroom, rendered with visible brushstrokes and vivid color contrasts.",
+      "claimIds": [
+        "claim:artic:28560:en:title",
+        "claim:artic:28560:en:artist",
+        "claim:artic:28560:en:visual-1",
+        "claim:artic:28560:en:visual-2",
+        "claim:artic:28560:en:visual-3",
+        "claim:artic:28560:en:visual-4",
+        "claim:artic:28560:en:visual-5"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:28560:en:1",
+        "label": "bedroom",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:en:visual-1",
+          "claim:artic:28560:en:visual-2",
+          "claim:artic:28560:en:visual-3",
+          "claim:artic:28560:en:visual-4",
+          "claim:artic:28560:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:en:1",
+          "visual:artic:28560:en:2",
+          "visual:artic:28560:en:3",
+          "visual:artic:28560:en:4",
+          "visual:artic:28560:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:en:2",
+        "label": "interior",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:en:visual-1",
+          "claim:artic:28560:en:visual-2",
+          "claim:artic:28560:en:visual-3",
+          "claim:artic:28560:en:visual-4",
+          "claim:artic:28560:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:en:1",
+          "visual:artic:28560:en:2",
+          "visual:artic:28560:en:3",
+          "visual:artic:28560:en:4",
+          "visual:artic:28560:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:en:3",
+        "label": "wooden furniture",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:en:visual-1",
+          "claim:artic:28560:en:visual-2",
+          "claim:artic:28560:en:visual-3",
+          "claim:artic:28560:en:visual-4",
+          "claim:artic:28560:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:en:1",
+          "visual:artic:28560:en:2",
+          "visual:artic:28560:en:3",
+          "visual:artic:28560:en:4",
+          "visual:artic:28560:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:en:4",
+        "label": "blue walls",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:en:visual-1",
+          "claim:artic:28560:en:visual-2",
+          "claim:artic:28560:en:visual-3",
+          "claim:artic:28560:en:visual-4",
+          "claim:artic:28560:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:en:1",
+          "visual:artic:28560:en:2",
+          "visual:artic:28560:en:3",
+          "visual:artic:28560:en:4",
+          "visual:artic:28560:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:en:5",
+        "label": "green floor",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:en:visual-1",
+          "claim:artic:28560:en:visual-2",
+          "claim:artic:28560:en:visual-3",
+          "claim:artic:28560:en:visual-4",
+          "claim:artic:28560:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:en:1",
+          "visual:artic:28560:en:2",
+          "visual:artic:28560:en:3",
+          "visual:artic:28560:en:4",
+          "visual:artic:28560:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:en:6",
+        "label": "open window",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:en:visual-1",
+          "claim:artic:28560:en:visual-2",
+          "claim:artic:28560:en:visual-3",
+          "claim:artic:28560:en:visual-4",
+          "claim:artic:28560:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:en:1",
+          "visual:artic:28560:en:2",
+          "visual:artic:28560:en:3",
+          "visual:artic:28560:en:4",
+          "visual:artic:28560:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:28560:en:7",
+        "label": "hanging pictures",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:28560:en:visual-1",
+          "claim:artic:28560:en:visual-2",
+          "claim:artic:28560:en:visual-3",
+          "claim:artic:28560:en:visual-4",
+          "claim:artic:28560:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:28560:en:1",
+          "visual:artic:28560:en:2",
+          "visual:artic:28560:en:3",
+          "visual:artic:28560:en:4",
+          "visual:artic:28560:en:5"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Painted bedroom with blue walls, green-pink floor, wooden bed and chairs, open window, and framed pictures.",
+      "long": "A vividly colored painted room interior: blue walls with vertical texture, a floor composed of diagonal green, pink, and gray strokes suggesting wood planks. A large wooden bed with white linens and a red blanket dominates the right side. Two matching wooden chairs with woven seats flank a small table holding a ceramic pitcher, basin, glass bottles, and stacked books. On the left wall, a green-framed window with yellow panes is open; nearby, garments hang on wall pegs and a striped towel hangs from a hook. Several small framed artworks—including a landscape and portraits—are hung unevenly on the wall above the bed.",
+      "claimIds": [
+        "claim:artic:28560:en:visual-1",
+        "claim:artic:28560:en:visual-2",
+        "claim:artic:28560:en:visual-3",
+        "claim:artic:28560:en:visual-4",
+        "claim:artic:28560:en:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:en:1",
+        "visual:artic:28560:en:2",
+        "visual:artic:28560:en:3",
+        "visual:artic:28560:en:4",
+        "visual:artic:28560:en:5"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:28560:en:visual-1",
+      "artworkId": "artic:28560",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "What colors stand out?",
+        "Why use such bright blues and greens?"
+      ],
+      "claimIds": [
+        "claim:artic:28560:en:visual-1",
+        "claim:artic:28560:en:visual-2",
+        "claim:artic:28560:en:visual-3",
+        "claim:artic:28560:en:visual-4",
+        "claim:artic:28560:en:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:en:1",
+        "visual:artic:28560:en:2",
+        "visual:artic:28560:en:3",
+        "visual:artic:28560:en:4",
+        "visual:artic:28560:en:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the contrast between the dominant blue wall and the warm yellow-orange bed frame, then note how the green floor both complements and destabilizes the composition.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:28560:en:visual-2",
+      "artworkId": "artic:28560",
+      "locale": "en",
+      "topic": "space",
+      "triggerIntents": [
+        "How does the room feel—crowded or empty?",
+        "Is the perspective realistic?"
+      ],
+      "claimIds": [
+        "claim:artic:28560:en:visual-1",
+        "claim:artic:28560:en:visual-2",
+        "claim:artic:28560:en:visual-3",
+        "claim:artic:28560:en:visual-4",
+        "claim:artic:28560:en:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:en:1",
+        "visual:artic:28560:en:2",
+        "visual:artic:28560:en:3",
+        "visual:artic:28560:en:4",
+        "visual:artic:28560:en:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace the converging floorboards and tilted picture frames to show how the space feels compressed and slightly distorted, not measured by strict linear perspective.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:28560:en:visual-3",
+      "artworkId": "artic:28560",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "Are the brushstrokes visible?",
+        "How is texture created?"
+      ],
+      "claimIds": [
+        "claim:artic:28560:en:visual-1",
+        "claim:artic:28560:en:visual-2",
+        "claim:artic:28560:en:visual-3",
+        "claim:artic:28560:en:visual-4",
+        "claim:artic:28560:en:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:28560:en:1",
+        "visual:artic:28560:en:2",
+        "visual:artic:28560:en:3",
+        "visual:artic:28560:en:4",
+        "visual:artic:28560:en:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Zoom into the wall or floor areas to highlight the thick, directional paint application that builds surface texture rather than smooth finish.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "outputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "updatedAt": "2026-07-27T03:29:12.462Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "outputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "updatedAt": "2026-07-27T03:29:12.462Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "outputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "updatedAt": "2026-07-27T03:29:12.462Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "outputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "updatedAt": "2026-07-27T03:29:12.462Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "outputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889",
+      "updatedAt": "2026-07-27T03:29:12.462Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v1",
+    "generatedAt": "2026-07-27T03:29:12.462Z",
+    "inputHash": "88c25d5398b2b1938c4ac24a8826f7089df0326e933d0462189d5a41dce4c889"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-88c25d5398b2"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:01:18.381Z",
+  "artwork": {
+    "id": "artic:86385",
+    "sourceId": "86385",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/86385",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/86385",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:27:01-05:00",
+      "accessedAt": "2026-07-27T04:01:18.074Z"
+    },
+    "display": {
+      "title": "City Landscape",
+      "localizedTitles": {
+        "en": "City Landscape"
+      },
+      "altTitles": [],
+      "artistDisplay": "Joan Mitchell\nAmerican, 1925-1992",
+      "dateDisplay": "1955",
+      "mediumDisplay": "Oil on linen",
+      "dimensionsDisplay": "203.2 × 203.2 cm (80 × 80 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:17463",
+      "sourceId": "17463",
+      "name": "Joan Mitchell",
+      "display": "Joan Mitchell\nAmerican, 1925-1992",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1955,
+      "end": 1955
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Contemporary Art",
+      "classificationTitles": [
+        "painting",
+        "modern and contemporary art"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "copyrighted",
+        "notice": "© The Estate of Joan Mitchell"
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Joan Mitchell. City Landscape, 1955. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:01:18.074Z",
+      "reasons": [
+        "image_rights_not_open",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Gift of Society for Contemporary American Art",
+    "mainReferenceNumber": "1958.193",
+    "description": {
+      "html": "Although influenced by Abstract Expressionist artists in New York in the early 1950s, Joan Mitchell did not prioritize her own self-expression. Her often exuberant abstractions were “about landscape, not about me,” she once explained. Mitchell painted large, light-filled canvases animated by loosely applied tangles of bright color—here, infused with the energy of a large metropolis.",
+      "text": "Although influenced by Abstract Expressionist artists in New York in the early 1950s, Joan Mitchell did not prioritize her own self-expression. Her often exuberant abstractions were “about landscape, not about me,” she once explained. Mitchell painted large, light-filled canvases animated by loosely applied tangles of bright color—here, infused with the energy of a large metropolis.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:27:01-05:00"
+  }
+}

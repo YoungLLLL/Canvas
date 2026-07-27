@@ -53,8 +53,14 @@ JPEG 地址。普通 `<img>` 无法完成顶层网页挑战，因此正式页面
 
 作品与权利状态继续以 ARTIC 为权威来源。图片通过 Wikidata 的 ARTIC artwork ID 属性
 `P4610` 精确映射到 Wikimedia Commons，不使用标题模糊匹配；映射后再次读取 Commons
-机器可读许可，只接受 Public Domain 或 CC0 图片。ARTIC 与 Wikidata 权利状态冲突时以 ARTIC
+机器可读许可，接受 Public Domain、CC0 及许可信息明确的 CC BY／BY-SA／BY-NC／BY-NC-SA／BY-ND／BY-NC-ND 图片。NC 图片仅限当前非商业项目；ND 图片只允许技术性转换，不允许内容性修改。ARTIC 与 Wikidata 权利状态冲突时以 ARTIC
 为准。没有可信映射的记录降级为仅资料状态，不再请求已知会失败的 ARTIC JPEG。
+
+Wikimedia 映射与权利元数据按 ARTIC ID 持久化到本地缓存，默认位于
+`apps/web/.cache/wikimedia/artic`；其中不保存图片文件。成功映射缓存 30 天，确认无可用
+映射的结果缓存 1 天。缓存未命中时才访问 Wikidata 与 Commons，所有请求共用限速队列；
+遇到 429 时遵循 `Retry-After` 并执行指数退避。限流和临时网络错误分别标记为
+`commons_rate_limited`、`commons_temporarily_unavailable`，不再误记为确认缺图。
 
 ## 4. 自动验证
 
@@ -99,3 +105,14 @@ npm run verify:stage5 -- --pages 42 --concurrency 1 --page-delay-ms 500 --image-
 - 当前缺口为 `artic:65940`、`artic:90207` 与 `artic:25781`。
 
 该 smoke 样本不足以替代 42 页长跑，但已经证明 Stage 5 不能关闭：最新更新记录的映射缺口超过当前门槛。随后对三件缺口做了 Wikidata 与 Commons 机器可读字段复查：`artic:65940` 和 `artic:90207` 均有 `P4610`，但没有 `P18`；`artic:25781` 有 `P18`，但对应 Commons 文件为 `CC BY-SA 4.0` 且标记为受版权保护，不符合当前只接受 Public Domain／CC0 的图片规则。三件降级均符合现行准入逻辑，不是映射程序误判。下一步需要决定是接受这类作品以仅资料状态出现，还是研究不降低权利标准的第二个精确图片来源，然后再执行约 500 件的正式抽查。
+
+2026-07-27 已完成 42 页正式长跑，报告为
+`evaluation/runs/stage5-catalog-2026-07-27T04-33-05Z.json`：
+
+- 共返回 504 条记录、488 个唯一作品，出现 16 条跨页重复；
+- 490 条记录属于 Commons 映射候选，其中 150 条有合规图片，映射率为 30.6%，远低于 95% 门槛；
+- 权利与来源字段完整率为 100%，42 页均成功返回，没有页面请求失败；
+- 5 张均匀抽样图片中 4 张得到结论且均可访问；1 张被 Wikimedia 返回 429，因此图片可达率为 100%，有效探测覆盖率为 80%；
+- 大量连续页面为 0/12 映射，缺口不是少数异常作品，Stage 5 仍不能关闭。
+
+本次长跑同时说明 `updated_at desc, id asc` 的显式排序仍可能在跨页期间得到重复记录，需要继续核对上游搜索分页稳定性或改用快照／本地目录；在解决映射覆盖与分页稳定性前，不应把实时搜索结果描述为稳定完整馆藏。

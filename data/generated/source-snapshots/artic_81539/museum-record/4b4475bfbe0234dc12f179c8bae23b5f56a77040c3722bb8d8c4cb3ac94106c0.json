@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:57:12.892Z",
+  "artwork": {
+    "id": "artic:81539",
+    "sourceId": "81539",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/81539",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/81539",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:25:26-05:00",
+      "accessedAt": "2026-07-27T03:52:42.781Z"
+    },
+    "display": {
+      "title": "On the Bank of the Seine, Bennecourt",
+      "localizedTitles": {
+        "en": "On the Banks of the Seine, Bennecourt",
+        "zh": "On the Banks of the Seine, Bennecourt"
+      },
+      "altTitles": [],
+      "artistDisplay": "Claude Monet (French, 1840–1926)",
+      "dateDisplay": "1868",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "81.5 × 100.7 cm (32 1/16 × 39 5/8 in.); Framed: 98.5 × 117.8 × 8 cm (38 3/4 × 46 3/8 × 3 1/8 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:35809",
+      "sourceId": "35809",
+      "name": "Claude Monet",
+      "display": "Claude Monet (French, 1840–1926)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1868,
+      "end": 1868
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "painting",
+        "french",
+        "oil paintings (visual works)",
+        "oil on canvas",
+        "paint",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:81539",
+        "width": 843,
+        "height": 681,
+        "altText": "Painting of woman in a striped dress seated on the bank of a river, beneath a full, leafy tree, a boat at the shore and a village visible across the river.",
+        "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAADo8JzM3LDw+KTo/NkVPL0FGNEpHMkBHPUNKPlFLM0pLQlFOQVBaR1NjX2dkUHdxW2Nua2xyY3FwYXJwZ3B5cIR8XYJ/apCJa4GDcYmJc42Kc4yJe2N2inaPsAAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUYIFAcCNcJwaBIWWI4T3Ut06ZZGBFRTAOFADs=",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Claude_Monet_-_On_the_Bank_of_the_Seine%2C_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg/960px-Claude_Monet_-_On_the_Bank_of_the_Seine%2C_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Claude_Monet_-_On_the_Bank_of_the_Seine%2C_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg/1920px-Claude_Monet_-_On_the_Bank_of_the_Seine%2C_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_On_the_Bank_of_the_Seine,_Bennecourt_-_1922.427_-_Art_Institute_of_Chicago.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Claude Monet. On the Bank of the Seine, Bennecourt, 1868. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/81539"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:52:42.781Z",
+      "reasons": []
+    },
+    "creditLine": "Potter Palmer Collection",
+    "mainReferenceNumber": "1922.427",
+    "description": {
+      "html": "Monet painted this work in his late 20s when he was not yet widely known but was already using radical techniques to depict scenes from modern life, such as this one, featuring his future wife, Camille Doncieux. At the time, viewers were used to paintings that aimed to mirror reality, with a smooth traditional paint surface. To them Monet's approach seemed shockingly unfinished and illegible.",
+      "text": "Monet painted this work in his late 20s when he was not yet widely known but was already using radical techniques to depict scenes from modern life, such as this one, featuring his future wife, Camille Doncieux. At the time, viewers were used to paintings that aimed to mirror reality, with a smooth traditional paint surface. To them Monet's approach seemed shockingly unfinished and illegible.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:25:26-05:00"
+  }
+}

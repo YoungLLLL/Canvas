@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:27992:en:b4ffc708b7d3",
+  "artworkId": "artic:27992",
+  "artworkRevision": "2026-07-25T23:27:51-05:00",
+  "imageRevision": "commons:27992",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:27992:museum",
+      "kind": "museum_record",
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/27992",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:54:11.149Z",
+      "contentHash": "a4bf8b023464d600c0382f6a9aff8de0945d961c230b7836a8d1e09e567517fd",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_27992:museum-record:a4bf8b023464d600c0382f6a9aff8de0945d961c230b7836a8d1e09e567517fd"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:27992:en:title",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "The museum records this work as “A Sunday on La Grande Jatte — 1884”.",
+      "predicate": "title",
+      "value": "A Sunday on La Grande Jatte — 1884",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27992:museum",
+          "sourceId": "source:artic:27992:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27992:en:artist",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "The museum attributes this work to Georges Seurat (French, 1859–1891).",
+      "predicate": "artist",
+      "value": "Georges Seurat (French, 1859–1891)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:27992:museum",
+          "sourceId": "source:artic:27992:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:27992:en:visual-1",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "The entire surface is composed of small, distinct dots of color applied side by side, creating forms and shading through optical mixing rather than blended brushwork.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:en:1",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "The entire surface is composed of small, distinct dots of color applied side by side, creating forms and shading through optical mixing rather than blended brushwork.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:en:visual-2",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "Figures are arranged across multiple planes: foreground figures recline or sit on the grass, midground figures stand or sit under umbrellas, and background figures appear near the water’s edge and on boats.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:en:2",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "Figures are arranged across multiple planes: foreground figures recline or sit on the grass, midground figures stand or sit under umbrellas, and background figures appear near the water’s edge and on boats.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:en:visual-3",
+      "subjectId": "artic:27992",
+      "layer": "fact",
+      "text": "A black dog walks across the lower center of the composition, while a small monkey on a leash appears near the right edge beside a standing woman in dark clothing.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:en:3",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "A black dog walks across the lower center of the composition, while a small monkey on a leash appears near the right edge beside a standing woman in dark clothing.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:27992:en:visual-4",
+      "subjectId": "artic:27992",
+      "layer": "interpretation",
+      "text": "Strong diagonal shadows cast from left to right suggest a consistent light source from the upper left, indicating bright daylight.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:27992:en:4",
+          "imageId": "commons:27992",
+          "basis": "visible",
+          "observation": "Strong diagonal shadows cast from left to right suggest a consistent light source from the upper left, indicating bright daylight.",
+          "imageRevision": "commons:27992"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A large, detailed painting depicting numerous figures relaxing on a grassy riverside bank under trees, with boats visible on the water in the background.",
+      "claimIds": [
+        "claim:artic:27992:en:title",
+        "claim:artic:27992:en:artist",
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:27992:en:1",
+        "label": "pointillism",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:2",
+        "label": "park scene",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:3",
+        "label": "river",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:4",
+        "label": "umbrellas",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:5",
+        "label": "formal attire",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:6",
+        "label": "dogs",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:27992:en:7",
+        "label": "monkeys",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:27992:en:visual-1",
+          "claim:artic:27992:en:visual-2",
+          "claim:artic:27992:en:visual-3",
+          "claim:artic:27992:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:27992:en:1",
+          "visual:artic:27992:en:2",
+          "visual:artic:27992:en:3",
+          "visual:artic:27992:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "A dotted-color painting of people relaxing on a grassy riverbank with trees, boats, umbrellas, a dog, and a monkey.",
+      "long": "A horizontally oriented painting rendered entirely in small, discrete colored dots. In the foreground, several figures recline and sit on green grass; one man lies on his back wearing a sleeveless top and cap, another sits upright in a dark suit and top hat holding a cane. A black dog walks toward the center, and near the right edge, a small brown monkey stands on its hind legs beside a woman in a long dark dress and hat holding a black umbrella. Midground features include seated and standing figures under red, blue, and black umbrellas, a child in white, and a woman in a long red dress. Background shows a calm river with sailboats and rowboats, and more distant figures along the far bank beneath leafy green trees. The lighting creates sharp diagonal shadows across the grass.",
+      "claimIds": [
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:en:1",
+        "visual:artic:27992:en:2",
+        "visual:artic:27992:en:3",
+        "visual:artic:27992:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:27992:en:visual-1",
+      "artworkId": "artic:27992",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this made",
+        "what style is this",
+        "why does it look pixelated"
+      ],
+      "claimIds": [
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:en:1",
+        "visual:artic:27992:en:2",
+        "visual:artic:27992:en:3",
+        "visual:artic:27992:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the uniform dot pattern across the canvas and note how adjacent colors—like yellow and green dots in the grass—create perceived tones without blending.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27992:en:visual-2",
+      "artworkId": "artic:27992",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "how are the people arranged",
+        "what draws your eye first"
+      ],
+      "claimIds": [
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:en:1",
+        "visual:artic:27992:en:2",
+        "visual:artic:27992:en:3",
+        "visual:artic:27992:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace the strong diagonal shadow line from upper left to lower right, then observe how figures cluster along that line and at the vertical axis near the right-side woman with the umbrella.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:27992:en:visual-3",
+      "artworkId": "artic:27992",
+      "locale": "en",
+      "topic": "subject",
+      "triggerIntents": [
+        "who are these people",
+        "what are they doing"
+      ],
+      "claimIds": [
+        "claim:artic:27992:en:visual-1",
+        "claim:artic:27992:en:visual-2",
+        "claim:artic:27992:en:visual-3",
+        "claim:artic:27992:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:27992:en:1",
+        "visual:artic:27992:en:2",
+        "visual:artic:27992:en:3",
+        "visual:artic:27992:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Describe specific visible actions: a man reading a newspaper, a woman holding flowers, children playing, a dog walking, and a monkey on a leash—without assuming social roles or narrative.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "outputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "updatedAt": "2026-07-27T03:54:11.149Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "outputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "updatedAt": "2026-07-27T03:54:11.149Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "outputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "updatedAt": "2026-07-27T03:54:11.149Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "outputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "updatedAt": "2026-07-27T03:54:11.149Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "outputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6",
+      "updatedAt": "2026-07-27T03:54:11.149Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v3",
+    "generatedAt": "2026-07-27T03:54:11.149Z",
+    "inputHash": "b4ffc708b7d383211ffde555a1d56f043d691a92011b72803bcd5db6a9935cf6"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-b4ffc708b7d3"
+  }
+}

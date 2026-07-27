@@ -1,0 +1,436 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:64818:en:347b562d9374",
+  "artworkId": "artic:64818",
+  "artworkRevision": "2026-07-25T23:26:59-05:00",
+  "imageRevision": "commons:64818",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:64818:museum",
+      "kind": "museum_record",
+      "title": "Stacks of Wheat (End of Summer)",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/64818",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:12:45.821Z",
+      "contentHash": "b056b125f878cfe315aa683227e8a1ca8e6f2166473f5d6ef40a36ff0a68e580",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_64818:museum-record:b056b125f878cfe315aa683227e8a1ca8e6f2166473f5d6ef40a36ff0a68e580"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:64818:en:title",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "The museum records this work as “Stacks of Wheat (End of Summer)”.",
+      "predicate": "title",
+      "value": "Stacks of Wheat (End of Summer)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:64818:museum",
+          "sourceId": "source:artic:64818:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:64818:en:artist",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "The museum attributes this work to Claude Monet (French, 1840–1926).",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:64818:museum",
+          "sourceId": "source:artic:64818:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:64818:en:visual-1",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "Two prominent, conical haystacks dominate the foreground and midground; the one on the right is larger and closer, the one on the left smaller and slightly farther back.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:en:1",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "Two prominent, conical haystacks dominate the foreground and midground; the one on the right is larger and closer, the one on the left smaller and slightly farther back.",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:en:visual-2",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "The ground is painted with short, broken strokes of pink, green, blue, and ochre, suggesting grass or harvested stubble with dappled light and shadow.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:en:2",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "The ground is painted with short, broken strokes of pink, green, blue, and ochre, suggesting grass or harvested stubble with dappled light and shadow.",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:en:visual-3",
+      "subjectId": "artic:64818",
+      "layer": "fact",
+      "text": "The background features a low treeline and rolling hills in muted purples, greens, and grays, with faint white shapes that may be buildings partially obscured by foliage.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:en:3",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "The background features a low treeline and rolling hills in muted purples, greens, and grays, with faint white shapes that may be buildings partially obscured by foliage.",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:64818:en:visual-4",
+      "subjectId": "artic:64818",
+      "layer": "interpretation",
+      "text": "The sky is a pale gradient from warm yellow-green near the horizon to cool gray-blue above, with no distinct clouds—suggesting diffuse lighting, possibly dawn or dusk.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:64818:en:4",
+          "imageId": "commons:64818",
+          "basis": "visible",
+          "observation": "The sky is a pale gradient from warm yellow-green near the horizon to cool gray-blue above, with no distinct clouds—suggesting diffuse lighting, possibly dawn or dusk.",
+          "imageRevision": "commons:64818"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A landscape painting depicting two large, rounded haystacks in a field under a soft, hazy sky, with distant trees and hills rendered in loose, textured brushwork.",
+      "claimIds": [
+        "claim:artic:64818:en:title",
+        "claim:artic:64818:en:artist",
+        "claim:artic:64818:en:visual-1",
+        "claim:artic:64818:en:visual-2",
+        "claim:artic:64818:en:visual-3",
+        "claim:artic:64818:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:64818:en:1",
+        "label": "haystack",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:en:visual-1",
+          "claim:artic:64818:en:visual-2",
+          "claim:artic:64818:en:visual-3",
+          "claim:artic:64818:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:en:1",
+          "visual:artic:64818:en:2",
+          "visual:artic:64818:en:3",
+          "visual:artic:64818:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:en:2",
+        "label": "landscape",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:en:visual-1",
+          "claim:artic:64818:en:visual-2",
+          "claim:artic:64818:en:visual-3",
+          "claim:artic:64818:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:en:1",
+          "visual:artic:64818:en:2",
+          "visual:artic:64818:en:3",
+          "visual:artic:64818:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:en:3",
+        "label": "impressionistic brushwork",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:en:visual-1",
+          "claim:artic:64818:en:visual-2",
+          "claim:artic:64818:en:visual-3",
+          "claim:artic:64818:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:en:1",
+          "visual:artic:64818:en:2",
+          "visual:artic:64818:en:3",
+          "visual:artic:64818:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:en:4",
+        "label": "pastel palette",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:en:visual-1",
+          "claim:artic:64818:en:visual-2",
+          "claim:artic:64818:en:visual-3",
+          "claim:artic:64818:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:en:1",
+          "visual:artic:64818:en:2",
+          "visual:artic:64818:en:3",
+          "visual:artic:64818:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:en:5",
+        "label": "rural scene",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:en:visual-1",
+          "claim:artic:64818:en:visual-2",
+          "claim:artic:64818:en:visual-3",
+          "claim:artic:64818:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:en:1",
+          "visual:artic:64818:en:2",
+          "visual:artic:64818:en:3",
+          "visual:artic:64818:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:64818:en:6",
+        "label": "plein air effect",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:64818:en:visual-1",
+          "claim:artic:64818:en:visual-2",
+          "claim:artic:64818:en:visual-3",
+          "claim:artic:64818:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:64818:en:1",
+          "visual:artic:64818:en:2",
+          "visual:artic:64818:en:3",
+          "visual:artic:64818:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Painting of two large haystacks in a colorful, textured field with distant trees and hills under a soft sky.",
+      "long": "A horizontally oriented painting showing two rounded haystacks—one larger on the right, one smaller on the left—set in an open field. The field surface is rendered with visible, multicolored brushstrokes of pink, green, blue, and yellow, evoking light on uneven terrain. Behind the haystacks lies a band of dark green and purple foliage, with faint white structures barely visible among the trees. Rolling hills form the far background beneath a pale, luminous sky that transitions from warm tones at the horizon to cooler tones above. The entire surface shows thick, impasto-like texture, especially around the haystacks.",
+      "claimIds": [
+        "claim:artic:64818:en:visual-1",
+        "claim:artic:64818:en:visual-2",
+        "claim:artic:64818:en:visual-3",
+        "claim:artic:64818:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:en:1",
+        "visual:artic:64818:en:2",
+        "visual:artic:64818:en:3",
+        "visual:artic:64818:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:64818:en:visual-1",
+      "artworkId": "artic:64818",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "what colors are used in the field",
+        "why so many colors for grass",
+        "how does color suggest time of day"
+      ],
+      "claimIds": [
+        "claim:artic:64818:en:visual-1",
+        "claim:artic:64818:en:visual-2",
+        "claim:artic:64818:en:visual-3",
+        "claim:artic:64818:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:en:1",
+        "visual:artic:64818:en:2",
+        "visual:artic:64818:en:3",
+        "visual:artic:64818:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the patchwork of pinks, blues, and greens in the foreground and note how they avoid uniform green—this reflects light scattering across textured ground rather than depicting literal grass color.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:64818:en:visual-2",
+      "artworkId": "artic:64818",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "what kind of brushwork is this",
+        "why are the edges blurry"
+      ],
+      "claimIds": [
+        "claim:artic:64818:en:visual-1",
+        "claim:artic:64818:en:visual-2",
+        "claim:artic:64818:en:visual-3",
+        "claim:artic:64818:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:en:1",
+        "visual:artic:64818:en:2",
+        "visual:artic:64818:en:3",
+        "visual:artic:64818:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Trace the visible ridges of paint along the haystacks’ contours to show how thick, directional strokes build volume without sharp outlines.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:64818:en:visual-3",
+      "artworkId": "artic:64818",
+      "locale": "en",
+      "topic": "space",
+      "triggerIntents": [
+        "how do we know distance here",
+        "what makes the background recede",
+        "why do the haystacks feel close"
+      ],
+      "claimIds": [
+        "claim:artic:64818:en:visual-1",
+        "claim:artic:64818:en:visual-2",
+        "claim:artic:64818:en:visual-3",
+        "claim:artic:64818:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:64818:en:1",
+        "visual:artic:64818:en:2",
+        "visual:artic:64818:en:3",
+        "visual:artic:64818:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Compare the size, detail, and color saturation of the right haystack (larger, warmer, more textured) to the left one (smaller, cooler, less defined) and then to the distant treeline (flatter, lower contrast) to illustrate atmospheric perspective.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "outputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "updatedAt": "2026-07-27T04:12:45.821Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "outputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "updatedAt": "2026-07-27T04:12:45.821Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "outputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "updatedAt": "2026-07-27T04:12:45.821Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "outputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "updatedAt": "2026-07-27T04:12:45.821Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "outputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9",
+      "updatedAt": "2026-07-27T04:12:45.821Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:12:45.821Z",
+    "inputHash": "347b562d93748691e010638ca57d466800a3e149bf551c577e4476231e44d3d9"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-347b562d9374"
+  }
+}

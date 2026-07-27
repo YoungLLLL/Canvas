@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:9010:zh:7d7088117318",
+  "artworkId": "artic:9010",
+  "artworkRevision": "2026-07-22T13:20:30-05:00",
+  "imageRevision": null,
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:9010:museum",
+      "kind": "museum_record",
+      "title": "L'Estaque",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/9010",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:01:17.332Z",
+      "contentHash": "9d8c6b3df8b01e4ea9f8eeb432c8aa1443979818cc3b3ba1c405e929249608e6",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_9010:museum-record:9d8c6b3df8b01e4ea9f8eeb432c8aa1443979818cc3b3ba1c405e929249608e6"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:9010:zh:title",
+      "subjectId": "artic:9010",
+      "layer": "fact",
+      "text": "馆方将本作记录为《L'Estaque》。",
+      "predicate": "title",
+      "value": "L'Estaque",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:9010:museum",
+          "sourceId": "source:artic:9010:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:9010:zh:artist",
+      "subjectId": "artic:9010",
+      "layer": "fact",
+      "text": "馆方将本作归于Émilie Charmy\nFrench, 1880–1974。",
+      "predicate": "artist",
+      "value": "Émilie Charmy\nFrench, 1880–1974",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:9010:museum",
+          "sourceId": "source:artic:9010:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "《L'Estaque》由馆方归于Émilie Charmy\nFrench, 1880–1974；当前仅提供经核验的馆方资料，不生成画面描述。",
+      "claimIds": [
+        "claim:artic:9010:zh:title",
+        "claim:artic:9010:zh:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:9010:zh:context",
+      "artworkId": "artic:9010",
+      "locale": "zh",
+      "topic": "context",
+      "triggerIntents": [
+        "L'Estaque",
+        "Émilie Charmy\nFrench, 1880–1974",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:9010:zh:title",
+        "claim:artic:9010:zh:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "仅在回应用户当前话题时使用经核验的馆方标题或作者归属，不补写画面内容。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7d7088117318ab34b06bed2326b09929cc4d88ca2486f13eb69557e9961df467",
+      "outputHash": "7d7088117318ab34b06bed2326b09929cc4d88ca2486f13eb69557e9961df467",
+      "updatedAt": "2026-07-27T04:01:17.332Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7d7088117318ab34b06bed2326b09929cc4d88ca2486f13eb69557e9961df467",
+      "outputHash": "7d7088117318ab34b06bed2326b09929cc4d88ca2486f13eb69557e9961df467",
+      "updatedAt": "2026-07-27T04:01:17.332Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "7d7088117318ab34b06bed2326b09929cc4d88ca2486f13eb69557e9961df467",
+      "outputHash": "7d7088117318ab34b06bed2326b09929cc4d88ca2486f13eb69557e9961df467",
+      "updatedAt": "2026-07-27T04:01:17.332Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:01:17.332Z",
+    "inputHash": "7d7088117318ab34b06bed2326b09929cc4d88ca2486f13eb69557e9961df467"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-7d7088117318"
+  }
+}

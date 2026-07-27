@@ -1,0 +1,493 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:109819:en:f1ab6addc4ac",
+  "artworkId": "artic:109819",
+  "artworkRevision": "2026-07-25T23:26:54-05:00",
+  "imageRevision": "commons:109819",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:109819:museum",
+      "kind": "museum_record",
+      "title": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/109819",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:15:46.682Z",
+      "contentHash": "67b0ff6c0c7c955563b1cc9f04ceb348aa34737482ad538002779a9dadcda558",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_109819:museum-record:67b0ff6c0c7c955563b1cc9f04ceb348aa34737482ad538002779a9dadcda558"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:109819:en:title",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "The museum records this work as “Lozenge Composition with Yellow, Black, Blue, Red, and Gray”.",
+      "predicate": "title",
+      "value": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:109819:museum",
+          "sourceId": "source:artic:109819:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:109819:en:artist",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "The museum attributes this work to Piet Mondrian\nDutch, 1872–1944.",
+      "predicate": "artist",
+      "value": "Piet Mondrian\nDutch, 1872–1944",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:109819:museum",
+          "sourceId": "source:artic:109819:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:109819:en:visual-1",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "The canvas is rotated 45 degrees so its corners point up, down, left, and right, forming a diamond shape.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:en:1",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "The canvas is rotated 45 degrees so its corners point up, down, left, and right, forming a diamond shape.",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:109819:en:visual-2",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "Black straight lines intersect to form a grid-like structure; one horizontal line spans most of the width, and two vertical lines divide the composition asymmetrically.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:en:2",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "Black straight lines intersect to form a grid-like structure; one horizontal line spans most of the width, and two vertical lines divide the composition asymmetrically.",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:109819:en:visual-3",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "A large yellow right triangle occupies the upper-left quadrant, bounded by the top edge and two black lines.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:en:3",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "A large yellow right triangle occupies the upper-left quadrant, bounded by the top edge and two black lines.",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:109819:en:visual-4",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "A solid black square sits in the lower-left area, partially overlapped by the horizontal black line.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:en:4",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "A solid black square sits in the lower-left area, partially overlapped by the horizontal black line.",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:109819:en:visual-5",
+      "subjectId": "artic:109819",
+      "layer": "fact",
+      "text": "A blue right triangle appears in the lower-right quadrant, mirroring the yellow triangle’s orientation but smaller in scale.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:109819:en:5",
+          "imageId": "commons:109819",
+          "basis": "visible",
+          "observation": "A blue right triangle appears in the lower-right quadrant, mirroring the yellow triangle’s orientation but smaller in scale.",
+          "imageRevision": "commons:109819"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A diamond-oriented abstract painting composed of black lines, primary-colored shapes, and white fields on a light background.",
+      "claimIds": [
+        "claim:artic:109819:en:title",
+        "claim:artic:109819:en:artist",
+        "claim:artic:109819:en:visual-1",
+        "claim:artic:109819:en:visual-2",
+        "claim:artic:109819:en:visual-3",
+        "claim:artic:109819:en:visual-4",
+        "claim:artic:109819:en:visual-5"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:109819:en:1",
+        "label": "geometric abstraction",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:en:visual-1",
+          "claim:artic:109819:en:visual-2",
+          "claim:artic:109819:en:visual-3",
+          "claim:artic:109819:en:visual-4",
+          "claim:artic:109819:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:en:1",
+          "visual:artic:109819:en:2",
+          "visual:artic:109819:en:3",
+          "visual:artic:109819:en:4",
+          "visual:artic:109819:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:en:2",
+        "label": "primary colors",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:en:visual-1",
+          "claim:artic:109819:en:visual-2",
+          "claim:artic:109819:en:visual-3",
+          "claim:artic:109819:en:visual-4",
+          "claim:artic:109819:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:en:1",
+          "visual:artic:109819:en:2",
+          "visual:artic:109819:en:3",
+          "visual:artic:109819:en:4",
+          "visual:artic:109819:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:en:3",
+        "label": "black lines",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:en:visual-1",
+          "claim:artic:109819:en:visual-2",
+          "claim:artic:109819:en:visual-3",
+          "claim:artic:109819:en:visual-4",
+          "claim:artic:109819:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:en:1",
+          "visual:artic:109819:en:2",
+          "visual:artic:109819:en:3",
+          "visual:artic:109819:en:4",
+          "visual:artic:109819:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:en:4",
+        "label": "diamond orientation",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:en:visual-1",
+          "claim:artic:109819:en:visual-2",
+          "claim:artic:109819:en:visual-3",
+          "claim:artic:109819:en:visual-4",
+          "claim:artic:109819:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:en:1",
+          "visual:artic:109819:en:2",
+          "visual:artic:109819:en:3",
+          "visual:artic:109819:en:4",
+          "visual:artic:109819:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:en:5",
+        "label": "grid composition",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:en:visual-1",
+          "claim:artic:109819:en:visual-2",
+          "claim:artic:109819:en:visual-3",
+          "claim:artic:109819:en:visual-4",
+          "claim:artic:109819:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:en:1",
+          "visual:artic:109819:en:2",
+          "visual:artic:109819:en:3",
+          "visual:artic:109819:en:4",
+          "visual:artic:109819:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:en:6",
+        "label": "triangles",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:en:visual-1",
+          "claim:artic:109819:en:visual-2",
+          "claim:artic:109819:en:visual-3",
+          "claim:artic:109819:en:visual-4",
+          "claim:artic:109819:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:en:1",
+          "visual:artic:109819:en:2",
+          "visual:artic:109819:en:3",
+          "visual:artic:109819:en:4",
+          "visual:artic:109819:en:5"
+        ]
+      },
+      {
+        "tagId": "tag:artic:109819:en:7",
+        "label": "square",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:109819:en:visual-1",
+          "claim:artic:109819:en:visual-2",
+          "claim:artic:109819:en:visual-3",
+          "claim:artic:109819:en:visual-4",
+          "claim:artic:109819:en:visual-5"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:109819:en:1",
+          "visual:artic:109819:en:2",
+          "visual:artic:109819:en:3",
+          "visual:artic:109819:en:4",
+          "visual:artic:109819:en:5"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "Diamond-shaped abstract painting with black grid lines, yellow and blue triangles, a black square, and a small red square on white background.",
+      "long": "A diamond-oriented canvas features a structured composition of black straight lines forming an asymmetrical grid. In the upper-left is a large yellow right triangle; in the lower-left, a black square; in the lower-right, a smaller blue right triangle; and near the bottom center, a small red-orange square. The remaining areas are white. Faint surface cracks appear in the yellow region. A small monogram 'P.M.' with a date appears at the bottom corner.",
+      "claimIds": [
+        "claim:artic:109819:en:visual-1",
+        "claim:artic:109819:en:visual-2",
+        "claim:artic:109819:en:visual-3",
+        "claim:artic:109819:en:visual-4",
+        "claim:artic:109819:en:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:109819:en:1",
+        "visual:artic:109819:en:2",
+        "visual:artic:109819:en:3",
+        "visual:artic:109819:en:4",
+        "visual:artic:109819:en:5"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:109819:en:visual-1",
+      "artworkId": "artic:109819",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "how is the layout arranged",
+        "why is it tilted",
+        "what shapes are used"
+      ],
+      "claimIds": [
+        "claim:artic:109819:en:visual-1",
+        "claim:artic:109819:en:visual-2",
+        "claim:artic:109819:en:visual-3",
+        "claim:artic:109819:en:visual-4",
+        "claim:artic:109819:en:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:109819:en:1",
+        "visual:artic:109819:en:2",
+        "visual:artic:109819:en:3",
+        "visual:artic:109819:en:4",
+        "visual:artic:109819:en:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the diamond orientation and how the black lines create asymmetrical quadrants—then note how each colored shape fits within those zones without overlapping the lines.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:109819:en:visual-2",
+      "artworkId": "artic:109819",
+      "locale": "en",
+      "topic": "color",
+      "triggerIntents": [
+        "what colors are used",
+        "why only these colors"
+      ],
+      "claimIds": [
+        "claim:artic:109819:en:visual-1",
+        "claim:artic:109819:en:visual-2",
+        "claim:artic:109819:en:visual-3",
+        "claim:artic:109819:en:visual-4",
+        "claim:artic:109819:en:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:109819:en:1",
+        "visual:artic:109819:en:2",
+        "visual:artic:109819:en:3",
+        "visual:artic:109819:en:4",
+        "visual:artic:109819:en:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "List the visible hues: yellow, blue, red-orange, black, and white—and emphasize that no gradients or mixed tones appear; all are flat, saturated blocks.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:109819:en:visual-3",
+      "artworkId": "artic:109819",
+      "locale": "en",
+      "topic": "space",
+      "triggerIntents": [
+        "how does depth work here",
+        "is there perspective"
+      ],
+      "claimIds": [
+        "claim:artic:109819:en:visual-1",
+        "claim:artic:109819:en:visual-2",
+        "claim:artic:109819:en:visual-3",
+        "claim:artic:109819:en:visual-4",
+        "claim:artic:109819:en:visual-5"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:109819:en:1",
+        "visual:artic:109819:en:2",
+        "visual:artic:109819:en:3",
+        "visual:artic:109819:en:4",
+        "visual:artic:109819:en:5"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Observe that all elements lie on a single plane with no shading or foreshortening; the white areas function as negative space rather than receding ground.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "outputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "updatedAt": "2026-07-27T04:15:46.682Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "outputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "updatedAt": "2026-07-27T04:15:46.682Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "outputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "updatedAt": "2026-07-27T04:15:46.682Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "outputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "updatedAt": "2026-07-27T04:15:46.682Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "outputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13",
+      "updatedAt": "2026-07-27T04:15:46.682Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v5",
+    "generatedAt": "2026-07-27T04:15:46.682Z",
+    "inputHash": "f1ab6addc4aca29c1d21429212e08781a5a4ce7a6a63fe81a70b9eb883592f13"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-f1ab6addc4ac"
+  }
+}

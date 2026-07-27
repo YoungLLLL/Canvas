@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T04:01:19.556Z",
+  "artwork": {
+    "id": "artic:59948",
+    "sourceId": "59948",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/59948",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/59948",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-04-13T22:46:33-05:00",
+      "accessedAt": "2026-07-27T04:01:19.183Z"
+    },
+    "display": {
+      "title": "Myrsky (Tempest) (Furnishing Fabric)",
+      "localizedTitles": {
+        "en": "Myrsky (Tempest) (Furnishing Fabric)"
+      },
+      "altTitles": [],
+      "artistDisplay": "Designed by Pentti Rinta (Finnish, born 1946)\nProduced by Marimekko Oy (Founded 1951)\nFinland, Helsinki",
+      "dateDisplay": "1977",
+      "mediumDisplay": "Cotton, plain weave; screen printed",
+      "dimensionsDisplay": "311.5 × 138.4 cm (122 5/8 × 54 1/2 in.); Warp repeat: H.: 177.1 cm (69 3/4 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:21847",
+      "sourceId": "21847",
+      "name": "Pentti Rinta",
+      "display": "Designed by Pentti Rinta (Finnish, born 1946)\nProduced by Marimekko Oy (Founded 1951)\nFinland, Helsinki",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1977,
+      "end": 1977
+    },
+    "classification": {
+      "artworkTypeId": 5,
+      "artworkTypeTitle": "Textile",
+      "departmentTitle": "Textiles",
+      "classificationTitles": [
+        "textile",
+        "weaving - printed",
+        "furnishing textile"
+      ]
+    },
+    "images": {
+      "preferred": null,
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "copyrighted",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "unknown",
+        "licenseUrl": null
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Pentti Rinta. Myrsky (Tempest) (Furnishing Fabric), 1977. The Art Institute of Chicago."
+    },
+    "eligibility": {
+      "status": "metadata_only_no_image",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T04:01:19.183Z",
+      "reasons": [
+        "unsupported_type",
+        "image_rights_not_open",
+        "commons_image_unavailable"
+      ]
+    },
+    "creditLine": "Gift of Marimekko, Inc.",
+    "mainReferenceNumber": "1980.148",
+    "revision": "2026-04-13T22:46:33-05:00"
+  }
+}

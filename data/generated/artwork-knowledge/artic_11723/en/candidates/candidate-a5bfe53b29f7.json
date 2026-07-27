@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:11723:en:a5bfe53b29f7",
+  "artworkId": "artic:11723",
+  "artworkRevision": "2026-07-25T23:27:00-05:00",
+  "imageRevision": "commons:11723",
+  "locale": "en",
+  "sources": [
+    {
+      "sourceId": "source:artic:11723:museum",
+      "kind": "museum_record",
+      "title": "Woman at Her Toilette",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/11723",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:57:53.286Z",
+      "contentHash": "457487859a0aa58c5affc35cd4e17b1b5703405973272f41f240deb7175e714e",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_11723:museum-record:457487859a0aa58c5affc35cd4e17b1b5703405973272f41f240deb7175e714e"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:11723:en:title",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "The museum records this work as “Woman at Her Toilette”.",
+      "predicate": "title",
+      "value": "Woman at Her Toilette",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:11723:museum",
+          "sourceId": "source:artic:11723:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:11723:en:artist",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "The museum attributes this work to Berthe Morisot (French, 1841–1895).",
+      "predicate": "artist",
+      "value": "Berthe Morisot (French, 1841–1895)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:11723:museum",
+          "sourceId": "source:artic:11723:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:11723:en:visual-1",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "A person with light-colored hair styled up, wearing a white off-the-shoulder garment with blue trim and a dark choker necklace, is shown from the back and side profile.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:en:1",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "A person with light-colored hair styled up, wearing a white off-the-shoulder garment with blue trim and a dark choker necklace, is shown from the back and side profile.",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:en:visual-2",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "To the left, a tall, narrow mirror reflects indistinct shapes and colors; its frame appears wooden and partially visible.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:en:2",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "To the left, a tall, narrow mirror reflects indistinct shapes and colors; its frame appears wooden and partially visible.",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:en:visual-3",
+      "subjectId": "artic:11723",
+      "layer": "fact",
+      "text": "On a small shelf or table beside the figure are several objects: a glass jar with a lid, a white floral form (possibly a rose), and other pale rounded items.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:en:3",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "On a small shelf or table beside the figure are several objects: a glass jar with a lid, a white floral form (possibly a rose), and other pale rounded items.",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:11723:en:visual-4",
+      "subjectId": "artic:11723",
+      "layer": "interpretation",
+      "text": "The background consists of loosely applied brushstrokes in muted tones of gray, white, pink, and blue, suggesting an interior wall or draped fabric without clear definition.",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:11723:en:4",
+          "imageId": "commons:11723",
+          "basis": "visible",
+          "observation": "The background consists of loosely applied brushstrokes in muted tones of gray, white, pink, and blue, suggesting an interior wall or draped fabric without clear definition.",
+          "imageRevision": "commons:11723"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "A painted figure viewed from behind, seated before a mirror with toiletry items on a small table beside them.",
+      "claimIds": [
+        "claim:artic:11723:en:title",
+        "claim:artic:11723:en:artist",
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:11723:en:1",
+        "label": "back view",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:2",
+        "label": "mirror",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:3",
+        "label": "toiletry items",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:4",
+        "label": "off-the-shoulder dress",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:5",
+        "label": "choker",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:6",
+        "label": "brushwork",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:11723:en:7",
+        "label": "interior scene",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:11723:en:visual-1",
+          "claim:artic:11723:en:visual-2",
+          "claim:artic:11723:en:visual-3",
+          "claim:artic:11723:en:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:11723:en:1",
+          "visual:artic:11723:en:2",
+          "visual:artic:11723:en:3",
+          "visual:artic:11723:en:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "A woman in a white dress sits before a mirror, seen from behind, with toiletries on a nearby table.",
+      "long": "An impressionistic-style painting shows a person from behind and slightly to the side, seated at a dressing area. The figure wears a white, off-the-shoulder gown with thin blue ribbons and a black choker. Their light hair is gathered up. To the left, a vertical mirror reflects blurred forms. A small shelf holds a lidded glass jar, a white flower-like object, and other soft-textured items. The background is rendered in loose, visible brushstrokes of gray, white, pink, and blue, suggesting an indistinct interior space.",
+      "claimIds": [
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:en:1",
+        "visual:artic:11723:en:2",
+        "visual:artic:11723:en:3",
+        "visual:artic:11723:en:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:11723:en:visual-1",
+      "artworkId": "artic:11723",
+      "locale": "en",
+      "topic": "composition",
+      "triggerIntents": [
+        "what's on the left",
+        "why is the mirror there",
+        "how is the figure positioned"
+      ],
+      "claimIds": [
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:en:1",
+        "visual:artic:11723:en:2",
+        "visual:artic:11723:en:3",
+        "visual:artic:11723:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Point to the vertical mirror on the left edge and note how it breaks the frame while reflecting ambiguous shapes—this creates asymmetry and invites attention to what lies outside the visible scene.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:11723:en:visual-2",
+      "artworkId": "artic:11723",
+      "locale": "en",
+      "topic": "technique",
+      "triggerIntents": [
+        "how was this painted",
+        "why are the strokes visible",
+        "what style is this"
+      ],
+      "claimIds": [
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:en:1",
+        "visual:artic:11723:en:2",
+        "visual:artic:11723:en:3",
+        "visual:artic:11723:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Highlight the thick, directional brushstrokes across the dress and background—these build texture and movement without precise detail, emphasizing sensation over exact representation.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:11723:en:visual-3",
+      "artworkId": "artic:11723",
+      "locale": "en",
+      "topic": "subject",
+      "triggerIntents": [
+        "who is this",
+        "what is she doing",
+        "is she looking at herself"
+      ],
+      "claimIds": [
+        "claim:artic:11723:en:visual-1",
+        "claim:artic:11723:en:visual-2",
+        "claim:artic:11723:en:visual-3",
+        "claim:artic:11723:en:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:11723:en:1",
+        "visual:artic:11723:en:2",
+        "visual:artic:11723:en:3",
+        "visual:artic:11723:en:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "Observe that the figure’s head is turned toward the mirror but her face remains unseen; the focus rests on posture, attire, and surrounding objects rather than identity or expression.",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "outputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "updatedAt": "2026-07-27T03:57:53.286Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "outputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "updatedAt": "2026-07-27T03:57:53.286Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "outputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "updatedAt": "2026-07-27T03:57:53.286Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "outputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "updatedAt": "2026-07-27T03:57:53.286Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "outputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12",
+      "updatedAt": "2026-07-27T03:57:53.286Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v3",
+    "generatedAt": "2026-07-27T03:57:53.286Z",
+    "inputHash": "a5bfe53b29f7aee99b8a56453d1ce5d79159bc0a9e908bee8d82a7dc7228da12"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-a5bfe53b29f7"
+  }
+}

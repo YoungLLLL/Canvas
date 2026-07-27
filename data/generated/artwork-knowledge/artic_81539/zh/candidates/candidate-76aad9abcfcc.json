@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:81539:zh:76aad9abcfcc",
+  "artworkId": "artic:81539",
+  "artworkRevision": "2026-07-25T23:25:26-05:00",
+  "imageRevision": "commons:81539",
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:81539:museum",
+      "kind": "museum_record",
+      "title": "On the Bank of the Seine, Bennecourt",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/81539",
+      "language": "en",
+      "accessedAt": "2026-07-27T03:57:30.986Z",
+      "contentHash": "4b4475bfbe0234dc12f179c8bae23b5f56a77040c3722bb8d8c4cb3ac94106c0",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_81539:museum-record:4b4475bfbe0234dc12f179c8bae23b5f56a77040c3722bb8d8c4cb3ac94106c0"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:81539:zh:title",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "馆方将本作记录为《On the Bank of the Seine, Bennecourt》。",
+      "predicate": "title",
+      "value": "On the Bank of the Seine, Bennecourt",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:81539:museum",
+          "sourceId": "source:artic:81539:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:81539:zh:artist",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "馆方将本作归于Claude Monet (French, 1840–1926)。",
+      "predicate": "artist",
+      "value": "Claude Monet (French, 1840–1926)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:81539:museum",
+          "sourceId": "source:artic:81539:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:81539:zh:visual-1",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "画面左侧有两棵粗壮树干，树皮呈棕褐色，枝叶浓密深绿，部分遮挡后方景物。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:81539:zh:1",
+          "imageId": "commons:81539",
+          "basis": "visible",
+          "observation": "画面左侧有两棵粗壮树干，树皮呈棕褐色，枝叶浓密深绿，部分遮挡后方景物。",
+          "imageRevision": "commons:81539"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:81539:zh:visual-2",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "前景人物身穿蓝白竖条纹上衣，背对观众坐于草地上，身旁放一顶浅色草帽，帽檐饰有蓝色带子。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:81539:zh:2",
+          "imageId": "commons:81539",
+          "basis": "visible",
+          "observation": "前景人物身穿蓝白竖条纹上衣，背对观众坐于草地上，身旁放一顶浅色草帽，帽檐饰有蓝色带子。",
+          "imageRevision": "commons:81539"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:81539:zh:visual-3",
+      "subjectId": "artic:81539",
+      "layer": "fact",
+      "text": "河面呈现蓝、灰、绿、棕等色块交错的反射效果，倒影轮廓松散、不清晰，与岸上实景形成对比。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:81539:zh:3",
+          "imageId": "commons:81539",
+          "basis": "visible",
+          "observation": "河面呈现蓝、灰、绿、棕等色块交错的反射效果，倒影轮廓松散、不清晰，与岸上实景形成对比。",
+          "imageRevision": "commons:81539"
+        }
+      ],
+      "confidence": "high",
+      "status": "generated"
+    },
+    {
+      "claimId": "claim:artic:81539:zh:visual-4",
+      "subjectId": "artic:81539",
+      "layer": "interpretation",
+      "text": "对岸房屋以浅灰、米白、赭石等暖色调为主，屋顶为红棕色，墙体结构简略，未刻画精细门窗细节。",
+      "sourceRefs": [],
+      "visualEvidence": [
+        {
+          "visualEvidenceId": "visual:artic:81539:zh:4",
+          "imageId": "commons:81539",
+          "basis": "visible",
+          "observation": "对岸房屋以浅灰、米白、赭石等暖色调为主，屋顶为红棕色，墙体结构简略，未刻画精细门窗细节。",
+          "imageRevision": "commons:81539"
+        }
+      ],
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "这是一幅描绘河岸场景的油画：前景中一人背对观者坐在树荫下，身旁有小船与草帽；中景是平静的河水，映出对岸建筑与树木的倒影；远景可见村庄房屋与起伏的坡地。",
+      "claimIds": [
+        "claim:artic:81539:zh:title",
+        "claim:artic:81539:zh:artist",
+        "claim:artic:81539:zh:visual-1",
+        "claim:artic:81539:zh:visual-2",
+        "claim:artic:81539:zh:visual-3",
+        "claim:artic:81539:zh:visual-4"
+      ]
+    },
+    "tags": [
+      {
+        "tagId": "tag:artic:81539:zh:1",
+        "label": "河岸",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:zh:visual-1",
+          "claim:artic:81539:zh:visual-2",
+          "claim:artic:81539:zh:visual-3",
+          "claim:artic:81539:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:zh:1",
+          "visual:artic:81539:zh:2",
+          "visual:artic:81539:zh:3",
+          "visual:artic:81539:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:zh:2",
+        "label": "树木",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:zh:visual-1",
+          "claim:artic:81539:zh:visual-2",
+          "claim:artic:81539:zh:visual-3",
+          "claim:artic:81539:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:zh:1",
+          "visual:artic:81539:zh:2",
+          "visual:artic:81539:zh:3",
+          "visual:artic:81539:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:zh:3",
+        "label": "人物背影",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:zh:visual-1",
+          "claim:artic:81539:zh:visual-2",
+          "claim:artic:81539:zh:visual-3",
+          "claim:artic:81539:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:zh:1",
+          "visual:artic:81539:zh:2",
+          "visual:artic:81539:zh:3",
+          "visual:artic:81539:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:zh:4",
+        "label": "小船",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:zh:visual-1",
+          "claim:artic:81539:zh:visual-2",
+          "claim:artic:81539:zh:visual-3",
+          "claim:artic:81539:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:zh:1",
+          "visual:artic:81539:zh:2",
+          "visual:artic:81539:zh:3",
+          "visual:artic:81539:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:zh:5",
+        "label": "倒影",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:zh:visual-1",
+          "claim:artic:81539:zh:visual-2",
+          "claim:artic:81539:zh:visual-3",
+          "claim:artic:81539:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:zh:1",
+          "visual:artic:81539:zh:2",
+          "visual:artic:81539:zh:3",
+          "visual:artic:81539:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:zh:6",
+        "label": "村庄",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:zh:visual-1",
+          "claim:artic:81539:zh:visual-2",
+          "claim:artic:81539:zh:visual-3",
+          "claim:artic:81539:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:zh:1",
+          "visual:artic:81539:zh:2",
+          "visual:artic:81539:zh:3",
+          "visual:artic:81539:zh:4"
+        ]
+      },
+      {
+        "tagId": "tag:artic:81539:zh:7",
+        "label": "草地",
+        "vocabulary": "qwen-vl-visible",
+        "confidence": "medium",
+        "claimIds": [
+          "claim:artic:81539:zh:visual-1",
+          "claim:artic:81539:zh:visual-2",
+          "claim:artic:81539:zh:visual-3",
+          "claim:artic:81539:zh:visual-4"
+        ],
+        "visualEvidenceIds": [
+          "visual:artic:81539:zh:1",
+          "visual:artic:81539:zh:2",
+          "visual:artic:81539:zh:3",
+          "visual:artic:81539:zh:4"
+        ]
+      }
+    ],
+    "relations": [],
+    "palette": [],
+    "accessibility": {
+      "short": "一位穿条纹衣的人坐在树荫下的河岸边，旁有小船与草帽；河对岸是房屋与坡地，水面映出模糊倒影。",
+      "long": "画面构图分三层：前景为左侧两棵大树与坐在草地上的人物背影，人物穿蓝白竖条纹上衣，身旁有绿色小船和一顶带蓝带的浅色草帽；中景是宽阔河面，水色由近处蓝灰过渡至远处黄绿，倒映着对岸景物但形态松散；远景为河对岸的村庄，房屋错落，屋顶多为红棕，墙体浅淡，后方是覆有植被的缓坡。整体用笔明显、色块并置，未追求线条精确。",
+      "claimIds": [
+        "claim:artic:81539:zh:visual-1",
+        "claim:artic:81539:zh:visual-2",
+        "claim:artic:81539:zh:visual-3",
+        "claim:artic:81539:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:81539:zh:1",
+        "visual:artic:81539:zh:2",
+        "visual:artic:81539:zh:3",
+        "visual:artic:81539:zh:4"
+      ]
+    }
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:81539:zh:visual-1",
+      "artworkId": "artic:81539",
+      "locale": "zh",
+      "topic": "technique",
+      "triggerIntents": [
+        "这画的笔触看起来很特别",
+        "为什么水面倒影这么模糊"
+      ],
+      "claimIds": [
+        "claim:artic:81539:zh:visual-1",
+        "claim:artic:81539:zh:visual-2",
+        "claim:artic:81539:zh:visual-3",
+        "claim:artic:81539:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:81539:zh:1",
+        "visual:artic:81539:zh:2",
+        "visual:artic:81539:zh:3",
+        "visual:artic:81539:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "可从人物衣纹或树影处的短促笔触切入，指出颜料厚薄与方向变化如何构成形体与光感",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:81539:zh:visual-2",
+      "artworkId": "artic:81539",
+      "locale": "zh",
+      "topic": "color",
+      "triggerIntents": [
+        "颜色怎么这么丰富又不乱",
+        "树荫下的草地为什么有黄点"
+      ],
+      "claimIds": [
+        "claim:artic:81539:zh:visual-1",
+        "claim:artic:81539:zh:visual-2",
+        "claim:artic:81539:zh:visual-3",
+        "claim:artic:81539:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:81539:zh:1",
+        "visual:artic:81539:zh:2",
+        "visual:artic:81539:zh:3",
+        "visual:artic:81539:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "指向前景草地上的黄色小花与阴影中穿插的亮绿、浅紫，说明色点并置如何营造光影颤动",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    },
+    {
+      "cueId": "cue:artic:81539:zh:visual-3",
+      "artworkId": "artic:81539",
+      "locale": "zh",
+      "topic": "space",
+      "triggerIntents": [
+        "怎么感觉人离河很近，但房子又很远",
+        "倒影和实物位置好像不太对"
+      ],
+      "claimIds": [
+        "claim:artic:81539:zh:visual-1",
+        "claim:artic:81539:zh:visual-2",
+        "claim:artic:81539:zh:visual-3",
+        "claim:artic:81539:zh:visual-4"
+      ],
+      "visualEvidenceIds": [
+        "visual:artic:81539:zh:1",
+        "visual:artic:81539:zh:2",
+        "visual:artic:81539:zh:3",
+        "visual:artic:81539:zh:4"
+      ],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "对比人物与小船的清晰度和对岸房屋的概括处理，说明平面色块叠加如何暗示深度而非透视",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "medium",
+      "status": "generated"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "outputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "updatedAt": "2026-07-27T03:57:30.986Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "outputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "updatedAt": "2026-07-27T03:57:30.986Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "outputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "updatedAt": "2026-07-27T03:57:30.986Z"
+    },
+    "tags": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "outputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "updatedAt": "2026-07-27T03:57:30.986Z"
+    },
+    "accessibility": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "outputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15",
+      "updatedAt": "2026-07-27T03:57:30.986Z"
+    }
+  },
+  "generation": {
+    "provider": "dashscope",
+    "model": "qwen3-vl-plus",
+    "promptVersion": "stage6-qwen-vl-v3",
+    "generatedAt": "2026-07-27T03:57:30.986Z",
+    "inputHash": "76aad9abcfcc5c981c8f8bed69395a1869fc5713f9f0439088ff360d6376dd15"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-76aad9abcfcc"
+  }
+}

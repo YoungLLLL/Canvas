@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "artwork-image-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:55:15.312Z",
+  "artworkId": "artic:14572",
+  "image": {
+    "id": "commons:14572",
+    "width": 843,
+    "height": 757,
+    "altText": "Impressionist painting of woman wearing green dress trying on hats.",
+    "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAAEMtIk40KE83KlhHLVxELlNPN1hLMVJOP19UN1dYM1lUOVpUP2dAIWlKKHZKKXZLKWRNPGpbMGpaNGtaOkxUTF9dRlJaS15YSV5kUnZpRH12W4ZkM49uRI52VQAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUY4AUtFWZxHZIdExFEybAJQGE00sNQmqOEADs=",
+    "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg/960px-Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg",
+    "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg/1920px-Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edgar_Degas_-_The_Millinery_Shop_-_Google_Art_Project.jpg",
+    "zoomable": true,
+    "maxZoomWindowSize": null,
+    "health": "ok"
+  },
+  "rights": {
+    "licenseCode": "PDM-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "attribution": "Hilaire Germain Edgar Degas. The Millinery Shop, 1879-86. The Art Institute of Chicago. Image source: WwHCxQrrgG7p2Q at Google Cultural Institute maximum zoom level"
+}

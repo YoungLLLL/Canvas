@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:59:51.652Z",
+  "artwork": {
+    "id": "artic:80607",
+    "sourceId": "80607",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/80607",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/80607",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:19:14-05:00",
+      "accessedAt": "2026-07-27T03:59:49.929Z"
+    },
+    "display": {
+      "title": "Self-Portrait",
+      "localizedTitles": {
+        "en": "Self-Portrait",
+        "zh": "自画像"
+      },
+      "altTitles": [],
+      "artistDisplay": "Vincent van Gogh (Dutch, 1853–1890)",
+      "dateDisplay": "1887",
+      "mediumDisplay": "Oil on artist's board, mounted on cradled panel",
+      "dimensionsDisplay": "41 × 32.5 cm (16 1/8 × 12 13/16 in.); Framed: 61.6 × 53.4 × 8.9 cm (24 1/4 × 21 × 3 1/2 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:40610",
+      "sourceId": "40610",
+      "name": "Vincent van Gogh",
+      "display": "Vincent van Gogh (Dutch, 1853–1890)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1887,
+      "end": 1887
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "oil on board",
+        "dutch",
+        "oil paintings (visual works)",
+        "paint",
+        "portrait",
+        "painting",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:80607",
+        "width": 843,
+        "height": 1069,
+        "altText": "Painting of a red-haired, bearded man with light skin, painted in short brushstrokes and multicolored dots. The background is likewise a mass of small, closely spaced colored dots, these in green, blue, and red-orange.",
+        "lqip": "data:image/gif;base64,R0lGODlhBAAFAPQAAD49PEA3NEA6OUY/OEw+OzpAO09EPFZFO1dGPDxGQEBIQ0ZMRU9PRVFNRV9MQmxUQmJZSnttWIdfSaGHaQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAEAAUAAAURoMJAQBFNQ/JIwoI4QUMYRwgAOw==",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg/960px-Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/3/37/Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Vincent van Gogh. Self-Portrait, 1887. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/80607"
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:59:49.929Z",
+      "reasons": []
+    },
+    "creditLine": "Joseph Winterbotham Collection",
+    "mainReferenceNumber": "1954.326",
+    "description": {
+      "html": "Van Gogh’s face is as well known as his art—in fact, it is inseparable from it. The artist painted more than 35 self-portraits over his lifetime. This one was created in Paris under the influence of Seurat and pointillism. The intense dabs of paint and color, anchored by his eyes, create a turbulent energy, giving the viewer a deep sense of the artist’s presence.",
+      "text": "Van Gogh’s face is as well known as his art—in fact, it is inseparable from it. The artist painted more than 35 self-portraits over his lifetime. This one was created in Paris under the influence of Seurat and pointillism. The intense dabs of paint and color, anchored by his eyes, create a turbulent energy, giving the viewer a deep sense of the artist’s presence.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:19:14-05:00"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "artwork-source-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:55:56.927Z",
+  "artwork": {
+    "id": "artic:14620",
+    "sourceId": "14620",
+    "museumId": "artic",
+    "source": {
+      "id": "artic",
+      "label": "The Art Institute of Chicago",
+      "recordUrl": "https://www.artic.edu/artworks/14620",
+      "apiUrl": "https://api.artic.edu/api/v1/artworks/14620",
+      "termsUrl": "https://www.artic.edu/terms",
+      "updatedAt": "2026-07-25T23:25:29-05:00",
+      "accessedAt": "2026-07-27T03:52:39.510Z"
+    },
+    "display": {
+      "title": "Cliff Walk at Pourville",
+      "localizedTitles": {
+        "en": "The Cliff Walk at Pourville",
+        "zh": "The Cliff Walk at Pourville"
+      },
+      "altTitles": [],
+      "artistDisplay": "Claude Monet (French, 1840–1926)",
+      "dateDisplay": "1882",
+      "mediumDisplay": "Oil on canvas",
+      "dimensionsDisplay": "66.5 × 82.3 cm (26 1/8 × 32 7/16 in.); Framed: 88.9 × 104.8 × 10.8 cm (35 × 41 1/4 × 4 1/4 in.)"
+    },
+    "artist": {
+      "id": "artic-artist:35809",
+      "sourceId": "35809",
+      "name": "Claude Monet",
+      "display": "Claude Monet (French, 1840–1926)",
+      "personaStatus": "unavailable"
+    },
+    "date": {
+      "start": 1882,
+      "end": 1882
+    },
+    "classification": {
+      "artworkTypeId": 1,
+      "artworkTypeTitle": "Painting",
+      "departmentTitle": "Painting and Sculpture of Europe",
+      "classificationTitles": [
+        "painting",
+        "paint",
+        "oil paintings (visual works)",
+        "oil on canvas",
+        "french",
+        "european painting"
+      ]
+    },
+    "images": {
+      "preferred": {
+        "id": "commons:14620",
+        "width": 843,
+        "height": 676,
+        "altText": "Painting of a cliff overlooking the sea. Two figures in long dresses, one with a parasol, stand on the cliff beneath blue sky.",
+        "lqip": "data:image/gif;base64,R0lGODlhBgAFAPQAAHF2XH98dIF3aHyEf4ODZ4ePaIaBc4WIc4eKd4iIc5GKd5OMeJSMeJuRfn2GkIeVlomZl5eZkJicl46ZrZKbr5qeqoaTs4eUt42XsYGZtIuYsIqZsI6cs4eWugAAAAAAACH5BAAAAAAALAAAAAAGAAUAAAUYYHdZ2JZx2lRRDvQMxgFIUSAQRcMoS4KEADs=",
+        "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg/960px-Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg",
+        "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg/1920px-Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg",
+        "zoomable": true,
+        "maxZoomWindowSize": null,
+        "health": "ok"
+      },
+      "alternates": []
+    },
+    "rights": {
+      "work": {
+        "status": "public_domain",
+        "notice": null
+      },
+      "image": {
+        "licenseCode": "PDM-1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      "metadata": {
+        "defaultLicense": "CC0-1.0",
+        "descriptionLicense": "CC-BY-4.0"
+      },
+      "termsUrl": "https://www.artic.edu/terms",
+      "attribution": "Claude Monet. Cliff Walk at Pourville, 1882. The Art Institute of Chicago. Image source: Google Arts & Culture: Home page – Image Maximum resolution."
+    },
+    "eligibility": {
+      "status": "image_displayable",
+      "ruleVersion": "artic-showcase-v1-2026-07-20",
+      "checkedAt": "2026-07-27T03:52:39.510Z",
+      "reasons": []
+    },
+    "creditLine": "Mr. and Mrs. Lewis Larned Coburn Memorial Collection",
+    "mainReferenceNumber": "1933.443",
+    "description": {
+      "html": "In the 1880s, Monet went to paint in Normandy and became increasingly enamored of his surroundings. He wrote to his second wife and her children: \"How beautiful the countryside is becoming, and what joy it would be for me to show you all its delightful nooks and crannies!\" Eventually they joined him in Pourville. The two young women strolling here are probably the eldest daughters.",
+      "text": "In the 1880s, Monet went to paint in Normandy and became increasingly enamored of his surroundings. He wrote to his second wife and her children: \"How beautiful the countryside is becoming, and what joy it would be for me to show you all its delightful nooks and crannies!\" Eventually they joined him in Pourville. The two young women strolling here are probably the eldest daughters.",
+      "sourceField": "short_description"
+    },
+    "revision": "2026-07-25T23:25:29-05:00"
+  }
+}

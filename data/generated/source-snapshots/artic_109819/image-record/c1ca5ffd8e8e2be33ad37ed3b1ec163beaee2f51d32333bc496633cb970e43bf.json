@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "artwork-image-snapshot/1.0.0",
+  "capturedAt": "2026-07-27T03:59:15.585Z",
+  "artworkId": "artic:109819",
+  "image": {
+    "id": "commons:109819",
+    "width": 843,
+    "height": 843,
+    "altText": "A square white tile, rotated 90 degrees, crossed by black lines intersecting at 90-degree angles. A few of the shapes thus formed—some partial squares, some rectangles—are colored in a single shade of yellow, blue, black, or red.",
+    "lqip": "data:image/gif;base64,R0lGODlhBQAFAPQAAFlUMJeYn4WQrKeuveDWks3Lt8bJy8nKys3OzsXJ0s3Q2NXW0Nna1+ro3uLk5eTl5unp5+Xm6enq6urq6u3s6e3t7e/u7PLx7+zs8AAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAFAAUAAAUVIPYw0tQQi0MVwDEIUWAkSmUh0BUCADs=",
+    "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Piet_Mondrian_-_Lozenge_Composition_with_Yellow%2C_Black%2C_Blue%2C_Red%2C_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg/960px-Piet_Mondrian_-_Lozenge_Composition_with_Yellow%2C_Black%2C_Blue%2C_Red%2C_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg",
+    "directUrl2x": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Piet_Mondrian_-_Lozenge_Composition_with_Yellow%2C_Black%2C_Blue%2C_Red%2C_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg/1920px-Piet_Mondrian_-_Lozenge_Composition_with_Yellow%2C_Black%2C_Blue%2C_Red%2C_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piet_Mondrian_-_Lozenge_Composition_with_Yellow,_Black,_Blue,_Red,_and_Gray_-_1957.307_-_Art_Institute_of_Chicago.jpg",
+    "zoomable": true,
+    "maxZoomWindowSize": null,
+    "health": "ok"
+  },
+  "rights": {
+    "licenseCode": "PDM-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "attribution": "Piet Mondrian. Lozenge Composition with Yellow, Black, Blue, Red, and Gray, 1921. The Art Institute of Chicago. Image source: https://www.artic.edu/artworks/109819"
+}

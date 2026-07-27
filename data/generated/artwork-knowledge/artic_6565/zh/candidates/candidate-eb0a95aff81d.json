@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "artwork-knowledge/2.0.0",
+  "packageId": "knowledge:artic:6565:zh:eb0a95aff81d",
+  "artworkId": "artic:6565",
+  "artworkRevision": "2026-07-25T23:27:06-05:00",
+  "imageRevision": null,
+  "locale": "zh",
+  "sources": [
+    {
+      "sourceId": "source:artic:6565:museum",
+      "kind": "museum_record",
+      "title": "American Gothic",
+      "publisher": "The Art Institute of Chicago",
+      "url": "https://www.artic.edu/artworks/6565",
+      "language": "en",
+      "accessedAt": "2026-07-27T04:11:19.467Z",
+      "contentHash": "6004b54311c36c8880f6abee70cfc96f18f9be04db59cac6b77172d2c2954e0b",
+      "reliability": "institutional",
+      "snapshotRef": "snapshot:artic_6565:museum-record:6004b54311c36c8880f6abee70cfc96f18f9be04db59cac6b77172d2c2954e0b"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "claim:artic:6565:zh:title",
+      "subjectId": "artic:6565",
+      "layer": "fact",
+      "text": "馆方将本作记录为《American Gothic》。",
+      "predicate": "title",
+      "value": "American Gothic",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:6565:museum",
+          "sourceId": "source:artic:6565:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "claimId": "claim:artic:6565:zh:artist",
+      "subjectId": "artic:6565",
+      "layer": "fact",
+      "text": "馆方将本作归于Grant Wood (American, 1891–1942)。",
+      "predicate": "artist",
+      "value": "Grant Wood (American, 1891–1942)",
+      "sourceRefs": [
+        {
+          "sourceRefId": "source-ref:artic:6565:museum",
+          "sourceId": "source:artic:6565:museum",
+          "locator": {
+            "section": "object record"
+          },
+          "support": "direct"
+        }
+      ],
+      "visualEvidence": [],
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "content": {
+    "introduction": {
+      "text": "《American Gothic》由馆方归于Grant Wood (American, 1891–1942)；当前仅提供经核验的馆方资料，不生成画面描述。",
+      "claimIds": [
+        "claim:artic:6565:zh:title",
+        "claim:artic:6565:zh:artist"
+      ]
+    },
+    "tags": [],
+    "relations": [],
+    "palette": [],
+    "accessibility": null
+  },
+  "dialogueCues": [
+    {
+      "cueId": "cue:artic:6565:zh:context",
+      "artworkId": "artic:6565",
+      "locale": "zh",
+      "topic": "context",
+      "triggerIntents": [
+        "American Gothic",
+        "Grant Wood (American, 1891–1942)",
+        "artist",
+        "title"
+      ],
+      "claimIds": [
+        "claim:artic:6565:zh:title",
+        "claim:artic:6565:zh:artist"
+      ],
+      "visualEvidenceIds": [],
+      "compatiblePersonaIds": [],
+      "move": "mention",
+      "transitionHint": "仅在回应用户当前话题时使用经核验的馆方标题或作者归属，不补写画面内容。",
+      "delivery": {
+        "minimumTurn": 1,
+        "cooldownTurns": 3,
+        "maxUsesPerConversation": 1,
+        "requiresUserInitiation": true
+      },
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "sectionRuns": {
+    "facts": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "eb0a95aff81db3b50ef578d45f47edba2d04109152f9d44ae9032bdc7e1eedec",
+      "outputHash": "eb0a95aff81db3b50ef578d45f47edba2d04109152f9d44ae9032bdc7e1eedec",
+      "updatedAt": "2026-07-27T04:11:19.467Z"
+    },
+    "introduction": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "eb0a95aff81db3b50ef578d45f47edba2d04109152f9d44ae9032bdc7e1eedec",
+      "outputHash": "eb0a95aff81db3b50ef578d45f47edba2d04109152f9d44ae9032bdc7e1eedec",
+      "updatedAt": "2026-07-27T04:11:19.467Z"
+    },
+    "dialogueCues": {
+      "status": "succeeded",
+      "attempt": 1,
+      "inputHash": "eb0a95aff81db3b50ef578d45f47edba2d04109152f9d44ae9032bdc7e1eedec",
+      "outputHash": "eb0a95aff81db3b50ef578d45f47edba2d04109152f9d44ae9032bdc7e1eedec",
+      "updatedAt": "2026-07-27T04:11:19.467Z"
+    }
+  },
+  "generation": {
+    "provider": "deterministic-metadata",
+    "model": "none",
+    "promptVersion": "stage6-metadata-fallback-v1",
+    "generatedAt": "2026-07-27T04:11:19.467Z",
+    "inputHash": "eb0a95aff81db3b50ef578d45f47edba2d04109152f9d44ae9032bdc7e1eedec"
+  },
+  "review": {
+    "status": "pending",
+    "evaluationVersion": "stage6-eval-v1",
+    "issues": []
+  },
+  "publication": {
+    "status": "needs_review",
+    "version": "candidate-eb0a95aff81d"
+  }
+}

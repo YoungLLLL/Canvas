@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { commonsFileTitle, isPublicDomainImage } from "@/src/lib/wikimedia";
+import {
+  commonsFileTitle,
+  isAcceptedCommonsImage,
+  resolveCommonsImageRights,
+} from "@/src/lib/wikimedia";
 
 describe("Wikimedia Commons adapter", () => {
   it("converts Wikidata Special:FilePath values into Commons file titles", () => {
@@ -11,7 +15,7 @@ describe("Wikimedia Commons adapter", () => {
     ).toBe("File:Nighthawks by Edward Hopper 1942.jpg");
   });
 
-  it("only admits image metadata explicitly marked public domain", () => {
+  it("admits explicit open and non-commercial CC licenses while rejecting unclear rights", () => {
     const base = {
       width: 1000,
       height: 800,
@@ -23,7 +27,7 @@ describe("Wikimedia Commons adapter", () => {
       mime: "image/jpeg",
     };
     expect(
-      isPublicDomainImage({
+      isAcceptedCommonsImage({
         ...base,
         extmetadata: {
           Copyrighted: { value: "False" },
@@ -32,11 +36,38 @@ describe("Wikimedia Commons adapter", () => {
       }),
     ).toBe(true);
     expect(
-      isPublicDomainImage({
+      isAcceptedCommonsImage({
         ...base,
         extmetadata: {
           Copyrighted: { value: "True" },
           LicenseShortName: { value: "CC BY-SA 4.0" },
+          LicenseUrl: { value: "https://creativecommons.org/licenses/by-sa/4.0/" },
+        },
+      }),
+    ).toBe(true);
+    expect(
+      resolveCommonsImageRights({
+        ...base,
+        extmetadata: {
+          Copyrighted: { value: "True" },
+          LicenseShortName: { value: "CC BY-NC-ND 4.0" },
+          LicenseUrl: { value: "https://creativecommons.org/licenses/by-nc-nd/4.0/" },
+        },
+      }),
+    ).toMatchObject({
+      licenseCode: "CC-BY-NC-ND-4.0",
+      usage: {
+        commercialUseAllowed: false,
+        adaptationsAllowed: false,
+        attributionRequired: true,
+      },
+    });
+    expect(
+      isAcceptedCommonsImage({
+        ...base,
+        extmetadata: {
+          Copyrighted: { value: "True" },
+          LicenseShortName: { value: "All rights reserved" },
         },
       }),
     ).toBe(false);

@@ -12,6 +12,7 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:qwen": "node --env-file-if-exists=.env.local scripts/smoke-qwen.mjs",
     "test:e2e": "playwright test",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run test"
   },
