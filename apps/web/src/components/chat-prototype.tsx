@@ -1,12 +1,11 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, PointerEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 import styles from "./chat-prototype.module.css";
 
 const ARTWORK_IMAGE = "/chat/van-gogh-self-portrait-1889.jpg";
-const ARTIST_EYE_IMAGE = "/chat/van-gogh-eye.jpg";
 
 type Message = {
   id: number;
@@ -28,18 +27,16 @@ const initialMessages: Message[] = [
   {
     id: 1,
     role: "question",
-    chinese: "你是在哪一年画了这幅画？",
+    chinese: "你是在哪一年画了这幅画",
     english: "In what year did you paint this picture?",
   },
   {
     id: 2,
     role: "answer",
-    chinese: "这一版《卧室》画于 1889 年。",
+    chinese: "这一版《卧室》画于1889年。",
     english: "This version of “The Bedroom” was painted in 1889.",
   },
 ];
-
-const suggestions = ["为什么房间看起来有些倾斜？", "你最喜欢画里的哪一种颜色？", "这幅画对你意味着什么？"];
 
 function ArtworkIdentity({
   artist,
@@ -89,14 +86,16 @@ function nextAnswer(question: string): Pick<Message, "chinese" | "english"> {
 
   if (/倾斜|歪|perspective|tilt/i.test(question)) {
     return {
-      chinese: "我有意简化了透视，让家具像色块一样彼此推挤。这里追求的并不是精确，而是一种亲密而直接的感觉。",
+      chinese:
+        "我有意简化了透视，让家具像色块一样彼此推挤。这里追求的并不是精确，而是一种亲密而直接的感觉。",
       english:
         "I simplified the perspective so the furniture presses together like blocks of color. The aim was intimacy, not precision.",
     };
   }
 
   return {
-    chinese: "对我来说，这个房间是一处可以休息的地方。我用平涂的颜色和简洁的形状，试着画出一种安宁。",
+    chinese:
+      "对我来说，这个房间是一处可以休息的地方。我用平涂的颜色和简洁的形状，试着画出一种安宁。",
     english:
       "To me, this room was a place of rest. With flat color and simple shapes, I tried to paint a feeling of calm.",
   };
@@ -106,16 +105,33 @@ export function ChatPrototype() {
   const [messages, setMessages] = useState(initialMessages);
   const [draft, setDraft] = useState("");
   const [isListening, setIsListening] = useState(false);
+  const [isComposerExpanded, setIsComposerExpanded] = useState(false);
   const [artworkScale, setArtworkScale] = useState(1);
   const [artworkOrigin, setArtworkOrigin] = useState({ x: 50, y: 50 });
+  const [artworkOffset, setArtworkOffset] = useState({ x: 0, y: 0 });
+  const [isDraggingArtwork, setIsDraggingArtwork] = useState(false);
   const feedRef = useRef<HTMLDivElement>(null);
+  const composerInputRef = useRef<HTMLInputElement>(null);
+  const artworkDragRef = useRef<{
+    pointerId: number;
+    x: number;
+    y: number;
+  } | null>(null);
 
   useEffect(() => {
-    feedRef.current?.scrollTo({
-      top: feedRef.current.scrollHeight,
-      behavior: messages.length > initialMessages.length ? "smooth" : "auto",
-    });
+    if (messages.length > initialMessages.length) {
+      feedRef.current?.scrollTo({
+        top: feedRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
   }, [messages]);
+
+  useEffect(() => {
+    if (isComposerExpanded && !isListening) {
+      composerInputRef.current?.focus({ preventScroll: true });
+    }
+  }, [isComposerExpanded, isListening]);
 
   function submitQuestion(event?: FormEvent) {
     event?.preventDefault();
@@ -130,24 +146,95 @@ export function ChatPrototype() {
       { id: baseId + 1, role: "answer", ...answer },
     ]);
     setDraft("");
+    setIsComposerExpanded(false);
   }
 
   function zoomArtwork(event: React.WheelEvent<HTMLElement>) {
     event.preventDefault();
     const bounds = event.currentTarget.getBoundingClientRect();
+    const nextScale = Math.min(
+      4,
+      Math.max(1, Number((artworkScale + (event.deltaY < 0 ? 0.18 : -0.18)).toFixed(2))),
+    );
+
     setArtworkOrigin({
       x: ((event.clientX - bounds.left) / bounds.width) * 100,
       y: ((event.clientY - bounds.top) / bounds.height) * 100,
     });
-    setArtworkScale((current) => {
-      const next = current + (event.deltaY < 0 ? 0.18 : -0.18);
-      return Math.min(4, Math.max(1, Number(next.toFixed(2))));
-    });
+    setArtworkScale(nextScale);
+    if (nextScale === 1) {
+      setArtworkOrigin({ x: 50, y: 50 });
+      setArtworkOffset({ x: 0, y: 0 });
+    }
   }
 
   function resetArtwork() {
     setArtworkScale(1);
     setArtworkOrigin({ x: 50, y: 50 });
+    setArtworkOffset({ x: 0, y: 0 });
+  }
+
+  function startArtworkDrag(event: PointerEvent<HTMLImageElement>) {
+    if (artworkScale === 1 || event.button !== 0) return;
+
+    event.preventDefault();
+    event.currentTarget.setPointerCapture(event.pointerId);
+    artworkDragRef.current = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+    };
+    setIsDraggingArtwork(true);
+  }
+
+  function dragArtwork(event: PointerEvent<HTMLImageElement>) {
+    const drag = artworkDragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+
+    const deltaX = event.clientX - drag.x;
+    const deltaY = event.clientY - drag.y;
+    artworkDragRef.current = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+    };
+    setArtworkOffset((current) => ({
+      x: current.x + deltaX,
+      y: current.y + deltaY,
+    }));
+  }
+
+  function stopArtworkDrag(event: PointerEvent<HTMLImageElement>) {
+    if (artworkDragRef.current?.pointerId !== event.pointerId) return;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    artworkDragRef.current = null;
+    setIsDraggingArtwork(false);
+  }
+
+  function handleComposerAction() {
+    if (isListening) {
+      setIsListening(false);
+      setIsComposerExpanded(true);
+      return;
+    }
+
+    if (draft.trim()) {
+      submitQuestion();
+      return;
+    }
+
+    setIsComposerExpanded(true);
+    setIsListening(true);
+  }
+
+  function collapseEmptyComposer() {
+    if (!draft.trim() && !isListening) {
+      composerInputRef.current?.blur();
+      setIsComposerExpanded(false);
+    }
   }
 
   return (
@@ -160,11 +247,18 @@ export function ChatPrototype() {
         {/* Public-domain reproduction sourced from Wikimedia Commons. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          className={styles.artwork}
+          className={`${styles.artwork} ${
+            artworkScale > 1 ? styles.artworkDraggable : ""
+          } ${isDraggingArtwork ? styles.artworkDragging : ""}`}
           src={ARTWORK_IMAGE}
           alt="Vincent van Gogh, Self-Portrait, 1887"
+          draggable={false}
+          onPointerDown={startArtworkDrag}
+          onPointerMove={dragArtwork}
+          onPointerUp={stopArtworkDrag}
+          onPointerCancel={stopArtworkDrag}
           style={{
-            transform: `scale(${artworkScale})`,
+            transform: `translate3d(${artworkOffset.x}px, ${artworkOffset.y}px, 0) scale(${artworkScale})`,
             transformOrigin: `${artworkOrigin.x}% ${artworkOrigin.y}%`,
           }}
         />
@@ -179,7 +273,10 @@ export function ChatPrototype() {
           disabled={artworkScale === 1}
           aria-label="将画作缩放复位到百分之百"
         >
-          ↺ 复位
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+            <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+            <path d="M3 3v5h5" />
+          </svg>
         </button>
         <ArtworkIdentity
           artist="Vincent Van Gogh"
@@ -193,17 +290,22 @@ export function ChatPrototype() {
 
       <section className={styles.chatPanel} aria-label="Conversation with Vincent van Gogh">
         <header className={styles.chatHeader}>
-          <div className={styles.titleLine}>
-            <span className={styles.hash}>#</span>
-            <h1>
-              <b>CHAT</b> <span>With</span>
-            </h1>
-            <span className={styles.at}>@</span>
-            <span className={styles.avatar}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={ARTIST_EYE_IMAGE} alt="" />
+          <h1 className={styles.artistProfile}>
+            <span className={styles.profileLine}>
+              Vincent Van Gogh
+              <span className={styles.profileEye} aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={ARTWORK_IMAGE} alt="" />
+              </span>
+              文森特·梵高
             </span>
-          </div>
+            <span className={styles.profileLine}>Born: 1853, The Netherlands 荷兰</span>
+            <span className={styles.profileLine}>Style: Bold Colors 浓烈色彩, Expressive</span>
+            <span className={styles.profileLine}>Brushstrokes 情绪化笔触 Subjects:</span>
+            <span className={styles.profileLine}>Sunflowers 向日葵, Starry Nights 星空</span>
+            <span className={styles.profileLine}>Legacy: Forever Changed Modern Art</span>
+            <span className={styles.profileLine}>永远改变了现代艺术。</span>
+          </h1>
           <div className={styles.quoteMarks} aria-hidden="true">
             <span>“</span>
             <span>”</span>
@@ -220,56 +322,133 @@ export function ChatPrototype() {
             >
               <span className={styles.bracket} aria-hidden="true" />
               <div className={styles.messageBody}>
-                <p className={styles.chinese}>
-                  <b>{message.role === "question" ? "Q/" : "A/"}</b>
-                  {message.chinese}
-                  {message.role === "question" ? <i>?</i> : null}
-                </p>
-                {message.english ? (
-                  <p className={styles.english}>
-                    {message.id === 2 ? (
-                      <>
-                        This version of <mark>“The Bedroom”</mark> was painted in <mark>1889.</mark>
-                      </>
-                    ) : message.english}
-                  </p>
-                ) : null}
+                {message.role === "answer" && message.english ? (
+                  <>
+                    <p className={styles.english}>
+                      <b>A/</b>
+                      {message.id === 2 ? (
+                        <>
+                          This version of <mark>“The Bedroom”</mark> was painted in{" "}
+                          <mark>1889.</mark>
+                        </>
+                      ) : (
+                        message.english
+                      )}
+                    </p>
+                    <p className={styles.chinese}>{message.chinese}</p>
+                  </>
+                ) : (
+                  <>
+                    <p className={styles.chinese}>
+                      <b>Q/</b>
+                      {message.chinese.replace(/[？?]\s*$/, "")}
+                      <i>?</i>
+                    </p>
+                    {message.english ? <p className={styles.english}>{message.english}</p> : null}
+                  </>
+                )}
               </div>
             </article>
           ))}
         </div>
 
         <div className={styles.composerArea}>
-          <div className={styles.suggestions} aria-label="Suggested questions">
-            {suggestions.map((suggestion) => (
-              <button key={suggestion} type="button" onClick={() => setDraft(suggestion)}>
-                {suggestion}
-              </button>
-            ))}
-          </div>
-          <form className={styles.composer} onSubmit={submitQuestion}>
+          <form
+            className={`${styles.composer} ${
+              isComposerExpanded || isListening || draft.trim() ? styles.composerExpanded : ""
+            }`}
+            onSubmit={submitQuestion}
+            onMouseLeave={collapseEmptyComposer}
+          >
             <span className={styles.inputBracket} aria-hidden="true" />
-            <label className="sr-only" htmlFor="chat-question">
-              向梵高提问
-            </label>
-            <input
-              id="chat-question"
-              value={draft}
-              onChange={(event) => setDraft(event.target.value)}
-              placeholder="向 Vincent 提问…"
-              autoComplete="off"
+            {!isComposerExpanded && !isListening && !draft.trim() ? (
+              <span className={styles.composerHint} aria-hidden="true">
+                <svg className={styles.actionIcon} focusable="false" viewBox="0 0 24 24">
+                  <path d="M7 17 17 7" />
+                  <path d="M8 7h9v9" />
+                </svg>
+              </span>
+            ) : null}
+            <div className={styles.composerSurface}>
+              {isListening ? (
+                <div className={styles.listeningStage} aria-hidden="true">
+                  <span className={styles.voiceWave}>
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                  </span>
+                </div>
+              ) : !isComposerExpanded && !draft.trim() ? (
+                <button
+                  className={styles.composerSeed}
+                  type="button"
+                  aria-label="展开文字输入框"
+                  onClick={() => setIsComposerExpanded(true)}
+                >
+                  <span className={styles.seedDot} aria-hidden="true" />
+                </button>
+              ) : (
+                <>
+                  <label className="sr-only" htmlFor="chat-question">
+                    向梵高提问
+                  </label>
+                  <input
+                    ref={composerInputRef}
+                    id="chat-question"
+                    value={draft}
+                    onChange={(event) => setDraft(event.target.value)}
+                    autoComplete="off"
+                  />
+                </>
+              )}
+              {isComposerExpanded || isListening || draft.trim() ? (
+                <button
+                  className={`${styles.composerAction} ${
+                    isListening ? styles.listening : draft.trim() ? styles.readyToSend : ""
+                  }`}
+                  type="button"
+                  aria-pressed={isListening}
+                  aria-label={
+                    isListening ? "停止语音输入" : draft.trim() ? "发送消息" : "开始语音输入"
+                  }
+                  onClick={handleComposerAction}
+                >
+                  {isListening ? (
+                    <span className={styles.stopIcon} aria-hidden="true" />
+                  ) : draft.trim() ? (
+                    <svg
+                      className={styles.actionIcon}
+                      aria-hidden="true"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M7 17 17 7" />
+                      <path d="M8 7h9v9" />
+                    </svg>
+                  ) : (
+                    <svg
+                      className={styles.actionIcon}
+                      aria-hidden="true"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M7 17 17 7" />
+                      <path d="M8 7h9v9" />
+                    </svg>
+                  )}
+                </button>
+              ) : null}
+            </div>
+            <span
+              className={`${styles.inputBracket} ${styles.inputBracketRight}`}
+              aria-hidden="true"
             />
-            <button
-              className={`${styles.voiceButton} ${isListening ? styles.listening : ""}`}
-              type="button"
-              aria-pressed={isListening}
-              onClick={() => setIsListening((value) => !value)}
-            >
-              {isListening ? "聆听中" : "语音"}
-            </button>
-            <button className={styles.sendButton} type="submit" disabled={!draft.trim()}>
-              发送
-            </button>
           </form>
           <p className={styles.disclaimer}>AI 艺术家对话 · 回答基于馆藏资料与经审核的人格档案</p>
         </div>
