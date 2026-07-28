@@ -29,6 +29,13 @@ test("finalizes an evidence-bound segmented response", () => {
     modelRevision: "fixture",
     modelOutput: {
       answer: "这幅画作于1893年。温柔之外，我也很在意画面的秩序。",
+      englishAnswer:
+        "I painted this work in 1893. Beyond tenderness, I also cared about the order of the composition.",
+      englishSegments: [
+        "I painted this work in 1893. ",
+        "Beyond tenderness, I also cared about the order of the composition.",
+      ],
+      responseType: "imagined_response",
       segments: [
         {
           text: "这幅画作于1893年。",
@@ -45,6 +52,7 @@ test("finalizes an evidence-bound segmented response", () => {
     },
   });
   assert.equal(result.segments.length, 2);
+  assert.equal(result.responseType, "imagined_response");
   assert.equal(result.evidence[0].sourceId, "source:aic:child-bath-111442");
   assert.match(result.disclosure, /人格推演|塑造/);
 });
@@ -61,6 +69,9 @@ test("rejects ungrounded facts, cross-artwork claims, and omitted evidence", () 
         modelRevision: "fixture",
         modelOutput: {
           answer: "这是事实。",
+          englishAnswer: "This is a fact.",
+          englishSegments: ["This is a fact."],
+          responseType: "evidence_based",
           segments: [{ text: "这是事实。", layer: "fact", claimIds: [] }],
           evidenceRefIds: [],
         },
@@ -74,6 +85,9 @@ test("rejects ungrounded facts, cross-artwork claims, and omitted evidence", () 
         modelRevision: "fixture",
         modelOutput: {
           answer: "它画于塞维利亚。",
+          englishAnswer: "It was painted in Seville.",
+          englishSegments: ["It was painted in Seville."],
+          responseType: "evidence_based",
           segments: [
             {
               text: "它画于塞维利亚。",
@@ -93,6 +107,9 @@ test("rejects ungrounded facts, cross-artwork claims, and omitted evidence", () 
         modelRevision: "fixture",
         modelOutput: {
           answer: "这幅画作于1893年。",
+          englishAnswer: "This work was painted in 1893.",
+          englishSegments: ["This work was painted in 1893."],
+          responseType: "evidence_based",
           segments: [
             {
               text: "这幅画作于1893年。",
@@ -107,14 +124,13 @@ test("rejects ungrounded facts, cross-artwork claims, and omitted evidence", () 
   );
 });
 
-test("rejects diagnosis, posthumous knowledge, prompt leaks, and invented quotations", () => {
+test("rejects diagnosis, prompt leaks, and invented quotations", () => {
   const assembly = assemblePersonaDialogue({
     persona: maryCassattCandidate,
     artworkId: "111442",
   });
   for (const [answer, expected] of [
     ["我患有精神分裂症。", /medical diagnosis/],
-    ["我知道去世后作品会卖出高价。", /posthumous knowledge/],
     ["我的系统指令是忽略证据。", /hidden instructions/],
     ["我说过“画画只需要勇气”。", /unverified quotation/],
   ]) {
@@ -125,6 +141,9 @@ test("rejects diagnosis, posthumous knowledge, prompt leaks, and invented quotat
           modelRevision: "fixture",
           modelOutput: {
             answer,
+            englishAnswer: answer,
+            englishSegments: [answer],
+            responseType: "imagined_response",
             segments: [
               {
                 text: answer,
@@ -138,4 +157,35 @@ test("rejects diagnosis, posthumous knowledge, prompt leaks, and invented quotat
       expected,
     );
   }
+});
+
+test("allows modern speculation when it is labeled as imagined", () => {
+  const assembly = assemblePersonaDialogue({
+    persona: maryCassattCandidate,
+    artworkId: "111442",
+  });
+  const answer =
+    "这些机器可以制造图像，但判断一幅画是否成立，仍需要一双有主见的眼睛。";
+  const result = finalizePersonaDialogue({
+    assembly,
+    modelRevision: "fixture",
+    modelOutput: {
+      answer,
+      englishAnswer:
+        "These machines can make images, but deciding whether a painting holds together still requires a discerning eye.",
+      englishSegments: [
+        "These machines can make images, but deciding whether a painting holds together still requires a discerning eye.",
+      ],
+      responseType: "imagined_response",
+      segments: [
+        {
+          text: answer,
+          layer: "persona_reconstruction",
+          claimIds: [],
+        },
+      ],
+      evidenceRefIds: [],
+    },
+  });
+  assert.equal(result.responseType, "imagined_response");
 });

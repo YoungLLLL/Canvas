@@ -43,6 +43,9 @@ export function buildLocalPersonaIntroduction({ persona, artworkId }) {
   }
   return {
     answer: template.text,
+    englishAnswer: template.englishText,
+    responseType: template.responseType,
+    perspective: template.perspective,
     evidence: resolveEvidence(persona, template.claimIds),
     disclosure: persona.disclosure.short,
     model: "reviewed-local-opening",

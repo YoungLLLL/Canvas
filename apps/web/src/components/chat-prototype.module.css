@@ -331,20 +331,24 @@
 .message {
   position: relative;
   display: flex;
-  width: min(100%, 980px);
+  width: fit-content;
+  max-width: min(100%, 980px);
   padding-left: 18px;
   animation: messageIn 440ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .question {
   align-self: flex-end;
-  width: min(86%, 820px);
+  width: fit-content;
+  max-width: min(86%, 820px);
   padding-left: 0;
   padding-right: 18px;
 }
 
 .messageBody {
-  width: 100%;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
   border-radius: 26px;
   padding: clamp(12px, 0.9vw, 17px) clamp(17px, 1.35vw, 25px);
   background: white;
@@ -432,7 +436,7 @@
 .chinese {
   font-size: 20px;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 1.25;
 }
 
 .chinese b {
@@ -456,7 +460,7 @@
   margin-top: 4px;
   font-size: 20px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.25;
 }
 
 .question .english {
@@ -487,6 +491,190 @@
   padding-inline: 0;
   font-size: 20px;
   font-weight: 400;
+}
+
+.responseLabel {
+  display: inline-flex;
+  margin-top: 12px;
+  border: 1px solid rgba(17, 49, 102, 0.2);
+  border-radius: 999px;
+  padding: 4px 8px 3px;
+  color: rgba(17, 49, 102, 0.58);
+  font-family: var(--font-body-zh), var(--font-body-latin), sans-serif;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.citationAnchor {
+  display: inline-flex;
+  margin-inline: 3px 0;
+  vertical-align: 0.45em;
+  line-height: 1;
+}
+
+.citationButton {
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--black);
+  color: white;
+  font:
+    700 0.58rem/1 var(--font-body-latin),
+    sans-serif;
+  cursor: pointer;
+}
+
+.citationButton:hover,
+.citationButton:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.citationPopover {
+  position: relative;
+  z-index: 20;
+  display: grid;
+  width: min(440px, 100%);
+  box-sizing: border-box;
+  gap: 8px;
+  margin-top: 12px;
+  border: 1px solid rgba(5, 6, 6, 0.16);
+  border-radius: 16px;
+  padding: 18px;
+  background: var(--black);
+  box-shadow: 0 18px 50px rgba(5, 6, 6, 0.22);
+  color: white;
+  text-align: left;
+}
+
+.citationPopover small {
+  color: var(--mint);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.citationPopover strong {
+  padding-right: 22px;
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+.citationPopover span,
+.citationPopover blockquote {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.citationEvidence {
+  display: grid;
+  gap: 5px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.citationEvidence em {
+  color: var(--mint);
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.citationEvidence blockquote {
+  padding-left: 10px;
+  border-left: 2px solid var(--mint);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.citationPopover a {
+  width: fit-content;
+  color: white;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.citationClose {
+  position: absolute;
+  top: 9px;
+  right: 11px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.generatingMessage .messageBody {
+  min-width: 150px;
+}
+
+.generatingText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: rgba(5, 6, 6, 0.68);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.generatingDots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.generatingDots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: generatingBounce 900ms ease-in-out infinite alternate;
+}
+
+.generatingDots i:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.generatingDots i:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes generatingBounce {
+  to {
+    opacity: 0.25;
+    transform: translateY(-3px);
+  }
+}
+
+.chatError {
+  margin: 8px 0 0;
+  color: #8f2e22;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.generatingDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: generatingPulse 900ms ease-in-out infinite alternate;
+}
+
+@keyframes generatingPulse {
+  to {
+    opacity: 0.3;
+    transform: scale(0.72);
+  }
 }
 
 .composerArea {
@@ -869,7 +1057,12 @@
 
   .message,
   .question {
-    width: 100%;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .question {
+    max-width: 92%;
   }
 
   .messageBody {

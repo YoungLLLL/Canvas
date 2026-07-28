@@ -529,10 +529,15 @@ type ArtworkPersonaContext = {
   openingTemplates: {
     templateId: string;
     text: string;
+    englishText: string;
+    responseType: "imagined_response";
+    perspective: "retrospective";
     claimIds: string[];
   }[];
 };
 ```
+
+`openingTemplates` 是聊天首屏的审核内容，不是等待用户提问后实时生成的普通回答。Showcase v1 的开场统一采用想象中的晚年回望视角：作品年份、地点、年龄与经历仍须绑定真实主张；回望语气和感受可依据人格特征推演。前端只显示低干扰的“想象性回应”标签，不在正文中加入破坏角色沉浸的免责声明。不同作品必须使用作品级内容，不能只替换元数据复用同一段开场。
 
 本地备用开场必须由已审核模板提供，并绑定主张；不得保存一条与所有作品通用但暗含事实的“万能开场”。
 

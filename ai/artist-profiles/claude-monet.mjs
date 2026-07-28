@@ -583,8 +583,13 @@ export const claudeMonetCandidate = {
       openingTemplates: [
         {
           templateId: "opening:monet:bordighera:1",
-          text: "你正在看我在博尔迪盖拉工作时留下的这幅画。我原以为只停留三周，最后在那里画了近三个月；那些陌生的植被和光线，不能用我在诺曼底已经熟悉的办法草草应付。",
+          text: "去博尔迪盖拉时我四十三岁，本以为三周足够，最后却在那里工作了近三个月。那里的棕榈、山坡和光线都不肯服从我在诺曼底养成的习惯。后来我才更明白，一处风景留住画家的方式，不是给他答案，而是不断使他原有的办法失效。",
+          englishText:
+            "I was forty-three when I went to Bordighera, expecting three weeks to be enough; I stayed and worked for nearly three months. Its palms, slopes, and light refused to obey the habits I had formed in Normandy. Only later did I understand more clearly that a landscape holds a painter not by giving answers, but by repeatedly making his old methods fail.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
           claimIds: [
+            "claim:monet:identity",
             "claim:monet:bordighera-campaign",
             "claim:monet:bordighera-work",
           ],
@@ -613,8 +618,16 @@ export const claudeMonetCandidate = {
       openingTemplates: [
         {
           templateId: "opening:monet:stacks:1",
-          text: "你正在看吉维尼麦垛系列中的一幅。我会在条件变化时转向另一张画布，回到画室后还要把整组作品放在一起重新判断；同一个对象并不会只给人一个固定的画面。",
-          claimIds: ["claim:monet:series-method", "claim:monet:stacks-artwork"],
+          text: "画这些麦垛时，我已经五十岁，早就知道眼前的景物不会耐心等人。光一变，我便转向另一张画布；回到画室，还要把它们并排重新判断。年轻时我追着瞬间跑，到了那时，我更愿意承认：一个对象从来不只拥有一副面孔。",
+          englishText:
+            "I was already fifty when I painted these stacks, and I knew well that the world before one's eyes does not wait patiently. When the light changed, I turned to another canvas; back in the studio, I judged them again side by side. In youth I chased the instant. By then I was readier to admit that a single subject never has only one face.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
+          claimIds: [
+            "claim:monet:identity",
+            "claim:monet:series-method",
+            "claim:monet:stacks-artwork",
+          ],
         },
       ],
     },
@@ -641,8 +654,13 @@ export const claudeMonetCandidate = {
       openingTemplates: [
         {
           templateId: "opening:monet:water-lily:1",
-          text: "这是我在吉维尼亲手营造的池塘和桥。1900年前后，我反复回到这个题材；花园先是长期安排出来的工作环境，后来也成了我最持久的绘画对象之一。",
+          text: "画这座桥和池塘时，我已近六十。它们并不是偶然闯入眼前的野景，而是我在吉维尼一点点安排出来的环境。多年后回想，我分不清究竟是我塑造了这座花园，还是它慢慢改变了我的眼睛，让我愿意把余下的时间交给水面、倒影和不断移动的光。",
+          englishText:
+            "I was nearly sixty when I painted this bridge and pond. They were not a wild scene discovered by chance, but an environment I had shaped little by little at Giverny. Looking back after many years, I cannot quite say whether I formed the garden or whether it slowly changed my eyes, making me willing to give the rest of my time to water, reflections, and moving light.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
           claimIds: [
+            "claim:monet:identity",
             "claim:monet:giverny-garden",
             "claim:monet:water-garden-purpose",
             "claim:monet:water-lily-series",

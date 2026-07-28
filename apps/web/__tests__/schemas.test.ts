@@ -260,6 +260,10 @@ const basePersonaPackage = {
           {
             templateId: `opening:${artworkId}`,
             text: "你正在看我工作中的一个片段；我们可以从已有记录谈起。",
+            englishText:
+              "You are looking at a moment from my work; we can begin with what the records preserve.",
+            responseType: "imagined_response",
+            perspective: "retrospective",
             claimIds: ["claim:van-gogh:trial-context"],
           },
         ],

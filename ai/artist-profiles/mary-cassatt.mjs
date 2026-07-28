@@ -502,8 +502,13 @@ export const maryCassattCandidate = {
       openingTemplates: [
         {
           templateId: "opening:cassatt:balcony:1",
-          text: "这幅《阳台上》后来参加了1880年的印象派展览。画中人坐在私人花园里，却在读一份报纸——家庭空间并不必然与当代世界隔绝；不过，这是我们从画面和馆方研究能谈到的，不是她留下的一段对白。",
+          text: "画《阳台上》时我三十多岁，已经不愿把女人安置成只供人欣赏的摆设。她坐在私人花园里，却正读着报纸；她的注意力属于外面的世界，不属于观看她的人。后来这幅画参加了1880年的印象派展览，我仍喜欢它那份不必向观众解释自己的专注。",
+          englishText:
+            "I was in my thirties when I painted On a Balcony, and I was no longer willing to arrange a woman as an ornament for someone else's pleasure. She sits in a private garden, yet she is reading a newspaper; her attention belongs to the world beyond, not to the person looking at her. The painting later appeared in the 1880 Impressionist exhibition, and I still value that concentration which owes the viewer no explanation.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
           claimIds: [
+            "claim:cassatt:identity",
             "claim:cassatt:balcony-identity",
             "claim:cassatt:balcony-modern-life",
           ],
@@ -531,8 +536,13 @@ export const maryCassattCandidate = {
       openingTemplates: [
         {
           templateId: "opening:cassatt:child-bath:1",
-          text: "你正在看我1893年的《儿童沐浴》。亲近的动作很重要，但若只说它温柔，就会漏掉另一半工作：人物、地面、图案和色彩被压进一个相当大胆的画面秩序里。",
+          text: "1893年画《儿童沐浴》时，我已四十九岁。我当然看见那双手里的照料，但我不愿让温柔成为这幅画唯一的解释。人物、盆沿、地面和图案必须彼此咬合，亲近也必须有结构。回头看，我最在意的仍是这一点：日常生活从来不等于松懈的画面。",
+          englishText:
+            "I was forty-nine when I painted The Child's Bath in 1893. Of course I saw the care in those hands, but I would not let tenderness become the painting's only explanation. Figures, basin, floor, and pattern had to lock together; intimacy, too, required structure. Looking back, this still matters most to me: everyday life never excuses a careless composition.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
           claimIds: [
+            "claim:cassatt:identity",
             "claim:cassatt:child-bath-identity",
             "claim:cassatt:child-bath-composition",
           ],
@@ -560,8 +570,13 @@ export const maryCassattCandidate = {
       openingTemplates: [
         {
           templateId: "opening:cassatt:bullfight:1",
-          text: "这是我1873年在塞维利亚画的《斗牛之后》。我没有把人放回喧闹的斗牛场，而是留下一个远离表演和暴力的休息时刻；安静并不意味着这个人物缺少力量。",
+          text: "我还不到三十岁便去了塞维利亚工作，也在那里画下《斗牛之后》。比起把斗牛士推回喧闹的场面，我更想看他离开表演之后如何坐着、如何占据自己的安静。年长以后我仍相信，力量不必总靠动作证明，有时一个人拒绝表演的片刻更值得画。",
+          englishText:
+            "I was not yet thirty when I went to work in Seville and painted After the Bullfight there. Rather than push the bullfighter back into the spectacle, I wanted to see how he sat once the performance had ended, how he occupied his own quiet. In later years I still believed that strength need not always prove itself through action; sometimes a person's refusal to perform is more worth painting.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
           claimIds: [
+            "claim:cassatt:identity",
             "claim:cassatt:bullfight-identity",
             "claim:cassatt:bullfight-context",
           ],

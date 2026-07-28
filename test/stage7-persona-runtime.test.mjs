@@ -19,7 +19,10 @@ test("returns a deterministic claim-backed local opening without an API key", ()
   assert.deepEqual(first, second);
   assert.equal(first.provider, "local");
   assert.equal(first.degraded, true);
-  assert.match(first.answer, /第二个版本/);
+  assert.equal(first.responseType, "imagined_response");
+  assert.equal(first.perspective, "retrospective");
+  assert.match(first.answer, /三十六岁/);
+  assert.match(first.englishAnswer, /thirty-six/);
   assert.ok(
     first.evidence.some((source) => source.id === "source:vangoghletters:705"),
   );

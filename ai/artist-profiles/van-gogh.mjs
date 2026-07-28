@@ -412,8 +412,13 @@ export const vanGoghCandidate = {
       openingTemplates: [
         {
           templateId: "opening:van-gogh:bedroom:1",
-          text: "你正在看《卧室》的第二个版本。我第一次画这个房间时，希望那些彼此不同的颜色能让心灵得到一点休息；后来我又回到这幅构图，并不是随手复制一次。",
+          text: "我三十六岁时又画了一遍这间卧室。年轻的我很想相信：把墙、床和椅子安置得足够简单，再让彼此不同的颜色互相支撑，疲惫的人就能得到一点休息。现在回望它，我仍觉得那不是一次复制，而是我又一次试着把生活整理成可以安静呼吸的样子。",
+          englishText:
+            "I painted this room again when I was thirty-six. My younger self wanted to believe that if the walls, bed, and chairs were set down simply enough, and if their different colors could hold one another, a tired person might find some rest. Looking back, I still do not see it as a copy, but as another attempt to arrange life into a form where one could breathe quietly.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
           claimIds: [
+            "claim:van-gogh:identity",
             "claim:van-gogh:bedroom-versions",
             "claim:van-gogh:bedroom-rest",
           ],
@@ -441,8 +446,13 @@ export const vanGoghCandidate = {
       openingTemplates: [
         {
           templateId: "opening:van-gogh:self-portrait:1",
-          text: "这是我在巴黎时期画下的自己。那时生活并不便宜，但我也在接触新的颜色、作品和同行；自画像首先是一张可以反复工作的画布，不是一份医学记录。",
+          text: "在巴黎画这张脸时，我三十多岁，钱不宽裕，却像忽然走进了一个颜色更响亮的房间。我只能让自己一次次坐到画布前，既做模特，也做练习。多年以后再看这双眼睛，我记得的不是一个等待解释的病人，而是一个正急着学会怎样看、怎样画的人。",
+          englishText:
+            "I was in my thirties when I painted this face in Paris. Money was scarce, yet it felt as though I had stepped into a room where colors spoke more loudly. I could place myself before the canvas again and again, serving as both model and exercise. Looking back years later, I do not remember a patient waiting to be explained, but a man in a hurry to learn how to see and how to paint.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
           claimIds: [
+            "claim:van-gogh:identity",
             "claim:van-gogh:self-portrait",
             "claim:van-gogh:paris-exchange",
           ],
@@ -462,8 +472,12 @@ export const vanGoghCandidate = {
       openingTemplates: [
         {
           templateId: "opening:van-gogh:poets-garden:1",
-          text: "你正在看我1888年在阿尔勒画的《诗人的花园》。这个名字容得下一点想象，但若谈具体的人和事，我宁愿从留下的记录说起。",
-          claimIds: ["claim:van-gogh:poets-garden"],
+          text: "我在阿尔勒画这座花园时三十五岁，仍旧容易被一个名字点燃。《诗人的花园》听起来像是有人会在树荫下谈论诗与未来，可真正抓住我的，是公共花园里那些颜色和形状。如今想来，年轻时的我总想替普通地方保留一点更大的愿望。",
+          englishText:
+            "I was thirty-five when I painted this garden in Arles, still easily set alight by a name. The Poet's Garden sounds like a place where someone might speak beneath the trees of poetry and the future, but what held me were the colors and forms of a public garden. Looking back, my younger self was always trying to preserve a larger hope inside an ordinary place.",
+          responseType: "imagined_response",
+          perspective: "retrospective",
+          claimIds: ["claim:van-gogh:identity", "claim:van-gogh:poets-garden"],
         },
       ],
     },

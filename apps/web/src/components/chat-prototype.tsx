@@ -9,11 +9,30 @@ import styles from "./chat-prototype.module.css";
 
 const ARTWORK_IMAGE = "/chat/van-gogh-self-portrait-1889.jpg";
 
+type Citation = {
+  number: number;
+  title: string;
+  publisher: string;
+  url: string;
+  locator?: Record<string, string>;
+  excerpt?: string;
+  supportText?: string;
+};
+
+type MessageSegment = {
+  chinese: string;
+  english: string;
+  citationNumbers: number[];
+};
+
 type Message = {
   id: number;
   role: "question" | "answer";
   chinese: string;
   english: string;
+  responseType?: "imagined_response";
+  citations?: Citation[];
+  segments?: MessageSegment[];
 };
 
 type ArtworkIdentityProps = {
@@ -39,6 +58,14 @@ export type ArtistProfile = {
 
 type ChatPrototypeProps = {
   locale?: "en" | "zh";
+  artworkId?: string;
+  opening?: {
+    chinese: string;
+    english: string;
+    responseType: "imagined_response";
+    citations?: Citation[];
+    segments?: MessageSegment[];
+  };
   artwork?: Partial<ArtworkIdentityProps> & {
     imageUrl?: string | null;
     artistProfile?: ArtistProfile;
@@ -452,19 +479,31 @@ function BilingualTerms({ terms }: { terms: ArtistProfile["style"] }) {
   ));
 }
 
-function createInitialMessages(artwork: ArtworkIdentityProps): Message[] {
+function createInitialMessages(
+  artwork: ArtworkIdentityProps,
+  opening?: ChatPrototypeProps["opening"],
+): Message[] {
+  if (opening) {
+    return [
+      {
+        id: 1,
+        role: "answer",
+        chinese: opening.chinese,
+        english: opening.english,
+        responseType: opening.responseType,
+        citations: opening.citations,
+        segments: opening.segments,
+      },
+    ];
+  }
+
   return [
     {
       id: 1,
-      role: "question",
-      chinese: "你是在哪一年画了这幅画",
-      english: "In what year did you paint this picture?",
-    },
-    {
-      id: 2,
       role: "answer",
-      chinese: `《${artwork.title}》创作于${artwork.year || "年代待考"}。`,
-      english: `${artwork.title} is dated ${artwork.year || "date unknown"}.`,
+      chinese: `《${artwork.title}》留在了${artwork.year || "一个年代待考的时刻"}。先别急着寻找结论，看看画面最先把你的目光带到了哪里。`,
+      english: `${artwork.title} belongs to ${artwork.year || "a date still under study"}. Before looking for a conclusion, notice where the painting first takes your eye.`,
+      responseType: "imagined_response",
     },
   ];
 }
@@ -530,7 +569,7 @@ function nextAnswer(question: string): Pick<Message, "chinese" | "english"> {
   };
 }
 
-export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
+export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: ChatPrototypeProps) {
   const selectedArtwork = {
     artist: artwork?.artist || DEFAULT_ARTWORK.artist,
     year: artwork?.year || DEFAULT_ARTWORK.year,
@@ -561,8 +600,14 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
       ) === index,
   );
   const isVanGogh = /van gogh|梵高/i.test(selectedArtwork.artist);
-  const [messages, setMessages] = useState(() => createInitialMessages(selectedArtwork));
+  const [messages, setMessages] = useState(() => createInitialMessages(selectedArtwork, opening));
   const [draft, setDraft] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [chatError, setChatError] = useState("");
+  const [activeCitation, setActiveCitation] = useState<{
+    messageId: number;
+    number: number;
+  } | null>(null);
   const [isListening, setIsListening] = useState(false);
   const [isComposerExpanded, setIsComposerExpanded] = useState(false);
   const [artworkScale, setArtworkScale] = useState(1);
@@ -578,13 +623,13 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
   } | null>(null);
 
   useEffect(() => {
-    if (messages.length > 2) {
+    if (messages.length > 1 || isGenerating) {
       feedRef.current?.scrollTo({
         top: feedRef.current.scrollHeight,
         behavior: "smooth",
       });
     }
-  }, [messages]);
+  }, [messages, isGenerating]);
 
   useEffect(() => {
     if (isComposerExpanded && !isListening) {
@@ -592,20 +637,74 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
     }
   }, [isComposerExpanded, isListening]);
 
-  function submitQuestion(event?: FormEvent) {
+  async function submitQuestion(event?: FormEvent) {
     event?.preventDefault();
     const question = draft.trim();
-    if (!question) return;
+    if (!question || isGenerating) return;
 
     const baseId = Date.now();
-    const answer = nextAnswer(question);
-    setMessages((current) => [
-      ...current,
-      { id: baseId, role: "question", chinese: question, english: "" },
-      { id: baseId + 1, role: "answer", ...answer },
-    ]);
+    const questionMessage: Message = {
+      id: baseId,
+      role: "question",
+      chinese: question,
+      english: "",
+    };
+    const history = messages.slice(-10).map((message) => ({
+      role: message.role === "question" ? ("user" as const) : ("assistant" as const),
+      content: message.chinese,
+    }));
+    setMessages((current) => [...current, questionMessage]);
     setDraft("");
     setIsComposerExpanded(false);
+    setChatError("");
+
+    if (!artworkId) {
+      setMessages((current) => [
+        ...current,
+        { id: baseId + 1, role: "answer", ...nextAnswer(question) },
+      ]);
+      return;
+    }
+
+    setIsGenerating(true);
+    try {
+      const response = await fetch("/api/ai/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          artworkId,
+          message: question,
+          history,
+        }),
+      });
+      const body = (await response.json()) as {
+        answer?: string;
+        englishAnswer?: string;
+        responseType?: "evidence_based" | "imagined_response";
+        citations?: Citation[];
+        displaySegments?: MessageSegment[];
+        error?: string;
+      };
+      if (!response.ok || !body.answer || !body.englishAnswer) {
+        throw new Error(body.error || "暂时无法生成回答。");
+      }
+      setMessages((current) => [
+        ...current,
+        {
+          id: baseId + 1,
+          role: "answer",
+          chinese: body.answer!,
+          english: body.englishAnswer!,
+          responseType: body.responseType === "imagined_response" ? "imagined_response" : undefined,
+          citations: body.citations,
+          segments: body.displaySegments,
+        },
+      ]);
+    } catch (error) {
+      setChatError(error instanceof Error ? error.message : "暂时无法生成回答。");
+    } finally {
+      setIsGenerating(false);
+    }
   }
 
   function zoomArtwork(event: React.WheelEvent<HTMLElement>) {
@@ -694,6 +793,72 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
       composerInputRef.current?.blur();
       setIsComposerExpanded(false);
     }
+  }
+
+  function renderCitations(message: Message, citationNumbers: number[], language: "en" | "zh") {
+    return citationNumbers.map((number) => {
+      const citation = message.citations?.find((candidate) => candidate.number === number);
+      if (!citation) return null;
+      const isOpen =
+        activeCitation?.messageId === message.id && activeCitation.number === number;
+      return (
+        <span className={styles.citationAnchor} key={`${language}-${number}`}>
+          <button
+            className={styles.citationButton}
+            type="button"
+            aria-expanded={isOpen}
+            aria-label={`查看来源 ${number}`}
+            onClick={() =>
+              setActiveCitation(isOpen ? null : { messageId: message.id, number })
+            }
+          >
+            {number}
+          </button>
+        </span>
+      );
+    });
+  }
+
+  function renderCitationDetails(message: Message) {
+    if (activeCitation?.messageId !== message.id) return null;
+    const citation = message.citations?.find(
+      (candidate) => candidate.number === activeCitation.number,
+    );
+    if (!citation) return null;
+    return (
+      <aside className={styles.citationPopover} role="dialog">
+        <button
+          className={styles.citationClose}
+          type="button"
+          aria-label="关闭来源"
+          onClick={() => setActiveCitation(null)}
+        >
+          ×
+        </button>
+        <small>来源 {citation.number}</small>
+        <strong>{citation.title}</strong>
+        {citation.publisher ? <span>{citation.publisher}</span> : null}
+        {citation.locator && Object.keys(citation.locator).length ? (
+          <span>{Object.values(citation.locator).filter(Boolean).join(" · ")}</span>
+        ) : null}
+        {citation.excerpt ? (
+          <div className={styles.citationEvidence}>
+            <em>原文摘录</em>
+            <blockquote>{citation.excerpt}</blockquote>
+          </div>
+        ) : citation.supportText ? (
+          <div className={styles.citationEvidence}>
+            <em>对应依据摘要</em>
+            <blockquote>{citation.supportText}</blockquote>
+          </div>
+        ) : null}
+        {citation.url ? (
+          <a href={citation.url} target="_blank" rel="noreferrer">
+            查看原始资料 ↗
+          </a>
+        ) : null}
+      </aside>
+    );
   }
 
   return (
@@ -826,20 +991,38 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
             >
               <span className={styles.bracket} aria-hidden="true" />
               <div className={styles.messageBody}>
-                {message.role === "answer" && message.english ? (
+                {message.role === "answer" ? (
                   <>
-                    <p className={styles.english}>
-                      <b>A/</b>
-                      {message.id === 2 ? (
-                        <>
-                          <mark>“{selectedArtwork.title}”</mark> is dated{" "}
-                          <mark>{selectedArtwork.year || "date unknown"}.</mark>
-                        </>
-                      ) : (
-                        message.english
-                      )}
+                    {message.english ? (
+                      <p className={styles.english}>
+                        <b>A/</b>
+                        {message.segments?.length
+                          ? message.segments.map((segment, index) => (
+                              <span key={`en-${index}`}>
+                                {segment.english}
+                                {renderCitations(message, segment.citationNumbers, "en")}
+                                {index < message.segments!.length - 1 ? " " : null}
+                              </span>
+                            ))
+                          : message.english}
+                      </p>
+                    ) : null}
+                    <p className={styles.chinese}>
+                      {message.segments?.length
+                        ? message.segments.map((segment, index) => (
+                            <span key={`zh-${index}`}>
+                              {segment.chinese}
+                              {renderCitations(message, segment.citationNumbers, "zh")}
+                            </span>
+                          ))
+                        : message.chinese}
                     </p>
-                    <p className={styles.chinese}>{message.chinese}</p>
+                    {message.responseType === "imagined_response" ? (
+                      <span className={styles.responseLabel}>
+                        {locale === "zh" ? "想象性回应" : "IMAGINED RESPONSE"}
+                      </span>
+                    ) : null}
+                    {renderCitationDetails(message)}
                   </>
                 ) : (
                   <>
@@ -854,6 +1037,25 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
               </div>
             </article>
           ))}
+          {isGenerating ? (
+            <article
+              className={`${styles.message} ${styles.answer} ${styles.generatingMessage}`}
+              aria-live="polite"
+              aria-label="AI 正在生成回答"
+            >
+              <span className={styles.bracket} aria-hidden="true" />
+              <div className={styles.messageBody}>
+                <p className={styles.generatingText}>
+                  {locale === "zh" ? "正在回想" : "Remembering"}
+                  <span className={styles.generatingDots} aria-hidden="true">
+                    <i />
+                    <i />
+                    <i />
+                  </span>
+                </p>
+              </div>
+            </article>
+          ) : null}
         </div>
 
         <div className={styles.composerArea}>
@@ -916,6 +1118,7 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
                     id="chat-question"
                     value={draft}
                     onChange={(event) => setDraft(event.target.value)}
+                    disabled={isGenerating}
                     autoComplete="off"
                   />
                 </>
@@ -928,11 +1131,20 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
                   type="button"
                   aria-pressed={isListening}
                   aria-label={
-                    isListening ? "停止语音输入" : draft.trim() ? "发送消息" : "开始语音输入"
+                    isGenerating
+                      ? "正在生成回答"
+                      : isListening
+                        ? "停止语音输入"
+                        : draft.trim()
+                          ? "发送消息"
+                          : "开始语音输入"
                   }
                   onClick={handleComposerAction}
+                  disabled={isGenerating}
                 >
-                  {isListening ? (
+                  {isGenerating ? (
+                    <span className={styles.generatingDot} aria-hidden="true" />
+                  ) : isListening ? (
                     <span className={styles.stopIcon} aria-hidden="true" />
                   ) : draft.trim() ? (
                     <svg
@@ -965,6 +1177,11 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
               aria-hidden="true"
             />
           </form>
+          {chatError ? (
+            <p className={styles.chatError} role="alert">
+              {chatError}
+            </p>
+          ) : null}
           <p className={styles.disclaimer}>AI 艺术家对话 · 回答基于馆藏资料与经审核的人格档案</p>
         </div>
       </section>

@@ -440,6 +440,9 @@ export const personaOpeningTemplateSchema = z
   .object({
     templateId: idSchema,
     text: z.string().min(1).max(800),
+    englishText: z.string().min(1).max(800),
+    responseType: z.literal("imagined_response"),
+    perspective: z.literal("retrospective"),
     claimIds: z.array(idSchema).min(1),
   })
   .strict();
