@@ -795,12 +795,9 @@ export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
               Subjects: <BilingualTerms terms={artistProfile.subjects} />{" "}
             </span>
             <span className={styles.profileLine}>
-              Legacy: {artistProfile.legacy.english}{" "}
-              <span className={styles.quotePair}>
-                {artistProfile.legacy.chinese}。
-                <span className={`${styles.inlineQuote} ${styles.closingQuote}`} aria-hidden="true">
-                  ”
-                </span>
+              Legacy: {artistProfile.legacy.english} {artistProfile.legacy.chinese}。
+              <span className={`${styles.inlineQuote} ${styles.closingQuote}`} aria-hidden="true">
+                ”
               </span>
             </span>
           </h1>

@@ -228,12 +228,14 @@
 
 .artistProfile {
   margin: 0;
+  max-width: 100%;
   font-family:
     "Canvium Khyay", Khyay, "Myanmar Khyay", var(--font-body-latin), var(--font-body-zh), sans-serif;
   font-size: 32px;
   font-weight: 400;
   line-height: 35px;
   letter-spacing: -0.059em;
+  overflow-wrap: anywhere;
 }
 
 .profileSources {

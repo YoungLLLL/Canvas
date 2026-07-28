@@ -1,0 +1,13 @@
+
+> @canvium/web@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://198.18.0.1:3000
+- Environments: .env.local
+✓ Ready in 856ms
+- Experiments (use with caution):
+  ✓ viewTransition
+
+ GET /zh/artworks/artic-87467 200 in 1762ms (next.js: 1301ms, application-code: 461ms)

@@ -52,13 +52,6 @@ function artistDetails(artist: string) {
   return artist.match(/\(([^)]*)\)\s*$/)?.[1] || "";
 }
 
-function sentences(text: string) {
-  return text
-    .split(/(?<=[.!?。！？])\s+/)
-    .map((sentence) => sentence.trim())
-    .filter(Boolean);
-}
-
 function ordinal(value: number) {
   const remainder = value % 100;
   if (remainder >= 11 && remainder <= 13) return `${value}th`;
@@ -118,7 +111,6 @@ export async function getWikipediaArtistProfile(artist: string): Promise<ArtistP
     const chineseTitle = english.langlinks?.[0]?.["*"];
     const chinese = chineseTitle ? await wikipediaIntro("zh", chineseTitle) : null;
     const englishExtract = english.extract;
-    const chineseExtract = chinese?.extract || "";
     const details = artistDetails(artist);
     const life = details.match(/\b\d{4}(?:\/\d{2})?\s*[–-]\s*\d{4}\b/)?.[0] || "See biography";
     const country = details.split(",")[0]?.trim() || "See biography";
@@ -163,17 +155,12 @@ export async function getWikipediaArtistProfile(artist: string): Promise<ArtistP
           ? [{ english: "Painting and Works on Paper", chinese: "绘画与纸上作品" }]
           : [{ english: "Painting", chinese: "绘画" }];
 
-    const englishSentences = sentences(englishExtract);
-    const chineseSentences = sentences(chineseExtract);
-    const legacyEnglish =
-      englishSentences.find((sentence) =>
-        /\b(?:influential|pivotal|leading|important|founder|known for|major)\b/i.test(sentence),
-      ) || englishSentences[0];
-    const legacyChinese =
-      chineseSentences.find((sentence) => /重要|代表|奠基|影响|著名|闻名|开创/.test(sentence)) ||
-      chineseSentences[0] ||
-      "人物资料参见维基百科";
-    if (!legacyEnglish) return null;
+    const subjectSummaryEnglish = subjects.map(({ english }) => english.toLowerCase()).join(", ");
+    const subjectSummaryChinese = subjects.map(({ chinese }) => chinese).join("、");
+    const styleSummaryEnglish = style.map(({ english }) => english).join(", ");
+    const styleSummaryChinese = style.map(({ chinese }) => chinese).join("、");
+    const legacyEnglish = `Recognized for ${subjectSummaryEnglish} within ${styleSummaryEnglish}.`;
+    const legacyChinese = `以${subjectSummaryChinese}创作为人所知，作品体现${styleSummaryChinese}特征`;
 
     return {
       name: english.title || name,
