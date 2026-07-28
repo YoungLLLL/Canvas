@@ -214,6 +214,10 @@ select {
   padding-inline: 3vw;
 }
 
+body:has(.chat-prototype-page) #siteHeader {
+  display: none;
+}
+
 .wordmark {
   font-family: "Otomanopee One", "Noto Sans SC", sans-serif;
   font-size: 1.5rem;

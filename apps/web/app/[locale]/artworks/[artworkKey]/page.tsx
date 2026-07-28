@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { DemoArtworkDetail } from "@/src/components/demo-artwork-detail";
-import { DemoStyles } from "@/src/components/demo-styles";
+import { ChatPrototype } from "@/src/components/chat-prototype";
 import { isLocale } from "@/src/i18n/locales";
 import { getArticArtwork } from "@/src/lib/artic";
 import { iiifImageUrl } from "@/src/lib/iiif";
+import { getWikipediaArtistProfile } from "@/src/lib/wikipedia-artist-profile";
 import { artworkKeySchema } from "@/src/schemas/routes";
 
 export async function generateMetadata({
@@ -31,6 +31,7 @@ export default async function ArtworkPage({
   )
     notFound();
   const image = artwork.images.preferred;
+  const wikipediaProfile = await getWikipediaArtistProfile(artwork.display.artistDisplay);
   const knownTitle =
     locale === "zh" && sourceId === "80607"
       ? "自画像"
@@ -40,32 +41,22 @@ export default async function ArtworkPage({
           ? "诗人的花园"
           : artwork.display.title;
   return (
-    <>
-      <DemoStyles />
-      <DemoArtworkDetail
-        locale={locale}
-        imageUrl={image ? image.directUrl || iiifImageUrl(image, 1686) : null}
-        ratio={image?.width && image.height ? image.width / image.height : 1.2}
-        title={knownTitle}
-        originalTitle={artwork.display.title}
-        artist={artwork.display.artistDisplay}
-        date={artwork.display.dateDisplay || ""}
-        description={
-          artwork.description?.text ||
-          (locale === "zh"
-            ? "馆方开放资料暂未提供完整作品说明。"
-            : "The museum record does not currently include a full description.")
-        }
-        medium={artwork.display.mediumDisplay || "—"}
-        dimensions={artwork.display.dimensionsDisplay || "—"}
-        museumUrl={artwork.source.recordUrl}
-        imageSourceUrl={image?.sourceUrl}
-        licenseLabel={artwork.rights.image.licenseCode.replaceAll("-", " ")}
-        licenseUrl={artwork.rights.image.licenseUrl || undefined}
-        imageAttribution={artwork.rights.attribution}
-        adaptationsAllowed={artwork.rights.image.usage?.adaptationsAllowed ?? false}
-        commercialUseAllowed={artwork.rights.image.usage?.commercialUseAllowed ?? false}
-      />
-    </>
+    <ChatPrototype
+      locale={locale}
+      artwork={{
+        artistProfile: wikipediaProfile || undefined,
+        sourceUrl: artwork.source.recordUrl,
+        imageUrl: image ? image.directUrl || iiifImageUrl(image, 1686) : null,
+        title: knownTitle,
+        artist: artwork.display.artistDisplay,
+        year: artwork.display.dateDisplay || "",
+        medium: artwork.display.mediumDisplay || "—",
+        dimensions: artwork.display.dimensionsDisplay || "—",
+        collection:
+          locale === "zh"
+            ? "ART INSTITUTE OF CHICAGO · 芝加哥艺术博物馆"
+            : "ART INSTITUTE OF CHICAGO",
+      }}
+    />
   );
 }

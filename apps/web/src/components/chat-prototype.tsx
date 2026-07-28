@@ -3,6 +3,8 @@
 import { FormEvent, PointerEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
+import { CollectionBackLink } from "@/src/components/collection-state";
+
 import styles from "./chat-prototype.module.css";
 
 const ARTWORK_IMAGE = "/chat/van-gogh-self-portrait-1889.jpg";
@@ -23,20 +25,449 @@ type ArtworkIdentityProps = {
   collection: string;
 };
 
-const initialMessages: Message[] = [
+export type ArtistProfile = {
+  name: string;
+  localizedName: string;
+  life: string;
+  country: string;
+  localizedCountry: string;
+  style: Array<{ english: string; chinese: string }>;
+  subjects: Array<{ english: string; chinese: string }>;
+  legacy: { english: string; chinese: string };
+  sources?: Array<{ label: string; url: string }>;
+};
+
+type ChatPrototypeProps = {
+  locale?: "en" | "zh";
+  artwork?: Partial<ArtworkIdentityProps> & {
+    imageUrl?: string | null;
+    artistProfile?: ArtistProfile;
+    sourceUrl?: string;
+  };
+};
+
+const DEFAULT_ARTWORK: ArtworkIdentityProps & { imageUrl: string } = {
+  artist: "Vincent Van Gogh",
+  year: "1889",
+  title: "THE BEDROOM",
+  medium: "OIL ON CANVAS",
+  dimensions: "72.4 × 91.3 CM",
+  collection: "ART INSTITUTE OF CHICAGO",
+  imageUrl: ARTWORK_IMAGE,
+};
+
+const ARTIST_PROFILES: Array<{ matches: RegExp; profile: ArtistProfile }> = [
   {
-    id: 1,
-    role: "question",
-    chinese: "你是在哪一年画了这幅画",
-    english: "In what year did you paint this picture?",
+    matches: /van gogh|梵高/i,
+    profile: {
+      name: "Vincent Van Gogh",
+      localizedName: "文森特·梵高",
+      life: "1853–1890",
+      country: "The Netherlands",
+      localizedCountry: "荷兰",
+      style: [
+        { english: "Bold Colors", chinese: "浓烈色彩" },
+        { english: "Expressive Brushstrokes", chinese: "情绪化笔触" },
+      ],
+      subjects: [
+        { english: "Sunflowers", chinese: "向日葵" },
+        { english: "Starry Nights", chinese: "星空" },
+      ],
+      legacy: {
+        english: "Forever Changed Modern Art",
+        chinese: "永远改变了现代艺术",
+      },
+      sources: [
+        {
+          label: "Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
+        },
+      ],
+    },
   },
   {
-    id: 2,
-    role: "answer",
-    chinese: "这一版《卧室》画于1889年。",
-    english: "This version of “The Bedroom” was painted in 1889.",
+    matches: /james peale|詹姆斯[·・]?皮尔/i,
+    profile: {
+      name: "James Peale",
+      localizedName: "詹姆斯·皮尔",
+      life: "1749–1831",
+      country: "United States",
+      localizedCountry: "美国",
+      style: [
+        { english: "Portraiture", chinese: "肖像画" },
+        { english: "Miniature Painting", chinese: "细密肖像画" },
+        { english: "Still Life", chinese: "静物画" },
+      ],
+      subjects: [
+        { english: "Portraits", chinese: "人物肖像" },
+        { english: "Family", chinese: "家庭" },
+        { english: "Fruit and Flowers", chinese: "果实与花卉" },
+      ],
+      legacy: {
+        english: "A Leading Early American Miniaturist",
+        chinese: "美国早期重要的细密肖像画家",
+      },
+      sources: [
+        {
+          label: "Smithsonian American Art Museum",
+          url: "https://americanart.si.edu/artist/james-peale-3721",
+        },
+      ],
+    },
+  },
+  {
+    matches: /peter paul rubens|彼得[·・]?保罗[·・]?鲁本斯/i,
+    profile: {
+      name: "Peter Paul Rubens",
+      localizedName: "彼得·保罗·鲁本斯",
+      life: "1577–1640",
+      country: "Siegen, Germany",
+      localizedCountry: "德国锡根",
+      style: [
+        { english: "Flemish Baroque", chinese: "佛兰德斯巴洛克" },
+        { english: "Dynamic Composition", chinese: "动态构图" },
+        { english: "Vibrant Color", chinese: "鲜明色彩" },
+      ],
+      subjects: [
+        { english: "Religious Scenes", chinese: "宗教题材" },
+        { english: "Mythology", chinese: "神话" },
+        { english: "Portraits", chinese: "肖像" },
+      ],
+      legacy: {
+        english: "A Defining Master of Northern European Baroque",
+        chinese: "北欧巴洛克艺术的重要大师",
+      },
+      sources: [
+        {
+          label: "National Gallery, London",
+          url: "https://www.nationalgallery.org.uk/artists/peter-paul-rubens",
+        },
+        {
+          label: "The Metropolitan Museum of Art",
+          url: "https://www.metmuseum.org/exhibitions/listings/2005/rubens-drawings",
+        },
+      ],
+    },
+  },
+  {
+    matches: /[ée]douard manet|爱德华[·・]?马奈/i,
+    profile: {
+      name: "Édouard Manet",
+      localizedName: "爱德华·马奈",
+      life: "1832–1883",
+      country: "France",
+      localizedCountry: "法国",
+      style: [
+        { english: "Realism", chinese: "现实主义" },
+        { english: "Early Modernism", chinese: "早期现代主义" },
+      ],
+      subjects: [
+        { english: "Modern Life", chinese: "现代生活" },
+        { english: "Portraits", chinese: "肖像" },
+        { english: "Parisian Society", chinese: "巴黎社会" },
+      ],
+      legacy: {
+        english: "A Pivotal Figure between Realism and Impressionism",
+        chinese: "连接现实主义与印象主义的关键人物",
+      },
+      sources: [
+        {
+          label: "The Metropolitan Museum of Art",
+          url: "https://www.metmuseum.org/essays/edouard-manet-1832-1883",
+        },
+        {
+          label: "Wikipedia",
+          url: "https://en.wikipedia.org/wiki/%C3%89douard_Manet",
+        },
+      ],
+    },
+  },
+  {
+    matches: /jacob jordaens|雅各布[·・]?约尔丹斯/i,
+    profile: {
+      name: "Jacob Jordaens",
+      localizedName: "雅各布·约尔丹斯",
+      life: "1593–1678",
+      country: "Flanders",
+      localizedCountry: "佛兰德斯",
+      style: [
+        { english: "Flemish Baroque", chinese: "佛兰德斯巴洛克" },
+        { english: "Robust Naturalism", chinese: "强烈的自然主义" },
+      ],
+      subjects: [
+        { english: "Religious Scenes", chinese: "宗教题材" },
+        { english: "Mythology", chinese: "神话" },
+        { english: "Genre Scenes", chinese: "风俗场景" },
+      ],
+      legacy: {
+        english: "A Leading Antwerp Painter after Rubens",
+        chinese: "鲁本斯之后安特卫普的重要画家",
+      },
+      sources: [
+        {
+          label: "Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Jacob_Jordaens",
+        },
+      ],
+    },
+  },
+  {
+    matches: /antonio (?:de )?puga|安东尼奥[·・]?普加/i,
+    profile: {
+      name: "Antonio de Puga",
+      localizedName: "安东尼奥·德·普加",
+      life: "1602–1648",
+      country: "Spain",
+      localizedCountry: "西班牙",
+      style: [{ english: "Spanish Baroque", chinese: "西班牙巴洛克" }],
+      subjects: [
+        { english: "Genre Scenes", chinese: "风俗场景" },
+        { english: "Portraits", chinese: "肖像" },
+        { english: "Religious Painting", chinese: "宗教画" },
+      ],
+      legacy: {
+        english: "The First Notable Painter from Galicia",
+        chinese: "加利西亚地区第一位重要画家",
+      },
+      sources: [
+        {
+          label: "Museo Nacional del Prado",
+          url: "https://www.museodelprado.es/coleccion/artista/antonio-puga/4cbebf67-b5b5-4d41-a6ff-888e91ba383b",
+        },
+        {
+          label: "Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Antonio_de_Puga",
+        },
+      ],
+    },
+  },
+  {
+    matches: /frans pourbus the younger|小弗兰斯[·・]?普布斯/i,
+    profile: {
+      name: "Frans Pourbus the Younger",
+      localizedName: "小弗兰斯·普布斯",
+      life: "1569–1622",
+      country: "Flanders",
+      localizedCountry: "佛兰德斯",
+      style: [
+        { english: "Court Portraiture", chinese: "宫廷肖像画" },
+        { english: "Meticulous Realism", chinese: "细致写实" },
+      ],
+      subjects: [
+        { english: "Royalty", chinese: "王室成员" },
+        { english: "Aristocracy", chinese: "贵族" },
+        { english: "Court Dress", chinese: "宫廷服饰" },
+      ],
+      legacy: {
+        english: "An International Court Portraitist",
+        chinese: "活跃于欧洲多国宫廷的重要肖像画家",
+      },
+      sources: [
+        {
+          label: "Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Frans_Pourbus_the_Younger",
+        },
+      ],
+    },
+  },
+  {
+    matches: /luca cambiaso|卢卡[·・]?坎比亚索/i,
+    profile: {
+      name: "Luca Cambiaso",
+      localizedName: "卢卡·坎比亚索",
+      life: "1527–1585",
+      country: "Italy",
+      localizedCountry: "意大利",
+      style: [
+        { english: "Mannerism", chinese: "矫饰主义" },
+        { english: "Geometric Draftsmanship", chinese: "几何化造型" },
+        { english: "Nocturnal Light", chinese: "夜景光线" },
+      ],
+      subjects: [
+        { english: "Religious Scenes", chinese: "宗教题材" },
+        { english: "Mythology", chinese: "神话" },
+        { english: "Fresco Decoration", chinese: "湿壁画装饰" },
+      ],
+      legacy: {
+        english: "Founder of the Genoese School",
+        chinese: "热那亚画派的奠基者",
+      },
+      sources: [
+        {
+          label: "Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Luca_Cambiaso",
+        },
+      ],
+    },
+  },
+  {
+    matches: /apollonio di giovanni|阿波洛尼奥[·・]?迪[·・]?乔瓦尼/i,
+    profile: {
+      name: "Apollonio di Giovanni",
+      localizedName: "阿波洛尼奥·迪·乔瓦尼",
+      life: "1415/17–1465",
+      country: "Florence",
+      localizedCountry: "佛罗伦萨",
+      style: [{ english: "Early Renaissance Narrative Painting", chinese: "早期文艺复兴叙事绘画" }],
+      subjects: [
+        { english: "Classical Literature", chinese: "古典文学" },
+        { english: "Ancient History", chinese: "古代历史" },
+        { english: "Wedding Chests", chinese: "婚礼箱画" },
+      ],
+      legacy: {
+        english: "A Leading Florentine Cassone Painter",
+        chinese: "佛罗伦萨重要的婚礼箱画家",
+      },
+      sources: [
+        {
+          label: "Wikipedia",
+          url: "https://it.wikipedia.org/wiki/Apollonio_di_Giovanni",
+        },
+      ],
+    },
+  },
+  {
+    matches: /giovanni battista tiepolo|乔瓦尼[·・]?巴蒂斯塔[·・]?提埃波罗/i,
+    profile: {
+      name: "Giovanni Battista Tiepolo",
+      localizedName: "乔瓦尼·巴蒂斯塔·提埃波罗",
+      life: "1696–1770",
+      country: "Venice",
+      localizedCountry: "威尼斯",
+      style: [
+        { english: "Italian Rococo", chinese: "意大利洛可可" },
+        { english: "Luminous Fresco Painting", chinese: "明亮的湿壁画" },
+      ],
+      subjects: [
+        { english: "Religious Scenes", chinese: "宗教题材" },
+        { english: "Mythology", chinese: "神话" },
+        { english: "Allegory", chinese: "寓意画" },
+      ],
+      legacy: {
+        english: "The Greatest Italian Rococo Painter",
+        chinese: "意大利洛可可绘画的杰出大师",
+      },
+      sources: [
+        {
+          label: "National Gallery, London",
+          url: "https://www.nationalgallery.org.uk/artists/giovanni-battista-tiepolo",
+        },
+      ],
+    },
+  },
+  {
+    matches: /artist unknown.*french.*active 18th century/i,
+    profile: {
+      name: "Artist unknown",
+      localizedName: "法国佚名艺术家",
+      life: "Active 18th century",
+      country: "France",
+      localizedCountry: "18世纪活跃于法国",
+      style: [{ english: "18th-Century French Portraiture", chinese: "18世纪法国肖像画" }],
+      subjects: [
+        { english: "Portraits", chinese: "肖像" },
+        { english: "Fashion", chinese: "服饰" },
+      ],
+      legacy: {
+        english: "Identity Not Yet Established",
+        chinese: "作者身份尚待考证",
+      },
+      sources: [
+        {
+          label: "Art Institute of Chicago",
+          url: "https://www.artic.edu/artworks/44886/woman-in-a-straw-hat",
+        },
+      ],
+    },
   },
 ];
+
+function artistNameOnly(artist: string) {
+  return (
+    artist
+      .split(/\r?\n/)[0]
+      ?.replace(/\s*\([^)]*(?:\d{4}|American|Dutch)[^)]*\)\s*$/i, "")
+      .trim() || artist
+  );
+}
+
+const NATIONALITY_LABELS: Record<string, string> = {
+  american: "美国",
+  british: "英国",
+  dutch: "荷兰",
+  flemish: "佛兰德斯",
+  french: "法国",
+  german: "德国",
+  italian: "意大利",
+  spanish: "西班牙",
+};
+
+function resolveArtistProfile(
+  artist: string,
+  profile?: ArtistProfile,
+  sourceUrl?: string,
+): ArtistProfile {
+  if (profile) return profile;
+  const knownProfile = ARTIST_PROFILES.find(({ matches }) => matches.test(artist));
+  if (knownProfile) return knownProfile.profile;
+
+  const attribution = artist.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
+  const name = attribution?.[1]?.trim() || artistNameOnly(artist);
+  const details = attribution?.[2] || "";
+  const life =
+    details.match(/\b\d{4}(?:\/\d{2})?\s*[–-]\s*\d{4}\b/)?.[0] ||
+    details.match(/\bactive\s+[^,]+/i)?.[0] ||
+    "Not recorded";
+  const nationality =
+    Object.keys(NATIONALITY_LABELS).find((label) =>
+      new RegExp(`\\b${label}\\b`, "i").test(details),
+    ) || "";
+  const country = nationality
+    ? `${nationality.charAt(0).toUpperCase()}${nationality.slice(1)}`
+    : "Attribution recorded by the museum";
+  const localizedCountry = nationality ? NATIONALITY_LABELS[nationality] : "馆藏记录所载归属";
+
+  return {
+    name,
+    localizedName: /artist unknown|unknown artist/i.test(name) ? "佚名艺术家" : name,
+    life,
+    country,
+    localizedCountry,
+    style: [{ english: "Not Reliably Documented", chinese: "尚无可靠资料" }],
+    subjects: [{ english: "Not Reliably Documented", chinese: "尚无可靠资料" }],
+    legacy: {
+      english: "Not Reliably Documented",
+      chinese: "尚无可靠资料",
+    },
+    sources: sourceUrl ? [{ label: "Art Institute of Chicago", url: sourceUrl }] : undefined,
+  };
+}
+
+function BilingualTerms({ terms }: { terms: ArtistProfile["style"] }) {
+  return terms.map((term, index) => (
+    <span key={`${term.english}-${term.chinese}`}>
+      {index > 0 ? ", " : null}
+      {term.english} {term.chinese}
+    </span>
+  ));
+}
+
+function createInitialMessages(artwork: ArtworkIdentityProps): Message[] {
+  return [
+    {
+      id: 1,
+      role: "question",
+      chinese: "你是在哪一年画了这幅画",
+      english: "In what year did you paint this picture?",
+    },
+    {
+      id: 2,
+      role: "answer",
+      chinese: `《${artwork.title}》创作于${artwork.year || "年代待考"}。`,
+      english: `${artwork.title} is dated ${artwork.year || "date unknown"}.`,
+    },
+  ];
+}
 
 function ArtworkIdentity({
   artist,
@@ -78,31 +509,59 @@ function ArtworkIdentity({
 function nextAnswer(question: string): Pick<Message, "chinese" | "english"> {
   if (/颜色|color/i.test(question)) {
     return {
-      chinese: "我想让颜色替我说话：墙面的淡紫、床架的黄色，以及门窗的绿色，共同传达一种安静。",
+      chinese: "我想让颜色替我说话，让色彩之间的关系传达作品的情绪与节奏。",
       english:
-        "I wanted color to speak for me: pale violet walls, the yellow bed, and green doors and windows create a sense of rest.",
+        "I wanted color to speak, using its relationships to carry the work's mood and rhythm.",
     };
   }
 
   if (/倾斜|歪|perspective|tilt/i.test(question)) {
     return {
-      chinese:
-        "我有意简化了透视，让家具像色块一样彼此推挤。这里追求的并不是精确，而是一种亲密而直接的感觉。",
+      chinese: "我有意组织并简化了透视。这里追求的不是机械的精确，而是一种直接的观看感受。",
       english:
-        "I simplified the perspective so the furniture presses together like blocks of color. The aim was intimacy, not precision.",
+        "I organized and simplified the perspective. The aim was a direct experience, not mechanical precision.",
     };
   }
 
   return {
-    chinese:
-      "对我来说，这个房间是一处可以休息的地方。我用平涂的颜色和简洁的形状，试着画出一种安宁。",
+    chinese: "我通过颜色、形状和笔触组织这件作品，希望它能直接传达我观看时的感受。",
     english:
-      "To me, this room was a place of rest. With flat color and simple shapes, I tried to paint a feeling of calm.",
+      "I shaped this work through color, form, and brushwork to convey the feeling of looking.",
   };
 }
 
-export function ChatPrototype() {
-  const [messages, setMessages] = useState(initialMessages);
+export function ChatPrototype({ locale = "zh", artwork }: ChatPrototypeProps) {
+  const selectedArtwork = {
+    artist: artwork?.artist || DEFAULT_ARTWORK.artist,
+    year: artwork?.year || DEFAULT_ARTWORK.year,
+    title: artwork?.title || DEFAULT_ARTWORK.title,
+    medium: artwork?.medium || DEFAULT_ARTWORK.medium,
+    dimensions: artwork?.dimensions || DEFAULT_ARTWORK.dimensions,
+    collection: artwork?.collection || DEFAULT_ARTWORK.collection,
+    imageUrl:
+      artwork && Object.prototype.hasOwnProperty.call(artwork, "imageUrl")
+        ? artwork.imageUrl
+        : DEFAULT_ARTWORK.imageUrl,
+    sourceUrl: artwork?.sourceUrl,
+  };
+  const artistProfile = resolveArtistProfile(
+    selectedArtwork.artist,
+    artwork?.artistProfile,
+    selectedArtwork.sourceUrl,
+  );
+  const profileSources = [
+    ...(selectedArtwork.sourceUrl
+      ? [{ label: "Art Institute of Chicago", url: selectedArtwork.sourceUrl }]
+      : []),
+    ...(artistProfile.sources || []),
+  ].filter(
+    (source, index, sources) =>
+      sources.findIndex(
+        (candidate) => candidate.url === source.url || candidate.label === source.label,
+      ) === index,
+  );
+  const isVanGogh = /van gogh|梵高/i.test(selectedArtwork.artist);
+  const [messages, setMessages] = useState(() => createInitialMessages(selectedArtwork));
   const [draft, setDraft] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [isComposerExpanded, setIsComposerExpanded] = useState(false);
@@ -119,7 +578,7 @@ export function ChatPrototype() {
   } | null>(null);
 
   useEffect(() => {
-    if (messages.length > initialMessages.length) {
+    if (messages.length > 2) {
       feedRef.current?.scrollTo({
         top: feedRef.current.scrollHeight,
         behavior: "smooth",
@@ -238,34 +697,56 @@ export function ChatPrototype() {
   }
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page} chat-prototype-page`}>
       <section
         className={styles.artworkPanel}
         aria-label="Artwork information"
         onWheel={zoomArtwork}
       >
-        {/* Public-domain reproduction sourced from Wikimedia Commons. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className={`${styles.artwork} ${
-            artworkScale > 1 ? styles.artworkDraggable : ""
-          } ${isDraggingArtwork ? styles.artworkDragging : ""}`}
-          src={ARTWORK_IMAGE}
-          alt="Vincent van Gogh, Self-Portrait, 1887"
-          draggable={false}
-          onPointerDown={startArtworkDrag}
-          onPointerMove={dragArtwork}
-          onPointerUp={stopArtworkDrag}
-          onPointerCancel={stopArtworkDrag}
-          style={{
-            transform: `translate3d(${artworkOffset.x}px, ${artworkOffset.y}px, 0) scale(${artworkScale})`,
-            transformOrigin: `${artworkOrigin.x}% ${artworkOrigin.y}%`,
-          }}
-        />
+        {selectedArtwork.imageUrl ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className={`${styles.artwork} ${
+                artworkScale > 1 ? styles.artworkDraggable : ""
+              } ${isDraggingArtwork ? styles.artworkDragging : ""}`}
+              src={selectedArtwork.imageUrl}
+              alt={`${selectedArtwork.artist}, ${selectedArtwork.title}`}
+              draggable={false}
+              onPointerDown={startArtworkDrag}
+              onPointerMove={dragArtwork}
+              onPointerUp={stopArtworkDrag}
+              onPointerCancel={stopArtworkDrag}
+              style={{
+                transform: `translate3d(${artworkOffset.x}px, ${artworkOffset.y}px, 0) scale(${artworkScale})`,
+                transformOrigin: `${artworkOrigin.x}% ${artworkOrigin.y}%`,
+              }}
+            />
+          </>
+        ) : (
+          <div className={styles.artworkUnavailable} role="status">
+            {locale === "zh" ? "该馆藏记录暂无可展示图像" : "No displayable image for this record"}
+          </div>
+        )}
         <div className={styles.artworkWash} />
-        <Link className={styles.wordmark} href="/zh" aria-label="Return to Canvium home">
+        <Link
+          className={styles.wordmark}
+          href={`/${locale}`}
+          aria-label={locale === "zh" ? "返回 Canvium 首页" : "Return to Canvium home"}
+        >
           Canvium
         </Link>
+        <CollectionBackLink
+          className={styles.galleryExit}
+          defaultHref={`/${locale}/museums/art-institute-of-chicago/collection`}
+          label={
+            locale === "zh"
+              ? "退出作品对话，返回画廊"
+              : "Exit the artwork conversation and return to the gallery"
+          }
+        >
+          <span aria-hidden="true">←</span>
+        </CollectionBackLink>
         <button
           className={styles.artworkReset}
           type="button"
@@ -279,37 +760,63 @@ export function ChatPrototype() {
           </svg>
         </button>
         <ArtworkIdentity
-          artist="Vincent Van Gogh"
-          year="1889"
-          title="THE BEDROOM"
-          medium="OIL ON CANVAS"
-          dimensions="72.4 × 91.3 CM"
-          collection="ART INSTITUTE OF CHICAGO"
+          artist={selectedArtwork.artist}
+          year={selectedArtwork.year}
+          title={selectedArtwork.title.toUpperCase()}
+          medium={selectedArtwork.medium.toUpperCase()}
+          dimensions={selectedArtwork.dimensions.toUpperCase()}
+          collection={selectedArtwork.collection.toUpperCase()}
         />
       </section>
 
-      <section className={styles.chatPanel} aria-label="Conversation with Vincent van Gogh">
+      <section
+        className={styles.chatPanel}
+        aria-label={`Conversation about ${selectedArtwork.title} with ${selectedArtwork.artist}`}
+      >
         <header className={styles.chatHeader}>
           <h1 className={styles.artistProfile}>
-            <span className={styles.profileLine}>
-              Vincent Van Gogh
-              <span className={styles.profileEye} aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={ARTWORK_IMAGE} alt="" />
+            <span className={styles.quotePair}>
+              <span className={`${styles.inlineQuote} ${styles.openingQuote}`} aria-hidden="true">
+                “
               </span>
-              文森特·梵高
+              {artistProfile.name}
+            </span>{" "}
+            {artistProfile.localizedName !== artistProfile.name ? (
+              <span className={styles.profileLine}>{artistProfile.localizedName} </span>
+            ) : null}
+            <span className={styles.profileLine}>
+              Life: {artistProfile.life}, {artistProfile.country}{" "}
+              {artistProfile.localizedCountry}{" "}
             </span>
-            <span className={styles.profileLine}>Born: 1853, The Netherlands 荷兰</span>
-            <span className={styles.profileLine}>Style: Bold Colors 浓烈色彩, Expressive</span>
-            <span className={styles.profileLine}>Brushstrokes 情绪化笔触 Subjects:</span>
-            <span className={styles.profileLine}>Sunflowers 向日葵, Starry Nights 星空</span>
-            <span className={styles.profileLine}>Legacy: Forever Changed Modern Art</span>
-            <span className={styles.profileLine}>永远改变了现代艺术。</span>
+            <span className={styles.profileLine}>
+              Style: <BilingualTerms terms={artistProfile.style} />{" "}
+            </span>
+            <span className={styles.profileLine}>
+              Subjects: <BilingualTerms terms={artistProfile.subjects} />{" "}
+            </span>
+            <span className={styles.profileLine}>
+              Legacy: {artistProfile.legacy.english}{" "}
+              <span className={styles.quotePair}>
+                {artistProfile.legacy.chinese}。
+                <span className={`${styles.inlineQuote} ${styles.closingQuote}`} aria-hidden="true">
+                  ”
+                </span>
+              </span>
+            </span>
           </h1>
-          <div className={styles.quoteMarks} aria-hidden="true">
-            <span>“</span>
-            <span>”</span>
-          </div>
+          {profileSources.length ? (
+            <p className={styles.profileSources}>
+              {locale === "zh" ? "资料来源：" : "Sources: "}
+              {profileSources.map((source, index) => (
+                <span key={source.url}>
+                  {index > 0 ? " · " : null}
+                  <a href={source.url} target="_blank" rel="noreferrer">
+                    {source.label}
+                  </a>
+                </span>
+              ))}
+            </p>
+          ) : null}
         </header>
 
         <div className={styles.feed} ref={feedRef} aria-live="polite">
@@ -328,8 +835,8 @@ export function ChatPrototype() {
                       <b>A/</b>
                       {message.id === 2 ? (
                         <>
-                          This version of <mark>“The Bedroom”</mark> was painted in{" "}
-                          <mark>1889.</mark>
+                          <mark>“{selectedArtwork.title}”</mark> is dated{" "}
+                          <mark>{selectedArtwork.year || "date unknown"}.</mark>
                         </>
                       ) : (
                         message.english
@@ -361,14 +868,6 @@ export function ChatPrototype() {
             onMouseLeave={collapseEmptyComposer}
           >
             <span className={styles.inputBracket} aria-hidden="true" />
-            {!isComposerExpanded && !isListening && !draft.trim() ? (
-              <span className={styles.composerHint} aria-hidden="true">
-                <svg className={styles.actionIcon} focusable="false" viewBox="0 0 24 24">
-                  <path d="M7 17 17 7" />
-                  <path d="M8 7h9v9" />
-                </svg>
-              </span>
-            ) : null}
             <div className={styles.composerSurface}>
               {isListening ? (
                 <div className={styles.listeningStage} aria-hidden="true">
@@ -391,12 +890,29 @@ export function ChatPrototype() {
                   aria-label="展开文字输入框"
                   onClick={() => setIsComposerExpanded(true)}
                 >
-                  <span className={styles.seedDot} aria-hidden="true" />
+                  <span className={styles.seedArrow} aria-hidden="true">
+                    <svg className={styles.actionIcon} focusable="false" viewBox="0 0 24 24">
+                      <path d="M7 17 17 7" />
+                      <path d="M8 7h9v9" />
+                    </svg>
+                  </span>
+                  <span className={styles.seedVoice} aria-hidden="true">
+                    <svg className={styles.actionIcon} focusable="false" viewBox="0 0 24 24">
+                      <rect x="9" y="3" width="6" height="11" rx="3" />
+                      <path d="M5.5 11a6.5 6.5 0 0 0 13 0" />
+                      <path d="M12 17.5V21" />
+                      <path d="M9 21h6" />
+                    </svg>
+                  </span>
                 </button>
               ) : (
                 <>
                   <label className="sr-only" htmlFor="chat-question">
-                    向梵高提问
+                    {locale === "zh"
+                      ? isVanGogh
+                        ? "向梵高提问"
+                        : `向${selectedArtwork.artist}提问`
+                      : `Ask ${selectedArtwork.artist}`}
                   </label>
                   <input
                     ref={composerInputRef}
@@ -438,8 +954,10 @@ export function ChatPrototype() {
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M7 17 17 7" />
-                      <path d="M8 7h9v9" />
+                      <rect x="9" y="3" width="6" height="11" rx="3" />
+                      <path d="M5.5 11a6.5 6.5 0 0 0 13 0" />
+                      <path d="M12 17.5V21" />
+                      <path d="M9 21h6" />
                     </svg>
                   )}
                 </button>
