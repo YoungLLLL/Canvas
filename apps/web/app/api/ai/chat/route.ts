@@ -77,6 +77,75 @@ function alignEnglishSegments(modelOutput: unknown) {
   };
 }
 
+function completeUsedEvidence(
+  modelOutput: unknown,
+  assembly: {
+    claims: Array<{
+      claimId: string;
+      sourceRefs: Array<{ sourceRefId: string }>;
+    }>;
+  },
+) {
+  if (!modelOutput || typeof modelOutput !== "object") return modelOutput;
+  const output = modelOutput as {
+    segments?: unknown;
+    evidenceRefIds?: unknown;
+  };
+  if (!Array.isArray(output.segments)) return modelOutput;
+
+  const usedClaimIds = new Set(
+    output.segments.flatMap((segment) => {
+      if (!segment || typeof segment !== "object") return [];
+      const claimIds = (segment as { claimIds?: unknown }).claimIds;
+      return Array.isArray(claimIds)
+        ? claimIds.filter((claimId): claimId is string => typeof claimId === "string")
+        : [];
+    }),
+  );
+  const requiredEvidenceRefIds = assembly.claims
+    .filter((claim) => usedClaimIds.has(claim.claimId))
+    .flatMap((claim) => claim.sourceRefs.map((reference) => reference.sourceRefId));
+  const suppliedEvidenceRefIds = Array.isArray(output.evidenceRefIds)
+    ? output.evidenceRefIds.filter(
+        (referenceId): referenceId is string => typeof referenceId === "string",
+      )
+    : [];
+
+  return {
+    ...output,
+    evidenceRefIds: [...new Set([...suppliedEvidenceRefIds, ...requiredEvidenceRefIds])],
+  };
+}
+
+async function generateValidatedDialogue(
+  messages: QwenMessage[],
+  assembly: ReturnType<typeof assemblePersonaDialogue>,
+) {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      const generated = await createQwenJsonResponse(messages, (value) => value);
+      const alignedOutput = alignEnglishSegments(generated.data);
+      const completedOutput = completeUsedEvidence(alignedOutput, assembly);
+      const dialogue = finalizePersonaDialogue({
+        assembly,
+        modelOutput: completedOutput,
+        modelRevision: generated.model,
+      });
+      return { generated, dialogue, attempts: attempt };
+    } catch (error) {
+      lastError = error;
+      if (
+        attempt === 2 ||
+        (error instanceof QwenRequestError && !error.retryable)
+      ) {
+        throw error;
+      }
+    }
+  }
+  throw lastError;
+}
+
 export async function POST(request: Request) {
   const parsed = chatRequestSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
@@ -112,12 +181,10 @@ export async function POST(request: Request) {
   ];
 
   try {
-    const generated = await createQwenJsonResponse(messages, (value) => value);
-    const dialogue = finalizePersonaDialogue({
+    const { generated, dialogue, attempts } = await generateValidatedDialogue(
+      messages,
       assembly,
-      modelOutput: alignEnglishSegments(generated.data),
-      modelRevision: generated.model,
-    });
+    );
     const citations = dialogue.evidence.map(
       (
         reference: {
@@ -184,6 +251,7 @@ export async function POST(request: Request) {
         displaySegments,
         requestId: generated.requestId,
         usage: generated.usage,
+        attempts,
       },
       { headers: { "Cache-Control": "no-store" } },
     );

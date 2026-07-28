@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, PointerEvent, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 
 import { CollectionBackLink } from "@/src/components/collection-state";
@@ -607,6 +608,8 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
   const [activeCitation, setActiveCitation] = useState<{
     messageId: number;
     number: number;
+    top: number;
+    left: number;
   } | null>(null);
   const [isListening, setIsListening] = useState(false);
   const [isComposerExpanded, setIsComposerExpanded] = useState(false);
@@ -636,6 +639,17 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
       composerInputRef.current?.focus({ preventScroll: true });
     }
   }, [isComposerExpanded, isListening]);
+
+  useEffect(() => {
+    if (!activeCitation) return;
+    const closeFloatingCitation = () => setActiveCitation(null);
+    window.addEventListener("resize", closeFloatingCitation);
+    window.addEventListener("scroll", closeFloatingCitation, true);
+    return () => {
+      window.removeEventListener("resize", closeFloatingCitation);
+      window.removeEventListener("scroll", closeFloatingCitation, true);
+    };
+  }, [activeCitation]);
 
   async function submitQuestion(event?: FormEvent) {
     event?.preventDefault();
@@ -808,9 +822,39 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
             type="button"
             aria-expanded={isOpen}
             aria-label={`查看来源 ${number}`}
-            onClick={() =>
-              setActiveCitation(isOpen ? null : { messageId: message.id, number })
-            }
+            onClick={(event) => {
+              if (isOpen) {
+                setActiveCitation(null);
+                return;
+              }
+              const anchor = event.currentTarget.getBoundingClientRect();
+              const viewportPadding = 12;
+              const gap = 10;
+              const popoverWidth = Math.min(300, window.innerWidth - viewportPadding * 2);
+              const preferredRight = anchor.right + gap;
+              const preferredLeft = anchor.left - gap - popoverWidth;
+              const left =
+                preferredRight + popoverWidth <= window.innerWidth - viewportPadding
+                  ? preferredRight
+                  : preferredLeft >= viewportPadding
+                    ? preferredLeft
+                    : Math.max(
+                        viewportPadding,
+                        Math.min(
+                          anchor.left - popoverWidth / 2,
+                          window.innerWidth - popoverWidth - viewportPadding,
+                        ),
+                      );
+              const estimatedHeight = 170;
+              const top = Math.max(
+                viewportPadding,
+                Math.min(
+                  anchor.top - 18,
+                  window.innerHeight - estimatedHeight - viewportPadding,
+                ),
+              );
+              setActiveCitation({ messageId: message.id, number, top, left });
+            }}
           >
             {number}
           </button>
@@ -825,8 +869,12 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
       (candidate) => candidate.number === activeCitation.number,
     );
     if (!citation) return null;
-    return (
-      <aside className={styles.citationPopover} role="dialog">
+    return createPortal(
+      <aside
+        className={styles.citationPopover}
+        role="dialog"
+        style={{ top: activeCitation.top, left: activeCitation.left }}
+      >
         <button
           className={styles.citationClose}
           type="button"
@@ -835,29 +883,15 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
         >
           ×
         </button>
-        <small>来源 {citation.number}</small>
-        <strong>{citation.title}</strong>
-        {citation.publisher ? <span>{citation.publisher}</span> : null}
-        {citation.locator && Object.keys(citation.locator).length ? (
-          <span>{Object.values(citation.locator).filter(Boolean).join(" · ")}</span>
-        ) : null}
-        {citation.excerpt ? (
-          <div className={styles.citationEvidence}>
-            <em>原文摘录</em>
-            <blockquote>{citation.excerpt}</blockquote>
-          </div>
-        ) : citation.supportText ? (
-          <div className={styles.citationEvidence}>
-            <em>对应依据摘要</em>
-            <blockquote>{citation.supportText}</blockquote>
-          </div>
-        ) : null}
+        <small>{locale === "zh" ? "信息摘要" : "SOURCE SUMMARY"}</small>
+        <p>{citation.supportText || citation.excerpt || citation.title}</p>
         {citation.url ? (
           <a href={citation.url} target="_blank" rel="noreferrer">
-            查看原始资料 ↗
+            {locale === "zh" ? "查看资料来源 ↗" : "VIEW SOURCE ↗"}
           </a>
         ) : null}
-      </aside>
+      </aside>,
+      document.body,
     );
   }
 

@@ -79,6 +79,7 @@ describe("ChatPrototype composer", () => {
               publisher: "Van Gogh Museum",
               url: "https://vangoghletters.org/",
               excerpt: "There is also a good chance of exchanging pictures with other artists.",
+              supportText: "梵高在信中谈到与其他艺术家交换画作的机会。",
             },
           ],
           displaySegments: [
@@ -103,10 +104,13 @@ describe("ChatPrototype composer", () => {
     expect(screen.getByText("I would see it as a new kind of painting tool.")).toBeInTheDocument();
     expect(screen.getAllByText("想象性回应")).toHaveLength(2);
     fireEvent.click(screen.getAllByRole("button", { name: "查看来源 1" })[0]);
-    expect(screen.getByRole("dialog")).toHaveTextContent("Van Gogh Letters");
-    expect(screen.getByRole("dialog")).toHaveTextContent("原文摘录");
+    expect(screen.getByRole("dialog")).toHaveTextContent("信息摘要");
     expect(screen.getByRole("dialog")).toHaveTextContent(
-      "There is also a good chance of exchanging pictures with other artists.",
+      "梵高在信中谈到与其他艺术家交换画作的机会。",
+    );
+    expect(screen.getByRole("link", { name: "查看资料来源 ↗" })).toHaveAttribute(
+      "href",
+      "https://vangoghletters.org/",
     );
     expect(fetch).toHaveBeenCalledWith("/api/ai/chat", expect.objectContaining({ method: "POST" }));
   });
