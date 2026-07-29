@@ -64,3 +64,5 @@
  GET /zh/artworks/artic-111614 200 in 219ms (next.js: 108ms, application-code: 112ms)
 ✓ Compiled in 98ms
  GET /zh/artworks/artic-111614 200 in 298ms (next.js: 168ms, application-code: 130ms)
+ GET /zh/museums/art-institute-of-chicago/collection 200 in 354ms (next.js: 202ms, application-code: 152ms)
+ GET /api/catalog?page=2 200 in 536ms (next.js: 120ms, application-code: 417ms)
