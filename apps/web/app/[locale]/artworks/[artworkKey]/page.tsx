@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ChatPrototype } from "@/src/components/chat-prototype";
 import { isLocale } from "@/src/i18n/locales";
 import { getArticArtwork } from "@/src/lib/artic";
+import { buildDynamicPersonaOpening } from "@/src/lib/dynamic-persona-chat";
 import { iiifImageUrl } from "@/src/lib/iiif";
 import { getReviewedPersonaOpening } from "@/src/lib/persona-openings";
 import { getWikipediaArtistProfile } from "@/src/lib/wikipedia-artist-profile";
@@ -32,8 +33,12 @@ export default async function ArtworkPage({
   )
     notFound();
   const image = artwork.images.preferred;
-  const wikipediaProfile = await getWikipediaArtistProfile(artwork.display.artistDisplay);
-  const opening = getReviewedPersonaOpening(sourceId);
+  const wikipediaProfile = await getWikipediaArtistProfile(
+    artwork.display.artistDisplay,
+    artwork.artist?.name,
+  );
+  const opening =
+    getReviewedPersonaOpening(sourceId) || buildDynamicPersonaOpening(artwork, wikipediaProfile);
   const knownTitle =
     locale === "zh" && sourceId === "80607"
       ? "自画像"

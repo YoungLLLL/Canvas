@@ -408,7 +408,12 @@ async function attachCommonsImages(items: Artwork[]) {
         localizedTitles: {
           ...item.display.localizedTitles,
           ...(commons.titleEn ? { en: commons.titleEn } : {}),
-          ...(commons.titleZh ? { zh: commons.titleZh } : {}),
+          ...(commons.titleZh && /[\u3400-\u9fff]/u.test(commons.titleZh)
+            ? {
+                zh: commons.titleZh,
+                ...(commons.titleZhLocale ? { [commons.titleZhLocale]: commons.titleZh } : {}),
+              }
+            : {}),
         },
       },
       images: {

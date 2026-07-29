@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 
 import { CollectionBackLink } from "@/src/components/collection-state";
+import { normalizeArtistIdentity } from "@/src/lib/artist-identity";
 
 import styles from "./chat-prototype.module.css";
 
@@ -410,15 +411,6 @@ const ARTIST_PROFILES: Array<{ matches: RegExp; profile: ArtistProfile }> = [
   },
 ];
 
-function artistNameOnly(artist: string) {
-  return (
-    artist
-      .split(/\r?\n/)[0]
-      ?.replace(/\s*\([^)]*(?:\d{4}|American|Dutch)[^)]*\)\s*$/i, "")
-      .trim() || artist
-  );
-}
-
 const NATIONALITY_LABELS: Record<string, string> = {
   american: "美国",
   british: "英国",
@@ -439,9 +431,9 @@ function resolveArtistProfile(
   const knownProfile = ARTIST_PROFILES.find(({ matches }) => matches.test(artist));
   if (knownProfile) return knownProfile.profile;
 
-  const attribution = artist.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
-  const name = attribution?.[1]?.trim() || artistNameOnly(artist);
-  const details = attribution?.[2] || "";
+  const identity = normalizeArtistIdentity(artist);
+  const name = identity.canonicalName;
+  const details = identity.details;
   const life =
     details.match(/\b\d{4}(?:\/\d{2})?\s*[–-]\s*\d{4}\b/)?.[0] ||
     details.match(/\bactive\s+[^,]+/i)?.[0] ||

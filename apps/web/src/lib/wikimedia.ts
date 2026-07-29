@@ -83,6 +83,7 @@ type ImageInfo = z.infer<typeof imageInfoSchema>;
 export type ArticCommonsImage = {
   titleEn?: string;
   titleZh?: string;
+  titleZhLocale?: string;
   src: string;
   src2x?: string;
   originalUrl: string;
@@ -361,7 +362,7 @@ async function getDetails(ids: string[]) {
 
 async function getLabels(ids: string[], locale: Locale) {
   if (!ids.length) return {};
-  const languages = locale === "zh" ? "zh|en" : "en";
+  const languages = locale === "zh" ? "zh-hans|zh-cn|zh-sg|zh|en" : "en";
   const chunks = Array.from({ length: Math.ceil(ids.length / 50) }, (_, index) =>
     ids.slice(index * 50, (index + 1) * 50),
   );
@@ -381,6 +382,16 @@ async function getLabels(ids: string[], locale: Locale) {
     }),
   );
   return Object.assign({}, ...responses);
+}
+
+const CHINESE_LABEL_LOCALES = ["zh-hans", "zh-cn", "zh-sg", "zh"] as const;
+
+export function selectChineseEntityLabel(labels: Record<string, { value: string }> | undefined) {
+  for (const locale of CHINESE_LABEL_LOCALES) {
+    const value = labels?.[locale]?.value?.trim();
+    if (value && /[\u3400-\u9fff]/u.test(value)) return { value, locale };
+  }
+  return null;
 }
 
 async function getCommonsImages(fileTitles: string[]) {
@@ -447,9 +458,11 @@ export async function getCommonsImagesForArticIds(articIds: string[]) {
     const rights = resolveCommonsImageRights(info);
     if (!rights) continue;
     const entityLabels = labels[candidate.artworkId]?.labels;
+    const chineseTitle = selectChineseEntityLabel(entityLabels);
     result.set(candidate.articId, {
       titleEn: entityLabels?.en?.value,
-      titleZh: entityLabels?.zh?.value,
+      titleZh: chineseTitle?.value,
+      titleZhLocale: chineseTitle?.locale,
       src: info.thumburl,
       src2x: info.responsiveUrls?.["2"],
       originalUrl: info.url,

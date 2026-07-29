@@ -1,4 +1,5 @@
 import type { ArtistProfile } from "@/src/components/chat-prototype";
+import { normalizeArtistIdentity } from "@/src/lib/artist-identity";
 
 const CURATED_ARTISTS =
   /van gogh|梵高|james peale|詹姆斯[·・]?皮尔|peter paul rubens|彼得[·・]?保罗[·・]?鲁本斯|[ée]douard manet|爱德华[·・]?马奈|jacob jordaens|雅各布[·・]?约尔丹斯|antonio (?:de )?puga|安东尼奥[·・]?普加|frans pourbus the younger|小弗兰斯[·・]?普布斯|luca cambiaso|卢卡[·・]?坎比亚索|apollonio di giovanni|阿波洛尼奥[·・]?迪[·・]?乔瓦尼|giovanni battista tiepolo|乔瓦尼[·・]?巴蒂斯塔[·・]?提埃波罗|artist unknown/i;
@@ -44,12 +45,8 @@ type WikiResponse = {
   query?: { pages?: Record<string, WikiPage> };
 };
 
-function artistName(artist: string) {
-  return artist.replace(/\s*\([^)]*\)\s*$/, "").trim();
-}
-
 function artistDetails(artist: string) {
-  return artist.match(/\(([^)]*)\)\s*$/)?.[1] || "";
+  return normalizeArtistIdentity(artist).details;
 }
 
 function ordinal(value: number) {
@@ -102,9 +99,12 @@ async function wikipediaIntro(language: "en" | "zh", title: string) {
   return Object.values(payload.query?.pages || {})[0] || null;
 }
 
-export async function getWikipediaArtistProfile(artist: string): Promise<ArtistProfile | null> {
+export async function getWikipediaArtistProfile(
+  artist: string,
+  preferredCanonicalName?: string | null,
+): Promise<ArtistProfile | null> {
   if (CURATED_ARTISTS.test(artist)) return null;
-  const name = artistName(artist);
+  const name = normalizeArtistIdentity(artist, preferredCanonicalName).canonicalName;
   try {
     const english = await wikipediaIntro("en", name);
     if (!english?.extract || english.title === undefined) return null;

@@ -4,8 +4,11 @@ import {
 } from "../../../../../../ai/stage7/dialogue-assembler.mjs";
 import { z } from "zod";
 
+import { buildDynamicPersonaAssembly, parseDynamicDialogue } from "@/src/lib/dynamic-persona-chat";
+import { getArticArtwork } from "@/src/lib/artic";
 import { getReviewedPersonaForArtwork } from "@/src/lib/persona-openings";
 import { createQwenJsonResponse, QwenRequestError, type QwenMessage } from "@/src/lib/qwen";
+import { getWikipediaArtistProfile } from "@/src/lib/wikipedia-artist-profile";
 
 export const dynamic = "force-dynamic";
 
@@ -135,15 +138,111 @@ async function generateValidatedDialogue(
       return { generated, dialogue, attempts: attempt };
     } catch (error) {
       lastError = error;
-      if (
-        attempt === 2 ||
-        (error instanceof QwenRequestError && !error.retryable)
-      ) {
+      if (attempt === 2 || (error instanceof QwenRequestError && !error.retryable)) {
         throw error;
       }
     }
   }
   throw lastError;
+}
+
+async function generateDynamicDialogue(messages: QwenMessage[], maxCitationNumber: number) {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      const generated = await createQwenJsonResponse(messages, (value) =>
+        parseDynamicDialogue(value, maxCitationNumber),
+      );
+      return { generated, dialogue: generated.data, attempts: attempt };
+    } catch (error) {
+      lastError = error;
+      if (attempt === 2 || (error instanceof QwenRequestError && !error.retryable)) {
+        throw error;
+      }
+    }
+  }
+  throw lastError;
+}
+
+function chatFailureResponse(error: unknown) {
+  if (error instanceof QwenRequestError) {
+    return Response.json(
+      {
+        error: error.message,
+        code: error.code,
+        retryable: error.retryable,
+      },
+      { status: error.status },
+    );
+  }
+  return Response.json(
+    {
+      error: "回答没有通过人格与证据校验，请重试。",
+      code: "persona_response_rejected",
+      retryable: true,
+      details:
+        process.env.NODE_ENV === "development" && error instanceof Error
+          ? error.message
+          : undefined,
+    },
+    { status: 502 },
+  );
+}
+
+async function respondWithDynamicPersona(input: z.infer<typeof chatRequestSchema>) {
+  try {
+    const sourceId = input.artworkId.replace("artic:", "");
+    const artwork = await getArticArtwork(sourceId);
+    if (!artwork) {
+      return Response.json(
+        {
+          error: "找不到这件作品的馆藏资料。",
+          code: "artwork_context_unavailable",
+          retryable: false,
+        },
+        { status: 404 },
+      );
+    }
+    const profile = await getWikipediaArtistProfile(
+      artwork.display.artistDisplay,
+      artwork.artist?.name,
+    );
+    const assembly = buildDynamicPersonaAssembly(artwork, profile);
+    if (!assembly) {
+      return Response.json(
+        {
+          error: "这件作品尚未开放艺术家对话。",
+          code: "persona_context_unavailable",
+          retryable: false,
+        },
+        { status: 404 },
+      );
+    }
+    const messages: QwenMessage[] = [
+      { role: "system", content: assembly.instructions },
+      ...input.history,
+      { role: "user", content: input.message },
+    ];
+    const { generated, dialogue, attempts } = await generateDynamicDialogue(
+      messages,
+      assembly.citations.length,
+    );
+    const citedNumbers = new Set(dialogue.segments.flatMap((segment) => segment.citationNumbers));
+    return Response.json(
+      {
+        ...dialogue,
+        citations: assembly.citations.filter((citation) => citedNumbers.has(citation.number)),
+        displaySegments: dialogue.segments,
+        requestId: generated.requestId,
+        usage: generated.usage,
+        attempts,
+        personaMode: "dynamic",
+      },
+      { headers: { "Cache-Control": "no-store" } },
+    );
+  } catch (error) {
+    return chatFailureResponse(error);
+  }
 }
 
 export async function POST(request: Request) {
@@ -157,14 +256,7 @@ export async function POST(request: Request) {
 
   const persona = getReviewedPersonaForArtwork(parsed.data.artworkId);
   if (!persona) {
-    return Response.json(
-      {
-        error: "这件作品尚未开放艺术家对话。",
-        code: "persona_context_unavailable",
-        retryable: false,
-      },
-      { status: 404 },
-    );
+    return respondWithDynamicPersona(parsed.data);
   }
 
   const assembly = assemblePersonaDialogue({
@@ -181,10 +273,7 @@ export async function POST(request: Request) {
   ];
 
   try {
-    const { generated, dialogue, attempts } = await generateValidatedDialogue(
-      messages,
-      assembly,
-    );
+    const { generated, dialogue, attempts } = await generateValidatedDialogue(messages, assembly);
     const citations = dialogue.evidence.map(
       (
         reference: {
@@ -200,9 +289,7 @@ export async function POST(request: Request) {
         );
         const supportText = assembly.claims
           .filter((claim: { sourceRefs: Array<{ sourceRefId: string }> }) =>
-            claim.sourceRefs.some(
-              (candidate) => candidate.sourceRefId === reference.sourceRefId,
-            ),
+            claim.sourceRefs.some((candidate) => candidate.sourceRefId === reference.sourceRefId),
           )
           .map((claim: { text: string }) => claim.text)
           .join(" ");
@@ -256,27 +343,6 @@ export async function POST(request: Request) {
       { headers: { "Cache-Control": "no-store" } },
     );
   } catch (error) {
-    if (error instanceof QwenRequestError) {
-      return Response.json(
-        {
-          error: error.message,
-          code: error.code,
-          retryable: error.retryable,
-        },
-        { status: error.status },
-      );
-    }
-    return Response.json(
-      {
-        error: "回答没有通过人格与证据校验，请重试。",
-        code: "persona_response_rejected",
-        retryable: true,
-        details:
-          process.env.NODE_ENV === "development" && error instanceof Error
-            ? error.message
-            : undefined,
-      },
-      { status: 502 },
-    );
+    return chatFailureResponse(error);
   }
 }
