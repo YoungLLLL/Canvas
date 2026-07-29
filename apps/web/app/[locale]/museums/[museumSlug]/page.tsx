@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { MuseumGlobe } from "@/src/components/museum-globe";
 import { copy } from "@/src/i18n/copy";
@@ -13,6 +13,9 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/museums/[museumSlug]">): Promise<Metadata> {
   const { locale, museumSlug } = await params;
   if (!isLocale(locale) || !museumSlugSchema.safeParse(museumSlug).success) return {};
+  if (museumSlug === "europeana") {
+    return { title: locale === "zh" ? "全球多馆藏" : "Multi-museum Collection" };
+  }
   return {
     title: locale === "zh" ? "芝加哥艺术博物馆" : "Art Institute of Chicago",
   };
@@ -21,6 +24,7 @@ export async function generateMetadata({
 export default async function MuseumPage({ params }: PageProps<"/[locale]/museums/[museumSlug]">) {
   const { locale, museumSlug } = await params;
   if (!isLocale(locale) || !museumSlugSchema.safeParse(museumSlug).success) notFound();
+  if (museumSlug === "europeana") redirect(`/${locale}/museums/europeana/collection`);
   const zh = locale === "zh";
 
   return (
@@ -103,7 +107,7 @@ export default async function MuseumPage({ params }: PageProps<"/[locale]/museum
           <span>01　MUSEUM OPEN</span>
           <span>LIVE　COLLECTION</span>
         </div>
-        <MuseumGlobe />
+        <MuseumGlobe locale={locale} />
         <p className="museum-drag-cue">
           ↔　拖动旋转 / DRAG TO ROTATE · 方向键浏览 / USE ARROW KEYS
         </p>

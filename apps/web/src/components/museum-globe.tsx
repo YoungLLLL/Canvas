@@ -3,6 +3,8 @@
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
+import { museumCollectionHref } from "@/src/lib/museum-directory";
+
 type MuseumNode = {
   id: string;
   name: string;
@@ -137,7 +139,23 @@ const museums: MuseumNode[] = [
     officialName: "Rijksmuseum",
     lat: 52.36,
     lng: 4.8852,
-    status: "soon",
+    status: "open",
+  },
+  {
+    id: "albertina",
+    name: "阿尔贝蒂娜博物馆",
+    officialName: "The Albertina Museum",
+    lat: 48.2044,
+    lng: 16.3687,
+    status: "open",
+  },
+  {
+    id: "belvedere",
+    name: "奥地利美景宫美术馆",
+    officialName: "Austrian Gallery Belvedere",
+    lat: 48.1915,
+    lng: 16.3808,
+    status: "open",
   },
   {
     id: "palace",
@@ -268,7 +286,13 @@ function getTwoToneTexture() {
   return twoToneTexturePromise;
 }
 
-export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
+export function MuseumGlobe({
+  compact = false,
+  locale = "zh",
+}: {
+  compact?: boolean;
+  locale?: "en" | "zh";
+}) {
   const rootRef = useRef<HTMLDivElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
   const globeRef = useRef<GlobeInstance>(null);
@@ -324,6 +348,8 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
                 .forEach((item) => item.classList.remove("selected"));
               marker.classList.add("selected");
               globe?.pointOfView({ lat: node.lat, lng: node.lng, altitude: 1.72 }, 760);
+              const collectionHref = museumCollectionHref(node.id, locale);
+              if (collectionHref) window.location.assign(collectionHref);
             });
             return marker;
           });
@@ -449,12 +475,16 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
       host.replaceChildren();
       root?.classList.remove("is-webgl-ready", "is-camera-calibrated");
     };
-  }, [compact, scriptReady]);
+  }, [compact, locale, scriptReady]);
 
   return (
     <div
-      aria-label="可拖动的真实地球，定位芝加哥艺术博物馆"
-      className={compact ? "museum-globe museum-globe-compact" : "museum-globe"}
+      aria-label={
+        locale === "zh"
+          ? "可拖动的博物馆地球；点击已开放的博物馆进入馆藏"
+          : "Interactive museum globe; select an open museum to enter its collection"
+      }
+      className={["museum-globe", compact ? "museum-globe-compact" : ""].filter(Boolean).join(" ")}
       onKeyDown={(event) => {
         if (compact || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
         event.preventDefault();
@@ -465,7 +495,7 @@ export function MuseumGlobe({ compact = false }: { compact?: boolean }) {
         );
       }}
       ref={rootRef}
-      role="img"
+      role="region"
       tabIndex={compact ? -1 : 0}
     >
       <Script

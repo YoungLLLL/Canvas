@@ -4,8 +4,10 @@
 import { useEffect, useRef, useState } from "react";
 
 import { ArtworkCardLink } from "@/src/components/collection-state";
+import { artworkKey, type CatalogSource } from "@/src/lib/catalog-source";
 
 export type MarqueeArtwork = {
+  source?: CatalogSource;
   sourceId: string;
   title: string;
   secondaryTitle?: string;
@@ -94,7 +96,7 @@ export function CollectionMarquee({
                 <ArtworkCardLink
                   aria-label={`${artwork.artist}, ${artwork.title}, ${artwork.date}`}
                   className={`artwork-marquee-item ${ratioClass(artwork.ratio)}`}
-                  artworkKey={`artic-${artwork.sourceId}`}
+                  artworkKey={artworkKey(artwork.source ?? "artic", artwork.sourceId)}
                   idSuffix={copy ? "-clone" : ""}
                   key={`${copy}-${artwork.sourceId}`}
                   onBlur={() => {

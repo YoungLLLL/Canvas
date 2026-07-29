@@ -108,13 +108,22 @@ export const eligibilitySchema = z.object({
 
 export const artworkSchema = z
   .object({
-    id: z.string().regex(/^[a-z][a-z0-9-]*:[a-z0-9]+$/),
+    id: z.string().regex(/^[a-z][a-z0-9-]*:[A-Za-z0-9._~-]+$/),
     sourceId: idSchema,
     museumId: idSchema,
     source: sourceSchema,
     display: z.object({
       title: z.string().min(1),
       localizedTitles: z.record(z.string(), z.string().min(1)).default({}),
+      localizedTitleMetadata: z
+        .record(
+          z.string(),
+          z.object({
+            source: z.enum(["museum", "wikidata", "alternate", "curated", "machine"]),
+            status: z.enum(["verified", "provisional"]),
+          }),
+        )
+        .default({}),
       altTitles: z.array(z.string().min(1)).default([]),
       artistDisplay: z.string().min(1),
       dateDisplay: z.string().min(1).optional(),

@@ -4,9 +4,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { ArtworkCardLink } from "@/src/components/collection-state";
+import { artworkKey, type CatalogSource } from "@/src/lib/catalog-source";
 import { iiifImageUrl } from "@/src/lib/iiif";
 import { resolveChineseArtworkTitle } from "@/src/lib/localized-artwork-title";
 import { catalogPageSchema, type Artwork, type CatalogPage } from "@/src/schemas/catalog";
+
+const PRELOAD_MARGIN_PX = 900;
 
 function imageFor(artwork: Artwork) {
   const image = artwork.images.preferred;
@@ -22,32 +25,54 @@ function imageFor(artwork: Artwork) {
 export function CollectionInfiniteGrid({
   initialPage,
   locale,
+  source = "artic",
 }: {
   initialPage: CatalogPage;
   locale: "en" | "zh";
+  source?: CatalogSource;
 }) {
   const [artworks, setArtworks] = useState(initialPage.items);
   const [hasNextPage, setHasNextPage] = useState(initialPage.pageInfo.hasNextPage);
   const [loadState, setLoadState] = useState<"idle" | "loading" | "error">("idle");
-  const nextPageRef = useRef(2);
+  const nextCursorRef = useRef(initialPage.pageInfo.nextCursor);
+  const hasNextPageRef = useRef(initialPage.pageInfo.hasNextPage);
   const requestInFlight = useRef(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const loadNextPageRef = useRef<() => Promise<void>>(async () => {});
 
   const loadNextPage = useCallback(async () => {
-    if (!hasNextPage || requestInFlight.current) return;
+    if (!hasNextPageRef.current || requestInFlight.current) return;
     requestInFlight.current = true;
     setLoadState("loading");
     try {
-      const response = await fetch(`/api/catalog?page=${nextPageRef.current}`, {
+      const cursor = nextCursorRef.current;
+      if (!cursor) return;
+      const requestUrl =
+        source === "artic"
+          ? (() => {
+              const params = new URLSearchParams(window.location.search);
+              params.delete("source");
+              params.delete("cursor");
+              params.set("page", cursor);
+              return `/api/catalog?${params}`;
+            })()
+          : (() => {
+              const params = new URLSearchParams(window.location.search);
+              params.set("source", source);
+              params.set("cursor", cursor);
+              return `/api/catalog?${params}`;
+            })();
+      const response = await fetch(requestUrl, {
         headers: { Accept: "application/json" },
       });
       if (!response.ok) throw new Error(`catalog page failed with ${response.status}`);
       const nextPage = catalogPageSchema.parse(await response.json());
-      nextPageRef.current += 1;
+      nextCursorRef.current = nextPage.pageInfo.nextCursor;
       setArtworks((current) => {
         const known = new Set(current.map((artwork) => artwork.sourceId));
         return [...current, ...nextPage.items.filter((artwork) => !known.has(artwork.sourceId))];
       });
+      hasNextPageRef.current = nextPage.pageInfo.hasNextPage;
       setHasNextPage(nextPage.pageInfo.hasNextPage);
       setLoadState("idle");
     } catch (error) {
@@ -55,21 +80,35 @@ export function CollectionInfiniteGrid({
       setLoadState("error");
     } finally {
       requestInFlight.current = false;
+      window.requestAnimationFrame(() => {
+        const sentinel = sentinelRef.current;
+        if (
+          hasNextPageRef.current &&
+          sentinel &&
+          sentinel.getBoundingClientRect().top <= window.innerHeight + PRELOAD_MARGIN_PX
+        ) {
+          void loadNextPageRef.current();
+        }
+      });
     }
-  }, [hasNextPage]);
+  }, [source]);
+
+  useEffect(() => {
+    loadNextPageRef.current = loadNextPage;
+  }, [loadNextPage]);
 
   useEffect(() => {
     const sentinel = sentinelRef.current;
-    if (!sentinel || !hasNextPage || typeof IntersectionObserver === "undefined") return;
+    if (!sentinel || !hasNextPageRef.current || typeof IntersectionObserver === "undefined") return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) void loadNextPage();
+        if (entries.some((entry) => entry.isIntersecting)) void loadNextPageRef.current();
       },
-      { rootMargin: "900px 0px" },
+      { rootMargin: `${PRELOAD_MARGIN_PX}px 0px` },
     );
     observer.observe(sentinel);
     return () => observer.disconnect();
-  }, [hasNextPage, loadNextPage]);
+  }, []);
 
   const cards = useMemo(
     () =>
@@ -88,7 +127,7 @@ export function CollectionInfiniteGrid({
               : null;
         return (
           <ArtworkCardLink
-            artworkKey={`artic-${artwork.sourceId}`}
+            artworkKey={artworkKey(source, artwork.sourceId)}
             className={`collection-result-card${image ? "" : " is-metadata-only"}`}
             key={artwork.sourceId}
             style={
@@ -128,7 +167,12 @@ export function CollectionInfiniteGrid({
                     : undefined
                 }
               >
-                {primaryTitle}
+                <span className="collection-result-title-text">{primaryTitle}</span>
+                {chineseTitle.status === "provisional" ? (
+                  <small className="collection-result-title-status">
+                    {locale === "zh" ? "暂译" : "PROVISIONAL"}
+                  </small>
+                ) : null}
               </h3>
               {secondaryTitle ? <h4>{secondaryTitle}</h4> : null}
               <p>{artwork.display.artistDisplay}</p>
@@ -139,7 +183,7 @@ export function CollectionInfiniteGrid({
           </ArtworkCardLink>
         );
       }),
-    [artworks, locale],
+    [artworks, locale, source],
   );
 
   return (

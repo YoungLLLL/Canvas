@@ -2,6 +2,7 @@
   "name": "@canvium/web",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,10 +14,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:qwen": "node --env-file-if-exists=.env.local scripts/smoke-qwen.mjs",
+    "titles:backfill": "node --env-file-if-exists=.env.local scripts/backfill-artwork-title-translations.ts",
     "test:e2e": "playwright test",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.15.0",
     "next": "16.2.10",
     "react": "19.2.4",
     "react-dom": "19.2.4",

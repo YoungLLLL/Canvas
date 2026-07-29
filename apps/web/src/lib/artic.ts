@@ -12,6 +12,7 @@ import {
   type ArticCommonsImage,
   wikimediaFailureReason,
 } from "@/src/lib/wikimedia";
+import { attachProvisionalChineseTitles } from "@/src/lib/artwork-title-translations";
 
 const API_BASE = "https://api.artic.edu/api/v1";
 const PAGE_SIZE = 12;
@@ -225,6 +226,9 @@ export function normalizeArticArtwork(
     display: {
       title,
       localizedTitles: { en: title },
+      localizedTitleMetadata: {
+        en: { source: "museum", status: "verified" },
+      },
       altTitles: (raw.alt_titles ?? []).map((item) => item.trim()).filter(Boolean),
       artistDisplay: clean(raw.artist_display) ?? artistName ?? "Unknown artist",
       dateDisplay,
@@ -415,6 +419,25 @@ async function attachCommonsImages(items: Artwork[]) {
               }
             : {}),
         },
+        localizedTitleMetadata: {
+          ...item.display.localizedTitleMetadata,
+          ...(commons.titleEn
+            ? { en: { source: "wikidata" as const, status: "verified" as const } }
+            : {}),
+          ...(commons.titleZh && /[\u3400-\u9fff]/u.test(commons.titleZh)
+            ? {
+                zh: { source: "wikidata" as const, status: "verified" as const },
+                ...(commons.titleZhLocale
+                  ? {
+                      [commons.titleZhLocale]: {
+                        source: "wikidata" as const,
+                        status: "verified" as const,
+                      },
+                    }
+                  : {}),
+              }
+            : {}),
+        },
       },
       images: {
         preferred: {
@@ -452,7 +475,9 @@ async function loadArticCollection(query: CollectionQuery): Promise<CatalogPage>
   const normalized = data.map((item) =>
     normalizeArticArtwork(item, payload.config, response.fetchedAt),
   );
-  const items = (await attachCommonsImages(normalized)).filter((item) => {
+  const items = (
+    await attachProvisionalChineseTitles(await attachCommonsImages(normalized))
+  ).filter((item) => {
     if (query.availability === "image") return item.eligibility.status === "image_displayable";
     if (query.availability === "metadata") {
       return item.eligibility.status === "metadata_only_no_image";
@@ -513,7 +538,7 @@ export async function getArticArtwork(sourceId: string): Promise<Artwork | null>
       ? response.payload.data[0]
       : response.payload.data;
     const artwork = normalizeArticArtwork(raw, response.payload.config, response.fetchedAt);
-    return (await attachCommonsImages([artwork]))[0];
+    return (await attachProvisionalChineseTitles(await attachCommonsImages([artwork])))[0];
   } catch (error) {
     if (error instanceof ArticRequestError && error.status === 404) return null;
     throw error;

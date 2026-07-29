@@ -1861,6 +1861,86 @@ body:has(.demo-faithful) .shell.site-header {
   display: none;
 }
 
+.globe-museum-card {
+  position: fixed;
+  z-index: 100;
+  top: 20vh;
+  right: 5vw;
+  width: min(340px, calc(100vw - 40px));
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 2px;
+  background: rgba(246, 242, 234, 0.94);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  color: #171918;
+  padding: 22px;
+  text-align: left;
+  touch-action: auto;
+  backdrop-filter: blur(16px);
+}
+
+.globe-museum-card > p {
+  margin: 0 32px 10px 0;
+  color: #68655f;
+  font: 600 0.62rem/1.4 var(--body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.globe-museum-card h2 {
+  margin: 0;
+  font: 500 clamp(1.35rem, 2vw, 2rem) / 1.05 var(--title);
+}
+
+.globe-museum-card > small {
+  display: block;
+  margin-top: 5px;
+  color: #716e67;
+  font: 500 0.7rem/1.4 var(--body);
+  letter-spacing: 0.05em;
+}
+
+.globe-museum-card > div {
+  margin-top: 14px;
+  font: 400 0.78rem/1.65 var(--body-zh);
+}
+
+.globe-museum-card nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.globe-museum-card nav a {
+  color: inherit;
+  font: 600 0.66rem/1 var(--body-zh);
+  text-decoration: none;
+}
+
+.globe-museum-card .globe-museum-enter {
+  background: #171918;
+  color: #f7f3eb;
+  padding: 12px 14px;
+}
+
+.globe-museum-enter span {
+  margin-left: 14px;
+}
+
+.globe-museum-card-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(23, 25, 24, 0.08);
+  color: inherit;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
 .globe-grid {
   position: absolute;
   inset: 0;
@@ -1877,6 +1957,24 @@ body:has(.demo-faithful) .shell.site-header {
       rgba(220, 224, 218, 0.14) 10.1%,
       transparent 10.3%
     );
+}
+
+@media (max-width: 720px) {
+  .globe-museum-card {
+    top: auto;
+    right: 5vw;
+    bottom: 5vh;
+    width: 90vw;
+    padding: 18px;
+  }
+
+  .globe-museum-card > div {
+    display: none;
+  }
+
+  .globe-museum-card nav {
+    margin-top: 13px;
+  }
 }
 
 .globe-land {

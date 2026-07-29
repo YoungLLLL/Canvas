@@ -1,8 +1,17 @@
+import { SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+
 type ArtworkTitleInput = {
   sourceId: string;
   display: {
     title: string;
     localizedTitles: Record<string, string>;
+    localizedTitleMetadata?: Record<
+      string,
+      {
+        source: "museum" | "wikidata" | "alternate" | "curated" | "machine";
+        status: "verified" | "provisional";
+      }
+    >;
     altTitles: string[];
   };
 };
@@ -73,7 +82,14 @@ export function resolveChineseArtworkTitle(artwork: ArtworkTitleInput): Resolved
   for (const locale of CHINESE_LOCALES) {
     const value = artwork.display.localizedTitles[locale]?.trim();
     if (containsChinese(value)) {
-      return { text: value, source: "wikidata", status: "verified", hasChinese: true };
+      const metadata = artwork.display.localizedTitleMetadata?.[locale];
+      const provisional = metadata?.status === "provisional";
+      return {
+        text: value,
+        source: provisional ? "provisional" : "wikidata",
+        status: provisional ? "provisional" : "verified",
+        hasChinese: true,
+      };
     }
   }
 
@@ -98,7 +114,13 @@ export function resolveChineseArtworkTitle(artwork: ArtworkTitleInput): Resolved
     return { text: partial[1], source: "curated", status: "verified", hasChinese: true };
   }
 
-  const provisional = PROVISIONAL_ZH_TITLES[artwork.sourceId];
+  const englishTitle = artwork.display.localizedTitles.en || artwork.display.title;
+  const seeded = (
+    SEEDED_ARTWORK_TITLE_TRANSLATIONS as Record<string, { sourceTitle: string; zhHans: string }>
+  )[artwork.sourceId];
+  const provisional =
+    (seeded?.sourceTitle === englishTitle ? seeded.zhHans : undefined) ||
+    PROVISIONAL_ZH_TITLES[artwork.sourceId];
   if (provisional) {
     return {
       text: provisional,

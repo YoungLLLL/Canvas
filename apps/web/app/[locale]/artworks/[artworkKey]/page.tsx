@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 
 import { ChatPrototype } from "@/src/components/chat-prototype";
 import { isLocale } from "@/src/i18n/locales";
-import { getArticArtwork } from "@/src/lib/artic";
+import { getCatalogArtwork } from "@/src/lib/catalog";
+import { museumSlugForSource, parseArtworkKey } from "@/src/lib/catalog-source";
 import { buildDynamicPersonaOpening } from "@/src/lib/dynamic-persona-chat";
 import { iiifImageUrl } from "@/src/lib/iiif";
+import { resolveChineseArtworkTitle } from "@/src/lib/localized-artwork-title";
 import { getReviewedPersonaOpening } from "@/src/lib/persona-openings";
 import { getWikipediaArtistProfile } from "@/src/lib/wikipedia-artist-profile";
 import { artworkKeySchema } from "@/src/schemas/routes";
@@ -15,7 +17,9 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/artworks/[artworkKey]">): Promise<Metadata> {
   const { locale, artworkKey } = await params;
   if (!isLocale(locale) || !artworkKeySchema.safeParse(artworkKey).success) return {};
-  const artwork = await getArticArtwork(artworkKey.replace("artic-", ""));
+  const parsedKey = parseArtworkKey(artworkKey);
+  if (!parsedKey) return {};
+  const artwork = await getCatalogArtwork(parsedKey.source, parsedKey.sourceId);
   return artwork ? { title: `${artwork.display.title} · ${artwork.display.artistDisplay}` } : {};
 }
 
@@ -24,12 +28,15 @@ export default async function ArtworkPage({
 }: PageProps<"/[locale]/artworks/[artworkKey]">) {
   const { locale, artworkKey } = await params;
   if (!isLocale(locale) || !artworkKeySchema.safeParse(artworkKey).success) notFound();
-  const [source, sourceId] = artworkKey.split("-");
-  if (source !== "artic" || !/^\d+$/.test(sourceId)) notFound();
-  const artwork = await getArticArtwork(sourceId);
+  const parsedKey = parseArtworkKey(artworkKey);
+  if (!parsedKey) notFound();
+  const { source, sourceId } = parsedKey;
+  const artwork = await getCatalogArtwork(source, sourceId);
   if (
     !artwork ||
-    !["image_displayable", "metadata_only_no_image"].includes(artwork.eligibility.status)
+    !["image_displayable", "metadata_only_no_image", "metadata_only_rights"].includes(
+      artwork.eligibility.status,
+    )
   )
     notFound();
   const image = artwork.images.preferred;
@@ -38,20 +45,16 @@ export default async function ArtworkPage({
     artwork.artist?.name,
   );
   const opening =
-    getReviewedPersonaOpening(sourceId) || buildDynamicPersonaOpening(artwork, wikipediaProfile);
+    (source === "artic" ? getReviewedPersonaOpening(sourceId) : null) ||
+    buildDynamicPersonaOpening(artwork, wikipediaProfile);
   const knownTitle =
-    locale === "zh" && sourceId === "80607"
-      ? "自画像"
-      : locale === "zh" && sourceId === "28560"
-        ? "卧室"
-        : locale === "zh" && sourceId === "14586"
-          ? "诗人的花园"
-          : artwork.display.title;
+    locale === "zh" ? resolveChineseArtworkTitle(artwork).text : artwork.display.title;
   return (
     <ChatPrototype
       locale={locale}
       opening={opening}
-      artworkId={`artic:${sourceId}`}
+      artworkId={source === "artic" ? artwork.id : undefined}
+      collectionHref={`/${locale}/museums/${museumSlugForSource(source)}/collection`}
       artwork={{
         artistProfile: wikipediaProfile || undefined,
         sourceUrl: artwork.source.recordUrl,
@@ -61,10 +64,7 @@ export default async function ArtworkPage({
         year: artwork.display.dateDisplay || "",
         medium: artwork.display.mediumDisplay || "—",
         dimensions: artwork.display.dimensionsDisplay || "—",
-        collection:
-          locale === "zh"
-            ? "ART INSTITUTE OF CHICAGO · 芝加哥艺术博物馆"
-            : "ART INSTITUTE OF CHICAGO",
+        collection: artwork.source.label.toUpperCase(),
       }}
     />
   );

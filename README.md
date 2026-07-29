@@ -81,7 +81,10 @@ GET /api/catalog/sources
 GET /api/catalog/artworks?source=artic&ids=28560,80607,14586&publicDomainOnly=true
 GET /api/catalog/artworks?source=met&q=van%20gogh&limit=10&publicDomainOnly=true
 GET /api/catalog/artworks?source=cleveland&q=monet&limit=10&publicDomainOnly=true
+GET /api/catalog/artworks?source=europeana&q=monet&limit=20
+GET /api/catalog/artworks?source=europeana&q=monet&limit=20&cursor={nextCursor}
+GET /api/catalog/artworks?source=europeana&ids=90402/RP_P_1984_87
 GET /api/catalog/museums?source=wikidata&ids=Q239303
 ```
 
-当前支持 `artic`、`met`、`cleveland` 作品数据和 `wikidata` 博物馆信息，响应统一为作品、艺术家、年代、媒介、尺寸、图片、许可和来源字段，并在服务端缓存 15 分钟。
+当前支持 `artic`、`met`、`cleveland`、`europeana` 作品数据和 `wikidata` 博物馆信息，响应统一为作品、艺术家、年代、媒介、尺寸、图片、许可和来源字段，并在服务端缓存 15 分钟。Europeana 需要在环境变量中配置 `EUROPEANA_API_KEY`；默认不限制图片权利，传入 `publicDomainOnly=true` 时才仅保留开放记录。

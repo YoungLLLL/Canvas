@@ -69,6 +69,7 @@ const localizedCountries: Record<string, string> = {
   french: "法国",
   german: "德国",
   italian: "意大利",
+  netherlandish: "尼德兰",
   spanish: "西班牙",
   swiss: "瑞士",
 };
@@ -116,7 +117,7 @@ export async function getWikipediaArtistProfile(
     const country = details.split(",")[0]?.trim() || "See biography";
     const birthYear = Number(life.match(/\d{4}/)?.[0]);
     const century = Number.isFinite(birthYear) ? Math.floor((birthYear - 1) / 100) + 1 : null;
-    const localizedCountry = localizedCountries[country.toLowerCase()] || "详见人物资料";
+    const localizedCountry = localizedCountries[country.toLowerCase()] || "";
     const searchableBiography = `${englishExtract} ${(english.categories || [])
       .map(({ title }) => title || "")
       .join(" ")}`;

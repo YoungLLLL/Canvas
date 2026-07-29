@@ -1,0 +1,77 @@
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh/museum..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          className="cormorant_garamond_8a23c4b3-module__Li2ehW__variable inter_d90c4b20-module__KyEEd..."
+                          lang="en"
+-                         data-immersive-translate-page-theme="light"
+                        >
+                  ...
+ 
+Error: Europeana request failed with 400
+    at fetchEuropeana (src\lib\europeana.ts:271:19)
+    at async getEuropeanaCollection (src\lib\europeana.ts:294:20)
+    at async GET (app\api\catalog\route.ts:20:26)
+  269 |   });
+  270 |   if (!response.ok) {
+> 271 |     const error = new Error(`Europeana request failed with ${response.status}`);
+      |                   ^
+  272 |     Object.assign(error, { status: response.status });
+  273 |     throw error;
+  274 |   } {
+  status: 400
+}
+Error: Europeana request failed with 400
+    at fetchEuropeana (src\lib\europeana.ts:271:19)
+    at async getEuropeanaCollection (src\lib\europeana.ts:294:20)
+    at async GET (app\api\catalog\route.ts:20:26)
+  269 |   });
+  270 |   if (!response.ok) {
+> 271 |     const error = new Error(`Europeana request failed with ${response.status}`);
+      |                   ^
+  272 |     Object.assign(error, { status: response.status });
+  273 |     throw error;
+  274 |   } {
+  status: 400
+}
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] The final argument passed to useEffect changed size between renders. The order and size of this array must remain constant.
+
+Previous: [false, true]
+Incoming: [false, zh, true] 
+    at MuseumGlobe (src/components/museum-globe.tsx:419:72)
+    at Set.forEach (<anonymous>)
+  417 |             const centerX = bounds.left + bounds.width / 2;
+  418 |             const centerY = bounds.top + bounds.height / 2;
+> 419 |             host.querySelectorAll<HTMLElement>(".globe-marker").forEach((marker) => {
+      |                                                                        ^
+  420 |               if (homepageFocused) {
+  421 |                 marker.style.removeProperty("visibility");
+  422 |                 marker.style.removeProperty("pointer-events"); (src/components/museum-globe.tsx:419:72)

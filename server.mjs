@@ -313,6 +313,7 @@ createServer(async (request, response) => {
           .filter(Boolean),
         query: requestUrl.searchParams.get("q") || "",
         limit: requestUrl.searchParams.get("limit"),
+        cursor: requestUrl.searchParams.get("cursor") || "",
         publicDomainOnly:
           requestUrl.searchParams.get("publicDomainOnly") === "true",
       });

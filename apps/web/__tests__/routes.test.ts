@@ -10,7 +10,11 @@ import {
 describe("stable route contracts", () => {
   it("accepts documented resource identifiers", () => {
     expect(museumSlugSchema.parse("art-institute-of-chicago")).toBe("art-institute-of-chicago");
+    expect(museumSlugSchema.parse("europeana")).toBe("europeana");
     expect(artworkKeySchema.parse("artic-28560")).toBe("artic-28560");
+    expect(artworkKeySchema.parse("europeana-90402~2FRP_P_1984_87")).toBe(
+      "europeana-90402~2FRP_P_1984_87",
+    );
   });
 
   it("normalizes collection defaults", () => {

@@ -1,12 +1,14 @@
-import { getArticArtwork } from "@/src/lib/artic";
+import { getCatalogArtwork } from "@/src/lib/catalog";
+import { isCatalogSource } from "@/src/lib/catalog-source";
 
-export async function GET(_request: Request, context: RouteContext<"/api/artworks/[sourceId]">) {
+export async function GET(request: Request, context: RouteContext<"/api/artworks/[sourceId]">) {
   const { sourceId } = await context.params;
-  if (!/^\d+$/.test(sourceId))
+  const source = new URL(request.url).searchParams.get("source") || "artic";
+  if (!isCatalogSource(source) || (source === "artic" && !/^\d+$/.test(sourceId)))
     return Response.json({ error: "invalid_artwork_id" }, { status: 400 });
 
   try {
-    const artwork = await getArticArtwork(sourceId);
+    const artwork = await getCatalogArtwork(source, sourceId);
     return artwork
       ? Response.json(artwork, {
           headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600" },

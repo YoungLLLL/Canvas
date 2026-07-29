@@ -377,7 +377,7 @@ export function DemoLanding({ locale }: { locale: Locale }) {
                 : "Interactive globe connecting the home and museum sections"
             }
           >
-            <MuseumGlobe />
+            <MuseumGlobe locale={locale} />
           </div>
 
           <section className="museum-section" id="museum">

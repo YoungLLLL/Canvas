@@ -1,9 +1,13 @@
 import { articProvider } from "./providers/artic.mjs";
 import { clevelandProvider } from "./providers/cleveland.mjs";
+import { europeanaProvider } from "./providers/europeana.mjs";
 import { metProvider } from "./providers/met.mjs";
 import { wikidataMuseumProvider } from "./providers/wikidata.mjs";
 
-const providers = new Map([articProvider, metProvider, clevelandProvider].map((provider) => [provider.id, provider]));
+const providers = new Map(
+  [articProvider, metProvider, clevelandProvider, europeanaProvider]
+    .map((provider) => [provider.id, provider]),
+);
 const cache = new Map();
 const cacheTtlMs = 15 * 60 * 1000;
 
@@ -25,9 +29,14 @@ export async function getCatalogArtworks(options, context = {}) {
     ids: (options.ids || []).map(String).filter(Boolean).slice(0, 20),
     query: String(options.query || "").trim().slice(0, 200),
     limit: Math.min(Math.max(Number(options.limit) || 20, 1), 100),
+    cursor: String(options.cursor || "").trim().slice(0, 4000),
     publicDomainOnly: options.publicDomainOnly === true,
   };
-  if (!normalized.ids.length && !normalized.query && options.source !== "artic") {
+  if (
+    !normalized.ids.length &&
+    !normalized.query &&
+    !provider.capabilities.includes("browse")
+  ) {
     const error = new Error("请提供作品 ID 或搜索词");
     error.status = 400;
     throw error;

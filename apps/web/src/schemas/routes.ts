@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-export const museumSlugSchema = z.literal("art-institute-of-chicago");
-export const artworkKeySchema = z.string().regex(/^[a-z][a-z0-9-]*-[a-z0-9]+$/);
+export const museumSlugSchema = z.enum(["art-institute-of-chicago", "europeana"]);
+export const artworkKeySchema = z.string().regex(/^(?:artic-[0-9]+|europeana-[A-Za-z0-9._~-]+)$/);
 export const maxAccessibleSearchPage = 834;
 
 const queryValue = z.union([z.string(), z.array(z.string())]).optional();
@@ -21,6 +21,11 @@ const optionalYear = queryValue
 export const collectionQuerySchema = z
   .object({
     q: queryValue.transform(first).transform((value) => value?.trim() ?? ""),
+    museum: queryValue
+      .transform(first)
+      .transform((value) => value?.trim() || undefined)
+      .pipe(slugSchema.optional())
+      .catch(undefined),
     artist: queryValue.transform((value) =>
       (value === undefined ? [] : Array.isArray(value) ? value : [value]).filter((item) =>
         /^\d+$/.test(item),
@@ -68,6 +73,7 @@ export type CollectionQuery = z.infer<typeof collectionQuerySchema>;
 export function collectionQueryString(query: CollectionQuery, page = query.page) {
   const params = new URLSearchParams();
   if (query.q) params.set("q", query.q);
+  if (query.museum) params.set("museum", query.museum);
   for (const artist of query.artist) params.append("artist", artist);
   if (query.from !== undefined) params.set("from", String(query.from));
   if (query.to !== undefined) params.set("to", String(query.to));

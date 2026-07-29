@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { articProvider, normalizeArticArtwork } from "../data/providers/artic.mjs";
 import { normalizeClevelandArtwork } from "../data/providers/cleveland.mjs";
+import { europeanaProvider, normalizeEuropeanaArtwork } from "../data/providers/europeana.mjs";
 import { normalizeMetArtwork } from "../data/providers/met.mjs";
 import { normalizeWikidataMuseum } from "../data/providers/wikidata.mjs";
 
@@ -72,6 +73,71 @@ test("Cleveland records prefer print images and preserve the original", () => {
   assert.equal(item.images.preferred.url, "https://openaccess-cdn.example/print.jpg");
   assert.equal(item.images.preferred.originalUrl, "https://openaccess-cdn.example/original.tif");
   assert.equal(item.rights.publicDomain, true);
+});
+
+test("Europeana records retain museum relationship and per-image rights", () => {
+  const item = normalizeEuropeanaArtwork({
+    id: "/90402/RP_P_1984_87",
+    title: ["River Landscape"],
+    dcCreator: ["Example Artist"],
+    year: ["1889"],
+    dcType: ["painting"],
+    edmIsShownAt: ["https://museum.example/objects/RP-P-1984-87"],
+    edmIsShownBy: ["https://images.example/original.jpg"],
+    edmPreview: ["https://images.example/preview.jpg"],
+    edmCurrentLocation: ["https://www.wikidata.org/wiki/Q190804"],
+    edmCurrentLocationLabel: ["Rijksmuseum"],
+    dataProvider: ["Rijksmuseum"],
+    provider: ["The European Library"],
+    rights: ["http://creativecommons.org/publicdomain/mark/1.0/"],
+  });
+
+  assert.equal(item.id, "europeana:90402/RP_P_1984_87");
+  assert.equal(item.sourceUrl, "https://museum.example/objects/RP-P-1984-87");
+  assert.equal(item.images.preferred.url, "https://images.example/original.jpg");
+  assert.equal(item.rights.code, "PDM");
+  assert.equal(item.museum.name, "Rijksmuseum");
+  assert.equal(item.museum.relation, "current_location");
+  assert.equal(item.museum.wikidataId, "Q190804");
+});
+
+test("Europeana provider browses multiple institutions without enforcing open rights", async () => {
+  let requestedUrl;
+  const fetchImpl = async (url) => {
+    requestedUrl = String(url);
+    return {
+      ok: true,
+      async json() {
+        return {
+          totalResults: 1,
+          nextCursor: "cursor-value",
+          items: [{
+            id: "/123/example",
+            title: ["Example"],
+            dataProvider: ["Example Museum"],
+            edmPreview: ["https://images.example/preview.jpg"],
+            rights: ["https://rightsstatements.org/vocab/InC/1.0/"],
+          }],
+        };
+      },
+    };
+  };
+
+  const result = await europeanaProvider.getArtworks(
+    { ids: [], query: "", limit: 40, publicDomainOnly: false },
+    { apiKey: "test-key", fetchImpl },
+  );
+
+  const url = new URL(requestedUrl);
+  assert.equal(url.pathname, "/record/v2/search.json");
+  assert.equal(url.searchParams.get("query"), "*");
+  assert.equal(url.searchParams.get("theme"), "art");
+  assert.equal(url.searchParams.get("rows"), "40");
+  assert.equal(url.searchParams.get("cursor"), "*");
+  assert.equal(url.searchParams.has("reusability"), false);
+  assert.equal(result.items[0].museum.relation, "data_provider");
+  assert.equal(result.items[0].rights.code, "INC");
+  assert.equal(result.nextCursor, "cursor-value");
 });
 
 test("Wikidata museum records expose multilingual identity and coordinates", () => {

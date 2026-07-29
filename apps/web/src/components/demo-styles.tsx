@@ -94,9 +94,11 @@ export function DemoStyles() {
         .collection-result-open{position:absolute;right:14px;bottom:14px;display:flex;min-height:36px;align-items:center;border-radius:999px;background:rgba(13,14,13,.86);color:#fff;padding:0 14px;font:500 11px/1 var(--sans);opacity:0;transform:translateY(5px);transition:opacity 180ms,transform 260ms cubic-bezier(.2,.8,.2,1)}
         .collection-result-card:hover .collection-result-open,.collection-result-card:focus-visible .collection-result-open{opacity:1;transform:none}
         .collection-result-card>.collection-result-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;padding-top:14px;border-top:1px solid rgba(13,14,13,.76)}
-        .collection-result-copy h3{grid-column:1;margin:0;overflow:hidden;font:500 clamp(18px,1.45vw,24px)/1.12 var(--font-body-zh),'Noto Sans SC',sans-serif!important;text-overflow:ellipsis;white-space:nowrap}
-        .collection-result-copy p{grid-column:1;margin:0;overflow:hidden;color:#706d67;font:400 12px/1.45 var(--sans);text-overflow:ellipsis;white-space:nowrap}
-        .collection-result-copy>span{grid-column:2;grid-row:1/span 2;align-self:center;color:#706d67;font:500 12px/1.4 var(--sans)}
+        .collection-result-copy h3{grid-column:1;display:flex;align-items:center;gap:7px;margin:0;overflow:hidden;font:500 clamp(16px,1.25vw,21px)/1.14 var(--font-body-zh),'Noto Sans SC',sans-serif!important;white-space:nowrap}
+        .collection-result-title-text{min-width:0;overflow:hidden;text-overflow:ellipsis}
+        .collection-result-title-status{flex:0 0 auto;border:1px solid currentColor;border-radius:999px;padding:2px 6px;color:#77736b;font:600 8px/1 var(--sans);letter-spacing:.06em}
+        .collection-result-copy p{grid-column:1;margin:0;overflow:hidden;color:#706d67;font:400 11.5px/1.45 var(--sans);text-overflow:ellipsis;white-space:nowrap}
+        .collection-result-copy>span{grid-column:2;grid-row:1/span 2;align-self:center;color:#706d67;font:500 11px/1.4 var(--sans)}
         .collection-result-placeholder{display:flex;height:100%;flex-direction:column;justify-content:space-between;padding:24px;color:#343431}
         .collection-result-placeholder small{font:500 12px/1.4 var(--sans);letter-spacing:.06em}
         .collection-result-placeholder strong{max-width:320px;font:500 clamp(22px,2.2vw,34px)/1.05 var(--font-body-zh),'Noto Sans SC',sans-serif}
@@ -219,8 +221,8 @@ export function DemoStyles() {
         .collection-result-card>figure{height:auto!important;max-height:none!important;aspect-ratio:var(--result-ratio)!important;overflow:hidden;background:transparent!important}
         .collection-result-card img{display:block;width:100%;height:100%;object-fit:contain;background:transparent!important}
         .collection-result-card>.collection-result-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding-top:13px;border:0!important}
-        .collection-result-copy h3{grid-column:1;margin:0;overflow:hidden;font:500 clamp(18px,1.5vw,24px)/1.15 var(--font-body-zh),'Noto Sans SC',sans-serif!important;text-overflow:ellipsis;white-space:nowrap}
-        .collection-result-copy h4{grid-column:1;margin:0;overflow:hidden;color:#343431;font:400 clamp(12px,.88vw,14px)/1.3 'Otomanopee One',sans-serif!important;letter-spacing:0;text-overflow:ellipsis;white-space:nowrap}
+        .collection-result-copy h3{grid-column:1;margin:0;overflow:hidden;font:500 clamp(16px,1.25vw,21px)/1.15 var(--font-body-zh),'Noto Sans SC',sans-serif!important;text-overflow:ellipsis;white-space:nowrap}
+        .collection-result-copy h4{grid-column:1;margin:0;overflow:hidden;color:#343431;font:400 clamp(11px,.78vw,13px)/1.32 var(--font-body-latin),'Inter','Helvetica Neue',sans-serif!important;letter-spacing:0;text-overflow:ellipsis;white-space:nowrap}
         .collection-result-copy p{grid-column:1;margin-top:3px!important;font-family:var(--font-body-latin),'Inter','Helvetica Neue',sans-serif}
         .collection-result-copy>span{grid-column:2;grid-row:1/span 3}
         .collection-result-open{display:grid;grid-template-columns:auto auto;gap:2px 9px}
@@ -251,8 +253,8 @@ export function DemoStyles() {
           .collection-results-grid{display:grid;grid-template-columns:1fr;padding-top:38px;gap:46px}
           .collection-results-grid:after{display:none}
           .collection-result-card{width:100%;max-width:none;min-width:0}
-          .collection-result-copy h3{font-size:22px}
-          .collection-result-copy h4{font-size:12px}
+          .collection-result-copy h3{font-size:19px}
+          .collection-result-copy h4{font-size:11px}
           .collection-load-sentinel{min-height:140px;padding:40px 0}
         }
         @media(prefers-reduced-motion:reduce){.skeleton{animation:none}.home-hero .daily-art,.home-hero .art-history,.home-hero .artist-entry{transform:none;transition:none}.collection-tools summary,.collection-tools form{backdrop-filter:none}}

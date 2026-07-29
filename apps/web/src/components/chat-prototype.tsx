@@ -61,6 +61,7 @@ export type ArtistProfile = {
 type ChatPrototypeProps = {
   locale?: "en" | "zh";
   artworkId?: string;
+  collectionHref?: string;
   opening?: {
     chinese: string;
     english: string;
@@ -445,7 +446,7 @@ function resolveArtistProfile(
   const country = nationality
     ? `${nationality.charAt(0).toUpperCase()}${nationality.slice(1)}`
     : "Attribution recorded by the museum";
-  const localizedCountry = nationality ? NATIONALITY_LABELS[nationality] : "馆藏记录所载归属";
+  const localizedCountry = nationality ? NATIONALITY_LABELS[nationality] : "";
 
   return {
     name,
@@ -509,6 +510,9 @@ function ArtworkIdentity({
   dimensions,
   collection,
 }: ArtworkIdentityProps) {
+  const mediumLines = medium.split(/,\s*/);
+  const dimensionLines = dimensions.split(/;\s*/);
+
   return (
     <dl className={styles.artworkCaption}>
       <div className={styles.artistLine}>
@@ -524,11 +528,25 @@ function ArtworkIdentity({
       </div>
       <div>
         <dt className="sr-only">Medium</dt>
-        <dd>{medium}</dd>
+        <dd className={styles.captionClauses}>
+          {mediumLines.map((line, index) => (
+            <span key={`${line}-${index}`}>
+              {line}
+              {index < mediumLines.length - 1 ? ", " : ""}
+            </span>
+          ))}
+        </dd>
       </div>
       <div>
         <dt className="sr-only">Dimensions</dt>
-        <dd>{dimensions}</dd>
+        <dd className={styles.captionClauses}>
+          {dimensionLines.map((line, index) => (
+            <span key={`${line}-${index}`}>
+              {line}
+              {index < dimensionLines.length - 1 ? "; " : ""}
+            </span>
+          ))}
+        </dd>
       </div>
       <div>
         <dt className="sr-only">Collection</dt>
@@ -562,7 +580,13 @@ function nextAnswer(question: string): Pick<Message, "chinese" | "english"> {
   };
 }
 
-export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: ChatPrototypeProps) {
+export function ChatPrototype({
+  locale = "zh",
+  artworkId,
+  collectionHref,
+  opening,
+  artwork,
+}: ChatPrototypeProps) {
   const selectedArtwork = {
     artist: artwork?.artist || DEFAULT_ARTWORK.artist,
     year: artwork?.year || DEFAULT_ARTWORK.year,
@@ -805,8 +829,7 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
     return citationNumbers.map((number) => {
       const citation = message.citations?.find((candidate) => candidate.number === number);
       if (!citation) return null;
-      const isOpen =
-        activeCitation?.messageId === message.id && activeCitation.number === number;
+      const isOpen = activeCitation?.messageId === message.id && activeCitation.number === number;
       return (
         <span className={styles.citationAnchor} key={`${language}-${number}`}>
           <button
@@ -840,10 +863,7 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
               const estimatedHeight = 170;
               const top = Math.max(
                 viewportPadding,
-                Math.min(
-                  anchor.top - 18,
-                  window.innerHeight - estimatedHeight - viewportPadding,
-                ),
+                Math.min(anchor.top - 18, window.innerHeight - estimatedHeight - viewportPadding),
               );
               setActiveCitation({ messageId: message.id, number, top, left });
             }}
@@ -929,7 +949,7 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
         </Link>
         <CollectionBackLink
           className={styles.galleryExit}
-          defaultHref={`/${locale}/museums/art-institute-of-chicago/collection`}
+          defaultHref={collectionHref ?? `/${locale}/museums/art-institute-of-chicago/collection`}
           label={
             locale === "zh"
               ? "退出作品对话，返回画廊"
@@ -977,7 +997,7 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
             ) : null}
             <span className={styles.profileLine}>
               Life: {artistProfile.life}, {artistProfile.country}{" "}
-              {artistProfile.localizedCountry}{" "}
+              {artistProfile.localizedCountry ? `${artistProfile.localizedCountry} ` : null}
             </span>
             <span className={styles.profileLine}>
               Style: <BilingualTerms terms={artistProfile.style} />{" "}
@@ -1072,7 +1092,7 @@ export function ChatPrototype({ locale = "zh", artworkId, opening, artwork }: Ch
               <span className={styles.bracket} aria-hidden="true" />
               <div className={styles.messageBody}>
                 <p className={styles.generatingText}>
-                  {locale === "zh" ? "正在回想" : "Remembering"}
+                  Thinking
                   <span className={styles.generatingDots} aria-hidden="true">
                     <i />
                     <i />
