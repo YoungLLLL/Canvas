@@ -1,6 +1,9 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { ArtworkCardLink } from "@/src/components/collection-state";
@@ -9,7 +12,12 @@ import { iiifImageUrl } from "@/src/lib/iiif";
 import { resolveChineseArtworkTitle } from "@/src/lib/localized-artwork-title";
 import { catalogPageSchema, type Artwork, type CatalogPage } from "@/src/schemas/catalog";
 
-const PRELOAD_MARGIN_PX = 900;
+const PRELOAD_MARGIN_PX = 1200;
+const MINIMUM_LOADING_STATUS_MS = 360;
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 function imageFor(artwork: Artwork) {
   const image = artwork.images.preferred;
@@ -37,16 +45,23 @@ export function CollectionInfiniteGrid({
   const nextCursorRef = useRef(initialPage.pageInfo.nextCursor);
   const hasNextPageRef = useRef(initialPage.pageInfo.hasNextPage);
   const requestInFlight = useRef(false);
+  const flowRef = useRef<HTMLDivElement>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const loadNextPageRef = useRef<() => Promise<void>>(async () => {});
 
   const loadNextPage = useCallback(async () => {
     if (!hasNextPageRef.current || requestInFlight.current) return;
+    const loadStartedAt = performance.now();
     requestInFlight.current = true;
     setLoadState("loading");
     try {
       const cursor = nextCursorRef.current;
-      if (!cursor) return;
+      if (!cursor) {
+        hasNextPageRef.current = false;
+        setHasNextPage(false);
+        setLoadState("idle");
+        return;
+      }
       const requestUrl =
         source === "artic"
           ? (() => {
@@ -74,22 +89,30 @@ export function CollectionInfiniteGrid({
       });
       hasNextPageRef.current = nextPage.pageInfo.hasNextPage;
       setHasNextPage(nextPage.pageInfo.hasNextPage);
+      const loadingStatusRemaining =
+        MINIMUM_LOADING_STATUS_MS - (performance.now() - loadStartedAt);
+      if (loadingStatusRemaining > 0) {
+        await new Promise((resolve) => window.setTimeout(resolve, loadingStatusRemaining));
+      }
       setLoadState("idle");
     } catch (error) {
       console.error(error);
       setLoadState("error");
     } finally {
       requestInFlight.current = false;
-      window.requestAnimationFrame(() => {
-        const sentinel = sentinelRef.current;
-        if (
-          hasNextPageRef.current &&
-          sentinel &&
-          sentinel.getBoundingClientRect().top <= window.innerHeight + PRELOAD_MARGIN_PX
-        ) {
-          void loadNextPageRef.current();
-        }
-      });
+      window.setTimeout(() => {
+        window.requestAnimationFrame(() => {
+          const sentinel = sentinelRef.current;
+          if (!hasNextPageRef.current || !sentinel) return;
+          const rect = sentinel.getBoundingClientRect();
+          if (
+            rect.top <= window.innerHeight + PRELOAD_MARGIN_PX &&
+            rect.bottom >= -PRELOAD_MARGIN_PX
+          ) {
+            void loadNextPageRef.current();
+          }
+        });
+      }, 80);
     }
   }, [source]);
 
@@ -99,15 +122,41 @@ export function CollectionInfiniteGrid({
 
   useEffect(() => {
     const sentinel = sentinelRef.current;
-    if (!sentinel || !hasNextPageRef.current || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) void loadNextPageRef.current();
-      },
-      { rootMargin: `${PRELOAD_MARGIN_PX}px 0px` },
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
+    if (!sentinel) return;
+    let frame = 0;
+    const checkPosition = () => {
+      frame = 0;
+      if (!hasNextPageRef.current) return;
+      const rect = sentinel.getBoundingClientRect();
+      if (rect.top <= window.innerHeight + PRELOAD_MARGIN_PX && rect.bottom >= -PRELOAD_MARGIN_PX) {
+        void loadNextPageRef.current();
+      }
+    };
+    const schedulePositionCheck = () => {
+      if (!frame) frame = window.requestAnimationFrame(checkPosition);
+    };
+    const observer =
+      typeof IntersectionObserver === "undefined"
+        ? null
+        : new IntersectionObserver(
+            (entries) => {
+              if (entries.some((entry) => entry.isIntersecting)) {
+                void loadNextPageRef.current();
+              }
+            },
+            { rootMargin: `${PRELOAD_MARGIN_PX}px 0px` },
+          );
+
+    observer?.observe(sentinel);
+    window.addEventListener("scroll", schedulePositionCheck, { passive: true });
+    window.addEventListener("resize", schedulePositionCheck);
+    schedulePositionCheck();
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+      window.removeEventListener("scroll", schedulePositionCheck);
+      window.removeEventListener("resize", schedulePositionCheck);
+    };
   }, []);
 
   const cards = useMemo(
@@ -186,8 +235,114 @@ export function CollectionInfiniteGrid({
     [artworks, locale, source],
   );
 
+  useGSAP(
+    () => {
+      const media = gsap.matchMedia();
+
+      media.add(
+        {
+          reduceMotion: "(prefers-reduced-motion: reduce)",
+          desktop: "(min-width: 721px)",
+        },
+        (context) => {
+          const { desktop, reduceMotion } = context.conditions as {
+            desktop: boolean;
+            reduceMotion: boolean;
+          };
+          const leadCards = gsap.utils
+            .toArray<HTMLElement>(".collection-result-card")
+            .slice(0, desktop ? 6 : 2);
+          if (!leadCards.length) return;
+          leadCards.forEach((card) => {
+            card.dataset.flowRevealed = "true";
+          });
+          if (reduceMotion) {
+            gsap.set(leadCards, { autoAlpha: 1, clearProps: "transform" });
+            return;
+          }
+
+          const section = flowRef.current?.closest<HTMLElement>(".collection-catalog-section");
+          if (!section) return;
+          gsap.fromTo(
+            leadCards,
+            { y: () => window.innerHeight * (desktop ? 0.34 : 0.2) },
+            {
+              duration: 1,
+              ease: "none",
+              stagger: 0.035,
+              scrollTrigger: {
+                end: "top 14%",
+                invalidateOnRefresh: true,
+                scrub: 0.85,
+                start: "top bottom",
+                trigger: section,
+              },
+              y: 0,
+            },
+          );
+          window.requestAnimationFrame(() => ScrollTrigger.refresh());
+        },
+      );
+
+      return () => media.revert();
+    },
+    { scope: flowRef },
+  );
+
+  useGSAP(
+    () => {
+      const media = gsap.matchMedia();
+
+      media.add(
+        {
+          reduceMotion: "(prefers-reduced-motion: reduce)",
+          desktop: "(min-width: 721px)",
+        },
+        (context) => {
+          const { desktop, reduceMotion } = context.conditions as {
+            desktop: boolean;
+            reduceMotion: boolean;
+          };
+          const pendingCards = gsap.utils
+            .toArray<HTMLElement>(".collection-result-card")
+            .filter((card) => !card.dataset.flowRevealed);
+          if (!pendingCards.length) return;
+          pendingCards.forEach((card) => {
+            card.dataset.flowRevealed = "true";
+          });
+          if (reduceMotion) {
+            gsap.set(pendingCards, { autoAlpha: 1, clearProps: "transform" });
+            return;
+          }
+
+          ScrollTrigger.batch(pendingCards, {
+            batchMax: desktop ? 4 : 2,
+            interval: 0.08,
+            once: true,
+            start: "top 94%",
+            onEnter: (batch) =>
+              gsap.from(batch, {
+                autoAlpha: 0,
+                clearProps: "transform,opacity,visibility",
+                duration: desktop ? 0.9 : 0.68,
+                ease: "power3.out",
+                immediateRender: false,
+                stagger: 0.08,
+                y: desktop ? 72 : 38,
+              }),
+          });
+
+          window.requestAnimationFrame(() => ScrollTrigger.refresh());
+        },
+      );
+
+      return () => media.revert();
+    },
+    { dependencies: [artworks.length], revertOnUpdate: true, scope: flowRef },
+  );
+
   return (
-    <>
+    <div className="collection-flow-grid" ref={flowRef}>
       <div
         className="collection-results-grid"
         aria-label={locale === "zh" ? "馆藏作品列表" : "Collection artworks"}
@@ -199,6 +354,12 @@ export function CollectionInfiniteGrid({
           <p aria-live="polite">
             <span>{locale === "zh" ? "正在加载更多作品" : "Loading more artworks"}</span>
             <small>{locale === "zh" ? "LOADING MORE ARTWORKS" : "正在加载更多作品"}</small>
+          </p>
+        ) : null}
+        {hasNextPage && loadState === "idle" ? (
+          <p className="collection-load-ready">
+            <span>{locale === "zh" ? "继续向下加载更多作品" : "Continue for more artworks"}</span>
+            <small>{locale === "zh" ? "SCROLL TO LOAD MORE" : "向下滚动加载更多"}</small>
           </p>
         ) : null}
         {loadState === "error" ? (
@@ -213,6 +374,6 @@ export function CollectionInfiniteGrid({
           </p>
         ) : null}
       </div>
-    </>
+    </div>
   );
 }

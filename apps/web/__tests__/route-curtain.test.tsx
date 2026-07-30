@@ -24,6 +24,7 @@ describe("route curtain completion", () => {
     navigation.push.mockClear();
     navigation.router.replace.mockClear();
     vi.stubGlobal("matchMedia", vi.fn().mockReturnValue({ matches: true }));
+    vi.stubGlobal("scrollTo", vi.fn());
   });
 
   afterEach(() => {
@@ -44,7 +45,10 @@ describe("route curtain completion", () => {
     await act(async () => {
       await vi.advanceTimersByTimeAsync(25);
     });
-    expect(navigation.push).toHaveBeenCalledWith("/en/museums/art-institute-of-chicago/collection");
+    expect(navigation.push).toHaveBeenCalledWith(
+      "/en/museums/art-institute-of-chicago/collection",
+      { scroll: true },
+    );
 
     navigation.pathname = "/en/museums/art-institute-of-chicago/collection";
     rerender(<RouteCurtain />);

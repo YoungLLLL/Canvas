@@ -1,8 +1,11 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export function ShowcaseMotion() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const root = document.documentElement;
     const header = document.querySelector<HTMLElement>(".site-header");
@@ -68,7 +71,7 @@ export function ShowcaseMotion() {
       composition?.removeEventListener("pointerleave", resetPointer);
       dailyArtwork?.removeEventListener("animationend", releaseEntranceTransform);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

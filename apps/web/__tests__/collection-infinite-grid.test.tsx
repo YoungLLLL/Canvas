@@ -5,6 +5,18 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { CollectionInfiniteGrid } from "@/src/components/collection-infinite-grid";
 import type { CatalogPage } from "@/src/schemas/catalog";
 
+vi.mock("@gsap/react", () => ({
+  useGSAP: vi.fn(),
+}));
+
+vi.mock("gsap", () => ({
+  default: { registerPlugin: vi.fn() },
+}));
+
+vi.mock("gsap/ScrollTrigger", () => ({
+  ScrollTrigger: {},
+}));
+
 vi.mock("@/src/components/collection-state", () => ({
   ArtworkCardLink: (props: { children: ReactNode; artworkKey: string; [key: string]: unknown }) => {
     const { children, artworkKey, ...linkProps } = props;

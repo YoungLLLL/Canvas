@@ -15,7 +15,7 @@ export function CollectionWheelReturn({ locale }: { locale: Locale }) {
     if (transitioning.current) return;
     transitioning.current = true;
 
-    navigateWithCurtain({ href: museumHref, replace: true });
+    navigateWithCurtain({ href: museumHref, replace: true, scroll: false });
   }, [museumHref]);
 
   useEffect(() => {

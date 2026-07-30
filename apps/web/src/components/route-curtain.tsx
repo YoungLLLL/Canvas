@@ -11,6 +11,7 @@ const navigationLeadIn = 120;
 type RouteCurtainDetail = {
   href: string;
   replace?: boolean;
+  scroll?: boolean;
 };
 
 export function navigateWithCurtain(detail: RouteCurtainDetail) {
@@ -27,6 +28,7 @@ export function RouteCurtain() {
   const curtainRef = useRef<HTMLDivElement>(null);
   const transitioning = useRef(false);
   const navigationStarted = useRef(false);
+  const resetScrollOnNavigation = useRef(false);
   const transitionStartedAt = useRef(0);
   const observedPathname = useRef(pathname);
   const [progress, setProgress] = useState(0);
@@ -62,11 +64,16 @@ export function RouteCurtain() {
 
     const onNavigate = (event: Event) => {
       if (transitioning.current) return;
-      const { href, replace = false } = (event as CustomEvent<RouteCurtainDetail>).detail;
+      const {
+        href,
+        replace = false,
+        scroll = true,
+      } = (event as CustomEvent<RouteCurtainDetail>).detail;
       if (!href) return;
 
       transitioning.current = true;
       navigationStarted.current = false;
+      resetScrollOnNavigation.current = scroll;
       transitionStartedAt.current = performance.now();
       setProgress(6);
       setStatus(copy.preparing);
@@ -78,8 +85,8 @@ export function RouteCurtain() {
       navigationTimer = window.setTimeout(
         () => {
           navigationStarted.current = true;
-          if (replace) router.replace(href);
-          else router.push(href);
+          if (replace) router.replace(href, { scroll });
+          else router.push(href, { scroll });
         },
         reducedMotion ? 20 : navigationLeadIn,
       );
@@ -106,6 +113,7 @@ export function RouteCurtain() {
         document.documentElement.classList.remove("collection-transitioning");
         transitioning.current = false;
         navigationStarted.current = false;
+        resetScrollOnNavigation.current = false;
         setProgress(0);
         setStatus("");
       }, 20_000);
@@ -128,6 +136,7 @@ export function RouteCurtain() {
           document.documentElement.classList.remove("collection-transitioning");
           transitioning.current = false;
           navigationStarted.current = false;
+          resetScrollOnNavigation.current = false;
           setProgress(0);
           setStatus("");
         }, 820);
@@ -157,7 +166,16 @@ export function RouteCurtain() {
   useEffect(() => {
     if (observedPathname.current === pathname) return;
     observedPathname.current = pathname;
+    if (!resetScrollOnNavigation.current) {
+      window.dispatchEvent(new Event(routeCurtainReadyEvent));
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: "auto" });
     window.dispatchEvent(new Event(routeCurtainReadyEvent));
+    const frame = window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [pathname]);
 
   return (

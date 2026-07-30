@@ -3,10 +3,7 @@ import { notFound } from "next/navigation";
 
 import { CollectionInfiniteGrid } from "@/src/components/collection-infinite-grid";
 import { CollectionMarquee, type MarqueeArtwork } from "@/src/components/collection-marquee";
-import {
-  CollectionSourceControls,
-  EuropeanaSetupNotice,
-} from "@/src/components/collection-source-controls";
+import { EuropeanaSetupNotice } from "@/src/components/collection-source-controls";
 import { CollectionStateRestorer } from "@/src/components/collection-state";
 import { CollectionWheelReturn } from "@/src/components/collection-wheel-return";
 import { DemoStyles } from "@/src/components/demo-styles";
@@ -51,7 +48,6 @@ export default async function CollectionPage({
     return (
       <main className="view gallery-view collection-experience active">
         <DemoStyles />
-        <CollectionSourceControls locale={locale} query={query.q} source={source} />
         <EuropeanaSetupNotice locale={locale} />
       </main>
     );
@@ -142,7 +138,6 @@ export default async function CollectionPage({
       }
     >
       <DemoStyles />
-      <CollectionSourceControls locale={locale} query={query.q} source={source} />
       <CollectionWheelReturn locale={locale} />
       <CollectionStateRestorer />
 
@@ -221,33 +216,14 @@ export default async function CollectionPage({
         </a>
       </section>
 
-      <section className="collection-catalog-section" id="full-collection">
-        <header className="collection-catalog-heading">
-          <div>
-            <p>
-              <span>馆藏</span>
-              <small>COLLECTION</small> / 02
-            </p>
-            <h2>
-              <span>馆藏作品</span>
-              <small>THE COLLECTION</small>
-            </h2>
-          </div>
-          <div className="collection-catalog-summary">
-            <strong>
-              {catalog.pageInfo.totalEligible.toLocaleString(locale)}
-              <small>
-                <span>{locale === "zh" ? "件可访问作品" : "ACCESSIBLE WORKS"}</span>
-                <i>{locale === "zh" ? "ACCESSIBLE WORKS" : "件可访问作品"}</i>
-              </small>
-            </strong>
-            <a href="#featured-collection">
-              <span>{locale === "zh" ? "返回精选" : "BACK TO FEATURED"}</span>
-              <small>{locale === "zh" ? "BACK TO FEATURED" : "返回精选"}</small> ↑
-            </a>
-          </div>
-        </header>
-
+      <section
+        aria-labelledby="full-collection-title"
+        className="collection-catalog-section collection-catalog-flow"
+        id="full-collection"
+      >
+        <h2 className="sr-only" id="full-collection-title">
+          {locale === "zh" ? "馆藏作品" : "The collection"}
+        </h2>
         <CollectionInfiniteGrid initialPage={catalog} locale={locale} source={source} />
       </section>
     </main>

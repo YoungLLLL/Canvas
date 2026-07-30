@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f1f0eb" />
+  <meta name="description" content="VVISUAL 风格的实验性画廊与艺术对话 demo。" />
+  <title>CANVIUM — Visual Art Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark">(⊙) CANVIUM</div>
+    <div class="loader__track"><span></span></div>
+    <span class="loader__count">00</span>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#index" aria-label="Canvium 画廊首页">(⊙) CANVIUM</a>
+    <p class="topbar__edition">© 2026</p>
+    <nav aria-label="主导航">
+      <a href="#index">Works</a>
+      <a href="#index">Artists</a>
+      <button type="button" data-open-chat>Conversation</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery-page" id="index" aria-label="画廊首页">
+      <div class="works-grid" id="worksGrid" aria-label="60 格馆藏视觉索引"></div>
+      <footer class="gallery-footer">
+        <p>(⊙) CANVIUM — OPEN MUSEUM COLLECTION INDEX</p>
+        <button type="button" data-scroll-top>BACK TO TOP ↑</button>
+      </footer>
+    </section>
+
+    <section class="detail-page" id="detailPage" aria-hidden="true" aria-label="画作详情与聊天">
+      <button class="detail-close" id="detailClose" type="button" aria-label="返回画廊">
+        <span></span><span></span>
+      </button>
+
+      <div class="detail-art" id="detailArt">
+        <img class="detail-art__image" id="detailImage" alt="" draggable="false" />
+        <div class="detail-art__tools">
+          <span id="zoomReadout">100%</span>
+          <button type="button" id="zoomToggle">ZOOM +</button>
+        </div>
+        <p class="detail-art__hint">DRAG TO EXPLORE</p>
+      </div>
+
+      <aside class="chat-panel">
+        <div class="art-heading">
+          <p><span id="detailNumber">01</span> / 09　 ORIGINAL DIGITAL COLLECTION</p>
+          <h1 id="detailTitle">日光之后</h1>
+          <h2 id="detailTitleEn">AFTER SUNLIGHT</h2>
+          <div class="art-facts">
+            <span>CANVIUM IMAGINARY COLLECTION</span>
+            <span id="detailMedium">布面油画 · 2026</span>
+          </div>
+          <p id="detailDescription">颜色并不描绘太阳，它记录的是太阳离开视野后，仍停留在眼睛里的那段时间。</p>
+        </div>
+
+        <div class="conversation">
+          <div class="conversation__label">
+            <span>CONVERSATION / LIVE</span>
+            <i></i>
+          </div>
+          <div class="messages" id="messages" aria-live="polite"></div>
+          <div class="prompt-chips" id="promptChips">
+            <button type="button">这幅画从哪里开始？</button>
+            <button type="button">带我看一个细节</button>
+          </div>
+          <form class="chat-form" id="chatForm">
+            <label for="chatInput">ASK THE ARTWORK</label>
+            <textarea id="chatInput" rows="1" maxlength="180" placeholder="写下你的问题…"></textarea>
+            <button type="submit" aria-label="发送消息">↗</button>
+          </form>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span>VIEW</span></div>
+  <div class="transition" id="transition" aria-hidden="true"></div>
+  <div class="sr-status" id="status" aria-live="polite"></div>
+
+  <script src="./assets/gsap.min.js"></script>
+  <script src="./assets/ScrollTrigger.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

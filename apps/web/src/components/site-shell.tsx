@@ -28,10 +28,6 @@ export function SiteShell({ children, locale }: { children: React.ReactNode; loc
             <span>{locale === "zh" ? "博物馆" : "Museums"}</span>
             <small>MUSEUMS</small>
           </Link>
-          <Link href={`/${locale}/artists/van-gogh`}>
-            <span>{locale === "zh" ? "艺术家" : "Artists"}</span>
-            <small>ARTISTS</small>
-          </Link>
         </nav>
         <div className="site-actions">
           <Suspense fallback={<span aria-hidden="true">{locale === "en" ? "ZH" : "EN"}</span>}>

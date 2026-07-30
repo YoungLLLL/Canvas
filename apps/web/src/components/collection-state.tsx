@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ComponentProps, useEffect } from "react";
 
 const STORAGE_KEY = "canvium:collection-return";
+const RESTORE_REQUEST_KEY = "canvium:collection-restore-request";
 
 type ReturnState = {
   artworkKey: string;
@@ -64,6 +65,8 @@ export function CollectionStateRestorer() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    if (sessionStorage.getItem(RESTORE_REQUEST_KEY) !== "1") return;
+    sessionStorage.removeItem(RESTORE_REQUEST_KEY);
     const state = readState();
     const query = searchParams.toString();
     if (!state) return;
@@ -111,6 +114,7 @@ export function CollectionBackLink({
       onClick={() => {
         const state = readState();
         const destination = state?.collectionUrl ?? defaultHref;
+        if (state) sessionStorage.setItem(RESTORE_REQUEST_KEY, "1");
         router.push(destination, { scroll: false });
         if (!state) return;
         const savedPath = new URL(state.collectionUrl, window.location.origin).pathname;

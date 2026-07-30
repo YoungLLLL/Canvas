@@ -1,0 +1,123 @@
+.page {
+  min-height: 100vh;
+}
+
+.page :global(.home-hero .artist-entry) {
+  top: 18%;
+}
+
+.page :global(.home-hero .glass-card) {
+  height: 218px;
+  grid-template-rows: auto auto;
+}
+
+.page :global(.home-hero .glass-card h1) {
+  font-size: clamp(27px, 2.25vw, 36px);
+}
+
+.page :global(.artist-card-actions) {
+  align-self: end;
+}
+
+.page :global(.home-hero .primary-wide) {
+  margin-top: 0;
+}
+
+.page :global(.museum-copy.reveal) {
+  opacity: 1;
+  transform: none;
+}
+
+.globeHost {
+  position: absolute;
+  z-index: 2;
+  top: 17%;
+  right: -3vw;
+  width: min(62vw, 900px);
+  aspect-ratio: 1;
+}
+
+.globeHost :global(.museum-globe) {
+  width: 100%;
+  height: 100%;
+}
+
+.globeStats {
+  position: absolute;
+  top: 0;
+  right: 4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  pointer-events: none;
+}
+
+.globeStats b {
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+
+.globeStats i {
+  font-style: normal;
+}
+
+.dragCue {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  color: #f4f0e9;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.globeLegend {
+  position: absolute;
+  right: 8%;
+  bottom: 8%;
+  display: flex;
+  gap: 20px;
+  color: #f4f0e9;
+  font-size: 9px;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .page :global(.museum-section) {
+    min-height: 1200px;
+  }
+
+  .page :global(.museum-copy) {
+    top: 220px;
+  }
+
+  .page :global(.home-hero .artist-entry) {
+    top: auto;
+  }
+
+  .page :global(.art-history .history-large) {
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .page :global(.home-hero .glass-card) {
+    height: 220px;
+  }
+
+  .globeHost {
+    top: 650px;
+    right: -38vw;
+    width: 125vw;
+  }
+
+  .globeStats,
+  .globeLegend {
+    display: none;
+  }
+
+  .dragCue {
+    bottom: 12%;
+    left: 28%;
+  }
+}

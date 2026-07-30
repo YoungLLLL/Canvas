@@ -31,8 +31,6 @@ export function DemoLanding({ locale }: { locale: Locale }) {
 
     let wheelDelta = 0;
     let wheelReset = 0;
-    let museumArmTimer = 0;
-    let museumArmed = false;
     const museum = document.querySelector<HTMLElement>("#museum");
 
     const isMuseumCurrent = () => {
@@ -46,24 +44,8 @@ export function DemoLanding({ locale }: { locale: Locale }) {
       );
     };
 
-    const updateMuseumArm = () => {
-      if (!isMuseumCurrent()) {
-        museumArmed = false;
-        window.clearTimeout(museumArmTimer);
-        museumArmTimer = 0;
-        wheelDelta = 0;
-        return;
-      }
-      if (museumArmed || museumArmTimer) return;
-      museumArmTimer = window.setTimeout(() => {
-        museumArmed = true;
-        museumArmTimer = 0;
-      }, 180);
-    };
-
     const onWheel = (event: WheelEvent) => {
-      updateMuseumArm();
-      if (event.ctrlKey || event.deltaY <= 0 || !museumArmed) {
+      if (event.ctrlKey || event.deltaY <= 0 || !isMuseumCurrent()) {
         if (event.deltaY < 0) wheelDelta = 0;
         return;
       }
@@ -77,7 +59,7 @@ export function DemoLanding({ locale }: { locale: Locale }) {
         wheelDelta = 0;
       }, 160);
 
-      if (wheelDelta < 8) return;
+      if (wheelDelta < 24) return;
       wheelDelta = 0;
       enterCollection();
     };
@@ -100,15 +82,11 @@ export function DemoLanding({ locale }: { locale: Locale }) {
     };
 
     window.addEventListener("wheel", onWheel, { passive: false, capture: true });
-    window.addEventListener("scroll", updateMuseumArm, { passive: true });
     window.addEventListener("keydown", onKeyDown);
-    updateMuseumArm();
     return () => {
       window.removeEventListener("wheel", onWheel, { capture: true });
-      window.removeEventListener("scroll", updateMuseumArm);
       window.removeEventListener("keydown", onKeyDown);
       window.clearTimeout(wheelReset);
-      window.clearTimeout(museumArmTimer);
       document.documentElement.classList.remove("collection-transitioning");
     };
   }, [collectionHref, enterCollection, router]);
@@ -223,10 +201,6 @@ export function DemoLanding({ locale }: { locale: Locale }) {
             <span>{zh ? "博物馆" : "Museums"}</span>
             <small>MUSEUMS</small>
           </button>
-          <button onClick={enterCollection}>
-            <span>{zh ? "艺术家" : "Artists"}</span>
-            <small>ARTISTS</small>
-          </button>
         </nav>
         <button className="search-pill" onClick={enterCollection}>
           <span>{zh ? "搜索" : "Search"}</span>
@@ -237,7 +211,16 @@ export function DemoLanding({ locale }: { locale: Locale }) {
 
       <main>
         <div className="view active" id="homeView" data-view="home">
-          <section className="home-hero" id="home">
+          <section
+            className="home-hero"
+            id="home"
+            style={
+              {
+                "--pointer-x": 0,
+                "--pointer-y": 0,
+              } as React.CSSProperties
+            }
+          >
             <div
               className="art-history"
               aria-label={zh ? "之前推荐的作品" : "Previous recommendations"}

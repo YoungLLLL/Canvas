@@ -75,3 +75,186 @@ Incoming: [false, zh, true]
   420 |               if (homepageFocused) {
   421 |                 marker.style.removeProperty("visibility");
   422 |                 marker.style.removeProperty("pointer-events"); (src/components/museum-globe.tsx:419:72)
+⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+Cross-origin access to Next.js dev resources is blocked by default for safety.
+
+To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+
+// next.config.js
+module.exports = {
+  allowedDevOrigins: ['127.0.0.1'],
+}
+
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+⚠ Blocked cross-origin request to Next.js dev resource /__nextjs_font/geist-latin.woff2 from "127.0.0.1".
+Cross-origin access to Next.js dev resources is blocked by default for safety.
+
+To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+
+// next.config.js
+module.exports = {
+  allowedDevOrigins: ['127.0.0.1'],
+}
+
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+⨯ ./apps/web/app/concept-v1/page.tsx:3:1
+Module not found: Can't resolve '@/src/components/concept-v1'
+  [90m1 |[0m [36mimport[0m [36mtype[0m { [33mMetadata[0m } [36mfrom[0m [32m"next"[0m;
+  [90m2 |[0m
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mConceptV1[0m } [36mfrom[0m [32m"@/src/components/concept-v1"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mexport[0m [36mconst[0m metadata: [33mMetadata[0m = {
+  [90m6 |[0m   title: [32m"Canvium Concept v1"[0m,
+
+Import map: aliased to relative './src/components/concept-v1' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/app/concept-v1/page.tsx:3:1
+Module not found: Can't resolve '@/src/components/concept-v1'
+  [90m1 |[0m [36mimport[0m [36mtype[0m { [33mMetadata[0m } [36mfrom[0m [32m"next"[0m;
+  [90m2 |[0m
+[31m[1m>[0m [90m3 |[0m [36mimport[0m { [33mConceptV1[0m } [36mfrom[0m [32m"@/src/components/concept-v1"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m
+  [90m5 |[0m [36mexport[0m [36mconst[0m metadata: [33mMetadata[0m = {
+  [90m6 |[0m   title: [32m"Canvium Concept v1"[0m,
+
+Import map: aliased to relative './src/components/concept-v1' inside of [project]/apps/web
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/components/concept-v1.tsx:10:1
+Module not found: Can't resolve './concept-v1.module.css'
+  [90m 8 |[0m [36mimport[0m { [33mMuseumGlobe[0m } [36mfrom[0m [32m"@/src/components/museum-globe"[0m;
+  [90m 9 |[0m
+[31m[1m>[0m [90m10 |[0m [36mimport[0m styles [36mfrom[0m [32m"./concept-v1.module.css"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m11 |[0m
+  [90m12 |[0m [36mconst[0m locale = [32m"zh"[0m;
+  [90m13 |[0m [36mconst[0m museumSlug = [32m"art-institute-of-chicago"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/components/concept-v1.tsx
+    ./apps/web/app/concept-v1/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/components/concept-v1.tsx:10:1
+Module not found: Can't resolve './concept-v1.module.css'
+  [90m 8 |[0m [36mimport[0m { [33mMuseumGlobe[0m } [36mfrom[0m [32m"@/src/components/museum-globe"[0m;
+  [90m 9 |[0m
+[31m[1m>[0m [90m10 |[0m [36mimport[0m styles [36mfrom[0m [32m"./concept-v1.module.css"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m11 |[0m
+  [90m12 |[0m [36mconst[0m locale = [32m"zh"[0m;
+  [90m13 |[0m [36mconst[0m museumSlug = [32m"art-institute-of-chicago"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/components/concept-v1.tsx
+    ./apps/web/app/concept-v1/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/components/concept-v1.tsx:10:1
+Module not found: Can't resolve './concept-v1.module.css'
+  [90m 8 |[0m [36mimport[0m { [33mMuseumGlobe[0m } [36mfrom[0m [32m"@/src/components/museum-globe"[0m;
+  [90m 9 |[0m
+[31m[1m>[0m [90m10 |[0m [36mimport[0m styles [36mfrom[0m [32m"./concept-v1.module.css"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m11 |[0m
+  [90m12 |[0m [36mconst[0m locale = [32m"zh"[0m;
+  [90m13 |[0m [36mconst[0m museumSlug = [32m"art-institute-of-chicago"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/components/concept-v1.tsx
+    ./apps/web/app/concept-v1/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/components/concept-v1.tsx:10:1
+Module not found: Can't resolve './concept-v1.module.css'
+  [90m 8 |[0m [36mimport[0m { [33mMuseumGlobe[0m } [36mfrom[0m [32m"@/src/components/museum-globe"[0m;
+  [90m 9 |[0m
+[31m[1m>[0m [90m10 |[0m [36mimport[0m styles [36mfrom[0m [32m"./concept-v1.module.css"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m11 |[0m
+  [90m12 |[0m [36mconst[0m locale = [32m"zh"[0m;
+  [90m13 |[0m [36mconst[0m museumSlug = [32m"art-institute-of-chicago"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/components/concept-v1.tsx
+    ./apps/web/app/concept-v1/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundaryHandler pathname="/zh" errorComponent={function LocaleError} errorStyles={<SegmentViewNode>} ...>
+      <LoadingBoundary name="zh/" loading={[...]}>
+        <Suspense name="zh/" fallback={<Fragment>}>
+          <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/zh#museum..." tree={[...]} params={{locale:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                  <SegmentViewNode type="page" pagePath="[locale]/p...">
+                    <SegmentTrieNode>
+                    <HomePage>
+                      <DemoLanding locale="zh">
+                        <div className="demo-faithful">
+                          <DemoStyles>
+                          <header>
+                          <main>
+                            <div className="view active" id="homeView" data-view="home">
+                              <section
+                                className="home-hero"
+                                id="home"
+-                               style={{--pointer-x:"0.127",--pointer-y:"0.102"}}
+                              >
+                              ...
+                  ...
+                ...
+ 
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⚠ Fast Refresh had to perform a full reload when ./apps/web/src/components/route-curtain.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./apps/web/src/components/route-curtain.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./apps/web/src/components/route-curtain.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
