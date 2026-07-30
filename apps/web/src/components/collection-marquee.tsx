@@ -33,8 +33,6 @@ export function CollectionMarquee({
   const trackRef = useRef<HTMLDivElement>(null);
   const firstSetRef = useRef<HTMLDivElement>(null);
   const interactionPaused = useRef(false);
-  const manualPaused = useRef(false);
-  const [isPaused, setIsPaused] = useState(false);
   const [selected, setSelected] = useState<MarqueeArtwork | null>(null);
 
   useEffect(() => {
@@ -51,7 +49,7 @@ export function CollectionMarquee({
       const width = firstSet.getBoundingClientRect().width;
       const elapsed = Math.min((now - previous) / 1000, 0.05);
       previous = now;
-      if (!interactionPaused.current && !manualPaused.current && width) {
+      if (!interactionPaused.current && width) {
         offset -= 40 * elapsed;
         if (offset <= -width) offset += width;
         track.style.transform = `translate3d(${offset}px,0,0)`;
@@ -178,27 +176,6 @@ export function CollectionMarquee({
         {selected?.secondaryTitle ? <h3>{selected.secondaryTitle}</h3> : null}
         <span>{[selected?.artist, selected?.date].filter(Boolean).join(" · ")}</span>
       </aside>
-      <p className={`gallery-instruction${selected ? " quiet" : ""}`}>
-        {locale === "zh" ? "悬停查看作品信息 · 点击进入作品" : "HOVER FOR DETAILS · CLICK TO OPEN"}
-      </p>
-      <button
-        aria-pressed={isPaused}
-        className="marquee-motion-toggle"
-        onClick={() => {
-          const next = !manualPaused.current;
-          manualPaused.current = next;
-          setIsPaused(next);
-        }}
-        type="button"
-      >
-        {isPaused
-          ? locale === "zh"
-            ? "继续滚动"
-            : "Resume motion"
-          : locale === "zh"
-            ? "暂停滚动"
-            : "Pause motion"}
-      </button>
     </>
   );
 }

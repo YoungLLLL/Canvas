@@ -9,6 +9,8 @@ export type MuseumDirectoryEntry = {
   websiteUrl: string;
   collection:
     | { source: "artic"; museumSlug: "art-institute-of-chicago" }
+    | { source: "met"; museumSlug: "metropolitan-museum-of-art" }
+    | { source: "cleveland"; museumSlug: "cleveland-museum-of-art" }
     | { source: "europeana"; dataProvider: string };
 };
 
@@ -26,6 +28,34 @@ export const museumDirectory = [
     lng: -87.6237,
     websiteUrl: "https://www.artic.edu",
     collection: { source: "artic", museumSlug: "art-institute-of-chicago" },
+  },
+  {
+    id: "met",
+    name: { en: "The Metropolitan Museum of Art", zh: "大都会艺术博物馆" },
+    city: { en: "New York", zh: "纽约" },
+    country: { en: "United States", zh: "美国" },
+    description: {
+      en: "The Met presents art spanning 5,000 years; this gallery is limited to open-access paintings from its official collection API.",
+      zh: "大都会艺术博物馆收藏横跨五千年；这里仅展示其官方馆藏 API 中开放获取的平面绘画。",
+    },
+    lat: 40.7794,
+    lng: -73.9632,
+    websiteUrl: "https://www.metmuseum.org",
+    collection: { source: "met", museumSlug: "metropolitan-museum-of-art" },
+  },
+  {
+    id: "cleveland",
+    name: { en: "The Cleveland Museum of Art", zh: "克利夫兰艺术博物馆" },
+    city: { en: "Cleveland", zh: "克利夫兰" },
+    country: { en: "United States", zh: "美国" },
+    description: {
+      en: "A globally focused collection with a strong open-access program; this gallery contains only CC0 paintings with images.",
+      zh: "一座拥有全球性馆藏与成熟开放获取计划的博物馆；这里仅展示带有 CC0 图片的平面绘画。",
+    },
+    lat: 41.5089,
+    lng: -81.6117,
+    websiteUrl: "https://www.clevelandart.org",
+    collection: { source: "cleveland", museumSlug: "cleveland-museum-of-art" },
   },
   {
     id: "rijksmuseum",
@@ -78,7 +108,7 @@ export function museumById(id?: string) {
 export function museumCollectionHref(id: string, locale: "en" | "zh") {
   const museum = museumById(id);
   if (!museum) return null;
-  if (museum.collection.source === "artic") {
+  if (museum.collection.source !== "europeana") {
     return `/${locale}/museums/${museum.collection.museumSlug}/collection`;
   }
   return `/${locale}/museums/europeana/collection?museum=${encodeURIComponent(museum.id)}`;

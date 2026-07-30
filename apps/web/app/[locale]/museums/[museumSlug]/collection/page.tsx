@@ -20,15 +20,16 @@ export async function generateMetadata({
   const { locale, museumSlug } = await params;
   if (!isLocale(locale) || !museumSlugSchema.safeParse(museumSlug).success) return {};
   const source = sourceForMuseumSlug(museumSlug);
+  const museum = source && source !== "europeana" ? museumById(source) : undefined;
   return {
     title:
       source === "europeana"
         ? locale === "zh"
           ? "全球多馆藏"
           : "Multi-museum Collection"
-        : locale === "zh"
-          ? "芝加哥艺术博物馆馆藏"
-          : "Art Institute of Chicago Collection",
+        : museum
+          ? `${museum.name[locale]}${locale === "zh" ? "馆藏" : " Collection"}`
+          : undefined,
   };
 }
 
@@ -43,6 +44,8 @@ export default async function CollectionPage({
   const query = collectionQuerySchema.parse(await searchParams);
   const europeanaReady = Boolean(process.env.EUROPEANA_API_KEY?.trim());
   const selectedMuseum = source === "europeana" ? museumById(query.museum) : undefined;
+  const officialMuseum = source !== "europeana" ? museumById(source) : undefined;
+  const displayMuseum = selectedMuseum ?? officialMuseum;
 
   if (source === "europeana" && !europeanaReady) {
     return (
@@ -126,8 +129,8 @@ export default async function CollectionPage({
     <main
       className="view gallery-view collection-experience active"
       aria-label={
-        selectedMuseum
-          ? `${selectedMuseum.name[locale]} ${locale === "zh" ? "数字馆藏" : "digital collection"}`
+        displayMuseum
+          ? `${displayMuseum.name[locale]} ${locale === "zh" ? "数字馆藏" : "digital collection"}`
           : source === "artic"
             ? locale === "zh"
               ? "芝加哥数字画廊"
@@ -149,17 +152,10 @@ export default async function CollectionPage({
               <small>{locale === "zh" ? "FEATURED COLLECTION" : "精选馆藏"}</small> / 01
             </p>
             <h1>
-              {source === "artic" ? (
+              {displayMuseum ? (
                 <>
-                  Art Institute
-                  <br />
-                  of Chicago
-                  <span className="museum-title-zh">芝加哥艺术博物馆</span>
-                </>
-              ) : selectedMuseum ? (
-                <>
-                  {selectedMuseum.name.en}
-                  <span className="museum-title-zh">{selectedMuseum.name.zh}</span>
+                  {displayMuseum.name.en}
+                  <span className="museum-title-zh">{displayMuseum.name.zh}</span>
                 </>
               ) : (
                 <>
@@ -171,49 +167,34 @@ export default async function CollectionPage({
               )}
             </h1>
             <a
-              href={
-                source === "artic"
-                  ? "https://www.artic.edu"
-                  : selectedMuseum?.websiteUrl || "https://www.europeana.eu"
-              }
+              href={displayMuseum?.websiteUrl || "https://www.europeana.eu"}
               target="_blank"
               rel="noreferrer"
             >
-              {source === "artic"
-                ? "CHICAGO　·　UNITED STATES ↗"
-                : selectedMuseum
-                  ? `${selectedMuseum.city.en.toUpperCase()}　·　${selectedMuseum.country.en.toUpperCase()} ↗`
-                  : "MULTIPLE INSTITUTIONS　·　EUROPE ↗"}
+              {displayMuseum
+                ? `${displayMuseum.city.en.toUpperCase()}　·　${displayMuseum.country.en.toUpperCase()} ↗`
+                : "MULTIPLE INSTITUTIONS　·　EUROPE ↗"}
             </a>
           </div>
           <div className="museum-introduction">
             <p className="museum-introduction-zh">
-              {source === "artic"
-                ? "从芝加哥艺术博物馆跨越多个世纪与文化的收藏中，先观看一组精选作品；继续向下，即可浏览当前开放的数字馆藏。"
-                : selectedMuseum
-                  ? `${selectedMuseum.description.zh} 下方作品按 Europeana 的馆藏提供机构字段精确筛选。`
-                  : "从欧洲多家博物馆与文化机构的数字馆藏中探索作品；使用上方搜索框可按艺术馆、艺术家或作品名称查找。"}
+              {displayMuseum
+                ? source === "europeana"
+                  ? `${displayMuseum.description.zh} 下方作品按 Europeana 的馆藏提供机构字段精确筛选。`
+                  : `${displayMuseum.description.zh} 下方仅展示馆方官方数据源中具有开放图片的平面绘画。`
+                : "从欧洲多家博物馆与文化机构的数字馆藏中探索作品；使用上方搜索框可按艺术馆、艺术家或作品名称查找。"}
             </p>
             <p className="museum-introduction-en" lang="en">
-              {source === "artic"
-                ? "Begin with a curated passage through the Art Institute of Chicago, then continue below to browse the digital collection currently available."
-                : selectedMuseum
-                  ? `${selectedMuseum.description.en} The works below are filtered by Europeana's contributing institution field.`
-                  : "Explore digitized works from museums and cultural institutions across Europe. Search above by museum, artist, or artwork."}
+              {displayMuseum
+                ? source === "europeana"
+                  ? `${displayMuseum.description.en} The works below are filtered by Europeana's contributing institution field.`
+                  : `${displayMuseum.description.en} Only two-dimensional paintings with open images from the museum's official data source appear below.`
+                : "Explore digitized works from museums and cultural institutions across Europe. Search above by museum, artist, or artwork."}
             </p>
           </div>
         </div>
 
         <CollectionMarquee artworks={featuredArtworks} locale={locale} />
-        <a
-          aria-label={locale === "zh" ? "浏览完整馆藏" : "Browse the full collection"}
-          className="collection-scroll-cue"
-          href="#full-collection"
-        >
-          <span>{locale === "zh" ? "浏览完整馆藏" : "Browse the full collection"}</span>
-          <small>{locale === "zh" ? "BROWSE THE COLLECTION" : "浏览完整馆藏"}</small>
-          <i aria-hidden="true">↓</i>
-        </a>
       </section>
 
       <section

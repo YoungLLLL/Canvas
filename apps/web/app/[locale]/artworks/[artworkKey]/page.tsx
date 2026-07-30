@@ -58,7 +58,7 @@ export default async function ArtworkPage({
       artwork={{
         artistProfile: wikipediaProfile || undefined,
         sourceUrl: artwork.source.recordUrl,
-        imageUrl: image ? image.directUrl || iiifImageUrl(image, 1686) : null,
+        imageUrl: image ? image.directUrl2x || image.directUrl || iiifImageUrl(image, 1686) : null,
         title: knownTitle,
         artist: artwork.display.artistDisplay,
         year: artwork.display.dateDisplay || "",

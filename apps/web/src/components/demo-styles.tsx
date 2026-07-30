@@ -17,7 +17,7 @@ export function DemoStyles() {
         .home-hero .prompt-line{font-size:14px}.home-hero .primary-wide{font-size:14px}.home-hero .primary-wide small{font-size:12px}
         .overline,.museum-copy>a,.museum-feature small,.museum-feature em,.museum-type,.drag-cue,.globe-legend,.region-stats{font-size:12px!important;line-height:1.45}
         .museum-copy>p{font-size:16px!important;font-weight:400}.museum-feature span{font-size:16px!important}.official{font-size:14px!important}
-        .museum-title-block>p,.museum-title-block>a,.artwork-open-pill,.artwork-hover-detail p,.artwork-hover-detail span,.gallery-instruction{font-size:12px!important;line-height:1.4}
+        .museum-title-block>p,.museum-title-block>a,.artwork-open-pill,.artwork-hover-detail p,.artwork-hover-detail span{font-size:12px!important;line-height:1.4}
         .home-hero{--pointer-x:0;--pointer-y:0}.home-hero .daily-art{transform:translate3d(calc(var(--pointer-x) * 7px),calc(var(--pointer-y) * 5px),0);transition:transform 420ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms}.home-hero .art-history{transform:translate3d(calc(var(--pointer-x) * -4px),calc(var(--pointer-y) * -3px),0);transition:transform 480ms cubic-bezier(.2,.8,.2,1)}.home-hero .artist-entry{transform:translate3d(calc(var(--pointer-x) * -5px),calc(var(--pointer-y) * -4px),0);transition:transform 520ms cubic-bezier(.2,.8,.2,1)}
         body:has(.demo-faithful) #siteHeader,body:has(.artwork-view) #siteHeader{opacity:0;pointer-events:none}
         .ai-unavailable{display:flex;align-items:center;overflow:auto;padding:18px 4px 14px 0}
@@ -57,17 +57,11 @@ export function DemoStyles() {
         .collection-pagination p{display:flex;align-items:baseline;gap:8px;margin:0}
         .collection-pagination strong{font:500 16px/1 var(--serif)}
         .collection-pagination small{font-size:12px;letter-spacing:.03em}
-        .gallery-view:has(.collection-pagination) .gallery-instruction{right:auto;left:3vw}
-        .artwork-hover-detail.visible+.gallery-instruction{opacity:0}
-        .marquee-motion-toggle{position:absolute;z-index:9;right:3vw;bottom:8.2vh;border:0;border-bottom:1px solid rgba(13,14,13,.38);background:transparent;color:#6e6a64;padding:4px 0;cursor:pointer;font:500 12px/1 var(--sans);letter-spacing:.04em;text-transform:uppercase}
         .collection-experience{height:auto!important;min-height:100svh;overflow:visible!important;background:#f7f4ee}
         .collection-featured-screen{position:relative;height:100svh;min-height:720px;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always}
         .collection-featured-screen .museum-introduction-localized{max-width:570px;margin:0;color:#343431;font:400 clamp(16px,1.28vw,19px)/1.72 var(--font-body-en),'Inter',var(--sans);letter-spacing:0}
         :lang(zh) .collection-featured-screen .museum-introduction-localized{font-family:var(--font-body-zh),'Noto Sans SC',sans-serif}
         .collection-featured-screen .artwork-marquee-item{opacity:1}
-        .collection-scroll-cue{position:absolute;z-index:10;left:50%;bottom:25px;display:flex;min-height:44px;align-items:center;gap:13px;color:#4f4c47;font:500 12px/1 var(--sans);letter-spacing:.05em;text-decoration:none;transform:translateX(-50%)}
-        .collection-scroll-cue i{font-size:19px;font-style:normal;transition:transform 180ms cubic-bezier(.2,.8,.2,1)}
-        .collection-scroll-cue:hover i,.collection-scroll-cue:focus-visible i{transform:translateY(4px)}
         .collection-catalog-section{position:relative;min-height:100svh;padding:36px 3vw 72px;background:#f7f4ee;scroll-snap-align:none}
         .collection-experience.has-catalog-query .collection-featured-screen{display:none}
         .collection-catalog-heading{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(340px,.8fr);gap:clamp(48px,8vw,140px);align-items:end;padding-bottom:34px;border-bottom:1px solid rgba(13,14,13,.18)}
@@ -118,7 +112,7 @@ export function DemoStyles() {
         .loading-marquee{gap:2.1vw}.loading-artwork{flex:none;width:22vw;height:28vh;min-width:210px;min-height:220px}.loading-artwork-2,.loading-artwork-4{width:17vw;height:34vh}.loading-artwork-3{width:28vw;height:25vh}
         @media(max-width:720px){.site-actions{gap:9px}.ai-unavailable{min-height:150px}.ai-unavailable section{padding:8px 4px 14px}.ai-unavailable h2{font-size:24px}.observation-prompts{margin-top:0}}
         @media(max-width:1050px){.collection-catalog-filters{grid-template-columns:2fr repeat(2,1fr)}.collection-catalog-search{grid-column:span 2}.collection-catalog-actions{justify-content:flex-end}}
-        @media(max-width:720px){.collection-tools{top:78px;right:18px}.collection-tools form{padding:15px}.collection-pagination{right:18px;bottom:24px}.collection-pagination small{display:none}.gallery-instruction{left:18px!important;right:auto}.marquee-motion-toggle{right:18px;bottom:66px}.loading-marquee{gap:18px}.loading-artwork{min-width:170px;width:44vw}.loading-artwork-2,.loading-artwork-4{width:36vw}.collection-featured-screen{min-height:760px}.collection-featured-screen .museum-introduction-localized{font-size:13px;line-height:1.7}.collection-scroll-cue{right:18px;bottom:17px;left:auto;transform:none}.collection-scroll-cue span{display:none}.collection-catalog-section{padding:24px 18px 48px}.collection-catalog-heading{display:block;padding-bottom:24px}.collection-catalog-heading h2{font-size:clamp(48px,14vw,62px)}.collection-catalog-summary{margin-top:25px}.collection-catalog-summary strong{font-size:38px}.collection-catalog-filters{grid-template-columns:1fr 1fr;gap:16px 14px;padding:24px 0 30px}.collection-catalog-search{grid-column:1/-1}.collection-catalog-actions{grid-column:1/-1}.collection-results-grid{display:grid;grid-template-columns:1fr;gap:42px}.collection-results-grid:after{display:none}.collection-result-card{width:100%;max-width:none;min-width:0}.collection-result-card>figure{height:auto;aspect-ratio:var(--result-ratio)}.collection-catalog-section .collection-pagination{margin-top:42px}}
+        @media(max-width:720px){.collection-tools{top:78px;right:18px}.collection-tools form{padding:15px}.collection-pagination{right:18px;bottom:24px}.collection-pagination small{display:none}.loading-marquee{gap:18px}.loading-artwork{min-width:170px;width:44vw}.loading-artwork-2,.loading-artwork-4{width:36vw}.collection-featured-screen{min-height:760px}.collection-featured-screen .museum-introduction-localized{font-size:13px;line-height:1.7}.collection-catalog-section{padding:24px 18px 48px}.collection-catalog-heading{display:block;padding-bottom:24px}.collection-catalog-heading h2{font-size:clamp(48px,14vw,62px)}.collection-catalog-summary{margin-top:25px}.collection-catalog-summary strong{font-size:38px}.collection-catalog-filters{grid-template-columns:1fr 1fr;gap:16px 14px;padding:24px 0 30px}.collection-catalog-search{grid-column:1/-1}.collection-catalog-actions{grid-column:1/-1}.collection-results-grid{display:grid;grid-template-columns:1fr;gap:42px}.collection-results-grid:after{display:none}.collection-result-card{width:100%;max-width:none;min-width:0}.collection-result-card>figure{height:auto;aspect-ratio:var(--result-ratio)}.collection-catalog-section .collection-pagination{margin-top:42px}}
         /* Stage 8 layout convergence: one final geometry layer for the Demo-derived routes. */
         .home-hero .recommendation-card,.home-hero .glass-card{border-radius:20px}.home-hero .globe-home-caption{display:block}
         .search-pill{display:flex;align-items:baseline;gap:6px}.search-pill small{font-size:9px;letter-spacing:.08em;opacity:.62}.search-pill b{font-weight:400}
@@ -140,19 +134,25 @@ export function DemoStyles() {
         .museum-introduction-zh{max-width:540px;font-size:15px;line-height:1.75}
         .collection-marquee{top:51%;height:35vh}
         .collection-marquee-set{gap:24px;padding-right:24px}
-        .gallery-instruction,.collection-pagination{bottom:28px}
-        .marquee-motion-toggle{bottom:68px}
+        .collection-pagination{bottom:28px}
         @media(max-width:1050px) and (min-width:721px){.museum-detail-hero{grid-template-columns:minmax(0,1fr) minmax(330px,.9fr)}.museum-title-block h1{font-size:clamp(58px,7vw,84px)}}
         .shared-globe:not(.home-globe-focus) .webgl-globe{clip-path:circle(42.5% at 50% 50%)}
-        .shared-globe:not(.home-globe-focus) .globe-marker .globe-marker-label{display:flex!important;left:18px!important;top:-14px!important;min-width:0;max-width:150px;min-height:0;flex-direction:column;gap:2px;border:0!important;border-radius:2px;background:rgba(15,16,15,.72)!important;box-shadow:none!important;color:#f5f1e9!important;padding:5px 7px!important;font-size:9px!important;font-weight:500;line-height:1.25!important;letter-spacing:.02em;opacity:.72;transform:none!important}
+        .shared-globe:not(.home-globe-focus) .globe-marker .globe-marker-label{display:flex!important;left:20px!important;top:-16px!important;min-width:0;max-width:none;min-height:0;flex-direction:column;gap:3px;border:1px solid rgba(247,244,238,.18)!important;border-radius:4px;background:rgba(15,16,15,.84)!important;box-shadow:0 4px 14px rgba(0,0,0,.28)!important;color:#f7f4ee!important;padding:7px 9px!important;font-size:10.5px!important;font-weight:600;line-height:1.25!important;letter-spacing:.015em;opacity:.88;transform:none!important;text-shadow:0 1px 3px rgba(0,0,0,.38)}
         .shared-globe:not(.home-globe-focus) .globe-marker:not(.selected) .globe-marker-label small{display:none}
+        .shared-globe:not(.home-globe-focus) .globe-marker.open{z-index:18!important}
+        .shared-globe:not(.home-globe-focus) .globe-marker.open .globe-marker-dot{top:-5.5px;left:-5.5px;width:11px;height:11px;border:2px solid #171918;background:#f7f4ee;box-shadow:0 0 0 4px rgba(212,173,105,.34),0 2px 7px rgba(0,0,0,.45)}
+        .shared-globe:not(.home-globe-focus) .globe-marker.open .globe-marker-label{border-color:rgba(183,139,76,.72)!important;background:rgba(247,244,238,.97)!important;box-shadow:0 5px 18px rgba(0,0,0,.3)!important;color:#171918!important;font-size:12px!important;opacity:1;text-shadow:none}
         .shared-globe:not(.home-globe-focus) .globe-marker.selected{z-index:30!important}
         .shared-globe:not(.home-globe-focus) .globe-marker.selected .globe-marker-line{display:block!important;right:7px;left:auto;top:-1px;width:25px;height:1px;background:rgba(245,241,233,.9)}
         .shared-globe:not(.home-globe-focus) .globe-marker.selected .globe-marker-label{right:32px!important;left:auto!important;top:-34px!important;min-width:210px;max-width:none;align-items:flex-end;gap:4px;border:1px solid rgba(183,139,76,.72)!important;border-radius:17px;background:rgba(247,244,238,.98)!important;box-shadow:0 6px 18px rgba(0,0,0,.24)!important;color:#141514!important;padding:8px 12px!important;font-size:12px!important;line-height:1.25!important;text-align:right;opacity:1}
         .shared-globe:not(.home-globe-focus) .globe-marker.selected .globe-marker-label small{display:block;color:#5f5c56!important;font-size:10px!important;line-height:1.2!important;letter-spacing:.045em}
         .shared-globe:not(.home-globe-focus) .globe-marker[data-museum-id="getty"] .globe-marker-label,.shared-globe:not(.home-globe-focus) .globe-marker[data-museum-id="sfmoma"] .globe-marker-label{right:18px!important;left:auto!important;text-align:right}
         .shared-globe:not(.home-globe-focus) .globe-marker[data-museum-id="sfmoma"] .globe-marker-label{top:7px!important}
-        .shared-globe:not(.home-globe-focus) .globe-marker[data-museum-id="met"] .globe-marker-label{top:-53px!important}
+        .shared-globe:not(.home-globe-focus) .globe-marker:not(.selected)[data-museum-id="met"]{z-index:24!important}
+        .shared-globe:not(.home-globe-focus) .globe-marker:not(.selected)[data-museum-id="met"] .globe-marker-dot{background:#d4ad69;box-shadow:0 0 0 5px rgba(212,173,105,.42),0 2px 8px rgba(0,0,0,.48)}
+        .shared-globe:not(.home-globe-focus) .globe-marker:not(.selected)[data-museum-id="met"] .globe-marker-line{display:block!important;left:5px;top:-3px;width:31px;background:rgba(212,173,105,.95);transform:rotate(-55deg)!important;transform-origin:0 50%}
+        .shared-globe:not(.home-globe-focus) .globe-marker:not(.selected)[data-museum-id="met"] .globe-marker-label{top:-68px!important;min-width:196px;border-color:#b78b4c!important;background:#fffdf8!important;box-shadow:0 0 0 2px rgba(212,173,105,.2),0 7px 22px rgba(0,0,0,.34)!important;font-size:13px!important}
+        .shared-globe:not(.home-globe-focus) .globe-marker:not(.selected)[data-museum-id="met"] .globe-marker-label small{display:block;color:#69645c!important;font-size:9px!important;font-weight:500;line-height:1.2!important;letter-spacing:.055em}
         .shared-globe:not(.home-globe-focus) .globe-marker[data-museum-id="moma"] .globe-marker-label{top:9px!important}
         .shared-globe:not(.home-globe-focus) .globe-marker[data-museum-id="cleveland"] .globe-marker-label{right:18px!important;left:auto!important;top:18px!important;text-align:right}
         .museum-location-signature,.museum-collection-facts{display:none}
@@ -199,10 +199,6 @@ export function DemoStyles() {
         .collection-featured-screen .artwork-marquee-card figure,.collection-featured-screen .artwork-marquee-item img{background:transparent!important}
         .artwork-hover-detail h2{margin-bottom:4px;font-family:var(--font-body-zh),'Noto Sans SC',sans-serif!important}
         .artwork-hover-detail h3{margin:0 0 7px;color:#706d67;font:400 12px/1.25 'Otomanopee One',sans-serif!important;letter-spacing:.025em}
-        .collection-scroll-cue{display:grid;grid-template-columns:auto auto;column-gap:9px;row-gap:3px}
-        .collection-scroll-cue>span{font-family:var(--font-body-zh),'Noto Sans SC',sans-serif}
-        .collection-scroll-cue>small{grid-column:1;color:#8a867f;font:500 8px/1 var(--font-body-latin),'Inter',sans-serif;letter-spacing:.09em}
-        .collection-scroll-cue>i{grid-column:2;grid-row:1/span 2}
         .collection-catalog-flow{padding-top:36px}
         .collection-catalog-heading{grid-template-columns:minmax(0,1fr) auto;align-items:end}
         .collection-catalog-heading>div:first-child>p{display:flex;align-items:baseline;gap:7px;font-family:var(--font-body-zh),'Noto Sans SC',sans-serif}
@@ -222,11 +218,12 @@ export function DemoStyles() {
         .collection-result-card{flex-basis:calc(var(--result-ratio) * 230px);flex-grow:var(--result-ratio);max-width:560px;margin:0!important}
         .collection-result-card>figure{height:auto!important;max-height:none!important;aspect-ratio:var(--result-ratio)!important;overflow:hidden;background:transparent!important}
         .collection-result-card img{display:block;width:100%;height:100%;object-fit:contain;background:transparent!important}
-        .collection-result-card>.collection-result-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding-top:13px;border:0!important}
-        .collection-result-copy h3{grid-column:1;margin:0;overflow:hidden;font:500 clamp(16px,1.25vw,21px)/1.15 var(--font-body-zh),'Noto Sans SC',sans-serif!important;text-overflow:ellipsis;white-space:nowrap}
-        .collection-result-copy h4{grid-column:1;margin:0;overflow:hidden;color:#343431;font:400 clamp(11px,.78vw,13px)/1.32 var(--font-body-latin),'Inter','Helvetica Neue',sans-serif!important;letter-spacing:0;text-overflow:ellipsis;white-space:nowrap}
-        .collection-result-copy p{grid-column:1;margin-top:3px!important;font-family:var(--font-body-latin),'Inter','Helvetica Neue',sans-serif}
-        .collection-result-copy>span{grid-column:2;grid-row:1/span 3}
+        .collection-result-card>.collection-result-copy{position:relative;display:block;padding-top:13px;border:0!important}
+        .collection-result-copy h3,.collection-result-copy h4{display:block;overflow:visible;text-overflow:clip;white-space:normal}
+        .collection-result-copy h3{margin:0;font:500 clamp(13px,.95vw,16px)/1.28 var(--font-body-zh),'Noto Sans SC',sans-serif!important}
+        .collection-result-copy h4{margin:2px 0 0;color:#343431;font:400 clamp(9px,.66vw,11px)/1.38 var(--font-body-latin),'Inter','Helvetica Neue',sans-serif!important;letter-spacing:0}
+        .collection-result-copy p{margin-top:4px!important;padding-right:58px;font-size:10px;font-family:var(--font-body-latin),'Inter','Helvetica Neue',sans-serif}
+        .collection-result-copy>span{position:absolute;right:0;bottom:0;font-size:9px}
         .collection-result-open{display:grid;grid-template-columns:auto auto;gap:2px 9px}
         .collection-result-open>span{font-family:var(--font-body-zh),'Noto Sans SC',sans-serif}
         .collection-result-open>small{grid-column:1;color:rgba(255,255,255,.7);font:500 7px/1 var(--font-body-latin),'Inter',sans-serif;letter-spacing:.08em}
@@ -241,7 +238,6 @@ export function DemoStyles() {
           .collection-featured-screen .museum-introduction-zh{font-size:12px!important;line-height:1.62!important}
           .collection-featured-screen .museum-introduction-en{font-size:10px!important;line-height:1.5!important}
           .collection-featured-screen .collection-marquee{top:58%;height:27vh}
-          .collection-scroll-cue>small{display:none}
           .collection-catalog-flow{padding-top:24px}
           .collection-catalog-heading{display:block}
           .collection-catalog-heading h2>span{font-size:50px}
@@ -255,8 +251,8 @@ export function DemoStyles() {
           .collection-results-grid{display:grid;grid-template-columns:1fr;padding-top:0;gap:46px}
           .collection-results-grid:after{display:none}
           .collection-result-card{width:100%;max-width:none;min-width:0}
-          .collection-result-copy h3{font-size:19px}
-          .collection-result-copy h4{font-size:11px}
+          .collection-result-copy h3{font-size:15px}
+          .collection-result-copy h4{font-size:10px}
           .collection-load-sentinel{min-height:140px;padding:40px 0}
         }
         @media(prefers-reduced-motion:reduce){.skeleton{animation:none}.home-hero .daily-art,.home-hero .art-history,.home-hero .artist-entry{transform:none;transition:none}.collection-tools summary,.collection-tools form{backdrop-filter:none}}

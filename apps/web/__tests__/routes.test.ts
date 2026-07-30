@@ -10,8 +10,12 @@ import {
 describe("stable route contracts", () => {
   it("accepts documented resource identifiers", () => {
     expect(museumSlugSchema.parse("art-institute-of-chicago")).toBe("art-institute-of-chicago");
+    expect(museumSlugSchema.parse("metropolitan-museum-of-art")).toBe("metropolitan-museum-of-art");
+    expect(museumSlugSchema.parse("cleveland-museum-of-art")).toBe("cleveland-museum-of-art");
     expect(museumSlugSchema.parse("europeana")).toBe("europeana");
     expect(artworkKeySchema.parse("artic-28560")).toBe("artic-28560");
+    expect(artworkKeySchema.parse("met-436535")).toBe("met-436535");
+    expect(artworkKeySchema.parse("cleveland-123")).toBe("cleveland-123");
     expect(artworkKeySchema.parse("europeana-90402~2FRP_P_1984_87")).toBe(
       "europeana-90402~2FRP_P_1984_87",
     );

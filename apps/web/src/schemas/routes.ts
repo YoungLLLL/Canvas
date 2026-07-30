@@ -1,8 +1,15 @@
 import { z } from "zod";
 
 export const slugSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-export const museumSlugSchema = z.enum(["art-institute-of-chicago", "europeana"]);
-export const artworkKeySchema = z.string().regex(/^(?:artic-[0-9]+|europeana-[A-Za-z0-9._~-]+)$/);
+export const museumSlugSchema = z.enum([
+  "art-institute-of-chicago",
+  "metropolitan-museum-of-art",
+  "cleveland-museum-of-art",
+  "europeana",
+]);
+export const artworkKeySchema = z
+  .string()
+  .regex(/^(?:(?:artic|met|cleveland)-[0-9]+|europeana-[A-Za-z0-9._~-]+)$/);
 export const maxAccessibleSearchPage = 834;
 
 const queryValue = z.union([z.string(), z.array(z.string())]).optional();

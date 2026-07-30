@@ -146,7 +146,6 @@ test("browses the live ARTIC collection and opens a shareable artwork route", as
   await expect(
     page.locator(".collection-marquee-set").first().locator(".artwork-marquee-item"),
   ).toHaveCount(8);
-  await page.getByRole("button", { name: "Pause motion" }).click();
 
   const firstArtwork = await artworkInViewport(page);
   await expect(firstArtwork).toBeVisible();
@@ -167,7 +166,7 @@ test("browses the live ARTIC collection and opens a shareable artwork route", as
 
 test("shows bilingual artwork titles with the agreed editorial fonts", async ({ page }) => {
   await page.goto("/en/museums/art-institute-of-chicago/collection");
-  await page.getByRole("link", { name: "Browse the full collection" }).click();
+  await page.locator("#full-collection").scrollIntoViewIfNeeded();
   await expect(page.getByRole("heading", { name: "The collection" })).toHaveCount(1);
   await expect(page.locator(".collection-catalog-heading")).toHaveCount(0);
   await expect(page.locator(".collection-museum-introduction")).toHaveCount(0);
@@ -210,7 +209,6 @@ test("restores collection URL, scroll position, and card focus after opening an 
   page,
 }) => {
   await page.goto("/en/museums/art-institute-of-chicago/collection");
-  await page.getByRole("link", { name: "Browse the full collection" }).click();
   const card = page.locator(".collection-result-card").first();
   await card.scrollIntoViewIfNeeded();
   const collectionUrl = page.url();
@@ -252,7 +250,6 @@ test("always re-enters the collection at its featured top from the museum screen
 
 test("loads more collection works automatically near the end of the page", async ({ page }) => {
   await page.goto("/en/museums/art-institute-of-chicago/collection");
-  await page.getByRole("link", { name: "Browse the full collection" }).click();
   const cards = page.locator(".collection-result-card");
   const initialCount = await cards.count();
   expect(initialCount).toBeGreaterThan(0);
@@ -278,7 +275,7 @@ test("keeps bilingual results and automatic loading usable at a mobile viewport"
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/zh/museums/art-institute-of-chicago/collection");
-  await page.getByRole("link", { name: /浏览完整馆藏/ }).click();
+  await page.locator("#full-collection").scrollIntoViewIfNeeded();
   await expect(page.locator(".collection-result-card").first()).toBeVisible();
   await expect(page.getByRole("heading", { name: "馆藏作品" })).toHaveCount(1);
   await expect(page.locator(".collection-catalog-heading")).toHaveCount(0);

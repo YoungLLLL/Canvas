@@ -7,7 +7,7 @@ import { attachProvisionalChineseTitles } from "../src/lib/artwork-title-transla
 import { artworkSchema, type Artwork } from "../src/schemas/catalog.ts";
 
 const commonsCacheRoot = path.resolve(process.cwd(), ".cache/wikimedia/artic");
-const translationCacheRoot = path.resolve(process.cwd(), ".cache/translations/artic-zh-Hans");
+const translationCacheRoot = path.resolve(process.cwd(), ".cache/translations/zh-Hans/artic");
 const seedOutputPath = path.resolve(
   process.cwd(),
   "src/data/artwork-title-translations.zh-Hans.ts",
@@ -95,14 +95,22 @@ for (const filename of (await readdir(translationCacheRoot)).filter((name) =>
   /^\d+\.json$/.test(name),
 )) {
   const value = JSON.parse(await readFile(path.join(translationCacheRoot, filename), "utf8")) as {
+    artworkId?: string;
     sourceId?: string;
     sourceTitle?: string;
     zhHans?: string;
     model?: string;
     generatedAt?: string;
   };
-  if (value.sourceId && value.sourceTitle && value.zhHans && value.model && value.generatedAt) {
-    seedEntries[value.sourceId] = {
+  if (
+    value.artworkId &&
+    value.sourceId &&
+    value.sourceTitle &&
+    value.zhHans &&
+    value.model &&
+    value.generatedAt
+  ) {
+    seedEntries[value.artworkId] = {
       sourceTitle: value.sourceTitle,
       zhHans: value.zhHans,
       model: value.model,
@@ -111,7 +119,7 @@ for (const filename of (await readdir(translationCacheRoot)).filter((name) =>
   }
 }
 const sortedSeedEntries = Object.fromEntries(
-  Object.entries(seedEntries).sort(([left], [right]) => Number(left) - Number(right)),
+  Object.entries(seedEntries).sort(([left], [right]) => left.localeCompare(right)),
 );
 await mkdir(path.dirname(seedOutputPath), { recursive: true });
 await writeFile(

@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { CollectionMarquee } from "@/src/components/collection-marquee";
@@ -67,15 +67,10 @@ describe("collection marquee performance and rights states", () => {
     expect(screen.queryByRole("img", { name: /Record without image/ })).not.toBeInTheDocument();
   });
 
-  it("offers an explicit motion control", () => {
-    render(<CollectionMarquee artworks={artworks} locale="en" />);
+  it("does not render gallery instructions or motion controls", () => {
+    const { container } = render(<CollectionMarquee artworks={artworks} locale="en" />);
 
-    const pause = screen.getByRole("button", { name: "Pause motion" });
-    expect(pause).toHaveAttribute("aria-pressed", "false");
-    fireEvent.click(pause);
-    expect(screen.getByRole("button", { name: "Resume motion" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
+    expect(container.querySelector(".gallery-instruction")).not.toBeInTheDocument();
+    expect(container.querySelector(".marquee-motion-toggle")).not.toBeInTheDocument();
   });
 });

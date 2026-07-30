@@ -13,7 +13,13 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/museums/[museumSlug]">): Promise<Metadata> {
   const { locale, museumSlug } = await params;
   if (!isLocale(locale) || !museumSlugSchema.safeParse(museumSlug).success) return {};
-  if (museumSlug === "europeana") {
+  if (museumSlug !== "art-institute-of-chicago") {
+    if (museumSlug === "metropolitan-museum-of-art") {
+      return { title: locale === "zh" ? "大都会艺术博物馆" : "The Metropolitan Museum of Art" };
+    }
+    if (museumSlug === "cleveland-museum-of-art") {
+      return { title: locale === "zh" ? "克利夫兰艺术博物馆" : "The Cleveland Museum of Art" };
+    }
     return { title: locale === "zh" ? "全球多馆藏" : "Multi-museum Collection" };
   }
   return {
@@ -24,7 +30,9 @@ export async function generateMetadata({
 export default async function MuseumPage({ params }: PageProps<"/[locale]/museums/[museumSlug]">) {
   const { locale, museumSlug } = await params;
   if (!isLocale(locale) || !museumSlugSchema.safeParse(museumSlug).success) notFound();
-  if (museumSlug === "europeana") redirect(`/${locale}/museums/europeana/collection`);
+  if (museumSlug !== "art-institute-of-chicago") {
+    redirect(`/${locale}/museums/${museumSlug}/collection`);
+  }
   const zh = locale === "zh";
 
   return (

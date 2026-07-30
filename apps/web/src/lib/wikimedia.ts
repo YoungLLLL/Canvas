@@ -346,6 +346,42 @@ async function runSparql(query: string) {
   ).results.bindings;
 }
 
+export async function getWikidataChineseLabels(ids: string[]) {
+  const safeIds = Array.from(new Set(ids.filter((id) => /^Q\d+$/.test(id))));
+  const entities = await getLabels(safeIds, "zh");
+  return new Map(
+    safeIds.flatMap((id) => {
+      const selected = selectChineseEntityLabel(entities[id]?.labels);
+      return selected ? [[id, selected] as const] : [];
+    }),
+  );
+}
+
+export async function getClevelandWikidataIds(accessionNumbers: string[]) {
+  const safeAccessions = Array.from(
+    new Set(
+      accessionNumbers
+        .map((value) => value.trim())
+        .filter((value) => /^[A-Za-z0-9.-]{1,80}$/.test(value)),
+    ),
+  );
+  if (!safeAccessions.length) return new Map<string, string>();
+  const values = safeAccessions.map((value) => JSON.stringify(value)).join(" ");
+  const bindings = await runSparql(`
+    SELECT DISTINCT ?artwork ?accession WHERE {
+      VALUES ?accession { ${values} }
+      ?artwork wdt:P11110 ?accession.
+    }
+  `);
+  return new Map(
+    bindings.flatMap((binding) => {
+      const accession = binding.accession?.value;
+      const wikidataId = entityId(binding.artwork?.value);
+      return accession && wikidataId ? [[accession, wikidataId] as const] : [];
+    }),
+  );
+}
+
 async function getDetails(ids: string[]) {
   if (!ids.length) return [];
   const values = ids.map((id) => `wd:${id}`).join(" ");

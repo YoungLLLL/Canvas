@@ -117,6 +117,58 @@ describe("Chinese artwork title resolution", () => {
       status: "provisional",
     });
   });
+
+  it("does not reuse an Art Institute translation for another museum with the same source ID", () => {
+    expect(
+      resolveChineseArtworkTitle({
+        ...artwork,
+        id: "met:64818",
+        sourceId: "64818",
+        display: {
+          ...artwork.display,
+          title: "Stacks of Wheat (End of Summer)",
+          localizedTitles: { en: "Stacks of Wheat (End of Summer)" },
+        },
+      }),
+    ).toEqual({
+      text: "Stacks of Wheat (End of Summer)",
+      source: "english",
+      status: "unavailable",
+      hasChinese: false,
+    });
+    expect(
+      resolveChineseArtworkTitle({
+        ...artwork,
+        id: "met:28560",
+        sourceId: "28560",
+        display: {
+          ...artwork.display,
+          title: "Unrelated Met painting",
+          localizedTitles: { en: "Unrelated Met painting" },
+        },
+      }),
+    ).toMatchObject({ source: "english", hasChinese: false });
+  });
+
+  it("uses a source-scoped seeded translation for an official museum catalog", () => {
+    expect(
+      resolveChineseArtworkTitle({
+        ...artwork,
+        id: "met:437261",
+        sourceId: "437261",
+        display: {
+          ...artwork.display,
+          title: "The Penitence of Saint Jerome",
+          localizedTitles: { en: "The Penitence of Saint Jerome" },
+        },
+      }),
+    ).toMatchObject({
+      text: "圣杰罗姆的忏悔",
+      source: "provisional",
+      status: "provisional",
+      hasChinese: true,
+    });
+  });
 });
 
 describe("Wikidata Chinese label selection", () => {

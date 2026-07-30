@@ -15,6 +15,7 @@
     "test:watch": "vitest",
     "test:qwen": "node --env-file-if-exists=.env.local scripts/smoke-qwen.mjs",
     "titles:backfill": "node --env-file-if-exists=.env.local scripts/backfill-artwork-title-translations.ts",
+    "titles:promote": "node scripts/promote-catalog-title-translations.ts",
     "test:e2e": "playwright test",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run test"
   },

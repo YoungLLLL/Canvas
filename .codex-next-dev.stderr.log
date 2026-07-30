@@ -258,3 +258,2916 @@ https://react.dev/link/hydration-mismatch
 [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          className="cormorant_garamond_8a23c4b3-module__Li2ehW__variable inter_d90c4b20-module__KyEEd..."
+                          lang="en"
+-                         data-immersive-translate-page-theme="light"
+                        >
+                  ...
+ 
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] Uncaught Error: ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (Error: ./apps/web/src/lib/localized-artwork-title.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (Error: (./apps/web/src/lib/localized-artwork-title.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/artic.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/artic.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/artworks/[artworkKey]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m 5 |[0m ...
+  [90m 6 |[0m ...[33mEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m 7 |[0m ...[33mATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m ...ontainsChinese, resolveChineseArtworkTitle } [36mfrom[0m [32m"./localized-artwork-title.ts"[0m;
+  [90m 9 |[0m ...reateQwenJsonResponse, getQwenStatus } [36mfrom[0m [32m"./qwen.ts"[0m;
+  [90m10 |[0m ...rtworkSchema, [36mtype[0m [33mArtwork[0m } [36mfrom[0m [32m"../schemas/catalog.ts"[0m;
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/catalog.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  [90m1 |[0m ...[33mSEEDED_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.zh-Hans.ts"[0m;
+[31m[1m>[0m [90m2 |[0m ...[33mCATALOG_ARTWORK_TITLE_TRANSLATIONS[0m } [36mfrom[0m [32m"../data/artwork-title-translations.catalog.zh...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...
+  [90m4 |[0m ...[33morkTitleInput[0m = {
+  [90m5 |[0m ...ring;
+
+
+
+Import traces:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx
+
+  Client Component Browser:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component Browser]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/src/lib/localized-artwork-title.ts [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Client Component SSR]
+    ./apps/web/src/components/collection-infinite-grid.tsx [Server Component]
+    ./apps/web/app/[locale]/museums/[museumSlug]/collection/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] Uncaught Error: ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+   5 | ...
+   6 | ...EEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+>  7 | ...ATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | ...ontainsChinese, resolveChineseArtworkTitle } from "./localized-artwork-title.ts";
+   9 | ...reateQwenJsonResponse, getQwenStatus } from "./qwen.ts";
+  10 | ...rtworkSchema, type Artwork } from "../schemas/catalog.ts";
+
+
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/artic.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (Error: ./apps/web/src/lib/artwork-title-translations.ts:7:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (Error: (./apps/web/src/lib/artwork-title-translations.ts:7:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+   5 | ...
+   6 | ...EEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+>  7 | ...ATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | ...ontainsChinese, resolveChineseArtworkTitle } from "./localized-artwork-title.ts";
+   9 | ...reateQwenJsonResponse, getQwenStatus } from "./qwen.ts";
+  10 | ...rtworkSchema, type Artwork } from "../schemas/catalog.ts";
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/artic.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+   5 | ...
+   6 | ...EEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+>  7 | ...ATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | ...ontainsChinese, resolveChineseArtworkTitle } from "./localized-artwork-title.ts";
+   9 | ...reateQwenJsonResponse, getQwenStatus } from "./qwen.ts";
+  10 | ...rtworkSchema, type Artwork } from "../schemas/catalog.ts";
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/artic.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+   5 | ...
+   6 | ...EEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+>  7 | ...ATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | ...ontainsChinese, resolveChineseArtworkTitle } from "./localized-artwork-title.ts";
+   9 | ...reateQwenJsonResponse, getQwenStatus } from "./qwen.ts";
+  10 | ...rtworkSchema, type Artwork } from "../schemas/catalog.ts";
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/artic.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/artwork-title-translations.ts:7:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+   5 | ...
+   6 | ...EEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+>  7 | ...ATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | ...ontainsChinese, resolveChineseArtworkTitle } from "./localized-artwork-title.ts";
+   9 | ...reateQwenJsonResponse, getQwenStatus } from "./qwen.ts";
+  10 | ...rtworkSchema, type Artwork } from "../schemas/catalog.ts";
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/artwork-title-translations.ts
+    ./apps/web/src/lib/artic.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./apps/web/src/lib/localized-artwork-title.ts:2:1
+Module not found: Can't resolve '../data/artwork-title-translations.catalog.zh-Hans.ts'
+  1 | ...SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+> 2 | ...CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | ...
+  4 | ...orkTitleInput = {
+  5 | ...ring;
+
+Import trace:
+  Server Component:
+    ./apps/web/src/lib/localized-artwork-title.ts
+    ./apps/web/app/[locale]/visual-index-demo/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[TypeError: fetch failed] {
+  [cause]: Error: read ECONNRESET
+      at ignore-listed frames {
+    errno: -4077,
+    code: 'ECONNRESET',
+    syscall: 'read'
+  }
+}
+[TypeError: fetch failed] {
+  [cause]: Error: read ECONNRESET
+      at ignore-listed frames {
+    errno: -4077,
+    code: 'ECONNRESET',
+    syscall: 'read'
+  }
+}
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

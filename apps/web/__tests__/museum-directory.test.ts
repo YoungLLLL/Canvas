@@ -25,4 +25,15 @@ describe("museum directory", () => {
     expect(query.museum).toBe("rijksmuseum");
     expect(collectionQueryString(query)).toContain("museum=rijksmuseum");
   });
+
+  it("publishes direct official collection routes for The Met and Cleveland", () => {
+    expect(museumById("met")?.collection.source).toBe("met");
+    expect(museumCollectionHref("met", "zh")).toBe(
+      "/zh/museums/metropolitan-museum-of-art/collection",
+    );
+    expect(museumById("cleveland")?.collection.source).toBe("cleveland");
+    expect(museumCollectionHref("cleveland", "en")).toBe(
+      "/en/museums/cleveland-museum-of-art/collection",
+    );
+  });
 });

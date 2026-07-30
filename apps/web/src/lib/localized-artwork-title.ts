@@ -1,6 +1,8 @@
 import { SEEDED_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.zh-Hans.ts";
+import { CATALOG_ARTWORK_TITLE_TRANSLATIONS } from "../data/artwork-title-translations.catalog.zh-Hans.ts";
 
 type ArtworkTitleInput = {
+  id?: string;
   sourceId: string;
   display: {
     title: string;
@@ -69,12 +71,28 @@ const PROVISIONAL_ZH_TITLES: Record<string, string> = {
 
 const CHINESE_LOCALES = ["zh-Hans", "zh-CN", "zh-SG", "zh"] as const;
 
+function artworkSource(artwork: ArtworkTitleInput) {
+  return artwork.id?.split(":", 1)[0] || "artic";
+}
+
+function seededTranslation(artwork: ArtworkTitleInput) {
+  const translations = {
+    ...SEEDED_ARTWORK_TITLE_TRANSLATIONS,
+    ...CATALOG_ARTWORK_TITLE_TRANSLATIONS,
+  } as Record<string, { sourceTitle: string; zhHans: string }>;
+  return (
+    translations[artwork.id || ""] ??
+    (artworkSource(artwork) === "artic" ? translations[artwork.sourceId] : undefined)
+  );
+}
+
 export function containsChinese(value: string | undefined): value is string {
   return Boolean(value && /[\u3400-\u9fff]/u.test(value));
 }
 
 export function resolveChineseArtworkTitle(artwork: ArtworkTitleInput): ResolvedArtworkTitle {
-  const curatedById = CURATED_ZH_TITLES[artwork.sourceId];
+  const isArtic = artworkSource(artwork) === "artic";
+  const curatedById = isArtic ? CURATED_ZH_TITLES[artwork.sourceId] : undefined;
   if (curatedById) {
     return { text: curatedById, source: "curated", status: "verified", hasChinese: true };
   }
@@ -115,12 +133,10 @@ export function resolveChineseArtworkTitle(artwork: ArtworkTitleInput): Resolved
   }
 
   const englishTitle = artwork.display.localizedTitles.en || artwork.display.title;
-  const seeded = (
-    SEEDED_ARTWORK_TITLE_TRANSLATIONS as Record<string, { sourceTitle: string; zhHans: string }>
-  )[artwork.sourceId];
+  const seeded = seededTranslation(artwork);
   const provisional =
     (seeded?.sourceTitle === englishTitle ? seeded.zhHans : undefined) ||
-    PROVISIONAL_ZH_TITLES[artwork.sourceId];
+    (isArtic ? PROVISIONAL_ZH_TITLES[artwork.sourceId] : undefined);
   if (provisional) {
     return {
       text: provisional,

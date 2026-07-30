@@ -21,21 +21,37 @@ export function CollectionSourceControls({
         {locale === "zh" ? "芝加哥馆" : "Chicago"}
       </Link>
       <Link
+        className={`${styles.source} ${source === "met" ? styles.active : ""}`}
+        href={`/${locale}/museums/metropolitan-museum-of-art/collection`}
+      >
+        {locale === "zh" ? "大都会" : "The Met"}
+      </Link>
+      <Link
+        className={`${styles.source} ${source === "cleveland" ? styles.active : ""}`}
+        href={`/${locale}/museums/cleveland-museum-of-art/collection`}
+      >
+        {locale === "zh" ? "克利夫兰" : "Cleveland"}
+      </Link>
+      <Link
         className={`${styles.source} ${source === "europeana" ? styles.active : ""}`}
         href={`/${locale}/museums/europeana/collection`}
       >
         {locale === "zh" ? "全球多馆藏" : "Multi-museum"}
       </Link>
-      {source === "europeana" ? (
+      {source !== "artic" ? (
         <form className={styles.search} method="get">
           <input
-            aria-label={
-              locale === "zh" ? "搜索艺术馆、艺术家或作品" : "Search museums, artists or works"
-            }
+            aria-label={locale === "zh" ? "搜索艺术家或作品" : "Search artists or works"}
             defaultValue={query}
             name="q"
             placeholder={
-              locale === "zh" ? "搜索 Rijksmuseum、Monet…" : "Search Rijksmuseum, Monet…"
+              source === "europeana"
+                ? locale === "zh"
+                  ? "搜索 Rijksmuseum、Monet…"
+                  : "Search Rijksmuseum, Monet…"
+                : locale === "zh"
+                  ? "搜索 Monet、Sunflowers…"
+                  : "Search Monet, Sunflowers…"
             }
           />
           <button type="submit">{locale === "zh" ? "搜索" : "Search"}</button>

@@ -4,7 +4,7 @@ import { isCatalogSource } from "@/src/lib/catalog-source";
 export async function GET(request: Request, context: RouteContext<"/api/artworks/[sourceId]">) {
   const { sourceId } = await context.params;
   const source = new URL(request.url).searchParams.get("source") || "artic";
-  if (!isCatalogSource(source) || (source === "artic" && !/^\d+$/.test(sourceId)))
+  if (!isCatalogSource(source) || (source !== "europeana" && !/^\d+$/.test(sourceId)))
     return Response.json({ error: "invalid_artwork_id" }, { status: 400 });
 
   try {

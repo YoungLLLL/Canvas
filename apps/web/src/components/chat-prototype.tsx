@@ -464,6 +464,14 @@ function resolveArtistProfile(
   };
 }
 
+function collectionSourceLabel(collection: string) {
+  const normalized = collection.toLowerCase();
+  if (normalized.includes("metropolitan museum")) return "The Metropolitan Museum of Art";
+  if (normalized.includes("cleveland museum")) return "The Cleveland Museum of Art";
+  if (normalized.includes("art institute of chicago")) return "Art Institute of Chicago";
+  return collection;
+}
+
 function BilingualTerms({ terms }: { terms: ArtistProfile["style"] }) {
   return terms.map((term, index) => (
     <span key={`${term.english}-${term.chinese}`}>
@@ -607,7 +615,12 @@ export function ChatPrototype({
   );
   const profileSources = [
     ...(selectedArtwork.sourceUrl
-      ? [{ label: "Art Institute of Chicago", url: selectedArtwork.sourceUrl }]
+      ? [
+          {
+            label: collectionSourceLabel(selectedArtwork.collection),
+            url: selectedArtwork.sourceUrl,
+          },
+        ]
       : []),
     ...(artistProfile.sources || []),
   ].filter(

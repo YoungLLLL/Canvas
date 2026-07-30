@@ -1,0 +1,148 @@
+export const CATALOG_ARTWORK_TITLE_TRANSLATIONS = {
+  "cleveland:102578": {
+    sourceTitle: "Portrait of Dora Wheeler",
+    zhHans: "多拉·惠勒肖像",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:110180": {
+    sourceTitle: "The Race Track (Death on a Pale Horse)",
+    zhHans: "赛马场（苍白骑士之死）",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:125249": {
+    sourceTitle: "The Large Plane Trees (Road Menders at Saint-Rémy)",
+    zhHans: "大道边的高大梧桐树（圣雷米修路工）",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:135299": {
+    sourceTitle: "Adeline Ravoux",
+    zhHans: "阿德琳·拉武",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:137259": {
+    sourceTitle: "Mme L . . . (Laure Borreau)",
+    zhHans: "L夫人（洛尔·博罗）",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:141639": {
+    sourceTitle: "Twilight in the Wilderness",
+    zhHans: "荒野暮色",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:149112": {
+    sourceTitle: "Church Street El",
+    zhHans: "教堂街高架铁路",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:149410": {
+    sourceTitle: "In the Waves (Dans les Vagues)",
+    zhHans: "浪花中（Dans les Vagues）",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:151904": {
+    sourceTitle: "The Biglin Brothers Turning the Stake",
+    zhHans: "比格林兄弟划艇绕标",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:92937": {
+    sourceTitle: "Stag at Sharkey's",
+    zhHans: "沙基拳击场的雄鹿",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:93014": {
+    sourceTitle: "View of Schroon Mountain, Essex County, New York, After a Storm",
+    zhHans: "风暴过后纽约州埃塞克斯县斯克鲁恩山景",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "cleveland:94979": {
+    sourceTitle: "Nathaniel Hurd",
+    zhHans: "纳撒尼尔·赫德",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:11.702Z",
+  },
+  "met:435711": {
+    sourceTitle: "An Egyptian Peasant Woman and Her Child",
+    zhHans: "埃及农妇与其幼子",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:436102": {
+    sourceTitle: "Virgin and Child with Four Angels",
+    zhHans: "圣母子与四位天使",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:436106": {
+    sourceTitle:
+      "Antoine Laurent Lavoisier (1743–1794) and Marie Anne Lavoisier (Marie Anne Pierrette Paulze, 1758–1836)",
+    zhHans:
+      "安托万-洛朗·拉瓦锡（1743–1794）与玛丽-安妮·拉瓦锡（玛丽-安妮·皮埃尔雷特·保罗泽，1758–1836）",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:437059": {
+    sourceTitle: "Young Woman with a Pink",
+    zhHans: "持粉红石竹花的年轻女子",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:437261": {
+    sourceTitle: "The Penitence of Saint Jerome",
+    zhHans: "圣杰罗姆的忏悔",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:437422": {
+    sourceTitle: "Charity",
+    zhHans: "慈善",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:437508": {
+    sourceTitle: "Self-Portrait",
+    zhHans: "自画像",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:438816": {
+    sourceTitle: "The Forest in Winter at Sunset",
+    zhHans: "冬日暮色中的森林",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:438821": {
+    sourceTitle: "Ia Orana Maria (Hail Mary)",
+    zhHans: "伊阿·奥拉纳·玛丽亚（万福玛利亚）",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:459027": {
+    sourceTitle: "Portrait of a Woman, Possibly a Nun of San Secondo; (verso) Scene in Grisaille",
+    zhHans: "一位女性肖像，或为圣塞孔多修道院修女；背面：灰调场景",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:459028": {
+    sourceTitle: "Portrait of Alvise Contarini(?); (verso) A Tethered Roebuck",
+    zhHans: "阿尔维塞·孔塔里尼肖像（？）；背面：被缚的小鹿",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+  "met:49068": {
+    sourceTitle: "Bamboo in Snow",
+    zhHans: "雪中竹",
+    model: "qwen-plus",
+    generatedAt: "2026-07-30T09:40:03.354Z",
+  },
+} as const;

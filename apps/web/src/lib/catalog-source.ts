@@ -1,4 +1,4 @@
-export const catalogSources = ["artic", "europeana"] as const;
+export const catalogSources = ["artic", "met", "cleveland", "europeana"] as const;
 export type CatalogSource = (typeof catalogSources)[number];
 
 export function isCatalogSource(value: string): value is CatalogSource {
@@ -7,12 +7,17 @@ export function isCatalogSource(value: string): value is CatalogSource {
 
 export function sourceForMuseumSlug(slug: string): CatalogSource | null {
   if (slug === "art-institute-of-chicago") return "artic";
+  if (slug === "metropolitan-museum-of-art") return "met";
+  if (slug === "cleveland-museum-of-art") return "cleveland";
   if (slug === "europeana") return "europeana";
   return null;
 }
 
 export function museumSlugForSource(source: CatalogSource) {
-  return source === "artic" ? "art-institute-of-chicago" : "europeana";
+  if (source === "artic") return "art-institute-of-chicago";
+  if (source === "met") return "metropolitan-museum-of-art";
+  if (source === "cleveland") return "cleveland-museum-of-art";
+  return "europeana";
 }
 
 function encodeSourceId(sourceId: string) {
@@ -24,7 +29,7 @@ function decodeSourceId(value: string) {
 }
 
 export function artworkKey(source: CatalogSource, sourceId: string) {
-  return `${source}-${source === "artic" ? sourceId : encodeSourceId(sourceId)}`;
+  return `${source}-${source === "europeana" ? encodeSourceId(sourceId) : sourceId}`;
 }
 
 export function parseArtworkKey(value: string): { source: CatalogSource; sourceId: string } | null {
@@ -36,7 +41,7 @@ export function parseArtworkKey(value: string): { source: CatalogSource; sourceI
   try {
     return {
       source,
-      sourceId: source === "artic" ? encodedId : decodeSourceId(encodedId),
+      sourceId: source === "europeana" ? decodeSourceId(encodedId) : encodedId,
     };
   } catch {
     return null;
