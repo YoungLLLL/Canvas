@@ -5,8 +5,8 @@ import { usePathname, useRouter } from "next/navigation";
 
 const routeCurtainEvent = "canvium:route-curtain";
 const routeCurtainReadyEvent = "canvium:route-curtain-ready";
-const minimumCoverDuration = 980;
-const navigationLeadIn = 120;
+const minimumCoverDuration = 520;
+const navigationLeadIn = 360;
 
 type RouteCurtainDetail = {
   href: string;
@@ -127,7 +127,7 @@ export function RouteCurtain() {
       setStatus(copy.ready);
 
       const elapsed = performance.now() - transitionStartedAt.current;
-      const revealDelay = Math.max(180, minimumCoverDuration - elapsed);
+      const revealDelay = Math.max(80, minimumCoverDuration - elapsed);
       revealTimer = window.setTimeout(() => {
         curtain.classList.remove("covering");
         curtain.classList.add("revealing");
@@ -139,7 +139,7 @@ export function RouteCurtain() {
           resetScrollOnNavigation.current = false;
           setProgress(0);
           setStatus("");
-        }, 820);
+        }, 460);
       }, revealDelay);
     };
 

@@ -2689,27 +2689,27 @@ html:has(.route-transition-curtain.revealing) .canvium-loading-screen {
 }
 
 .route-transition-curtain.covering .curtain-shape {
-  animation: route-curtain-cover 980ms cubic-bezier(0.76, 0, 0.24, 1) both;
+  animation: route-curtain-cover 520ms cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 
 .route-transition-curtain.revealing .curtain-shape {
-  animation: route-curtain-reveal 800ms cubic-bezier(0.76, 0, 0.24, 1) both;
+  animation: route-curtain-reveal 420ms cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 
 .route-transition-curtain.covering .route-curtain-title {
-  animation: route-curtain-title-in 980ms var(--ease-enter) both;
+  animation: route-curtain-title-in 500ms var(--ease-enter) both;
 }
 
 .route-transition-curtain.revealing .route-curtain-title {
-  animation: route-curtain-title-out 800ms var(--ease-enter) both;
+  animation: route-curtain-title-out 400ms var(--ease-enter) both;
 }
 
 .route-transition-curtain.covering .route-curtain-loading {
-  animation: route-curtain-loading-in 720ms 280ms var(--ease-enter) both;
+  animation: route-curtain-loading-in 320ms 140ms var(--ease-enter) both;
 }
 
 .route-transition-curtain.revealing .route-curtain-loading {
-  animation: route-curtain-loading-out 480ms var(--ease-enter) both;
+  animation: route-curtain-loading-out 260ms var(--ease-enter) both;
 }
 
 @keyframes route-curtain-cover {

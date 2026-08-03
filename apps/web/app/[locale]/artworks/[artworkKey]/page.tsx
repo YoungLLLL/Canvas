@@ -6,9 +6,10 @@ import { isLocale } from "@/src/i18n/locales";
 import { getCatalogArtwork } from "@/src/lib/catalog";
 import { museumSlugForSource, parseArtworkKey } from "@/src/lib/catalog-source";
 import { buildDynamicPersonaOpening } from "@/src/lib/dynamic-persona-chat";
+import { generateReviewedPersonaOpeningForCatalogArtwork } from "@/src/lib/generated-persona-opening";
 import { iiifImageUrl } from "@/src/lib/iiif";
 import { resolveChineseArtworkTitle } from "@/src/lib/localized-artwork-title";
-import { getReviewedPersonaOpening } from "@/src/lib/persona-openings";
+import { getReviewedPersonaOpeningForCatalogArtwork } from "@/src/lib/persona-openings";
 import { getWikipediaArtistProfile } from "@/src/lib/wikipedia-artist-profile";
 import { artworkKeySchema } from "@/src/schemas/routes";
 
@@ -44,8 +45,13 @@ export default async function ArtworkPage({
     artwork.display.artistDisplay,
     artwork.artist?.name,
   );
+  const generatedOpening =
+    source === "artic"
+      ? await generateReviewedPersonaOpeningForCatalogArtwork(artwork).catch(() => undefined)
+      : undefined;
   const opening =
-    (source === "artic" ? getReviewedPersonaOpening(sourceId) : null) ||
+    generatedOpening ||
+    (source === "artic" ? getReviewedPersonaOpeningForCatalogArtwork(artwork) : undefined) ||
     buildDynamicPersonaOpening(artwork, wikipediaProfile);
   const knownTitle =
     locale === "zh" ? resolveChineseArtworkTitle(artwork).text : artwork.display.title;

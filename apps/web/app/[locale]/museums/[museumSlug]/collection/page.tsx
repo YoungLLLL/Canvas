@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 
 import { CollectionInfiniteGrid } from "@/src/components/collection-infinite-grid";
 import { CollectionMarquee, type MarqueeArtwork } from "@/src/components/collection-marquee";
+import { CollectionRouteReady } from "@/src/components/collection-route-ready";
 import { EuropeanaSetupNotice } from "@/src/components/collection-source-controls";
 import { CollectionStateRestorer } from "@/src/components/collection-state";
-import { CollectionWheelReturn } from "@/src/components/collection-wheel-return";
 import { DemoStyles } from "@/src/components/demo-styles";
 import { isLocale } from "@/src/i18n/locales";
 import { getCatalogCollection } from "@/src/lib/catalog";
@@ -141,7 +141,7 @@ export default async function CollectionPage({
       }
     >
       <DemoStyles />
-      <CollectionWheelReturn locale={locale} />
+      <CollectionRouteReady locale={locale} />
       <CollectionStateRestorer />
 
       <section className="collection-featured-screen" id="featured-collection">

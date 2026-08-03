@@ -6,9 +6,13 @@ import { z } from "zod";
 
 import { buildDynamicPersonaAssembly, parseDynamicDialogue } from "@/src/lib/dynamic-persona-chat";
 import { getArticArtwork } from "@/src/lib/artic";
-import { getReviewedPersonaForArtwork } from "@/src/lib/persona-openings";
+import {
+  getReviewedPersonaForArtwork,
+  getReviewedPersonaForCatalogArtwork,
+} from "@/src/lib/persona-openings";
 import { createQwenJsonResponse, QwenRequestError, type QwenMessage } from "@/src/lib/qwen";
 import { getWikipediaArtistProfile } from "@/src/lib/wikipedia-artist-profile";
+import type { ArtistPersonaPackage } from "@/src/schemas/ai-content";
 
 export const dynamic = "force-dynamic";
 
@@ -189,87 +193,22 @@ function chatFailureResponse(error: unknown) {
   );
 }
 
-async function respondWithDynamicPersona(input: z.infer<typeof chatRequestSchema>) {
-  try {
-    const sourceId = input.artworkId.replace("artic:", "");
-    const artwork = await getArticArtwork(sourceId);
-    if (!artwork) {
-      return Response.json(
-        {
-          error: "找不到这件作品的馆藏资料。",
-          code: "artwork_context_unavailable",
-          retryable: false,
-        },
-        { status: 404 },
-      );
-    }
-    const profile = await getWikipediaArtistProfile(
-      artwork.display.artistDisplay,
-      artwork.artist?.name,
-    );
-    const assembly = buildDynamicPersonaAssembly(artwork, profile);
-    if (!assembly) {
-      return Response.json(
-        {
-          error: "这件作品尚未开放艺术家对话。",
-          code: "persona_context_unavailable",
-          retryable: false,
-        },
-        { status: 404 },
-      );
-    }
-    const messages: QwenMessage[] = [
-      { role: "system", content: assembly.instructions },
-      ...input.history,
-      { role: "user", content: input.message },
-    ];
-    const { generated, dialogue, attempts } = await generateDynamicDialogue(
-      messages,
-      assembly.citations.length,
-    );
-    const citedNumbers = new Set(dialogue.segments.flatMap((segment) => segment.citationNumbers));
-    return Response.json(
-      {
-        ...dialogue,
-        citations: assembly.citations.filter((citation) => citedNumbers.has(citation.number)),
-        displaySegments: dialogue.segments,
-        requestId: generated.requestId,
-        usage: generated.usage,
-        attempts,
-        personaMode: "dynamic",
-      },
-      { headers: { "Cache-Control": "no-store" } },
-    );
-  } catch (error) {
-    return chatFailureResponse(error);
-  }
-}
-
-export async function POST(request: Request) {
-  const parsed = chatRequestSchema.safeParse(await request.json().catch(() => null));
-  if (!parsed.success) {
-    return Response.json(
-      { error: "聊天请求格式无效。", code: "invalid_chat_request", retryable: false },
-      { status: 400 },
-    );
-  }
-
-  const persona = getReviewedPersonaForArtwork(parsed.data.artworkId);
-  if (!persona) {
-    return respondWithDynamicPersona(parsed.data);
-  }
-
+async function respondWithReviewedPersona(
+  input: z.infer<typeof chatRequestSchema>,
+  persona: ArtistPersonaPackage,
+  personaMode: "reviewed_artwork" | "reviewed_artist",
+) {
   const assembly = assemblePersonaDialogue({
     persona,
-    artworkId: parsed.data.artworkId,
+    artworkId: input.artworkId,
   });
   const messages: QwenMessage[] = [
     {
       role: "system",
       content: `${assembly.instructions}\n\n输出必须符合此 JSON Schema：${JSON.stringify(assembly.outputSchema)}`,
     },
-    ...parsed.data.history,
-    { role: "user", content: parsed.data.message },
+    ...input.history,
+    { role: "user", content: input.message },
   ];
 
   try {
@@ -339,10 +278,91 @@ export async function POST(request: Request) {
         requestId: generated.requestId,
         usage: generated.usage,
         attempts,
+        personaMode,
       },
       { headers: { "Cache-Control": "no-store" } },
     );
   } catch (error) {
     return chatFailureResponse(error);
   }
+}
+
+async function respondWithDynamicPersona(input: z.infer<typeof chatRequestSchema>) {
+  try {
+    const sourceId = input.artworkId.replace("artic:", "");
+    const artwork = await getArticArtwork(sourceId);
+    if (!artwork) {
+      return Response.json(
+        {
+          error: "找不到这件作品的馆藏资料。",
+          code: "artwork_context_unavailable",
+          retryable: false,
+        },
+        { status: 404 },
+      );
+    }
+    const reviewedResolution = getReviewedPersonaForCatalogArtwork(artwork);
+    if (reviewedResolution) {
+      return respondWithReviewedPersona(
+        input,
+        reviewedResolution.persona,
+        reviewedResolution.tier === "artwork" ? "reviewed_artwork" : "reviewed_artist",
+      );
+    }
+    const profile = await getWikipediaArtistProfile(
+      artwork.display.artistDisplay,
+      artwork.artist?.name,
+    );
+    const assembly = buildDynamicPersonaAssembly(artwork, profile);
+    if (!assembly) {
+      return Response.json(
+        {
+          error: "这件作品尚未开放艺术家对话。",
+          code: "persona_context_unavailable",
+          retryable: false,
+        },
+        { status: 404 },
+      );
+    }
+    const messages: QwenMessage[] = [
+      { role: "system", content: assembly.instructions },
+      ...input.history,
+      { role: "user", content: input.message },
+    ];
+    const { generated, dialogue, attempts } = await generateDynamicDialogue(
+      messages,
+      assembly.citations.length,
+    );
+    const citedNumbers = new Set(dialogue.segments.flatMap((segment) => segment.citationNumbers));
+    return Response.json(
+      {
+        ...dialogue,
+        citations: assembly.citations.filter((citation) => citedNumbers.has(citation.number)),
+        displaySegments: dialogue.segments,
+        requestId: generated.requestId,
+        usage: generated.usage,
+        attempts,
+        personaMode: "dynamic",
+      },
+      { headers: { "Cache-Control": "no-store" } },
+    );
+  } catch (error) {
+    return chatFailureResponse(error);
+  }
+}
+
+export async function POST(request: Request) {
+  const parsed = chatRequestSchema.safeParse(await request.json().catch(() => null));
+  if (!parsed.success) {
+    return Response.json(
+      { error: "聊天请求格式无效。", code: "invalid_chat_request", retryable: false },
+      { status: 400 },
+    );
+  }
+
+  const persona = getReviewedPersonaForArtwork(parsed.data.artworkId);
+  if (!persona) {
+    return respondWithDynamicPersona(parsed.data);
+  }
+  return respondWithReviewedPersona(parsed.data, persona, "reviewed_artwork");
 }

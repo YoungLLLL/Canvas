@@ -27,56 +27,101 @@ vi.mock("@/src/lib/qwen", () => ({
 }));
 
 vi.mock("@/src/lib/artic", () => ({
-  getArticArtwork: vi.fn(async (sourceId: string) =>
-    sourceId === "999998"
-      ? {
-          id: "artic:999998",
-          sourceId,
-          museumId: "artic",
-          source: {
-            id: "artic",
-            label: "The Art Institute of Chicago",
-            recordUrl: "https://www.artic.edu/artworks/999998",
-            accessedAt: "2026-07-29T00:00:00.000Z",
-          },
-          display: {
-            title: "A Test Landscape",
-            localizedTitles: {},
-            altTitles: [],
-            artistDisplay: "Ada Painter (French, 1880–1940)",
-            dateDisplay: "1910",
-            mediumDisplay: "Oil on canvas",
-          },
-          artist: {
-            id: "artic-artist:42",
-            sourceId: "42",
-            name: "Ada Painter",
-            display: "Ada Painter (French, 1880–1940)",
-            personaStatus: "unavailable",
-          },
-          date: { start: 1910, end: 1910 },
-          classification: {
-            artworkTypeId: 1,
-            artworkTypeTitle: "Painting",
-            classificationTitles: [],
-          },
-          images: { preferred: null, alternates: [] },
-          rights: {},
-          eligibility: {
-            status: "metadata_only_no_image",
-            ruleVersion: "test",
-            checkedAt: "2026-07-29T00:00:00.000Z",
-            reasons: [],
-          },
-          description: {
-            html: "A landscape with a river.",
-            text: "A landscape with a river.",
-            sourceField: "description",
-          },
-          revision: "test",
-        }
-      : null,
-  ),
+  getArticArtwork: vi.fn(async (sourceId: string) => {
+    if (sourceId === "16568") {
+      return {
+        id: "artic:16568",
+        sourceId,
+        museumId: "artic",
+        source: {
+          id: "artic",
+          label: "The Art Institute of Chicago",
+          recordUrl: "https://www.artic.edu/artworks/16568",
+          accessedAt: "2026-07-29T00:00:00.000Z",
+        },
+        display: {
+          title: "Water Lilies",
+          localizedTitles: {},
+          altTitles: [],
+          artistDisplay: "Claude Monet (French, 1840–1926)",
+          dateDisplay: "1906",
+          mediumDisplay: "Oil on canvas",
+          dimensionsDisplay: "89.9 × 94.1 cm",
+        },
+        artist: {
+          id: "artic-artist:35809",
+          sourceId: "35809",
+          name: "Claude Monet",
+          display: "Claude Monet (French, 1840–1926)",
+          personaStatus: "unavailable",
+        },
+        date: { start: 1906, end: 1906 },
+        classification: {
+          artworkTypeId: 1,
+          artworkTypeTitle: "Painting",
+          classificationTitles: [],
+        },
+        images: { preferred: null, alternates: [] },
+        rights: {},
+        eligibility: {
+          status: "metadata_only_no_image",
+          ruleVersion: "test",
+          checkedAt: "2026-07-29T00:00:00.000Z",
+          reasons: [],
+        },
+        revision: "test",
+      };
+    }
+    if (sourceId === "999998") {
+      return {
+        id: "artic:999998",
+        sourceId,
+        museumId: "artic",
+        source: {
+          id: "artic",
+          label: "The Art Institute of Chicago",
+          recordUrl: "https://www.artic.edu/artworks/999998",
+          accessedAt: "2026-07-29T00:00:00.000Z",
+        },
+        display: {
+          title: "A Test Landscape",
+          localizedTitles: {},
+          altTitles: [],
+          artistDisplay: "Ada Painter (French, 1880–1940)",
+          dateDisplay: "1910",
+          mediumDisplay: "Oil on canvas",
+        },
+        artist: {
+          id: "artic-artist:42",
+          sourceId: "42",
+          name: "Ada Painter",
+          display: "Ada Painter (French, 1880–1940)",
+          personaStatus: "unavailable",
+        },
+        date: { start: 1910, end: 1910 },
+        classification: {
+          artworkTypeId: 1,
+          artworkTypeTitle: "Painting",
+          classificationTitles: [],
+        },
+        images: { preferred: null, alternates: [] },
+        rights: {},
+        eligibility: {
+          status: "metadata_only_no_image",
+          ruleVersion: "test",
+          checkedAt: "2026-07-29T00:00:00.000Z",
+          reasons: [],
+        },
+        description: {
+          html: "A landscape with a river.",
+          text: "A landscape with a river.",
+          sourceField: "description",
+        },
+        revision: "test",
+      };
+    }
+    return null;
+  }),
 }));
 
 vi.mock("@/src/lib/wikipedia-artist-profile", () => ({
@@ -250,6 +295,44 @@ describe("artist chat API", () => {
         expect.objectContaining({
           role: "system",
           content: expect.stringContaining("Ada Painter"),
+        }),
+      ]),
+      expect.any(Function),
+    );
+  });
+
+  it("uses Monet's reviewed artist persona for an unconfigured Monet artwork", async () => {
+    const response = await POST(
+      new Request("http://localhost/api/ai/chat", {
+        method: "POST",
+        body: JSON.stringify({
+          artworkId: "artic:16568",
+          message: "你怎么看这幅睡莲？",
+          history: [],
+        }),
+      }),
+    );
+
+    expect(response.status).toBe(200);
+    await expect(response.json()).resolves.toMatchObject({
+      responseType: "imagined_response",
+      personaMode: "reviewed_artist",
+    });
+    expect(createQwenJsonResponse).toHaveBeenCalledWith(
+      expect.arrayContaining([
+        expect.objectContaining({
+          role: "system",
+          content: expect.stringMatching(/克劳德·莫奈数字化身[\s\S]*artic:16568/),
+        }),
+      ]),
+      expect.any(Function),
+    );
+    expect(createQwenJsonResponse).not.toHaveBeenCalledWith(
+      expect.arrayContaining([
+        expect.objectContaining({
+          content: expect.stringContaining(
+            "You are producing an explicitly imagined conversation with a historical artist",
+          ),
         }),
       ]),
       expect.any(Function),

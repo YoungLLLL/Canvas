@@ -8,6 +8,7 @@ import { MuseumGlobe } from "@/src/components/museum-globe";
 import { DemoStyles } from "@/src/components/demo-styles";
 import { navigateWithCurtain, signalRouteCurtainReady } from "@/src/components/route-curtain";
 import type { Locale } from "@/src/i18n/locales";
+import { createWheelBoundaryIntent } from "@/src/lib/wheel-boundary-intent";
 
 const museumSlug = "art-institute-of-chicago";
 const selfPortrait =
@@ -28,68 +29,32 @@ export function DemoLanding({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     router.prefetch(collectionHref);
+  }, [collectionHref, router]);
 
-    let wheelDelta = 0;
-    let wheelReset = 0;
+  useEffect(() => {
     const museum = document.querySelector<HTMLElement>("#museum");
-
-    const isMuseumCurrent = () => {
+    const atMuseumBoundary = () => {
       if (!museum) return false;
       const rect = museum.getBoundingClientRect();
-      const pageEnd =
+      const atPageEnd =
         window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3;
       return (
-        pageEnd ||
-        (rect.top <= window.innerHeight * 0.16 && rect.bottom >= window.innerHeight * 0.84)
+        atPageEnd &&
+        rect.top <= window.innerHeight * 0.16 &&
+        rect.bottom >= window.innerHeight * 0.84
       );
     };
-
-    const onWheel = (event: WheelEvent) => {
-      if (event.ctrlKey || event.deltaY <= 0 || !isMuseumCurrent()) {
-        if (event.deltaY < 0) wheelDelta = 0;
-        return;
-      }
-
-      event.preventDefault();
-      if (collectionTransitioning.current) return;
-
-      wheelDelta += event.deltaY;
-      window.clearTimeout(wheelReset);
-      wheelReset = window.setTimeout(() => {
-        wheelDelta = 0;
-      }, 160);
-
-      if (wheelDelta < 24) return;
-      wheelDelta = 0;
-      enterCollection();
-    };
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (
-        event.defaultPrevented ||
-        event.ctrlKey ||
-        event.metaKey ||
-        ["INPUT", "TEXTAREA", "SELECT"].includes(
-          (document.activeElement?.tagName ?? "").toUpperCase(),
-        )
-      ) {
-        return;
-      }
-      if ((event.key === "ArrowDown" || event.key === "PageDown") && isMuseumCurrent()) {
-        event.preventDefault();
-        enterCollection();
-      }
-    };
+    const onWheel = createWheelBoundaryIntent({
+      atBoundary: atMuseumBoundary,
+      direction: "down",
+      onIntent: enterCollection,
+    });
 
     window.addEventListener("wheel", onWheel, { passive: false, capture: true });
-    window.addEventListener("keydown", onKeyDown);
     return () => {
       window.removeEventListener("wheel", onWheel, { capture: true });
-      window.removeEventListener("keydown", onKeyDown);
-      window.clearTimeout(wheelReset);
-      document.documentElement.classList.remove("collection-transitioning");
     };
-  }, [collectionHref, enterCollection, router]);
+  }, [enterCollection]);
 
   useEffect(() => {
     signalRouteCurtainReady();
