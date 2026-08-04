@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { DemoLanding } from "@/src/components/demo-landing";
+import { ParallaxLanding } from "@/src/components/parallax-landing";
 import { isLocale } from "@/src/i18n/locales";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return {
-    title: locale === "zh" ? "观看真实馆藏" : "Look closely at museum paintings",
+    title:
+      locale === "zh"
+        ? "Canvium Gallery · 艺术与智能相遇"
+        : "Canvium Gallery · Art meets intelligence",
     alternates: { canonical: `/${locale}`, languages: { en: "/en", zh: "/zh" } },
   };
 }
@@ -16,5 +19,5 @@ export async function generateMetadata({ params }: PageProps<"/[locale]">): Prom
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  return <DemoLanding locale={locale} />;
+  return <ParallaxLanding locale={locale} />;
 }
