@@ -1,157 +1,476 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 import styles from "@/src/components/parallax-landing.module.css";
+import { navigateWithCurtain } from "@/src/components/route-curtain";
 import type { Locale } from "@/src/i18n/locales";
+import { createWheelBoundaryIntent } from "@/src/lib/wheel-boundary-intent";
+
+gsap.registerPlugin(useGSAP);
 
 type ParallaxLayer = {
   src: string;
-  x: number;
-  y: number;
-  scroll: number;
+  depth: "background" | "rear" | "middle" | "foreground" | "product";
+  pointerX: number;
+  pointerY: number;
+  scrollY: number;
   scale: number;
 };
 
 const layers: ParallaxLayer[] = [
   {
     src: "/parallax/0-background.png",
-    x: 3,
-    y: 2,
-    scroll: 0,
-    scale: 1.025,
+    depth: "background",
+    pointerX: 2,
+    pointerY: 1.5,
+    scrollY: 0,
+    scale: 1.02,
   },
-  { src: "/parallax/1.png", x: 7, y: 5, scroll: -5, scale: 1.035 },
-  { src: "/parallax/2.png", x: 8, y: 6, scroll: -7, scale: 1.038 },
-  { src: "/parallax/3.png", x: 15, y: 10, scroll: -16, scale: 1.052 },
-  { src: "/parallax/4.png", x: 12, y: 8, scroll: -12, scale: 1.046 },
-  { src: "/parallax/5.png", x: 10, y: 7, scroll: -10, scale: 1.042 },
-  { src: "/parallax/6.png", x: 14, y: 9, scroll: -14, scale: 1.05 },
-  { src: "/parallax/7.png", x: 17, y: 11, scroll: -18, scale: 1.056 },
+  {
+    src: "/parallax/1.png",
+    depth: "rear",
+    pointerX: 5,
+    pointerY: 3.5,
+    scrollY: -4,
+    scale: 1.028,
+  },
+  {
+    src: "/parallax/2.png",
+    depth: "rear",
+    pointerX: 6,
+    pointerY: 4,
+    scrollY: -6,
+    scale: 1.032,
+  },
+  {
+    src: "/parallax/3.png",
+    depth: "middle",
+    pointerX: 11,
+    pointerY: 7,
+    scrollY: -12,
+    scale: 1.043,
+  },
+  {
+    src: "/parallax/4.png",
+    depth: "middle",
+    pointerX: 9,
+    pointerY: 6,
+    scrollY: -9,
+    scale: 1.038,
+  },
+  {
+    src: "/parallax/5.png",
+    depth: "middle",
+    pointerX: 8,
+    pointerY: 5.5,
+    scrollY: -8,
+    scale: 1.036,
+  },
+  {
+    src: "/parallax/6.png",
+    depth: "middle",
+    pointerX: 10,
+    pointerY: 6.5,
+    scrollY: -11,
+    scale: 1.041,
+  },
+  {
+    src: "/parallax/7.png",
+    depth: "foreground",
+    pointerX: 13,
+    pointerY: 8.5,
+    scrollY: -15,
+    scale: 1.049,
+  },
   {
     src: "/parallax/8-furniture.png",
-    x: 22,
-    y: 14,
-    scroll: -24,
-    scale: 1.068,
+    depth: "foreground",
+    pointerX: 6,
+    pointerY: 4,
+    scrollY: -6,
+    scale: 1.032,
   },
-  { src: "/parallax/9-laptop.png", x: 6, y: 4, scroll: -5, scale: 1.034 },
+  {
+    src: "/parallax/9-laptop.png",
+    depth: "product",
+    pointerX: 6,
+    pointerY: 4,
+    scrollY: -6,
+    scale: 1.032,
+  },
 ];
+
+const particleCount = 18;
+const collectionSlug = "art-institute-of-chicago";
+const entryScrollEnd = 0.82;
+const handoffStart = 0.86;
+const videoTailScale = 1.1;
 
 type StageStyle = React.CSSProperties & {
   "--hint-opacity": number;
 };
 
 type LayerStyle = React.CSSProperties & {
-  "--tx": string;
-  "--ty": string;
-  "--layer-scale": number;
   "--layer-index": number;
-  "--layer-delay": string;
+};
+
+type ParticleStyle = React.CSSProperties & {
+  "--particle-delay": string;
+  "--particle-duration": string;
+  "--particle-left": string;
+  "--particle-top": string;
 };
 
 export function ParallaxLanding({ locale }: { locale: Locale }) {
+  const router = useRouter();
   const root = useRef<HTMLElement>(null);
   const stage = useRef<HTMLDivElement>(null);
+  const entryVideo = useRef<HTMLVideoElement>(null);
+  const showEntryFallback = useRef<() => void>(() => undefined);
+  const enterCollection = useRef<() => void>(() => undefined);
+  const transitioning = useRef(false);
+  const collectionHref = `/${locale}/museums/${collectionSlug}/collection`;
+  const zh = locale === "zh";
 
   useEffect(() => {
-    const rootNode = root.current;
-    const stageNode = stage.current;
-    if (!rootNode || !stageNode) return;
-    document.body.classList.add("parallax-home-active");
-    const layerNodes = Array.from(stageNode.querySelectorAll<HTMLElement>(`.${styles.layer}`));
+    router.prefetch(collectionHref);
+  }, [collectionHref, router]);
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const finePointer = window.matchMedia("(pointer: fine)");
-    let frame = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let currentScroll = 0;
-    let targetX = 0;
-    let targetY = 0;
-    let targetScroll = 0;
+  useGSAP(
+    (_, contextSafe) => {
+      const rootNode = root.current;
+      const stageNode = stage.current;
+      const videoNode = entryVideo.current;
+      if (!rootNode || !stageNode || !videoNode) return;
 
-    const paint = () => {
-      frame = 0;
-      const ease = reducedMotion.matches ? 1 : 0.085;
-      currentX += (targetX - currentX) * ease;
-      currentY += (targetY - currentY) * ease;
-      currentScroll += (targetScroll - currentScroll) * ease;
-      stageNode.style.setProperty("--hint-opacity", String(Math.max(0, 1 - currentScroll * 3)));
-      layerNodes.forEach((node, index) => {
-        const layer = layers[index];
-        if (!layer) return;
-        const x = currentX * layer.x * -1;
-        const y =
-          currentY * layer.y * -1 + currentScroll * layer.scroll * (window.innerHeight / 100);
-        node.style.setProperty("--tx", `${x.toFixed(2)}px`);
-        node.style.setProperty("--ty", `${y.toFixed(2)}px`);
+      document.body.classList.add("parallax-home-active");
+      const layerNodes = gsap.utils.toArray<HTMLElement>("[data-parallax-index]");
+      const sceneNode = stageNode.querySelector<HTMLElement>(`.${styles.scene}`);
+      const brandNode = stageNode.querySelector<HTMLElement>(`.${styles.brand}`);
+      const glowNode = stageNode.querySelector<HTMLElement>(`.${styles.computerGlow}`);
+      const promptNode = stageNode.querySelector<HTMLElement>(`.${styles.entryPrompt}`);
+      const computerEntryNode = stageNode.querySelector<HTMLButtonElement>(
+        `.${styles.computerEntry}`,
+      );
+      if (!sceneNode || !computerEntryNode) return;
+
+      let pointerX = 0;
+      let pointerY = 0;
+      let scrollProgress = 0;
+      let sceneReadyAt = Number.POSITIVE_INFINITY;
+      let videoDuration = videoNode.duration || 5.088;
+      let sceneEntered = false;
+      let glowPulse: gsap.core.Tween | null = null;
+      const entryPlayhead = { progress: 0 };
+      const handoffEase = gsap.parseEase("power2.inOut");
+      const revealEase = gsap.parseEase("power1.inOut");
+      let targetEntryProgress = -1;
+      let queuedVideoTime: number | null = null;
+      let videoSeekFrame = 0;
+
+      const xSetters = layerNodes.map((node) =>
+        gsap.quickTo(node, "x", { duration: 0.72, ease: "power3.out" }),
+      );
+      const ySetters = layerNodes.map((node) =>
+        gsap.quickTo(node, "y", { duration: 0.72, ease: "power3.out" }),
+      );
+      const brandX = brandNode
+        ? gsap.quickTo(brandNode, "x", { duration: 0.9, ease: "power3.out" })
+        : null;
+      const brandY = brandNode
+        ? gsap.quickTo(brandNode, "y", { duration: 0.9, ease: "power3.out" })
+        : null;
+
+      gsap.set(layerNodes, {
+        scale: (_, node) => layers[Number((node as HTMLElement).dataset.parallaxIndex)]?.scale ?? 1,
+        transformOrigin: "50% 50%",
+      });
+      gsap.set(glowNode, { xPercent: -50, yPercent: -4 });
+
+      const setEntryAvailable = (available: boolean) => {
+        computerEntryNode.disabled = !available;
+        computerEntryNode.tabIndex = available ? 0 : -1;
+        stageNode.dataset.entered = String(available);
+      };
+
+      const setGlowPulseActive = (active: boolean) => {
+        if (!glowPulse) return;
+        if (active) {
+          if (!glowPulse.isActive()) glowPulse.play();
+          return;
+        }
+        glowPulse.pause(0);
+      };
+
+      const flushVideoSeek = () => {
+        videoSeekFrame = 0;
+        if (
+          queuedVideoTime === null ||
+          videoNode.seeking ||
+          videoNode.readyState < HTMLMediaElement.HAVE_METADATA
+        )
+          return;
+
+        const targetTime = queuedVideoTime;
+        queuedVideoTime = null;
+        if (Math.abs(videoNode.currentTime - targetTime) > 1 / 30) {
+          videoNode.currentTime = targetTime;
+        }
+      };
+
+      const queueVideoSeek = (targetTime: number) => {
+        queuedVideoTime = targetTime;
+        if (!videoSeekFrame) videoSeekFrame = window.requestAnimationFrame(flushVideoSeek);
+      };
+
+      const onVideoSeeked = () => {
+        if (queuedVideoTime !== null && !videoSeekFrame) {
+          videoSeekFrame = window.requestAnimationFrame(flushVideoSeek);
+        }
+      };
+
+      const renderEntry = (progress: number) => {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const videoFailed = stageNode.dataset.videoFailed === "true";
+
+        if (reduceMotion || videoFailed) {
+          queuedVideoTime = null;
+          if (videoSeekFrame) {
+            window.cancelAnimationFrame(videoSeekFrame);
+            videoSeekFrame = 0;
+          }
+          gsap.set(videoNode, { autoAlpha: 0 });
+          gsap.set(sceneNode, { autoAlpha: 1, scale: 1 });
+          gsap.set(glowNode, { opacity: 0.72, scale: 1 });
+          if (!sceneEntered) sceneReadyAt = performance.now() + 500;
+          sceneEntered = true;
+          setEntryAvailable(true);
+          setGlowPulseActive(!reduceMotion);
+          return;
+        }
+
+        if (videoNode.readyState >= HTMLMediaElement.HAVE_METADATA) {
+          const targetTime = progress * Math.max(0, videoDuration - 0.05);
+          queueVideoSeek(targetTime);
+        }
+
+        const handoff = gsap.utils.clamp(0, 1, (progress - handoffStart) / (1 - handoffStart));
+        const easedHandoff = handoffEase(handoff);
+        const sceneReveal = gsap.utils.clamp(0, 1, (handoff - 0.72) / 0.28);
+        const easedReveal = revealEase(sceneReveal);
+        const entered = progress > 0.997;
+
+        gsap.set(videoNode, {
+          autoAlpha: 1 - easedReveal,
+          scale: 1 + easedHandoff * (videoTailScale - 1),
+        });
+        gsap.set(sceneNode, {
+          autoAlpha: easedReveal,
+          scale: videoTailScale - easedReveal * (videoTailScale - 1),
+        });
+        gsap.set(glowNode, {
+          opacity: entered ? 0.64 : 0,
+          scale: entered ? 1 : 0.86,
+        });
+
+        if (entered !== sceneEntered) {
+          sceneEntered = entered;
+          sceneReadyAt = entered ? performance.now() + 700 : Number.POSITIVE_INFINITY;
+          setEntryAvailable(entered);
+          setGlowPulseActive(entered);
+        }
+      };
+
+      const entryProgressTo = gsap.quickTo(entryPlayhead, "progress", {
+        duration: 0.24,
+        ease: "power1.out",
+        onUpdate: () => renderEntry(entryPlayhead.progress),
       });
 
-      if (
-        Math.abs(targetX - currentX) > 0.001 ||
-        Math.abs(targetY - currentY) > 0.001 ||
-        Math.abs(targetScroll - currentScroll) > 0.001
-      ) {
-        frame = window.requestAnimationFrame(paint);
-      }
-    };
+      const showFallback = () => {
+        stageNode.dataset.videoFailed = "true";
+        renderEntry(1);
+      };
+      showEntryFallback.current = showFallback;
 
-    const schedulePaint = () => {
-      if (!frame) frame = window.requestAnimationFrame(paint);
-    };
+      const renderParallax = () => {
+        layerNodes.forEach((node, index) => {
+          const layer = layers[Number(node.dataset.parallaxIndex)];
+          if (!layer) return;
+          xSetters[index]?.(-pointerX * layer.pointerX);
+          ySetters[index]?.(-pointerY * layer.pointerY + scrollProgress * layer.scrollY);
+        });
+        brandX?.(-pointerX * 3.5);
+        brandY?.(-pointerY * 2.5 + scrollProgress * -2);
+      };
 
-    const updateScroll = () => {
-      if (reducedMotion.matches) {
-        targetScroll = 0;
-      } else {
-        const distance = Math.max(1, rootNode.offsetHeight - window.innerHeight);
-        targetScroll = Math.min(1, Math.max(0, window.scrollY / distance));
-      }
-      schedulePaint();
-    };
+      const runTransition = () => {
+        if (transitioning.current || stageNode.dataset.entered !== "true") return;
+        transitioning.current = true;
+        stageNode.dataset.transitioning = "true";
+        stageNode.setAttribute("aria-busy", "true");
 
-    const updatePointer = (event: PointerEvent) => {
-      if (!finePointer.matches || reducedMotion.matches) return;
-      targetX = (event.clientX / window.innerWidth - 0.5) * 2;
-      targetY = (event.clientY / window.innerHeight - 0.5) * 2;
-      schedulePaint();
-    };
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          navigateWithCurtain({ href: collectionHref });
+          return;
+        }
 
-    const resetPointer = () => {
-      targetX = 0;
-      targetY = 0;
-      schedulePaint();
-    };
+        const timeline = gsap.timeline({
+          defaults: { ease: "power3.inOut" },
+          onComplete: () => navigateWithCurtain({ href: collectionHref }),
+        });
+        timeline
+          .addLabel("approach")
+          .to(`.${styles.scene}`, { scale: 1.055, duration: 0.72 }, "approach")
+          .to(glowNode, { opacity: 1, scale: 1.14, duration: 0.62 }, "approach")
+          .to(promptNode, { autoAlpha: 0, duration: 0.24 }, "approach");
+      };
+      const beginTransition = contextSafe?.(runTransition) ?? runTransition;
+      enterCollection.current = beginTransition;
 
-    const resetMotion = () => {
-      if (reducedMotion.matches) {
-        targetX = 0;
-        targetY = 0;
-      }
+      const media = gsap.matchMedia();
+      media.add(
+        {
+          desktop: "(min-width: 721px) and (pointer: fine)",
+          reduceMotion: "(prefers-reduced-motion: reduce)",
+        },
+        (mediaContext) => {
+          const { desktop, reduceMotion } = mediaContext.conditions as {
+            desktop: boolean;
+            reduceMotion: boolean;
+          };
+
+          if (reduceMotion) {
+            gsap.set([brandNode, glowNode, promptNode, ...layerNodes], { autoAlpha: 1 });
+            renderEntry(1);
+            return;
+          }
+
+          gsap.set(sceneNode, { autoAlpha: 0, scale: videoTailScale });
+          gsap.set(glowNode, { opacity: 0, scale: 0.86 });
+          setEntryAvailable(false);
+
+          if (!desktop) return;
+          glowPulse = gsap.to(glowNode, {
+            opacity: 0.78,
+            scale: 1.025,
+            duration: 3.8,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            paused: true,
+          });
+
+          return () => {
+            glowPulse = null;
+          };
+        },
+        rootNode,
+      );
+
+      const updateScroll = () => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          scrollProgress = 0;
+        } else {
+          const distance = Math.max(1, rootNode.offsetHeight - window.innerHeight);
+          scrollProgress = gsap.utils.clamp(0, 1, (window.scrollY - rootNode.offsetTop) / distance);
+        }
+        const entryProgress = gsap.utils.clamp(0, 1, scrollProgress / entryScrollEnd);
+        const sceneProgress = gsap.utils.clamp(
+          0,
+          1,
+          (scrollProgress - entryScrollEnd) / (1 - entryScrollEnd),
+        );
+        if (Math.abs(entryProgress - targetEntryProgress) > 0.0001) {
+          targetEntryProgress = entryProgress;
+          entryProgressTo(entryProgress);
+        }
+        stageNode.style.setProperty(
+          "--hint-opacity",
+          String(Math.max(0, 1 - scrollProgress * 2.4)),
+        );
+        stageNode.dataset.settled = sceneEntered && sceneProgress > 0.5 ? "true" : "false";
+        scrollProgress = sceneProgress;
+        renderParallax();
+      };
+
+      const updatePointer = (event: PointerEvent) => {
+        if (
+          !sceneEntered ||
+          !window.matchMedia("(pointer: fine)").matches ||
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        )
+          return;
+        pointerX = (event.clientX / window.innerWidth - 0.5) * 2;
+        pointerY = (event.clientY / window.innerHeight - 0.5) * 2;
+        renderParallax();
+      };
+
+      const resetPointer = () => {
+        pointerX = 0;
+        pointerY = 0;
+        renderParallax();
+      };
+
+      const onWheel = createWheelBoundaryIntent({
+        atBoundary: () =>
+          sceneEntered &&
+          performance.now() >= sceneReadyAt &&
+          scrollProgress > 0.985 &&
+          window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3,
+        direction: "down",
+        onIntent: beginTransition,
+      });
+
+      const onVideoMetadata = () => {
+        videoDuration = videoNode.duration || videoDuration;
+        stageNode.dataset.videoReady = "true";
+        renderEntry(entryPlayhead.progress);
+      };
+
+      const onVideoError = () => {
+        showFallback();
+      };
+
       updateScroll();
-    };
+      videoNode.addEventListener("loadedmetadata", onVideoMetadata);
+      videoNode.addEventListener("error", onVideoError);
+      videoNode.addEventListener("seeked", onVideoSeeked);
+      if (videoNode.error || stageNode.dataset.videoFailed === "true") showFallback();
+      window.addEventListener("scroll", updateScroll, { passive: true });
+      window.addEventListener("resize", updateScroll);
+      window.addEventListener("pointermove", updatePointer, { passive: true });
+      window.addEventListener("wheel", onWheel, { passive: false, capture: true });
+      document.documentElement.addEventListener("mouseleave", resetPointer);
 
-    updateScroll();
-    window.addEventListener("scroll", updateScroll, { passive: true });
-    window.addEventListener("resize", updateScroll);
-    window.addEventListener("pointermove", updatePointer, { passive: true });
-    document.documentElement.addEventListener("mouseleave", resetPointer);
-    reducedMotion.addEventListener("change", resetMotion);
+      return () => {
+        media.revert();
+        entryProgressTo.tween.kill();
+        document.body.classList.remove("parallax-home-active");
+        videoNode.removeEventListener("loadedmetadata", onVideoMetadata);
+        videoNode.removeEventListener("error", onVideoError);
+        videoNode.removeEventListener("seeked", onVideoSeeked);
+        if (videoSeekFrame) window.cancelAnimationFrame(videoSeekFrame);
+        window.removeEventListener("scroll", updateScroll);
+        window.removeEventListener("resize", updateScroll);
+        window.removeEventListener("pointermove", updatePointer);
+        window.removeEventListener("wheel", onWheel, { capture: true });
+        document.documentElement.removeEventListener("mouseleave", resetPointer);
+        showEntryFallback.current = () => undefined;
+        enterCollection.current = () => undefined;
+      };
+    },
+    { scope: root, dependencies: [collectionHref], revertOnUpdate: true },
+  );
 
-    return () => {
-      document.body.classList.remove("parallax-home-active");
-      window.removeEventListener("scroll", updateScroll);
-      window.removeEventListener("resize", updateScroll);
-      window.removeEventListener("pointermove", updatePointer);
-      document.documentElement.removeEventListener("mouseleave", resetPointer);
-      reducedMotion.removeEventListener("change", resetMotion);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  const zh = locale === "zh";
+  const setComputerActive = (active: boolean) => {
+    if (stage.current) stage.current.dataset.computerActive = String(active);
+  };
 
   return (
     <main className={`${styles.root} parallax-home-root`} ref={root}>
@@ -159,20 +478,35 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
       <div
         aria-label={
           zh
-            ? "艺术家们围在 Canvium 笔记本电脑旁的分层视差场景"
-            : "A layered parallax scene of artists gathered around a Canvium laptop"
+            ? "镜头穿过美术馆中的画框，进入八位艺术家围坐在 Canvium 电脑旁的场景。"
+            : "The camera passes through a museum frame into a scene of eight artists gathered around a Canvium computer."
         }
         className={styles.stage}
         ref={stage}
-        role="img"
+        role="region"
         style={{ "--hint-opacity": 1 } as StageStyle}
       >
-        <div className={styles.scene}>
-          {layers.map((layer, index) => (
+        <video
+          aria-hidden="true"
+          className={styles.entryVideo}
+          muted
+          onError={() => {
+            if (stage.current) stage.current.dataset.videoFailed = "true";
+            showEntryFallback.current();
+          }}
+          playsInline
+          poster="/entrance/enter-painting-poster.png"
+          preload="auto"
+          ref={entryVideo}
+          src="/entrance/enter-painting-scrub.mp4"
+        />
+
+        <div aria-hidden="true" className={styles.scene}>
+          {layers.slice(0, 8).map((layer, index) => (
             <img
               alt=""
-              aria-hidden="true"
-              className={styles.layer}
+              className={`${styles.layer} ${styles[`depth${layer.depth}`]}`}
+              data-parallax-index={index}
               decoding="async"
               fetchPriority={index === 0 ? "high" : "auto"}
               key={layer.src}
@@ -180,21 +514,109 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
               src={layer.src}
               style={
                 {
-                  "--tx": "0px",
-                  "--ty": "0px",
-                  "--layer-scale": layer.scale,
-                  "--layer-index": index,
-                  "--layer-delay": `${40 + index * 34}ms`,
+                  "--layer-index": index === 0 ? 0 : index === 3 || index === 7 ? 14 : index + 4,
                 } as LayerStyle
               }
             />
           ))}
+
+          <div className={styles.brand}>
+            <span>CANVIUM</span>
+            <em>Gallery</em>
+          </div>
+
+          <img
+            alt=""
+            className={`${styles.layer} ${styles.chairLeft}`}
+            data-parallax-index="8"
+            decoding="async"
+            loading="eager"
+            src="/parallax/8-furniture.png"
+          />
+          <img
+            alt=""
+            className={`${styles.layer} ${styles.chairRight}`}
+            data-parallax-index="8"
+            decoding="async"
+            loading="eager"
+            src="/parallax/8-furniture.png"
+          />
+          <img
+            alt=""
+            className={`${styles.layer} ${styles.tableSurface}`}
+            data-parallax-index="8"
+            decoding="async"
+            loading="eager"
+            src="/parallax/8-furniture.png"
+          />
+
+          <div className={styles.contactShadows} data-parallax-index="8">
+            <span className={styles.shadowLeftArm} />
+            <span className={styles.shadowCenterHands} />
+            <span className={styles.shadowRightArm} />
+            <span className={styles.shadowLaptopSoft} />
+            <span className={styles.shadowLaptopContact} />
+          </div>
+
+          <img
+            alt=""
+            className={`${styles.layer} ${styles.tableFront}`}
+            data-parallax-index="8"
+            decoding="async"
+            loading="eager"
+            src="/parallax/8-furniture.png"
+          />
+          <img
+            alt=""
+            className={`${styles.layer} ${styles.laptop}`}
+            data-parallax-index="9"
+            decoding="async"
+            loading="eager"
+            src="/parallax/9-laptop.png"
+          />
+
+          <div className={styles.lightField} data-parallax-index="8">
+            <span className={styles.tableReflection} />
+            <span className={styles.computerGlow} />
+          </div>
+
+          <div className={styles.particles}>
+            {Array.from({ length: particleCount }, (_, index) => (
+              <i
+                key={index}
+                style={
+                  {
+                    "--particle-delay": `${-(index * 0.73)}s`,
+                    "--particle-duration": `${5.8 + (index % 5) * 0.8}s`,
+                    "--particle-left": `${42 + ((index * 17) % 19)}%`,
+                    "--particle-top": `${43 + ((index * 23) % 25)}%`,
+                  } as ParticleStyle
+                }
+              />
+            ))}
+          </div>
+          <span className={styles.texture} />
         </div>
 
-        <p aria-hidden="true" className={styles.hint}>
-          <span>
-            {zh ? "移动鼠标 · 向下滚动" : "Move to explore · Scroll to shift perspective"}
+        <button
+          aria-label={zh ? "进入 Canvium 数字馆藏" : "Enter the Canvium digital collection"}
+          className={styles.computerEntry}
+          disabled
+          onBlur={() => setComputerActive(false)}
+          onClick={() => enterCollection.current()}
+          onFocus={() => setComputerActive(true)}
+          onPointerEnter={() => setComputerActive(true)}
+          onPointerLeave={() => setComputerActive(false)}
+          type="button"
+        >
+          <span className={styles.entryPrompt}>
+            <b>{zh ? "进入馆藏" : "Enter collection"}</b>
+            <i aria-hidden="true">↗</i>
           </span>
+        </button>
+
+        <p aria-hidden="true" className={styles.hint}>
+          <span>{zh ? "移动鼠标 · 向下探索" : "Move to explore · Scroll to enter"}</span>
           <i />
         </p>
       </div>
