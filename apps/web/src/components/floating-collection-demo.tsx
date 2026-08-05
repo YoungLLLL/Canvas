@@ -3,9 +3,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { saveCollectionReturnState } from "@/src/components/collection-state";
 import styles from "@/src/components/floating-collection-demo.module.css";
+import { artworkKey, type CatalogSource } from "@/src/lib/catalog-source";
 import { iiifImageUrl } from "@/src/lib/iiif";
 import { catalogPageSchema, type Artwork, type CatalogPage } from "@/src/schemas/catalog";
 import { maxAccessibleSearchPage } from "@/src/schemas/routes";
@@ -18,7 +21,11 @@ const PAGE_SIZE = 12;
 const GRID_SIDE_PADDING = 32;
 const GRID_ROW_HEIGHT = 132;
 const GRID_TOP_PADDING = 44;
+const GRID_PAGE_BATCH_SIZE = 4;
 const ZOOM_WHEEL_THRESHOLD = 96;
+const VIEW_TRANSITION_EXIT_LOCK_MS = 900;
+const HOVER_EXIT_GRACE_MS = 700;
+const DETAIL_EXIT_DELAY_MS = 160;
 
 const POINTER_PARALLAX: Record<LayerName, { duration: number; x: number; y: number }> = {
   back: { duration: 1.15, x: 8, y: 6 },
@@ -37,6 +44,7 @@ type InitialCatalogPage = {
 };
 
 type DisplayArtwork = {
+  artworkKey: string;
   id: string;
   title: string;
   secondaryTitle: string | null;
@@ -107,12 +115,17 @@ function localizedTitle(artwork: Artwork, locale: "en" | "zh") {
   );
 }
 
-function toDisplayArtwork(artwork: Artwork, locale: "en" | "zh"): DisplayArtwork | null {
+function toDisplayArtwork(
+  artwork: Artwork,
+  locale: "en" | "zh",
+  source: CatalogSource,
+): DisplayArtwork | null {
   const image = artwork.images.preferred;
   if (!image) return null;
   const title = localizedTitle(artwork, locale);
   const englishTitle = artwork.display.localizedTitles.en ?? artwork.display.title;
   return {
+    artworkKey: artworkKey(source, artwork.sourceId),
     id: artwork.id,
     title,
     secondaryTitle: title === englishTitle ? null : englishTitle,
@@ -194,10 +207,14 @@ function gridMetrics(width: number, artworkCount: number) {
 
 export function FloatingCollectionDemo({
   initialPages,
+  initialViewMode = "floating",
   locale,
+  source = "artic",
 }: {
   initialPages: InitialCatalogPage[];
+  initialViewMode?: ViewMode;
   locale: "en" | "zh";
+  source?: CatalogSource;
 }) {
   const rootRef = useRef<HTMLElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -206,7 +223,7 @@ export function FloatingCollectionDemo({
   const artworkElementsRef = useRef(new Map<string, HTMLButtonElement>());
   const artworkMotionElementsRef = useRef(new Map<string, HTMLSpanElement>());
   const layoutInitializedRef = useRef(false);
-  const previousViewModeRef = useRef<ViewMode>("floating");
+  const previousViewModeRef = useRef<ViewMode>(initialViewMode);
   const transitioningRef = useRef(false);
   const zoomWheelRef = useRef(0);
   const hoverIntentTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -227,21 +244,33 @@ export function FloatingCollectionDemo({
   const suppressClickRef = useRef(false);
   const loadingPages = useRef(new Set<number>());
   const mountedRef = useRef(true);
-  const articAvailableRef = useRef(true);
+  const sourceAvailableRef = useRef(true);
+  const gridRequestInFlightRef = useRef(false);
+  const lastInitialPage = initialPages.at(-1);
+  const initialGridHasNextPage = lastInitialPage?.page.pageInfo.hasNextPage ?? false;
+  const gridNextPageNumberRef = useRef(
+    initialPages.reduce((highest, entry) => Math.max(highest, entry.pageNumber), 0) + 1,
+  );
+  const gridNextCursorRef = useRef(lastInitialPage?.page.pageInfo.nextCursor ?? null);
+  const gridHasNextPageRef = useRef(initialGridHasNextPage);
   const [pageCache, setPageCache] = useState<Map<number, CatalogPage>>(
     () => new Map(initialPages.map(({ page, pageNumber }) => [pageNumber, page])),
   );
+  const [gridLoadState, setGridLoadState] = useState<"idle" | "loading" | "error">("idle");
+  const [gridHasNextPage, setGridHasNextPage] = useState(initialGridHasNextPage);
   const [viewport, setViewport] = useState({ width: 1440, height: 900 });
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragArtworkSnapshot, setDragArtworkSnapshot] = useState<PositionedArtwork[] | null>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>("floating");
+  const [viewMode, setViewMode] = useState<ViewMode>(initialViewMode);
+  const [routeExitReady, setRouteExitReady] = useState(initialViewMode === "floating");
   const [frozenArtworks, setFrozenArtworks] = useState<PositionedArtwork[] | null>(null);
   const [hoveredInstanceKey, setHoveredInstanceKey] = useState<string | null>(null);
   const [selectedInstanceKey, setSelectedInstanceKey] = useState<string | null>(null);
   const [displayedArtwork, setDisplayedArtwork] = useState<PositionedArtwork | null>(null);
 
   useEffect(() => {
+    mountedRef.current = true;
     document.body.classList.add("floating-collection-demo-active");
     return () => {
       if (hoverIntentTimerRef.current) clearTimeout(hoverIntentTimerRef.current);
@@ -250,6 +279,12 @@ export function FloatingCollectionDemo({
       document.body.classList.remove("floating-collection-demo-active");
     };
   }, []);
+
+  useEffect(() => {
+    if (viewMode !== "floating" || routeExitReady) return;
+    const timer = window.setTimeout(() => setRouteExitReady(true), VIEW_TRANSITION_EXIT_LOCK_MS);
+    return () => window.clearTimeout(timer);
+  }, [routeExitReady, viewMode]);
 
   useEffect(() => {
     const element = viewportRef.current;
@@ -305,6 +340,7 @@ export function FloatingCollectionDemo({
   const missingPageSignature = missingPageNumbers.join(",");
 
   useEffect(() => {
+    if (viewMode === "grid") return;
     const batch = missingPageSignature
       .split(",")
       .filter(Boolean)
@@ -317,27 +353,26 @@ export function FloatingCollectionDemo({
     const load = async () => {
       const results = await Promise.all(
         batch.map(async (pageNumber) => {
-          const clevelandCursor = ((pageNumber - 1) * PAGE_SIZE) % 4800;
-          const requests = [
-            ...(articAvailableRef.current ? [`/api/catalog?page=${pageNumber}`] : []),
-            `/api/catalog?source=cleveland&cursor=${clevelandCursor}`,
-          ];
-          for (const request of requests) {
-            try {
-              const response = await fetch(request, {
-                headers: { Accept: "application/json" },
-              });
-              if (!response.ok) {
-                if (request.startsWith("/api/catalog?page=")) articAvailableRef.current = false;
-                continue;
-              }
-              const page = catalogPageSchema.parse(await response.json());
-              if (page.items.length) return { page, pageNumber };
-            } catch {
-              if (request.startsWith("/api/catalog?page=")) articAvailableRef.current = false;
+          if (!sourceAvailableRef.current || source === "europeana") return null;
+          const cursor = ((pageNumber - 1) * PAGE_SIZE) % 4800;
+          const request =
+            source === "artic"
+              ? `/api/catalog?page=${pageNumber}`
+              : `/api/catalog?source=${source}&cursor=${cursor}`;
+          try {
+            const response = await fetch(request, {
+              headers: { Accept: "application/json" },
+            });
+            if (!response.ok) {
+              sourceAvailableRef.current = false;
+              return null;
             }
+            const page = catalogPageSchema.parse(await response.json());
+            return page.items.length ? { page, pageNumber } : null;
+          } catch {
+            sourceAvailableRef.current = false;
+            return null;
           }
-          return null;
         }),
       );
       batch.forEach((pageNumber) => loadingPages.current.delete(pageNumber));
@@ -352,7 +387,7 @@ export function FloatingCollectionDemo({
     };
 
     void load();
-  }, [missingPageSignature]);
+  }, [missingPageSignature, source, viewMode]);
 
   const artworks = useMemo(() => {
     const positioned: PositionedArtwork[] = [];
@@ -382,14 +417,14 @@ export function FloatingCollectionDemo({
       page.items.slice(0, PAGE_SIZE).forEach((artwork, index) => {
         const baseSlot = SLOT_PATTERN[index];
         if (!baseSlot) return;
-        const displayArtwork = toDisplayArtwork(artwork, locale);
+        const displayArtwork = toDisplayArtwork(artwork, locale, source);
         if (!displayArtwork || usedArtworkIds.has(displayArtwork.id)) return;
         usedArtworkIds.add(displayArtwork.id);
         const slot = slotForSector(baseSlot, sector);
         positioned.push({
           ...displayArtwork,
           height: slot.height,
-          instanceKey: `${sector.key}:${artwork.id}`,
+          instanceKey: `artwork:${artwork.id}`,
           layer: slot.layer,
           width: slot.width,
           x: sector.x * SECTOR_WIDTH + slot.x,
@@ -398,18 +433,53 @@ export function FloatingCollectionDemo({
       });
     }
     return positioned;
-  }, [locale, pageCache, requiredSectors]);
+  }, [locale, pageCache, requiredSectors, source]);
 
+  const gridArtworks = useMemo(() => {
+    const positioned: PositionedArtwork[] = [];
+    const usedArtworkIds = new Set<string>();
+    const cachedPages = [...pageCache.entries()].sort(
+      ([firstPageNumber], [secondPageNumber]) => firstPageNumber - secondPageNumber,
+    );
+
+    cachedPages.forEach(([, page], pageIndex) => {
+      const sectorX = (pageIndex % 4) - 1.5;
+      const sectorY = Math.floor(pageIndex / 4);
+      page.items.slice(0, PAGE_SIZE).forEach((artwork, index) => {
+        const slot = SLOT_PATTERN[index];
+        if (!slot) return;
+        const displayArtwork = toDisplayArtwork(artwork, locale, source);
+        if (!displayArtwork || usedArtworkIds.has(displayArtwork.id)) return;
+        usedArtworkIds.add(displayArtwork.id);
+        positioned.push({
+          ...displayArtwork,
+          height: slot.height,
+          instanceKey: `artwork:${artwork.id}`,
+          layer: slot.layer,
+          width: slot.width,
+          x: sectorX * SECTOR_WIDTH + slot.x,
+          y: sectorY * SECTOR_HEIGHT + slot.y,
+        });
+      });
+    });
+
+    return positioned;
+  }, [locale, pageCache, source]);
+
+  const currentArtworks = viewMode === "grid" && !frozenArtworks ? gridArtworks : artworks;
   const renderedArtworks =
-    (isDragging ? dragArtworkSnapshot : null) ?? frozenArtworks ?? artworks;
+    (isDragging ? dragArtworkSnapshot : null) ?? frozenArtworks ?? currentArtworks;
   const renderedArtworkSignature = renderedArtworks.map((artwork) => artwork.instanceKey).join(",");
   const grid = gridMetrics(viewport.width, renderedArtworks.length);
   const activeInstanceKey =
     viewMode === "floating" ? (hoveredInstanceKey ?? selectedInstanceKey) : null;
-  const detailArtwork =
-    renderedArtworks.find((artwork) => artwork.instanceKey === activeInstanceKey) ?? null;
   const selectedArtwork =
-    renderedArtworks.find((artwork) => artwork.instanceKey === selectedInstanceKey) ?? null;
+    renderedArtworks.find((artwork) => artwork.instanceKey === selectedInstanceKey) ??
+    (displayedArtwork?.instanceKey === selectedInstanceKey ? displayedArtwork : null);
+  const detailArtwork =
+    renderedArtworks.find((artwork) => artwork.instanceKey === activeInstanceKey) ??
+    (activeInstanceKey === selectedInstanceKey ? selectedArtwork : null) ??
+    (viewMode === "floating" ? displayedArtwork : null);
 
   useGSAP(
     () => {
@@ -433,6 +503,7 @@ export function FloatingCollectionDemo({
         defaults: { duration, ease: "power3.inOut", overwrite: "auto" },
         onComplete: () => {
           transitioningRef.current = false;
+          if (frozenArtworks) setFrozenArtworks(null);
         },
       });
 
@@ -501,6 +572,7 @@ export function FloatingCollectionDemo({
       dependencies: [
         grid.cellWidth,
         grid.columns,
+        Boolean(frozenArtworks),
         renderedArtworkSignature,
         viewMode,
         viewport.height,
@@ -660,6 +732,7 @@ export function FloatingCollectionDemo({
     if (viewMode !== "floating" || !renderedArtworks.length) return;
     transitioningRef.current = true;
     zoomWheelRef.current = 0;
+    setRouteExitReady(false);
     setFrozenArtworks(renderedArtworks.slice());
     setHoveredInstanceKey(null);
     setSelectedInstanceKey(null);
@@ -670,11 +743,93 @@ export function FloatingCollectionDemo({
     if (viewMode !== "grid") return;
     transitioningRef.current = true;
     zoomWheelRef.current = 0;
-    if (anchor) setOffset({ x: -anchor.x, y: -anchor.y });
+    setRouteExitReady(false);
+    if (!frozenArtworks) setFrozenArtworks(renderedArtworks.slice());
+    if (anchor) {
+      setOffset({ x: -anchor.x, y: -anchor.y });
+      setDisplayedArtwork(anchor);
+    }
     setHoveredInstanceKey(null);
-    setSelectedInstanceKey(null);
+    setSelectedInstanceKey(anchor?.instanceKey ?? null);
     setViewMode("floating");
   };
+
+  const loadNextGridBatch = useCallback(async () => {
+    if (!gridHasNextPageRef.current || gridRequestInFlightRef.current) return;
+    gridRequestInFlightRef.current = true;
+    setGridLoadState("loading");
+
+    try {
+      const loaded: InitialCatalogPage[] = [];
+      if (source === "artic") {
+        const firstPageNumber = gridNextPageNumberRef.current;
+        const pageNumbers = Array.from(
+          { length: GRID_PAGE_BATCH_SIZE },
+          (_, index) => firstPageNumber + index,
+        );
+        const pages = await Promise.all(
+          pageNumbers.map(async (pageNumber) => {
+            const params = new URLSearchParams(window.location.search);
+            params.delete("cursor");
+            params.delete("source");
+            params.set("page", String(pageNumber));
+            const response = await fetch(`/api/catalog?${params}`, {
+              headers: { Accept: "application/json" },
+            });
+            if (!response.ok) throw new Error(`catalog page failed with ${response.status}`);
+            return { page: catalogPageSchema.parse(await response.json()), pageNumber };
+          }),
+        );
+        const terminalIndex = pages.findIndex(({ page }) => !page.pageInfo.hasNextPage);
+        loaded.push(...(terminalIndex >= 0 ? pages.slice(0, terminalIndex + 1) : pages));
+      } else {
+        let cursor = gridNextCursorRef.current;
+        for (let index = 0; index < GRID_PAGE_BATCH_SIZE && cursor; index += 1) {
+          const pageNumber = gridNextPageNumberRef.current + loaded.length;
+          const params = new URLSearchParams(window.location.search);
+          params.delete("page");
+          params.set("source", source);
+          params.set("cursor", cursor);
+          const response = await fetch(`/api/catalog?${params}`, {
+            headers: { Accept: "application/json" },
+          });
+          if (!response.ok) throw new Error(`catalog page failed with ${response.status}`);
+          const page = catalogPageSchema.parse(await response.json());
+          loaded.push({ page, pageNumber });
+          cursor = page.pageInfo.nextCursor;
+        }
+      }
+
+      if (!mountedRef.current || !loaded.length) return;
+      setPageCache((current) => {
+        const next = new Map(current);
+        loaded.forEach(({ page, pageNumber }) => next.set(pageNumber, page));
+        return next;
+      });
+      const lastLoadedPage = loaded.at(-1)!;
+      gridNextPageNumberRef.current = lastLoadedPage.pageNumber + 1;
+      gridNextCursorRef.current = lastLoadedPage.page.pageInfo.nextCursor;
+      gridHasNextPageRef.current = lastLoadedPage.page.pageInfo.hasNextPage;
+      setGridHasNextPage(gridHasNextPageRef.current);
+      setGridLoadState("idle");
+    } catch (error) {
+      console.error(error);
+      if (mountedRef.current) setGridLoadState("error");
+    } finally {
+      gridRequestInFlightRef.current = false;
+    }
+  }, [source]);
+
+  useEffect(() => {
+    if (viewMode !== "grid" || !gridHasNextPage) return;
+    const frame = window.requestAnimationFrame(() => {
+      const element = viewportRef.current;
+      if (!element) return;
+      const remaining = element.scrollHeight - element.scrollTop - element.clientHeight;
+      if (remaining <= element.clientHeight * 2) void loadNextGridBatch();
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [grid.height, gridHasNextPage, loadNextGridBatch, pageCache.size, viewMode]);
 
   const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     if (transitioningRef.current) {
@@ -693,9 +848,15 @@ export function FloatingCollectionDemo({
       return;
     }
 
-    // In the grid every wheel gesture belongs to native vertical browsing.
-    // Returning to the floating view is an explicit click on an artwork.
-    zoomWheelRef.current = 0;
+    const viewportElement = event.currentTarget;
+    if (event.deltaY >= 0 || viewportElement.scrollTop > 3) {
+      zoomWheelRef.current = 0;
+      return;
+    }
+
+    event.preventDefault();
+    zoomWheelRef.current += Math.min(-event.deltaY, ZOOM_WHEEL_THRESHOLD);
+    if (zoomWheelRef.current >= ZOOM_WHEEL_THRESHOLD) enterFloatingView();
   };
 
   const clearHoverIntent = () => {
@@ -724,16 +885,23 @@ export function FloatingCollectionDemo({
     }, 140);
   };
 
-  const leaveArtwork = (artwork: PositionedArtwork) => {
-    if (pointerArtworkRef.current === artwork.instanceKey) pointerArtworkRef.current = null;
+  const scheduleTransientArtworkClear = (delay = HOVER_EXIT_GRACE_MS) => {
+    if (!hoveredInstanceKey && !hoverIntentTimerRef.current) return;
+    pointerArtworkRef.current = null;
     clearHoverIntent();
-    clearHoverExit();
+    if (hoverExitTimerRef.current) return;
     hoverExitTimerRef.current = setTimeout(() => {
       hoverExitTimerRef.current = null;
       if (pointerArtworkRef.current || dragRef.current) return;
-      if (selectedArtwork) setDisplayedArtwork(selectedArtwork);
+      setDisplayedArtwork(selectedArtwork);
       setHoveredInstanceKey(null);
-    }, 120);
+    }, delay);
+  };
+
+  const leaveArtwork = (artwork: PositionedArtwork) => {
+    if (pointerArtworkRef.current !== artwork.instanceKey) return;
+    clearHoverExit();
+    scheduleTransientArtworkClear();
   };
 
   const beginDrag = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -749,8 +917,8 @@ export function FloatingCollectionDemo({
       currentX: offset.x,
       currentY: offset.y,
       pointerId: event.pointerId,
-      setX: gsap.quickSetter(plane, "x", "px"),
-      setY: gsap.quickSetter(plane, "y", "px"),
+      setX: gsap.quickSetter(plane, "x", "px") as (value: number) => void,
+      setY: gsap.quickSetter(plane, "y", "px") as (value: number) => void,
       startX: event.clientX,
       startY: event.clientY,
       originX: offset.x,
@@ -776,6 +944,14 @@ export function FloatingCollectionDemo({
     drag.setY(drag.currentY + (viewportRef.current?.scrollTop ?? 0));
   };
 
+  const moveAcrossViewport = (event: React.PointerEvent<HTMLDivElement>) => {
+    moveDrag(event);
+    if (viewMode !== "floating" || dragRef.current) return;
+    const target = event.target;
+    if (target instanceof Element && target.closest("[data-floating-artwork]")) return;
+    scheduleTransientArtworkClear();
+  };
+
   const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
     const drag = dragRef.current;
     if (!drag || drag.pointerId !== event.pointerId) return;
@@ -799,18 +975,65 @@ export function FloatingCollectionDemo({
     <main
       aria-label={rootLabel}
       className={`${styles.root}${viewMode === "grid" ? ` ${styles.gridMode}` : ""}`}
+      data-floating-collection-root=""
+      data-route-exit-ready={routeExitReady}
       data-view-mode={viewMode}
       ref={rootRef}
     >
+      <Link
+        aria-label={locale === "zh" ? "返回 Canvium 首页" : "Back to Canvium home"}
+        className={styles.wordmark}
+        href={`/${locale}`}
+      >
+        Canvium
+      </Link>
+
+      <div
+        aria-label={locale === "zh" ? "馆藏视图" : "Collection view"}
+        className={styles.viewSwitcher}
+        role="group"
+      >
+        <button
+          aria-label={locale === "zh" ? "悬浮视图" : "Floating view"}
+          aria-pressed={viewMode === "floating"}
+          className={viewMode === "floating" ? styles.viewSwitcherActive : undefined}
+          onClick={() => enterFloatingView()}
+          type="button"
+        >
+          <span aria-hidden="true" className={styles.viewSwitcherIcon}>
+            ◉
+          </span>
+          <span>{locale === "zh" ? "悬浮视图" : "Floating"}</span>
+        </button>
+        <button
+          aria-label={locale === "zh" ? "网格视图" : "Grid view"}
+          aria-pressed={viewMode === "grid"}
+          className={viewMode === "grid" ? styles.viewSwitcherActive : undefined}
+          onClick={enterGridView}
+          type="button"
+        >
+          <span aria-hidden="true" className={styles.viewSwitcherIcon}>
+            ▦
+          </span>
+          <span>{locale === "zh" ? "网格视图" : "Grid"}</span>
+        </button>
+      </div>
+
       <div
         className={`${styles.viewport}${isDragging ? ` ${styles.dragging}` : ""}`}
-        onScroll={() => {
-          if (viewMode === "grid") zoomWheelRef.current = 0;
+        data-collection-viewport=""
+        onScroll={(event) => {
+          if (viewMode !== "grid") return;
+          zoomWheelRef.current = 0;
+          const element = event.currentTarget;
+          const remaining = element.scrollHeight - element.scrollTop - element.clientHeight;
+          if (remaining <= element.clientHeight * 2) void loadNextGridBatch();
         }}
         onWheel={handleWheel}
         onPointerCancel={endDrag}
         onPointerDown={beginDrag}
-        onPointerMove={moveDrag}
+        onPointerLeave={() => scheduleTransientArtworkClear()}
+        onPointerMove={moveAcrossViewport}
         onPointerUp={endDrag}
         ref={viewportRef}
       >
@@ -825,6 +1048,7 @@ export function FloatingCollectionDemo({
               className={`${styles.artwork} ${styles[artwork.layer]}${
                 activeInstanceKey === artwork.instanceKey ? ` ${styles.artworkFocused}` : ""
               }`}
+              data-floating-artwork=""
               key={artwork.instanceKey}
               onBlur={() => {
                 if (viewMode !== "floating") return;
@@ -888,6 +1112,23 @@ export function FloatingCollectionDemo({
               </span>
             </button>
           ))}
+          {viewMode === "grid" ? (
+            <p aria-live="polite" className={styles.gridLoadStatus}>
+              {gridLoadState === "loading"
+                ? locale === "zh"
+                  ? "正在加载更多作品"
+                  : "Loading more artworks"
+                : gridLoadState === "error"
+                  ? locale === "zh"
+                    ? "继续滚动以重试加载"
+                    : "Keep scrolling to retry"
+                  : !gridHasNextPage
+                    ? locale === "zh"
+                      ? "已浏览全部可用作品"
+                      : "All available artworks loaded"
+                    : ""}
+            </p>
+          ) : null}
         </div>
       </div>
 
@@ -899,6 +1140,17 @@ export function FloatingCollectionDemo({
         aria-hidden={!detailArtwork}
         aria-live="polite"
         className={`${styles.detail}${detailArtwork ? ` ${styles.detailVisible}` : ""}`}
+        onPointerEnter={() => {
+          if (!detailArtwork) return;
+          pointerArtworkRef.current = detailArtwork.instanceKey;
+          clearHoverExit();
+        }}
+        onPointerLeave={() => {
+          if (!detailArtwork) return;
+          pointerArtworkRef.current = null;
+          clearHoverExit();
+          scheduleTransientArtworkClear(DETAIL_EXIT_DELAY_MS);
+        }}
       >
         <p className={styles.detailKicker}>
           {[displayedArtwork?.department, displayedArtwork?.sourceLabel]
@@ -914,6 +1166,22 @@ export function FloatingCollectionDemo({
           {[displayedArtwork?.medium, displayedArtwork?.creditLine].filter(Boolean).join(" · ")}
         </p>
         <p className={styles.detailBody}>{displayedArtwork?.description}</p>
+        {detailArtwork ? (
+          <Link
+            aria-label={
+              locale === "zh"
+                ? `进入《${detailArtwork.title}》作品对话`
+                : `Enter the conversation about ${detailArtwork.title}`
+            }
+            className={styles.chatEntry}
+            href={`/${locale}/artworks/${detailArtwork.artworkKey}`}
+            onClick={() => saveCollectionReturnState(detailArtwork.artworkKey)}
+          >
+            <span>{locale === "zh" ? "进入作品对话" : "Enter conversation"}</span>
+            <small>{locale === "zh" ? "ENTER CONVERSATION" : "与作品对话"}</small>
+            <i aria-hidden="true">↗</i>
+          </Link>
+        ) : null}
       </aside>
     </main>
   );

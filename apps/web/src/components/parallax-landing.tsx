@@ -152,16 +152,13 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
       const layerNodes = gsap.utils.toArray<HTMLElement>("[data-parallax-index]");
       const sceneNode = stageNode.querySelector<HTMLElement>(`.${styles.scene}`);
       const brandNode = stageNode.querySelector<HTMLElement>(`.${styles.brand}`);
+      const brandLockupNode = stageNode.querySelector<HTMLElement>(`.${styles.brandLockup}`);
       const glowNode = stageNode.querySelector<HTMLElement>(`.${styles.computerGlow}`);
       const promptNode = stageNode.querySelector<HTMLElement>(`.${styles.entryPrompt}`);
-      const portalNode = stageNode.querySelector<HTMLElement>(`.${styles.collectionPortal}`);
-      const portalTitleNode = stageNode.querySelector<HTMLElement>(`.${styles.portalTitle}`);
-      const portalContentNode = stageNode.querySelector<HTMLElement>(`.${styles.portalContent}`);
       const computerEntryNode = stageNode.querySelector<HTMLButtonElement>(
         `.${styles.computerEntry}`,
       );
-      if (!sceneNode || !portalNode || !portalTitleNode || !portalContentNode || !computerEntryNode)
-        return;
+      if (!sceneNode || !brandNode || !brandLockupNode || !computerEntryNode) return;
 
       let pointerX = 0;
       let pointerY = 0;
@@ -176,6 +173,8 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
       let targetEntryProgress = -1;
       let queuedVideoTime: number | null = null;
       let videoSeekFrame = 0;
+      const subjectScaleBoost = 1.035;
+      const subjectOffsetY = () => 50 + Math.min(50, window.innerHeight * 0.044);
 
       const xSetters = layerNodes.map((node) =>
         gsap.quickTo(node, "x", { duration: 0.72, ease: "power3.out" }),
@@ -183,18 +182,26 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
       const ySetters = layerNodes.map((node) =>
         gsap.quickTo(node, "y", { duration: 0.72, ease: "power3.out" }),
       );
-      const brandX = brandNode
-        ? gsap.quickTo(brandNode, "x", { duration: 0.9, ease: "power3.out" })
-        : null;
-      const brandY = brandNode
-        ? gsap.quickTo(brandNode, "y", { duration: 0.9, ease: "power3.out" })
-        : null;
+      const brandX = gsap.quickTo(brandNode, "x", { duration: 0.9, ease: "power3.out" });
+      const brandY = gsap.quickTo(brandNode, "y", { duration: 0.9, ease: "power3.out" });
 
       gsap.set(layerNodes, {
-        scale: (_, node) => layers[Number((node as HTMLElement).dataset.parallaxIndex)]?.scale ?? 1,
+        scale: (_, node) => {
+          const layerIndex = Number((node as HTMLElement).dataset.parallaxIndex);
+          const layerScale = layers[layerIndex]?.scale ?? 1;
+          return layerIndex === 0 ? layerScale : layerScale * subjectScaleBoost;
+        },
         transformOrigin: "50% 50%",
       });
       gsap.set(glowNode, { xPercent: -50, yPercent: -4 });
+
+      const brandReveal = gsap.timeline({ paused: true });
+      brandReveal.fromTo(
+        brandLockupNode,
+        { autoAlpha: 0, y: 190 },
+        { autoAlpha: 1, y: 0, duration: 1.8, ease: "power2.inOut" },
+        0.65,
+      );
 
       const setEntryAvailable = (available: boolean) => {
         computerEntryNode.disabled = !available;
@@ -251,7 +258,11 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
           gsap.set(videoNode, { autoAlpha: 0 });
           gsap.set(sceneNode, { autoAlpha: 1, scale: 1 });
           gsap.set(glowNode, { opacity: 0.72, scale: 1 });
-          if (!sceneEntered) sceneReadyAt = performance.now() + 500;
+          if (!sceneEntered) {
+            sceneReadyAt = performance.now() + 500;
+            if (reduceMotion) brandReveal.progress(1);
+            else brandReveal.restart();
+          }
           sceneEntered = true;
           setEntryAvailable(true);
           setGlowPulseActive(!reduceMotion);
@@ -285,6 +296,8 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
         if (entered !== sceneEntered) {
           sceneEntered = entered;
           sceneReadyAt = entered ? performance.now() + 700 : Number.POSITIVE_INFINITY;
+          if (entered) brandReveal.restart();
+          else brandReveal.pause(0);
           setEntryAvailable(entered);
           setGlowPulseActive(entered);
         }
@@ -304,13 +317,18 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
 
       const renderParallax = () => {
         layerNodes.forEach((node, index) => {
-          const layer = layers[Number(node.dataset.parallaxIndex)];
+          const layerIndex = Number(node.dataset.parallaxIndex);
+          const layer = layers[layerIndex];
           if (!layer) return;
           xSetters[index]?.(-pointerX * layer.pointerX);
-          ySetters[index]?.(-pointerY * layer.pointerY + scrollProgress * layer.scrollY);
+          ySetters[index]?.(
+            (layerIndex === 0 ? 0 : subjectOffsetY()) -
+              pointerY * layer.pointerY +
+              scrollProgress * layer.scrollY,
+          );
         });
-        brandX?.(-pointerX * 3.5);
-        brandY?.(-pointerY * 2.5 + scrollProgress * -2);
+        brandX(-pointerX * 3.5);
+        brandY(-pointerY * 2.5 + scrollProgress * -2);
       };
 
       const runTransition = () => {
@@ -319,38 +337,7 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
         stageNode.dataset.transitioning = "true";
         stageNode.setAttribute("aria-busy", "true");
 
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          navigateWithCurtain({ href: collectionHref });
-          return;
-        }
-
-        const timeline = gsap.timeline({
-          defaults: { ease: "power3.inOut" },
-          onComplete: () => navigateWithCurtain({ href: collectionHref }),
-        });
-        timeline
-          .set(portalNode, { autoAlpha: 0 })
-          .set(portalTitleNode, { autoAlpha: 0, scale: 1, top: "57%" })
-          .set(portalContentNode, { autoAlpha: 0, y: 28 })
-          .addLabel("commit")
-          .to(promptNode, { autoAlpha: 0, duration: 0.18 }, "commit")
-          .to(glowNode, { opacity: 1, scale: 1.18, duration: 0.54 }, "commit")
-          .to(layerNodes, { autoAlpha: 0.18, duration: 0.62 }, "commit+=0.12")
-          .addLabel("portalReveal", "commit+=0.42")
-          .to(portalNode, { autoAlpha: 1, duration: 0.28 }, "portalReveal")
-          .to(portalTitleNode, { autoAlpha: 1, duration: 0.16 }, "portalReveal+=0.02")
-          .to(
-            portalTitleNode,
-            {
-              scale: 0.26,
-              top: "9%",
-              duration: 0.74,
-              ease: "power3.inOut",
-            },
-            "portalReveal+=0.24",
-          )
-          .to(portalContentNode, { autoAlpha: 1, y: 0, duration: 0.46 }, "portalReveal+=0.42")
-          .to(portalContentNode, { opacity: 1, duration: 0.52 }, "portalReveal+=0.84");
+        navigateWithCurtain({ href: collectionHref });
       };
       const beginTransition = contextSafe?.(runTransition) ?? runTransition;
       enterCollection.current = beginTransition;
@@ -369,7 +356,7 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
           };
 
           if (reduceMotion) {
-            gsap.set([brandNode, glowNode, promptNode, ...layerNodes], { autoAlpha: 1 });
+            gsap.set([glowNode, promptNode, ...layerNodes], { autoAlpha: 1 });
             renderEntry(1);
             return;
           }
@@ -546,8 +533,12 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
           ))}
 
           <div className={styles.brand}>
-            <span>CANVIUM</span>
-            <em>Gallery</em>
+            <div className={styles.brandLockup}>
+              <div className={styles.brandType}>
+                <span>CANVIUM</span>
+                <em>Gallery</em>
+              </div>
+            </div>
           </div>
 
           <img
@@ -639,17 +630,6 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
             <i aria-hidden="true">↗</i>
           </span>
         </button>
-
-        <section aria-hidden="true" className={styles.collectionPortal}>
-          <span className={styles.portalGrain} />
-          <p className={styles.portalTitle}>Canvium</p>
-          <div className={styles.portalContent}>
-            <p>{zh ? "数字馆藏" : "DIGITAL COLLECTION"}</p>
-            <span />
-            <strong>{zh ? "精选馆藏" : "Featured collection"}</strong>
-            <small>ART INSTITUTE OF CHICAGO</small>
-          </div>
-        </section>
 
         <p aria-hidden="true" className={styles.hint}>
           <span>{zh ? "移动鼠标 · 向下探索" : "Move to explore · Scroll to enter"}</span>

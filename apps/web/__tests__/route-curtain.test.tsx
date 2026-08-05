@@ -1,7 +1,11 @@
 import { act, cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { navigateWithCurtain, RouteCurtain } from "@/src/components/route-curtain";
+import {
+  navigateWithCurtain,
+  RouteCurtain,
+  signalRouteCurtainReady,
+} from "@/src/components/route-curtain";
 
 const navigation = vi.hoisted(() => {
   const push = vi.fn();
@@ -52,6 +56,8 @@ describe("route curtain completion", () => {
 
     navigation.pathname = "/en/museums/art-institute-of-chicago/collection";
     rerender(<RouteCurtain />);
+
+    act(() => signalRouteCurtainReady());
 
     expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "100");
 

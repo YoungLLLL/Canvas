@@ -1,4 +1,4 @@
-import { getArticArtworkMetadata } from "@/src/lib/artic";
+import { getArticArtwork } from "@/src/lib/artic";
 import { getReviewedPersonaForArtwork } from "@/src/lib/persona-openings";
 import type { Artwork } from "@/src/schemas/catalog";
 
@@ -215,7 +215,7 @@ export async function resolveChatPersonaForArtwork(
   const cached = catalogPersonaCache.get(normalizedArtworkId);
   if (cached && Date.now() < cached.expiresAt) return cached.promise;
 
-  const promise = getArticArtworkMetadata(sourceId).then((artwork) => {
+  const promise = getArticArtwork(sourceId).then((artwork) => {
     if (
       !artwork ||
       !["image_displayable", "metadata_only_no_image"].includes(artwork.eligibility.status)

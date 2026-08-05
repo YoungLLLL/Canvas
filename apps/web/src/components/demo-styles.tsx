@@ -19,7 +19,6 @@ export function DemoStyles() {
         .museum-copy>p{font-size:16px!important;font-weight:400}.museum-feature span{font-size:16px!important}.official{font-size:14px!important}
         .museum-title-block>p,.museum-title-block>a,.artwork-open-pill,.artwork-hover-detail p,.artwork-hover-detail span{font-size:12px!important;line-height:1.4}
         .home-hero{--pointer-x:0;--pointer-y:0}.home-hero .daily-art{transform:translate3d(calc(var(--pointer-x) * 7px),calc(var(--pointer-y) * 5px),0);transition:transform 420ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms}.home-hero .art-history{transform:translate3d(calc(var(--pointer-x) * -4px),calc(var(--pointer-y) * -3px),0);transition:transform 480ms cubic-bezier(.2,.8,.2,1)}.home-hero .artist-entry{transform:translate3d(calc(var(--pointer-x) * -5px),calc(var(--pointer-y) * -4px),0);transition:transform 520ms cubic-bezier(.2,.8,.2,1)}
-        body:has(.demo-faithful) #siteHeader,body:has(.artwork-view) #siteHeader{opacity:0;pointer-events:none}
         .ai-unavailable{display:flex;align-items:center;overflow:auto;padding:18px 4px 14px 0}
         .ai-unavailable section{max-width:36rem;padding:18px 0;border-bottom:1px solid #d7d2ca}
         .ai-status-label{display:block;margin-bottom:12px;color:#77746f;font-size:12px;letter-spacing:.07em}

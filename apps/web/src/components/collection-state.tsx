@@ -13,6 +13,14 @@ type ReturnState = {
   scrollY: number;
 };
 
+export function saveCollectionReturnState(artworkKey: string) {
+  const collectionUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  sessionStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({ artworkKey, collectionUrl, scrollY: window.scrollY } satisfies ReturnState),
+  );
+}
+
 function readState(): ReturnState | null {
   try {
     const parsed = JSON.parse(sessionStorage.getItem(STORAGE_KEY) ?? "null") as ReturnState | null;
@@ -34,7 +42,6 @@ export function ArtworkCardLink({
   idSuffix?: string;
 }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   return (
     <Link
@@ -43,15 +50,7 @@ export function ArtworkCardLink({
       href={`/${pathname.split("/")[1]}/artworks/${artworkKey}`}
       id={`card-${artworkKey}${idSuffix}`}
       onClick={(event) => {
-        const query = searchParams.toString();
-        sessionStorage.setItem(
-          STORAGE_KEY,
-          JSON.stringify({
-            artworkKey,
-            collectionUrl: `${pathname}${query ? `?${query}` : ""}${window.location.hash}`,
-            scrollY: window.scrollY,
-          } satisfies ReturnState),
-        );
+        saveCollectionReturnState(artworkKey);
         onClick?.(event);
       }}
     >

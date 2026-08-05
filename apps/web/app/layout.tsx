@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Belleza, Cormorant_Garamond, Federo, Inter, Noto_Sans_SC } from "next/font/google";
+import {
+  Belleza,
+  Cormorant_Garamond,
+  Federo,
+  Inter,
+  Noto_Sans_SC,
+  Odor_Mean_Chey,
+} from "next/font/google";
 import "./globals.css";
 
 const displayFont = Cormorant_Garamond({
@@ -37,6 +44,13 @@ const coverGalleryFont = Federo({
   display: "swap",
 });
 
+const logoFont = Odor_Mean_Chey({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-logo",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://canvium.gallery"),
   title: {
@@ -50,7 +64,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      className={`${displayFont.variable} ${latinBodyFont.variable} ${chineseBodyFont.variable} ${coverCanviumFont.variable} ${coverGalleryFont.variable}`}
+      className={`${displayFont.variable} ${latinBodyFont.variable} ${chineseBodyFont.variable} ${coverCanviumFont.variable} ${coverGalleryFont.variable} ${logoFont.variable}`}
       lang="en"
     >
       <head>

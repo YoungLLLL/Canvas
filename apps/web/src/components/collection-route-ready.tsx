@@ -25,7 +25,13 @@ export function CollectionRouteReady({ locale }: { locale: Locale }) {
   useEffect(() => {
     router.prefetch(`/${locale}`);
     const onWheel = createWheelBoundaryIntent({
-      atBoundary: () => window.scrollY <= 3,
+      atBoundary: () => {
+        const collection = document.querySelector<HTMLElement>("[data-floating-collection-root]");
+        return (
+          collection?.dataset.viewMode === "floating" &&
+          collection.dataset.routeExitReady === "true"
+        );
+      },
       direction: "up",
       onIntent: returnToMuseum,
     });

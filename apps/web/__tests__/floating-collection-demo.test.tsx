@@ -62,7 +62,7 @@ describe("floating collection demo", () => {
       name: "安静的室内, Test Artist, 1892",
     })[0]!;
 
-    expect(container.querySelector("a")).not.toBeInTheDocument();
+    expect(container.querySelector('a[href*="/artworks/"]')).not.toBeInTheDocument();
     expect(artwork.style.getPropertyValue("--art-rotation")).toBe("");
     expect(artwork.style.height).not.toBe("");
     expect(artwork.style.opacity).toBe("1");
@@ -80,6 +80,20 @@ describe("floating collection demo", () => {
       "src",
       "https://example.com/artwork.jpg",
     );
+
+    const viewport = container.querySelector<HTMLElement>("[data-collection-viewport]")!;
+    fireEvent.pointerMove(viewport);
+    const detail = container.querySelector("aside")!;
+    fireEvent.pointerEnter(detail);
+
+    await new Promise((resolve) => setTimeout(resolve, 750));
+    expect(detail).toHaveAttribute("aria-hidden", "false");
+    expect(container.querySelector('a[href*="/artworks/"]')).toBeInTheDocument();
+
+    fireEvent.pointerLeave(detail);
+
+    await waitFor(() => expect(detail).toHaveAttribute("aria-hidden", "true"));
+    expect(container.querySelector('a[href*="/artworks/"]')).not.toBeInTheDocument();
   });
 
   it("does not open the focus view during a quick pointer pass", () => {
@@ -134,7 +148,7 @@ describe("floating collection demo", () => {
       <FloatingCollectionDemo initialPages={[{ page: initialPage, pageNumber: 1 }]} locale="zh" />,
     );
     const main = container.querySelector("main")!;
-    const viewport = main.firstElementChild!;
+    const viewport = main.querySelector<HTMLElement>("[data-collection-viewport]")!;
     const artwork = screen.getAllByRole("button", {
       name: "安静的室内, Test Artist, 1892",
     })[0]!;
@@ -149,8 +163,12 @@ describe("floating collection demo", () => {
     );
     expect(container.querySelector("aside")).toHaveAttribute("aria-hidden", "true");
 
+    Object.defineProperty(viewport, "scrollTop", {
+      configurable: true,
+      value: 600,
+      writable: true,
+    });
     fireEvent.wheel(viewport, { deltaY: -240 });
-    fireEvent.wheel(viewport, { deltaY: 240 });
 
     expect(main).toHaveAttribute("data-view-mode", "grid");
 
@@ -160,11 +178,53 @@ describe("floating collection demo", () => {
     expect(screen.getAllByRole("button")).toHaveLength(artworkCount);
   });
 
+  it("returns from the grid top with an upward gesture", () => {
+    const { container } = render(
+      <FloatingCollectionDemo
+        initialPages={[{ page: initialPage, pageNumber: 1 }]}
+        initialViewMode="grid"
+        locale="zh"
+      />,
+    );
+    const main = container.querySelector("main")!;
+    const viewport = main.querySelector<HTMLElement>("[data-collection-viewport]")!;
+
+    expect(main).toHaveAttribute("data-view-mode", "grid");
+
+    fireEvent.wheel(viewport, { deltaY: -120 });
+
+    expect(main).toHaveAttribute("data-view-mode", "floating");
+    expect(main).toHaveAttribute("data-route-exit-ready", "false");
+  });
+
+  it("switches back from deep in the grid and preserves the grid scroll position", () => {
+    const { container } = render(
+      <FloatingCollectionDemo initialPages={[{ page: initialPage, pageNumber: 1 }]} locale="zh" />,
+    );
+    const main = container.querySelector("main")!;
+    const viewport = main.querySelector<HTMLElement>("[data-collection-viewport]")!;
+
+    fireEvent.click(screen.getByRole("button", { name: "网格视图" }));
+    Object.defineProperty(viewport, "scrollTop", {
+      configurable: true,
+      value: 840,
+      writable: true,
+    });
+    fireEvent.click(screen.getByRole("button", { name: "悬浮视图" }));
+
+    expect(main).toHaveAttribute("data-view-mode", "floating");
+    expect(viewport.scrollTop).toBe(840);
+
+    fireEvent.click(screen.getByRole("button", { name: "网格视图" }));
+    expect(main).toHaveAttribute("data-view-mode", "grid");
+    expect(viewport.scrollTop).toBe(840);
+  });
+
   it("moves the artwork plane directly while dragging without replacing artworks", () => {
     const { container } = render(
       <FloatingCollectionDemo initialPages={[{ page: initialPage, pageNumber: 1 }]} locale="zh" />,
     );
-    const viewport = container.querySelector("main > div:first-child") as HTMLDivElement;
+    const viewport = container.querySelector<HTMLElement>("[data-collection-viewport]")!;
     const plane = viewport.firstElementChild as HTMLDivElement;
     const artwork = screen.getAllByRole("button", {
       name: "安静的室内, Test Artist, 1892",

@@ -118,8 +118,11 @@ describe("trackpad navigation", () => {
   });
 
   it("requires a fresh upward gesture before returning from the collection top", () => {
-    Object.defineProperty(window, "scrollY", { configurable: true, value: 0 });
-    render(<CollectionRouteReady locale="zh" />);
+    render(
+      <div data-floating-collection-root="" data-route-exit-ready="true" data-view-mode="floating">
+        <CollectionRouteReady locale="zh" />
+      </div>,
+    );
 
     now = 80;
     const arrivalMomentum = new WheelEvent("wheel", {
@@ -147,5 +150,20 @@ describe("trackpad navigation", () => {
       scroll: false,
     });
     expect(navigation.signalRouteCurtainReady).toHaveBeenCalledOnce();
+  });
+
+  it("does not leave the collection while the grid owns the wheel gesture", () => {
+    render(
+      <div data-floating-collection-root="" data-route-exit-ready="false" data-view-mode="grid">
+        <CollectionRouteReady locale="zh" />
+      </div>,
+    );
+
+    now = 500;
+    act(() => {
+      window.dispatchEvent(new WheelEvent("wheel", { cancelable: true, deltaY: -240 }));
+    });
+
+    expect(navigation.navigateWithCurtain).not.toHaveBeenCalled();
   });
 });

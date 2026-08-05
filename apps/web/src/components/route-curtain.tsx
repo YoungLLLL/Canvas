@@ -29,6 +29,7 @@ export function RouteCurtain() {
   const transitioning = useRef(false);
   const navigationStarted = useRef(false);
   const resetScrollOnNavigation = useRef(false);
+  const waitForReadySignal = useRef(false);
   const transitionStartedAt = useRef(0);
   const observedPathname = useRef(pathname);
   const [progress, setProgress] = useState(0);
@@ -74,6 +75,9 @@ export function RouteCurtain() {
       transitioning.current = true;
       navigationStarted.current = false;
       resetScrollOnNavigation.current = scroll;
+      waitForReadySignal.current = /\/museums\/[^/]+\/collection\/?$/.test(
+        new URL(href, window.location.href).pathname,
+      );
       transitionStartedAt.current = performance.now();
       setProgress(6);
       setStatus(copy.preparing);
@@ -114,6 +118,7 @@ export function RouteCurtain() {
         transitioning.current = false;
         navigationStarted.current = false;
         resetScrollOnNavigation.current = false;
+        waitForReadySignal.current = false;
         setProgress(0);
         setStatus("");
       }, 20_000);
@@ -137,6 +142,7 @@ export function RouteCurtain() {
           transitioning.current = false;
           navigationStarted.current = false;
           resetScrollOnNavigation.current = false;
+          waitForReadySignal.current = false;
           setProgress(0);
           setStatus("");
         }, 460);
@@ -167,11 +173,15 @@ export function RouteCurtain() {
     if (observedPathname.current === pathname) return;
     observedPathname.current = pathname;
     if (!resetScrollOnNavigation.current) {
-      window.dispatchEvent(new Event(routeCurtainReadyEvent));
+      if (!waitForReadySignal.current) {
+        window.dispatchEvent(new Event(routeCurtainReadyEvent));
+      }
       return;
     }
     window.scrollTo({ top: 0, behavior: "auto" });
-    window.dispatchEvent(new Event(routeCurtainReadyEvent));
+    if (!waitForReadySignal.current) {
+      window.dispatchEvent(new Event(routeCurtainReadyEvent));
+    }
     const frame = window.requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: "auto" });
     });
@@ -194,7 +204,7 @@ export function RouteCurtain() {
       >
         <path d="M0 0 Q50 22 100 0 V122 H0 Z" />
       </svg>
-      <span className="route-curtain-title">CANVIUM</span>
+      <span className="route-curtain-title">CANVIUM GALLERY</span>
       <div
         className="route-curtain-loading"
         role="progressbar"
