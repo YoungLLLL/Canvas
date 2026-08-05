@@ -154,10 +154,22 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
       const brandNode = stageNode.querySelector<HTMLElement>(`.${styles.brand}`);
       const glowNode = stageNode.querySelector<HTMLElement>(`.${styles.computerGlow}`);
       const promptNode = stageNode.querySelector<HTMLElement>(`.${styles.entryPrompt}`);
+      const laptopNode = stageNode.querySelector<HTMLElement>(`.${styles.laptop}`);
+      const portalNode = stageNode.querySelector<HTMLElement>(`.${styles.collectionPortal}`);
+      const portalTitleNode = stageNode.querySelector<HTMLElement>(`.${styles.portalTitle}`);
+      const portalContentNode = stageNode.querySelector<HTMLElement>(`.${styles.portalContent}`);
       const computerEntryNode = stageNode.querySelector<HTMLButtonElement>(
         `.${styles.computerEntry}`,
       );
-      if (!sceneNode || !computerEntryNode) return;
+      if (
+        !sceneNode ||
+        !laptopNode ||
+        !portalNode ||
+        !portalTitleNode ||
+        !portalContentNode ||
+        !computerEntryNode
+      )
+        return;
 
       let pointerX = 0;
       let pointerY = 0;
@@ -320,18 +332,46 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
           return;
         }
 
+        const sceneLayers = layerNodes.filter((node) => node !== laptopNode);
         const timeline = gsap.timeline({
           defaults: { ease: "power3.inOut" },
           onComplete: () => navigateWithCurtain({ href: collectionHref }),
         });
         timeline
-          .addLabel("approach")
-          .to(`.${styles.scene}`, { scale: 1.055, duration: 0.72 }, "approach")
-          .to(glowNode, { opacity: 1, scale: 1.14, duration: 0.62 }, "approach")
-          .to(promptNode, { autoAlpha: 0, duration: 0.24 }, "approach");
+          .set(portalNode, { autoAlpha: 0 })
+          .set(portalTitleNode, { autoAlpha: 0, scale: 1, top: "57%" })
+          .set(portalContentNode, { autoAlpha: 0, y: 28 })
+          .addLabel("commit")
+          .to(promptNode, { autoAlpha: 0, duration: 0.18 }, "commit")
+          .to(glowNode, { opacity: 1, scale: 1.18, duration: 0.54 }, "commit")
+          .to(sceneLayers, { autoAlpha: 0.18, duration: 0.82 }, "commit+=0.16")
+          .to(
+            laptopNode,
+            {
+              scale: 10.2,
+              transformOrigin: "51.5% 66.5%",
+              duration: 1.44,
+            },
+            "commit+=0.2",
+          )
+          .to(portalNode, { autoAlpha: 1, duration: 0.28 }, "commit+=1.18")
+          .to(portalTitleNode, { autoAlpha: 1, duration: 0.16 }, "commit+=1.2")
+          .to(
+            portalTitleNode,
+            {
+              scale: 0.26,
+              top: "9%",
+              duration: 0.74,
+              ease: "power3.inOut",
+            },
+            "commit+=1.42",
+          )
+          .to(portalContentNode, { autoAlpha: 1, y: 0, duration: 0.46 }, "commit+=1.6")
+          .to(portalContentNode, { opacity: 1, duration: 0.52 }, "commit+=2.02");
       };
       const beginTransition = contextSafe?.(runTransition) ?? runTransition;
       enterCollection.current = beginTransition;
+      computerEntryNode.addEventListener("click", beginTransition);
 
       const media = gsap.matchMedia();
       media.add(
@@ -374,6 +414,7 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
       );
 
       const updateScroll = () => {
+        if (transitioning.current) return;
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           scrollProgress = 0;
         } else {
@@ -461,6 +502,7 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
         window.removeEventListener("pointermove", updatePointer);
         window.removeEventListener("wheel", onWheel, { capture: true });
         document.documentElement.removeEventListener("mouseleave", resetPointer);
+        computerEntryNode.removeEventListener("click", beginTransition);
         showEntryFallback.current = () => undefined;
         enterCollection.current = () => undefined;
       };
@@ -614,6 +656,17 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
             <i aria-hidden="true">↗</i>
           </span>
         </button>
+
+        <section aria-hidden="true" className={styles.collectionPortal}>
+          <span className={styles.portalGrain} />
+          <p className={styles.portalTitle}>Canvium</p>
+          <div className={styles.portalContent}>
+            <p>{zh ? "数字馆藏" : "DIGITAL COLLECTION"}</p>
+            <span />
+            <strong>{zh ? "精选馆藏" : "Featured collection"}</strong>
+            <small>ART INSTITUTE OF CHICAGO</small>
+          </div>
+        </section>
 
         <p aria-hidden="true" className={styles.hint}>
           <span>{zh ? "移动鼠标 · 向下探索" : "Move to explore · Scroll to enter"}</span>

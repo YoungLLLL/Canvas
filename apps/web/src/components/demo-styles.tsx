@@ -255,7 +255,39 @@ export function DemoStyles() {
           .collection-result-copy h4{font-size:10px}
           .collection-load-sentinel{min-height:140px;padding:40px 0}
         }
-        @media(prefers-reduced-motion:reduce){.skeleton{animation:none}.home-hero .daily-art,.home-hero .art-history,.home-hero .artist-entry{transform:none;transition:none}.collection-tools summary,.collection-tools form{backdrop-filter:none}}
+        /* Collection v4: a spatial artwork field that can be explored in four directions. */
+        .collection-floating-stage{top:0!important;left:0!important;right:0!important;height:100%!important;min-height:0!important;display:block!important;overflow:hidden!important;z-index:1!important;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.82),transparent 48%),linear-gradient(135deg,#f7f4ee 0%,#f4f0e8 100%);cursor:grab;touch-action:none!important;user-select:none}
+        .collection-floating-stage::before{position:absolute;inset:0;background-image:radial-gradient(rgba(56,49,39,.11) .7px,transparent .7px);background-size:28px 28px;content:'';opacity:.12;pointer-events:none}
+        .collection-floating-stage.is-dragging{cursor:grabbing}
+        .collection-floating-stage .collection-marquee-track{position:absolute;top:50%;left:50%;display:block!important;width:160vw!important;min-width:1700px;height:142vh;min-height:980px;will-change:transform;transition:transform .72s cubic-bezier(.2,.8,.2,1)}
+        .collection-floating-stage.is-dragging .collection-marquee-track{transition:none}
+        .collection-floating-stage .collection-marquee-set{position:absolute;inset:0;width:100%;height:100%;display:block!important;padding:0!important}
+        .collection-floating-stage .collection-marquee-set.is-floating-clone{visibility:hidden;pointer-events:none}
+        .collection-floating-stage .artwork-marquee-item{position:absolute!important;top:var(--pos-y);left:var(--pos-x);display:block;width:calc(var(--item-height) * var(--item-ratio,1.2));height:var(--item-height);margin:0!important;opacity:.78;transform:translate(-50%,-50%) rotate(var(--item-rotate)) scale(var(--item-scale));transition:opacity .28s,transform .5s cubic-bezier(.2,.8,.2,1),filter .28s;filter:drop-shadow(0 24px 26px rgba(62,51,37,.13));z-index:2}
+        .collection-floating-stage .artwork-marquee-item.landscape{--item-height:clamp(150px,20vh,290px)}
+        .collection-floating-stage .artwork-marquee-item.portrait{--item-height:clamp(185px,27vh,370px)}
+        .collection-floating-stage .artwork-marquee-item.wide{--item-height:clamp(140px,18vh,260px)}
+        .collection-floating-stage .artwork-marquee-item.is-featured{--item-height:clamp(260px,43vh,510px);z-index:6;opacity:1;filter:drop-shadow(0 32px 34px rgba(62,51,37,.2))}
+        .collection-floating-stage .artwork-marquee-item:hover,.collection-floating-stage .artwork-marquee-item:focus-visible,.collection-floating-stage .artwork-marquee-item.selected{z-index:10;opacity:1;filter:drop-shadow(0 34px 36px rgba(62,51,37,.24));transform:translate(-50%,-50%) rotate(var(--item-rotate)) scale(calc(var(--item-scale) + .07))}
+        .collection-floating-stage .artwork-marquee-card,.collection-floating-stage .artwork-marquee-card figure{display:block;width:100%;height:100%;margin:0;position:relative}
+        .collection-floating-stage .artwork-marquee-card figure{overflow:visible!important;background:transparent!important}
+        .collection-floating-stage .artwork-marquee-item img{display:block;width:100%;height:100%;object-fit:contain;background:transparent!important;pointer-events:none}
+        .collection-floating-stage .artwork-marquee-item .artwork-open-pill{right:50%;bottom:50%;opacity:0;transform:translate(50%,50%) scale(.92);transition:opacity .22s,transform .3s cubic-bezier(.2,.8,.2,1)}
+        .collection-floating-stage .artwork-marquee-item:hover .artwork-open-pill,.collection-floating-stage .artwork-marquee-item:focus-visible .artwork-open-pill,.collection-floating-stage .artwork-marquee-item.selected .artwork-open-pill{opacity:1;transform:translate(50%,50%) scale(1)}
+        .collection-floating-stage .metadata-artwork-card,.collection-floating-stage .metadata-artwork-card figure{background:#ded9d0!important}
+        .collection-floating-cue{position:absolute;z-index:7;right:3vw;bottom:3.2vh;display:grid;gap:5px;margin:0;color:#4e4b46;font:500 12px/1.2 var(--font-body-zh),'Noto Sans SC',sans-serif;letter-spacing:.025em;pointer-events:none;text-align:right}
+        .collection-floating-cue::before{display:block;width:30px;height:1px;margin:0 0 4px auto;background:#0d0e0d;content:''}
+        .collection-floating-cue small{color:#77736c;font:500 8px/1 var(--font-body-latin),'Inter',sans-serif;letter-spacing:.09em}
+        .collection-floating-stage+.collection-floating-cue+.artwork-hover-detail{z-index:8}
+        @media(max-width:720px){
+          .collection-floating-stage .collection-marquee-track{width:220vw!important;min-width:1180px;height:155vh;min-height:920px}
+          .collection-floating-stage .artwork-marquee-item.landscape{--item-height:clamp(125px,20vh,210px)}
+          .collection-floating-stage .artwork-marquee-item.portrait{--item-height:clamp(155px,25vh,250px)}
+          .collection-floating-stage .artwork-marquee-item.wide{--item-height:clamp(115px,17vh,180px)}
+          .collection-floating-stage .artwork-marquee-item.is-featured{--item-height:clamp(220px,35vh,330px)}
+          .collection-floating-cue{right:18px;bottom:20px;font-size:11px}.collection-floating-cue small{font-size:7px}
+        }
+        @media(prefers-reduced-motion:reduce){.skeleton{animation:none}.home-hero .daily-art,.home-hero .art-history,.home-hero .artist-entry{transform:none;transition:none}.collection-tools summary,.collection-tools form{backdrop-filter:none}.collection-floating-stage .collection-marquee-track,.collection-floating-stage .artwork-marquee-item{transition:none}}
       `}</style>
     </>
   );
