@@ -28,8 +28,8 @@
   transition: opacity 320ms ease;
 }
 
-.hasSelection .viewport {
-  opacity: 0.56;
+.hasFocus .viewport {
+  opacity: 0.38;
 }
 
 .viewport.dragging {
@@ -111,7 +111,12 @@
   outline: none;
   filter: saturate(1) drop-shadow(0 28px 30px rgba(36, 31, 25, 0.18));
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1.055);
+  transform: translate(-50%, -50%);
+}
+
+.artwork.artworkFocused {
+  filter: none;
+  opacity: 0;
 }
 
 .artwork:focus-visible::after {
@@ -129,31 +134,24 @@
 .focusArtwork {
   position: fixed;
   z-index: 25;
-  top: 43%;
-  left: 50%;
+  top: 0;
+  right: 0;
+  left: 0;
   display: grid;
-  width: min(30vw, 640px);
-  height: min(55vh, 640px);
+  height: calc(100dvh - 190px);
   place-items: center;
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.96);
-  transition:
-    opacity 240ms ease,
-    transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.hasSelection .focusArtwork {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .focusArtwork img {
   display: block;
   width: auto;
-  max-width: 100%;
+  max-width: min(42vw, 760px);
   height: auto;
-  max-height: 100%;
+  max-height: min(58vh, 620px);
   object-fit: contain;
   filter: drop-shadow(0 32px 44px rgba(36, 31, 25, 0.2));
 }
@@ -217,6 +215,15 @@
   line-height: 1.35;
 }
 
+.detailFacts {
+  max-width: 720px;
+  margin: 5px auto 0;
+  color: rgba(21, 21, 20, 0.68);
+  font-family: var(--font-body-latin), var(--font-body-zh), sans-serif;
+  font-size: 0.66rem;
+  line-height: 1.4;
+}
+
 .detailBody {
   display: -webkit-box;
   max-width: 700px;
@@ -232,9 +239,12 @@
 
 @media (max-width: 720px) {
   .focusArtwork {
-    top: 40%;
-    width: 64vw;
-    height: 48vh;
+    height: calc(100dvh - 210px);
+  }
+
+  .focusArtwork img {
+    max-width: 72vw;
+    max-height: 48vh;
   }
 
   .detail {
@@ -256,7 +266,6 @@
 @media (prefers-reduced-motion: reduce) {
   .artwork,
   .detail,
-  .focusArtwork,
   .viewport {
     transition: none;
   }

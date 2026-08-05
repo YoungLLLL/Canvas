@@ -64,6 +64,26 @@ describe("floating collection demo", () => {
     expect(screen.getByRole("heading", { level: 1, name: "安静的室内" })).toBeVisible();
     expect(screen.getByText("Test Artist · 1892")).toBeVisible();
     expect(container.querySelector("aside")).toHaveAttribute("aria-hidden", "false");
+    expect(container.querySelector('main > div[aria-hidden="true"] img')).toHaveAttribute(
+      "src",
+      "https://example.com/artwork.jpg",
+    );
+  });
+
+  it("does not render the same artwork more than once across cached pages", () => {
+    render(
+      <FloatingCollectionDemo
+        initialPages={[
+          { page: initialPage, pageNumber: 1 },
+          { page: initialPage, pageNumber: 2 },
+        ]}
+        locale="zh"
+      />,
+    );
+
+    expect(screen.getAllByRole("button", { name: "安静的室内, Test Artist, 1892" })).toHaveLength(
+      1,
+    );
   });
 
   it("opens the selected artwork in the central focus area", () => {

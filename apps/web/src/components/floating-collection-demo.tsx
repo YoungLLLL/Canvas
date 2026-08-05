@@ -1,6 +1,8 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import styles from "@/src/components/floating-collection-demo.module.css";
@@ -13,6 +15,8 @@ const SECTOR_HEIGHT = 1100;
 const PREFETCH_X = SECTOR_WIDTH;
 const PREFETCH_Y = SECTOR_HEIGHT;
 const PAGE_SIZE = 12;
+
+gsap.registerPlugin(useGSAP);
 
 type LayerName = "back" | "middle" | "front";
 
@@ -173,7 +177,9 @@ export function FloatingCollectionDemo({
   initialPages: InitialCatalogPage[];
   locale: "en" | "zh";
 }) {
+  const rootRef = useRef<HTMLElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const focusArtworkRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<{
     pointerId: number;
     startX: number;
@@ -192,8 +198,9 @@ export function FloatingCollectionDemo({
   const [viewport, setViewport] = useState({ width: 1440, height: 900 });
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [hoveredInstanceKey, setHoveredInstanceKey] = useState<string | null>(null);
+  const [selectedInstanceKey, setSelectedInstanceKey] = useState<string | null>(null);
+  const [displayedArtwork, setDisplayedArtwork] = useState<PositionedArtwork | null>(null);
 
   useEffect(() => {
     document.body.classList.add("floating-collection-demo-active");
@@ -223,8 +230,8 @@ export function FloatingCollectionDemo({
   useEffect(() => {
     const clearSelection = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setHoveredId(null);
-        setSelectedId(null);
+        setHoveredInstanceKey(null);
+        setSelectedInstanceKey(null);
       }
     };
     window.addEventListener("keydown", clearSelection);
@@ -309,6 +316,7 @@ export function FloatingCollectionDemo({
   const artworks = useMemo(() => {
     const positioned: PositionedArtwork[] = [];
     const usedPageNumbers = new Set<number>();
+    const usedArtworkIds = new Set<string>();
     const cachedPages = [...pageCache.entries()].sort(
       ([firstPageNumber], [secondPageNumber]) => firstPageNumber - secondPageNumber,
     );
@@ -322,11 +330,10 @@ export function FloatingCollectionDemo({
           ...cachedPages.slice(fallbackStart),
           ...cachedPages.slice(0, fallbackStart),
         ].find(([candidatePageNumber]) => !usedPageNumbers.has(candidatePageNumber));
-        const repeatedFallback = cachedPages[fallbackStart];
         if (fallback) {
           [pageNumber, page] = fallback;
-        } else if (repeatedFallback) {
-          [pageNumber, page] = repeatedFallback;
+        } else {
+          continue;
         }
       }
       if (!page) continue;
@@ -335,7 +342,8 @@ export function FloatingCollectionDemo({
         const baseSlot = SLOT_PATTERN[index];
         if (!baseSlot) return;
         const displayArtwork = toDisplayArtwork(artwork, locale);
-        if (!displayArtwork) return;
+        if (!displayArtwork || usedArtworkIds.has(displayArtwork.id)) return;
+        usedArtworkIds.add(displayArtwork.id);
         const slot = slotForSector(baseSlot, sector);
         positioned.push({
           ...displayArtwork,
@@ -351,9 +359,56 @@ export function FloatingCollectionDemo({
     return positioned;
   }, [locale, pageCache, requiredSectors]);
 
-  const detailId = hoveredId ?? selectedId;
-  const detailArtwork = artworks.find((artwork) => artwork.id === detailId) ?? null;
-  const selectedArtwork = artworks.find((artwork) => artwork.id === selectedId) ?? null;
+  const activeInstanceKey = hoveredInstanceKey ?? selectedInstanceKey;
+  const detailArtwork =
+    artworks.find((artwork) => artwork.instanceKey === activeInstanceKey) ?? null;
+  const selectedArtwork =
+    artworks.find((artwork) => artwork.instanceKey === selectedInstanceKey) ?? null;
+
+  useGSAP(
+    () => {
+      const focusElement = focusArtworkRef.current;
+      if (!focusElement) return;
+
+      const reducedMotion =
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!activeInstanceKey || !detailArtwork) {
+        gsap.to(focusElement, {
+          autoAlpha: 0,
+          duration: reducedMotion ? 0 : 0.22,
+          ease: "power1.out",
+          overwrite: "auto",
+          scale: 0.97,
+        });
+        return;
+      }
+
+      const focusImage = focusElement.querySelector("img");
+      if (!focusImage) return;
+
+      gsap.fromTo(
+        focusElement,
+        {
+          autoAlpha: reducedMotion ? 1 : 0.2,
+          scale: reducedMotion ? 1 : 0.92,
+        },
+        {
+          autoAlpha: 1,
+          duration: reducedMotion ? 0 : 0.46,
+          ease: "power3.out",
+          overwrite: true,
+          scale: 1,
+          transformOrigin: "center center",
+        },
+      );
+    },
+    {
+      dependencies: [activeInstanceKey, detailArtwork?.instanceKey, displayedArtwork?.instanceKey],
+      revertOnUpdate: true,
+      scope: rootRef,
+    },
+  );
 
   const beginDrag = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0) return;
@@ -367,8 +422,8 @@ export function FloatingCollectionDemo({
       moved: false,
     };
     setIsDragging(true);
-    setHoveredId(null);
-    setSelectedId(null);
+    setHoveredInstanceKey(null);
+    setSelectedInstanceKey(null);
   };
 
   const moveDrag = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -393,7 +448,8 @@ export function FloatingCollectionDemo({
   return (
     <main
       aria-label={locale === "zh" ? "可拖动的多层艺术作品空间" : "Draggable layered artwork space"}
-      className={`${styles.root}${selectedArtwork ? ` ${styles.hasSelection}` : ""}`}
+      className={`${styles.root}${detailArtwork ? ` ${styles.hasFocus}` : ""}`}
+      ref={rootRef}
     >
       <div
         className={`${styles.viewport}${isDragging ? ` ${styles.dragging}` : ""}`}
@@ -416,10 +472,15 @@ export function FloatingCollectionDemo({
               .map((artwork, index) => (
                 <button
                   aria-label={`${artwork.title}, ${artwork.artist}, ${artwork.date}`}
-                  className={styles.artwork}
+                  className={`${styles.artwork}${
+                    activeInstanceKey === artwork.instanceKey ? ` ${styles.artworkFocused}` : ""
+                  }`}
                   key={artwork.instanceKey}
                   onBlur={() => {
-                    setHoveredId((current) => (current === artwork.id ? null : current));
+                    if (selectedArtwork) setDisplayedArtwork(selectedArtwork);
+                    setHoveredInstanceKey((current) =>
+                      current === artwork.instanceKey ? null : current,
+                    );
                   }}
                   onClick={(event) => {
                     if (suppressClickRef.current) {
@@ -427,15 +488,27 @@ export function FloatingCollectionDemo({
                       suppressClickRef.current = false;
                       return;
                     }
-                    setSelectedId((current) => (current === artwork.id ? null : artwork.id));
+                    setDisplayedArtwork(artwork);
+                    setSelectedInstanceKey((current) =>
+                      current === artwork.instanceKey ? null : artwork.instanceKey,
+                    );
                   }}
-                  onFocus={() => setHoveredId(artwork.id)}
+                  onFocus={() => {
+                    setDisplayedArtwork(artwork);
+                    setHoveredInstanceKey(artwork.instanceKey);
+                  }}
                   onPointerEnter={() => {
-                    if (!dragRef.current) setHoveredId(artwork.id);
+                    if (!dragRef.current) {
+                      setDisplayedArtwork(artwork);
+                      setHoveredInstanceKey(artwork.instanceKey);
+                    }
                   }}
                   onPointerLeave={() => {
                     if (!dragRef.current) {
-                      setHoveredId((current) => (current === artwork.id ? null : current));
+                      if (selectedArtwork) setDisplayedArtwork(selectedArtwork);
+                      setHoveredInstanceKey((current) =>
+                        current === artwork.instanceKey ? null : current,
+                      );
                     }
                   }}
                   style={
@@ -461,8 +534,8 @@ export function FloatingCollectionDemo({
         ))}
       </div>
 
-      <div aria-hidden="true" className={styles.focusArtwork}>
-        {selectedArtwork ? <img alt="" src={selectedArtwork.imageUrl} /> : null}
+      <div aria-hidden="true" className={styles.focusArtwork} ref={focusArtworkRef}>
+        {displayedArtwork ? <img alt="" src={displayedArtwork.imageUrl} /> : null}
       </div>
 
       <aside
@@ -471,16 +544,19 @@ export function FloatingCollectionDemo({
         className={`${styles.detail}${detailArtwork ? ` ${styles.detailVisible}` : ""}`}
       >
         <p className={styles.detailKicker}>
-          {[detailArtwork?.department, detailArtwork?.sourceLabel].filter(Boolean).join(" / ")}
+          {[displayedArtwork?.department, displayedArtwork?.sourceLabel]
+            .filter(Boolean)
+            .join(" / ")}
         </p>
-        <h1>{detailArtwork?.title}</h1>
-        {detailArtwork?.secondaryTitle ? <h2>{detailArtwork.secondaryTitle}</h2> : null}
+        <h1>{displayedArtwork?.title}</h1>
+        {displayedArtwork?.secondaryTitle ? <h2>{displayedArtwork.secondaryTitle}</h2> : null}
         <p className={styles.detailMeta}>
-          {[detailArtwork?.artist, detailArtwork?.date].filter(Boolean).join(" · ")}
+          {[displayedArtwork?.artist, displayedArtwork?.date].filter(Boolean).join(" · ")}
         </p>
-        <p className={styles.detailBody}>
-          {detailArtwork?.description || detailArtwork?.medium || detailArtwork?.creditLine}
+        <p className={styles.detailFacts}>
+          {[displayedArtwork?.medium, displayedArtwork?.creditLine].filter(Boolean).join(" · ")}
         </p>
+        <p className={styles.detailBody}>{displayedArtwork?.description}</p>
       </aside>
     </main>
   );
