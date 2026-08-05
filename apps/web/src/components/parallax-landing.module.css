@@ -198,18 +198,23 @@
   will-change: transform, opacity;
 }
 
-.brand span,
-.brand em {
-  font:
-    400 clamp(3.6rem, 9.25vw, 11rem) / 0.78 "Otomanopee One",
-    Georgia,
-    serif;
-  letter-spacing: -0.075em;
+.brand span {
+  font-family: var(--font-cover-canvium), sans-serif;
+  font-size: clamp(3.6rem, 15.625vw, 18.75rem);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -2.2px;
+  line-height: 140px;
 }
 
 .brand em {
   margin-left: 0.18em;
+  font-family: var(--font-cover-gallery), sans-serif;
+  font-size: clamp(2rem, 5.208vw, 6.25rem);
   font-style: normal;
+  font-weight: 400;
+  letter-spacing: -2.2px;
+  line-height: 140px;
 }
 
 .brand::after {
@@ -571,11 +576,6 @@
 
   .brand {
     top: 17%;
-  }
-
-  .brand span,
-  .brand em {
-    font-size: clamp(2rem, 9vw, 4rem);
   }
 
   .computerEntry {

@@ -154,21 +154,13 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
       const brandNode = stageNode.querySelector<HTMLElement>(`.${styles.brand}`);
       const glowNode = stageNode.querySelector<HTMLElement>(`.${styles.computerGlow}`);
       const promptNode = stageNode.querySelector<HTMLElement>(`.${styles.entryPrompt}`);
-      const laptopNode = stageNode.querySelector<HTMLElement>(`.${styles.laptop}`);
       const portalNode = stageNode.querySelector<HTMLElement>(`.${styles.collectionPortal}`);
       const portalTitleNode = stageNode.querySelector<HTMLElement>(`.${styles.portalTitle}`);
       const portalContentNode = stageNode.querySelector<HTMLElement>(`.${styles.portalContent}`);
       const computerEntryNode = stageNode.querySelector<HTMLButtonElement>(
         `.${styles.computerEntry}`,
       );
-      if (
-        !sceneNode ||
-        !laptopNode ||
-        !portalNode ||
-        !portalTitleNode ||
-        !portalContentNode ||
-        !computerEntryNode
-      )
+      if (!sceneNode || !portalNode || !portalTitleNode || !portalContentNode || !computerEntryNode)
         return;
 
       let pointerX = 0;
@@ -332,7 +324,6 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
           return;
         }
 
-        const sceneLayers = layerNodes.filter((node) => node !== laptopNode);
         const timeline = gsap.timeline({
           defaults: { ease: "power3.inOut" },
           onComplete: () => navigateWithCurtain({ href: collectionHref }),
@@ -344,18 +335,10 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
           .addLabel("commit")
           .to(promptNode, { autoAlpha: 0, duration: 0.18 }, "commit")
           .to(glowNode, { opacity: 1, scale: 1.18, duration: 0.54 }, "commit")
-          .to(sceneLayers, { autoAlpha: 0.18, duration: 0.82 }, "commit+=0.16")
-          .to(
-            laptopNode,
-            {
-              scale: 10.2,
-              transformOrigin: "51.5% 66.5%",
-              duration: 1.44,
-            },
-            "commit+=0.2",
-          )
-          .to(portalNode, { autoAlpha: 1, duration: 0.28 }, "commit+=1.18")
-          .to(portalTitleNode, { autoAlpha: 1, duration: 0.16 }, "commit+=1.2")
+          .to(layerNodes, { autoAlpha: 0.18, duration: 0.62 }, "commit+=0.12")
+          .addLabel("portalReveal", "commit+=0.42")
+          .to(portalNode, { autoAlpha: 1, duration: 0.28 }, "portalReveal")
+          .to(portalTitleNode, { autoAlpha: 1, duration: 0.16 }, "portalReveal+=0.02")
           .to(
             portalTitleNode,
             {
@@ -364,10 +347,10 @@ export function ParallaxLanding({ locale }: { locale: Locale }) {
               duration: 0.74,
               ease: "power3.inOut",
             },
-            "commit+=1.42",
+            "portalReveal+=0.24",
           )
-          .to(portalContentNode, { autoAlpha: 1, y: 0, duration: 0.46 }, "commit+=1.6")
-          .to(portalContentNode, { opacity: 1, duration: 0.52 }, "commit+=2.02");
+          .to(portalContentNode, { autoAlpha: 1, y: 0, duration: 0.46 }, "portalReveal+=0.42")
+          .to(portalContentNode, { opacity: 1, duration: 0.52 }, "portalReveal+=0.84");
       };
       const beginTransition = contextSafe?.(runTransition) ?? runTransition;
       enterCollection.current = beginTransition;

@@ -15,10 +15,21 @@ const SECTOR_HEIGHT = 1100;
 const PREFETCH_X = SECTOR_WIDTH;
 const PREFETCH_Y = SECTOR_HEIGHT;
 const PAGE_SIZE = 12;
+const GRID_SIDE_PADDING = 32;
+const GRID_ROW_HEIGHT = 132;
+const GRID_TOP_PADDING = 44;
+const ZOOM_WHEEL_THRESHOLD = 96;
+
+const POINTER_PARALLAX: Record<LayerName, { duration: number; x: number; y: number }> = {
+  back: { duration: 1.15, x: 8, y: 6 },
+  middle: { duration: 0.88, x: 18, y: 13 },
+  front: { duration: 0.68, x: 30, y: 21 },
+};
 
 gsap.registerPlugin(useGSAP);
 
 type LayerName = "back" | "middle" | "front";
+type ViewMode = "floating" | "grid";
 
 type InitialCatalogPage = {
   pageNumber: number;
@@ -170,6 +181,17 @@ function slotForSector(slot: Slot, sector: Sector) {
   };
 }
 
+function gridMetrics(width: number, artworkCount: number) {
+  const columns = Math.max(3, Math.min(12, Math.floor((width - GRID_SIDE_PADDING * 2) / 116)));
+  const cellWidth = (width - GRID_SIDE_PADDING * 2) / columns;
+  const rows = Math.ceil(artworkCount / columns);
+  return {
+    cellWidth,
+    columns,
+    height: Math.max(1, GRID_TOP_PADDING * 2 + rows * GRID_ROW_HEIGHT),
+  };
+}
+
 export function FloatingCollectionDemo({
   initialPages,
   locale,
@@ -179,9 +201,23 @@ export function FloatingCollectionDemo({
 }) {
   const rootRef = useRef<HTMLElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const artworkPlaneRef = useRef<HTMLDivElement>(null);
   const focusArtworkRef = useRef<HTMLDivElement>(null);
+  const artworkElementsRef = useRef(new Map<string, HTMLButtonElement>());
+  const artworkMotionElementsRef = useRef(new Map<string, HTMLSpanElement>());
+  const layoutInitializedRef = useRef(false);
+  const previousViewModeRef = useRef<ViewMode>("floating");
+  const transitioningRef = useRef(false);
+  const zoomWheelRef = useRef(0);
+  const hoverIntentTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hoverExitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pointerArtworkRef = useRef<string | null>(null);
   const dragRef = useRef<{
+    currentX: number;
+    currentY: number;
     pointerId: number;
+    setX: (value: number) => void;
+    setY: (value: number) => void;
     startX: number;
     startY: number;
     originX: number;
@@ -198,6 +234,9 @@ export function FloatingCollectionDemo({
   const [viewport, setViewport] = useState({ width: 1440, height: 900 });
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [dragArtworkSnapshot, setDragArtworkSnapshot] = useState<PositionedArtwork[] | null>(null);
+  const [viewMode, setViewMode] = useState<ViewMode>("floating");
+  const [frozenArtworks, setFrozenArtworks] = useState<PositionedArtwork[] | null>(null);
   const [hoveredInstanceKey, setHoveredInstanceKey] = useState<string | null>(null);
   const [selectedInstanceKey, setSelectedInstanceKey] = useState<string | null>(null);
   const [displayedArtwork, setDisplayedArtwork] = useState<PositionedArtwork | null>(null);
@@ -205,6 +244,8 @@ export function FloatingCollectionDemo({
   useEffect(() => {
     document.body.classList.add("floating-collection-demo-active");
     return () => {
+      if (hoverIntentTimerRef.current) clearTimeout(hoverIntentTimerRef.current);
+      if (hoverExitTimerRef.current) clearTimeout(hoverExitTimerRef.current);
       mountedRef.current = false;
       document.body.classList.remove("floating-collection-demo-active");
     };
@@ -359,11 +400,216 @@ export function FloatingCollectionDemo({
     return positioned;
   }, [locale, pageCache, requiredSectors]);
 
-  const activeInstanceKey = hoveredInstanceKey ?? selectedInstanceKey;
+  const renderedArtworks =
+    (isDragging ? dragArtworkSnapshot : null) ?? frozenArtworks ?? artworks;
+  const renderedArtworkSignature = renderedArtworks.map((artwork) => artwork.instanceKey).join(",");
+  const grid = gridMetrics(viewport.width, renderedArtworks.length);
+  const activeInstanceKey =
+    viewMode === "floating" ? (hoveredInstanceKey ?? selectedInstanceKey) : null;
   const detailArtwork =
-    artworks.find((artwork) => artwork.instanceKey === activeInstanceKey) ?? null;
+    renderedArtworks.find((artwork) => artwork.instanceKey === activeInstanceKey) ?? null;
   const selectedArtwork =
-    artworks.find((artwork) => artwork.instanceKey === selectedInstanceKey) ?? null;
+    renderedArtworks.find((artwork) => artwork.instanceKey === selectedInstanceKey) ?? null;
+
+  useGSAP(
+    () => {
+      const plane = artworkPlaneRef.current;
+      const viewportElement = viewportRef.current;
+      if (!plane || !viewportElement || !renderedArtworks.length) return;
+
+      const nodes = renderedArtworks.flatMap((artwork) => {
+        const element = artworkElementsRef.current.get(artwork.instanceKey);
+        return element ? [element] : [];
+      });
+      if (!nodes.length) return;
+
+      const reducedMotion =
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isModeTransition =
+        layoutInitializedRef.current && previousViewModeRef.current !== viewMode;
+      const duration = reducedMotion || !isModeTransition ? 0 : 0.82;
+      const timeline = gsap.timeline({
+        defaults: { duration, ease: "power3.inOut", overwrite: "auto" },
+        onComplete: () => {
+          transitioningRef.current = false;
+        },
+      });
+
+      timeline.to(
+        plane,
+        {
+          x: viewMode === "floating" ? offset.x : 0,
+          y: viewMode === "floating" ? offset.y + viewportElement.scrollTop : 0,
+        },
+        0,
+      );
+      timeline.to(
+        nodes,
+        {
+          filter: (index) => {
+            if (viewMode === "grid") {
+              return "saturate(0.94) drop-shadow(0 8px 12px rgba(36, 31, 25, 0.08))";
+            }
+            const layer = renderedArtworks[index]?.layer;
+            if (layer === "back") {
+              return "saturate(0.72) drop-shadow(0 10px 16px rgba(36, 31, 25, 0.04))";
+            }
+            if (layer === "middle") {
+              return "saturate(0.88) drop-shadow(0 14px 18px rgba(36, 31, 25, 0.08))";
+            }
+            return "saturate(1) drop-shadow(0 18px 22px rgba(36, 31, 25, 0.1))";
+          },
+          opacity: 1,
+          scale: (index) => {
+            if (viewMode === "floating") return 1;
+            const artwork = renderedArtworks[index];
+            if (!artwork) return 0.5;
+            return Math.min(0.56, (grid.cellWidth * 0.72) / artwork.width, 92 / artwork.height);
+          },
+          stagger: duration ? { amount: 0.08, from: "center" } : 0,
+          transformOrigin: "center center",
+          x: (index) => {
+            const artwork = renderedArtworks[index];
+            if (!artwork) return 0;
+            if (viewMode === "floating") return viewport.width / 2 + artwork.x;
+            const column = index % grid.columns;
+            return GRID_SIDE_PADDING + column * grid.cellWidth + grid.cellWidth / 2;
+          },
+          xPercent: -50,
+          y: (index) => {
+            const artwork = renderedArtworks[index];
+            if (!artwork) return 0;
+            if (viewMode === "floating") return viewport.height / 2 + artwork.y;
+            const row = Math.floor(index / grid.columns);
+            return GRID_TOP_PADDING + row * GRID_ROW_HEIGHT + GRID_ROW_HEIGHT / 2;
+          },
+          yPercent: -50,
+          zIndex: (index) => {
+            if (viewMode === "grid") return 1;
+            const layer = renderedArtworks[index]?.layer;
+            return layer === "back" ? 1 : layer === "middle" ? 2 : 3;
+          },
+        },
+        0,
+      );
+
+      layoutInitializedRef.current = true;
+      previousViewModeRef.current = viewMode;
+    },
+    {
+      dependencies: [
+        grid.cellWidth,
+        grid.columns,
+        renderedArtworkSignature,
+        viewMode,
+        viewport.height,
+        viewport.width,
+      ],
+      scope: rootRef,
+    },
+  );
+
+  useGSAP(
+    () => {
+      const plane = artworkPlaneRef.current;
+      const viewportElement = viewportRef.current;
+      if (!plane || viewMode !== "floating" || transitioningRef.current) return;
+      gsap.set(plane, { x: offset.x, y: offset.y + (viewportElement?.scrollTop ?? 0) });
+    },
+    { dependencies: [offset.x, offset.y, viewMode], scope: rootRef },
+  );
+
+  useGSAP(
+    () => {
+      const viewportElement = viewportRef.current;
+      if (!viewportElement) return;
+
+      const layers = (["back", "middle", "front"] as LayerName[]).map((layer) => ({
+        elements: renderedArtworks.flatMap((artwork) => {
+          if (artwork.layer !== layer) return [];
+          const element = artworkMotionElementsRef.current.get(artwork.instanceKey);
+          return element ? [element] : [];
+        }),
+        layer,
+      }));
+      const allElements = layers.flatMap(({ elements }) => elements);
+      if (!allElements.length) return;
+
+      const reducedMotion =
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const finePointer =
+        typeof window.matchMedia !== "function" || window.matchMedia("(pointer: fine)").matches;
+
+      if (viewMode !== "floating" || isDragging || reducedMotion || !finePointer) {
+        gsap.to(allElements, {
+          duration: reducedMotion ? 0 : 0.36,
+          ease: "power2.out",
+          overwrite: "auto",
+          x: 0,
+          y: 0,
+        });
+        return;
+      }
+
+      const controllers = layers.map(({ elements, layer }) => {
+        const config = POINTER_PARALLAX[layer];
+        return {
+          config,
+          xTo: gsap.quickTo(elements, "x", {
+            duration: config.duration,
+            ease: "power3.out",
+          }),
+          yTo: gsap.quickTo(elements, "y", {
+            duration: config.duration,
+            ease: "power3.out",
+          }),
+        };
+      });
+
+      const reset = () => {
+        controllers.forEach(({ xTo, yTo }) => {
+          xTo(0);
+          yTo(0);
+        });
+      };
+      const move = (event: PointerEvent) => {
+        if (transitioningRef.current || dragRef.current || event.pointerType === "touch") {
+          reset();
+          return;
+        }
+        const bounds = viewportElement.getBoundingClientRect();
+        const normalizedX = gsap.utils.clamp(
+          -1,
+          1,
+          (event.clientX - bounds.left - bounds.width / 2) / (bounds.width / 2),
+        );
+        const normalizedY = gsap.utils.clamp(
+          -1,
+          1,
+          (event.clientY - bounds.top - bounds.height / 2) / (bounds.height / 2),
+        );
+        controllers.forEach(({ config, xTo, yTo }) => {
+          xTo(-normalizedX * config.x);
+          yTo(-normalizedY * config.y);
+        });
+      };
+
+      viewportElement.addEventListener("pointerleave", reset);
+      viewportElement.addEventListener("pointermove", move, { passive: true });
+      return () => {
+        viewportElement.removeEventListener("pointerleave", reset);
+        viewportElement.removeEventListener("pointermove", move);
+        gsap.killTweensOf(allElements);
+      };
+    },
+    {
+      dependencies: [isDragging, renderedArtworkSignature, viewMode],
+      revertOnUpdate: true,
+      scope: rootRef,
+    },
+  );
 
   useGSAP(
     () => {
@@ -410,11 +656,101 @@ export function FloatingCollectionDemo({
     },
   );
 
+  const enterGridView = () => {
+    if (viewMode !== "floating" || !renderedArtworks.length) return;
+    transitioningRef.current = true;
+    zoomWheelRef.current = 0;
+    setFrozenArtworks(renderedArtworks.slice());
+    setHoveredInstanceKey(null);
+    setSelectedInstanceKey(null);
+    setViewMode("grid");
+  };
+
+  const enterFloatingView = (anchor?: PositionedArtwork | null) => {
+    if (viewMode !== "grid") return;
+    transitioningRef.current = true;
+    zoomWheelRef.current = 0;
+    if (anchor) setOffset({ x: -anchor.x, y: -anchor.y });
+    setHoveredInstanceKey(null);
+    setSelectedInstanceKey(null);
+    setViewMode("floating");
+  };
+
+  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    if (transitioningRef.current) {
+      event.preventDefault();
+      return;
+    }
+
+    if (viewMode === "floating") {
+      if (event.deltaY <= 0) {
+        zoomWheelRef.current = 0;
+        return;
+      }
+      event.preventDefault();
+      zoomWheelRef.current += Math.min(event.deltaY, ZOOM_WHEEL_THRESHOLD);
+      if (zoomWheelRef.current >= ZOOM_WHEEL_THRESHOLD) enterGridView();
+      return;
+    }
+
+    // In the grid every wheel gesture belongs to native vertical browsing.
+    // Returning to the floating view is an explicit click on an artwork.
+    zoomWheelRef.current = 0;
+  };
+
+  const clearHoverIntent = () => {
+    if (!hoverIntentTimerRef.current) return;
+    clearTimeout(hoverIntentTimerRef.current);
+    hoverIntentTimerRef.current = null;
+  };
+
+  const clearHoverExit = () => {
+    if (!hoverExitTimerRef.current) return;
+    clearTimeout(hoverExitTimerRef.current);
+    hoverExitTimerRef.current = null;
+  };
+
+  const scheduleArtworkHover = (artwork: PositionedArtwork) => {
+    if (viewMode !== "floating" || dragRef.current) return;
+    pointerArtworkRef.current = artwork.instanceKey;
+    clearHoverExit();
+    if (hoveredInstanceKey === artwork.instanceKey) return;
+    clearHoverIntent();
+    hoverIntentTimerRef.current = setTimeout(() => {
+      hoverIntentTimerRef.current = null;
+      if (pointerArtworkRef.current !== artwork.instanceKey || dragRef.current) return;
+      setDisplayedArtwork(artwork);
+      setHoveredInstanceKey(artwork.instanceKey);
+    }, 140);
+  };
+
+  const leaveArtwork = (artwork: PositionedArtwork) => {
+    if (pointerArtworkRef.current === artwork.instanceKey) pointerArtworkRef.current = null;
+    clearHoverIntent();
+    clearHoverExit();
+    hoverExitTimerRef.current = setTimeout(() => {
+      hoverExitTimerRef.current = null;
+      if (pointerArtworkRef.current || dragRef.current) return;
+      if (selectedArtwork) setDisplayedArtwork(selectedArtwork);
+      setHoveredInstanceKey(null);
+    }, 120);
+  };
+
   const beginDrag = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (event.button !== 0) return;
+    if (viewMode !== "floating" || transitioningRef.current || event.button !== 0) return;
+    const plane = artworkPlaneRef.current;
+    if (!plane) return;
+    pointerArtworkRef.current = null;
+    clearHoverIntent();
+    clearHoverExit();
     event.currentTarget.setPointerCapture(event.pointerId);
+    setDragArtworkSnapshot(renderedArtworks.slice());
     dragRef.current = {
+      currentX: offset.x,
+      currentY: offset.y,
       pointerId: event.pointerId,
+      setX: gsap.quickSetter(plane, "x", "px"),
+      setY: gsap.quickSetter(plane, "y", "px"),
       startX: event.clientX,
       startY: event.clientY,
       originX: offset.x,
@@ -434,7 +770,10 @@ export function FloatingCollectionDemo({
     if (Math.abs(deltaX) + Math.abs(deltaY) > 5) drag.moved = true;
     if (!drag.moved) return;
     event.preventDefault();
-    setOffset({ x: drag.originX + deltaX, y: drag.originY + deltaY });
+    drag.currentX = drag.originX + deltaX;
+    drag.currentY = drag.originY + deltaY;
+    drag.setX(drag.currentX);
+    drag.setY(drag.currentY + (viewportRef.current?.scrollTop ?? 0));
   };
 
   const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -442,96 +781,114 @@ export function FloatingCollectionDemo({
     if (!drag || drag.pointerId !== event.pointerId) return;
     suppressClickRef.current = drag.moved;
     dragRef.current = null;
+    if (drag.moved) setOffset({ x: drag.currentX, y: drag.currentY });
     setIsDragging(false);
+    setDragArtworkSnapshot(null);
   };
+
+  const rootLabel =
+    locale === "zh"
+      ? viewMode === "grid"
+        ? "仅含画作的纵向馆藏网格"
+        : "可拖动的多层艺术作品空间"
+      : viewMode === "grid"
+        ? "Vertical artwork-only collection grid"
+        : "Draggable layered artwork space";
 
   return (
     <main
-      aria-label={locale === "zh" ? "可拖动的多层艺术作品空间" : "Draggable layered artwork space"}
-      className={`${styles.root}${detailArtwork ? ` ${styles.hasFocus}` : ""}`}
+      aria-label={rootLabel}
+      className={`${styles.root}${viewMode === "grid" ? ` ${styles.gridMode}` : ""}`}
+      data-view-mode={viewMode}
       ref={rootRef}
     >
       <div
         className={`${styles.viewport}${isDragging ? ` ${styles.dragging}` : ""}`}
+        onScroll={() => {
+          if (viewMode === "grid") zoomWheelRef.current = 0;
+        }}
+        onWheel={handleWheel}
         onPointerCancel={endDrag}
         onPointerDown={beginDrag}
         onPointerMove={moveDrag}
         onPointerUp={endDrag}
         ref={viewportRef}
       >
-        {(["back", "middle", "front"] as LayerName[]).map((layer) => (
-          <div
-            className={`${styles.layer} ${styles[layer]}`}
-            key={layer}
-            style={{
-              transform: `translate3d(${offset.x * layerSpeed[layer]}px, ${offset.y * layerSpeed[layer]}px, 0)`,
-            }}
-          >
-            {artworks
-              .filter((artwork) => artwork.layer === layer)
-              .map((artwork, index) => (
-                <button
-                  aria-label={`${artwork.title}, ${artwork.artist}, ${artwork.date}`}
-                  className={`${styles.artwork}${
-                    activeInstanceKey === artwork.instanceKey ? ` ${styles.artworkFocused}` : ""
-                  }`}
-                  key={artwork.instanceKey}
-                  onBlur={() => {
-                    if (selectedArtwork) setDisplayedArtwork(selectedArtwork);
-                    setHoveredInstanceKey((current) =>
-                      current === artwork.instanceKey ? null : current,
-                    );
-                  }}
-                  onClick={(event) => {
-                    if (suppressClickRef.current) {
-                      event.preventDefault();
-                      suppressClickRef.current = false;
-                      return;
-                    }
-                    setDisplayedArtwork(artwork);
-                    setSelectedInstanceKey((current) =>
-                      current === artwork.instanceKey ? null : artwork.instanceKey,
-                    );
-                  }}
-                  onFocus={() => {
-                    setDisplayedArtwork(artwork);
-                    setHoveredInstanceKey(artwork.instanceKey);
-                  }}
-                  onPointerEnter={() => {
-                    if (!dragRef.current) {
-                      setDisplayedArtwork(artwork);
-                      setHoveredInstanceKey(artwork.instanceKey);
-                    }
-                  }}
-                  onPointerLeave={() => {
-                    if (!dragRef.current) {
-                      if (selectedArtwork) setDisplayedArtwork(selectedArtwork);
-                      setHoveredInstanceKey((current) =>
-                        current === artwork.instanceKey ? null : current,
-                      );
-                    }
-                  }}
-                  style={
-                    {
-                      "--art-height": `${artwork.height}px`,
-                      "--art-width": `${artwork.width}px`,
-                      "--art-x": `${artwork.x}px`,
-                      "--art-y": `${artwork.y}px`,
-                    } as React.CSSProperties
+        <div
+          className={styles.artworkPlane}
+          ref={artworkPlaneRef}
+          style={{ height: viewMode === "grid" ? `${grid.height}px` : "100%" }}
+        >
+          {renderedArtworks.map((artwork, index) => (
+            <button
+              aria-label={`${artwork.title}, ${artwork.artist}, ${artwork.date}`}
+              className={`${styles.artwork} ${styles[artwork.layer]}${
+                activeInstanceKey === artwork.instanceKey ? ` ${styles.artworkFocused}` : ""
+              }`}
+              key={artwork.instanceKey}
+              onBlur={() => {
+                if (viewMode !== "floating") return;
+                if (selectedArtwork) setDisplayedArtwork(selectedArtwork);
+                setHoveredInstanceKey((current) =>
+                  current === artwork.instanceKey ? null : current,
+                );
+              }}
+              onClick={(event) => {
+                if (viewMode === "grid") {
+                  enterFloatingView(artwork);
+                  return;
+                }
+                if (suppressClickRef.current) {
+                  event.preventDefault();
+                  suppressClickRef.current = false;
+                  return;
+                }
+                setDisplayedArtwork(artwork);
+                setSelectedInstanceKey((current) =>
+                  current === artwork.instanceKey ? null : artwork.instanceKey,
+                );
+              }}
+              onFocus={() => {
+                if (viewMode !== "floating") return;
+                setDisplayedArtwork(artwork);
+                setHoveredInstanceKey(artwork.instanceKey);
+              }}
+              onPointerEnter={() => scheduleArtworkHover(artwork)}
+              onPointerMove={() => scheduleArtworkHover(artwork)}
+              onPointerLeave={() => {
+                if (viewMode === "floating") leaveArtwork(artwork);
+              }}
+              ref={(element) => {
+                if (element) artworkElementsRef.current.set(artwork.instanceKey, element);
+                else artworkElementsRef.current.delete(artwork.instanceKey);
+              }}
+              style={{ height: `${artwork.height}px`, width: `${artwork.width}px` }}
+              type="button"
+            >
+              <span
+                className={styles.artworkMotion}
+                data-parallax-layer={artwork.layer}
+                ref={(element) => {
+                  if (element) {
+                    artworkMotionElementsRef.current.set(artwork.instanceKey, element);
+                  } else {
+                    artworkMotionElementsRef.current.delete(artwork.instanceKey);
                   }
-                  type="button"
-                >
+                }}
+              >
+                <span className={styles.artworkFrame}>
                   <img
                     alt=""
                     decoding="async"
                     draggable={false}
-                    loading={layer === "front" && index < 8 ? "eager" : "lazy"}
+                    loading={artwork.layer === "front" && index < 8 ? "eager" : "lazy"}
                     src={artwork.imageUrl}
                   />
-                </button>
-              ))}
-          </div>
-        ))}
+                </span>
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
 
       <div aria-hidden="true" className={styles.focusArtwork} ref={focusArtworkRef}>

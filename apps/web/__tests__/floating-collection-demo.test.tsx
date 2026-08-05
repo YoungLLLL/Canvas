@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { FloatingCollectionDemo } from "@/src/components/floating-collection-demo";
@@ -39,6 +39,14 @@ const initialPage = {
 describe("floating collection demo", () => {
   beforeEach(() => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false }));
+    vi.stubGlobal(
+      "matchMedia",
+      vi.fn().mockReturnValue({
+        addEventListener: vi.fn(),
+        matches: true,
+        removeEventListener: vi.fn(),
+      }),
+    );
   });
 
   afterEach(() => {
@@ -46,7 +54,7 @@ describe("floating collection demo", () => {
     vi.unstubAllGlobals();
   });
 
-  it("shows artwork details at the bottom on hover without linking away", () => {
+  it("shows artwork details after the pointer settles without linking away", async () => {
     const { container } = render(
       <FloatingCollectionDemo initialPages={[{ page: initialPage, pageNumber: 1 }]} locale="zh" />,
     );
@@ -56,18 +64,37 @@ describe("floating collection demo", () => {
 
     expect(container.querySelector("a")).not.toBeInTheDocument();
     expect(artwork.style.getPropertyValue("--art-rotation")).toBe("");
-    expect(artwork.style.getPropertyValue("--art-height")).not.toBe("");
+    expect(artwork.style.height).not.toBe("");
+    expect(artwork.style.opacity).toBe("1");
+    expect(artwork.querySelector('[data-parallax-layer="middle"]')).toBeInTheDocument();
     expect(container.querySelector("aside")).toHaveAttribute("aria-hidden", "true");
 
     fireEvent.pointerEnter(artwork);
 
-    expect(screen.getByRole("heading", { level: 1, name: "安静的室内" })).toBeVisible();
+    await waitFor(() =>
+      expect(screen.getByRole("heading", { level: 1, name: "安静的室内" })).toBeVisible(),
+    );
     expect(screen.getByText("Test Artist · 1892")).toBeVisible();
     expect(container.querySelector("aside")).toHaveAttribute("aria-hidden", "false");
     expect(container.querySelector('main > div[aria-hidden="true"] img')).toHaveAttribute(
       "src",
       "https://example.com/artwork.jpg",
     );
+  });
+
+  it("does not open the focus view during a quick pointer pass", () => {
+    const { container } = render(
+      <FloatingCollectionDemo initialPages={[{ page: initialPage, pageNumber: 1 }]} locale="zh" />,
+    );
+    const artwork = screen.getAllByRole("button", {
+      name: "安静的室内, Test Artist, 1892",
+    })[0]!;
+
+    fireEvent.pointerEnter(artwork);
+    fireEvent.pointerMove(artwork);
+    fireEvent.pointerLeave(artwork);
+
+    expect(container.querySelector("aside")).toHaveAttribute("aria-hidden", "true");
   });
 
   it("does not render the same artwork more than once across cached pages", () => {
@@ -100,5 +127,59 @@ describe("floating collection demo", () => {
       "src",
       "https://example.com/artwork.jpg",
     );
+  });
+
+  it("keeps the same artwork set while switching to the image-only grid and back", () => {
+    const { container } = render(
+      <FloatingCollectionDemo initialPages={[{ page: initialPage, pageNumber: 1 }]} locale="zh" />,
+    );
+    const main = container.querySelector("main")!;
+    const viewport = main.firstElementChild!;
+    const artwork = screen.getAllByRole("button", {
+      name: "安静的室内, Test Artist, 1892",
+    })[0]!;
+    const artworkCount = screen.getAllByRole("button").length;
+
+    fireEvent.wheel(viewport, { deltaY: 120 });
+
+    expect(main).toHaveAttribute("data-view-mode", "grid");
+    expect(screen.getAllByRole("button")).toHaveLength(artworkCount);
+    expect(screen.getAllByRole("button", { name: "安静的室内, Test Artist, 1892" })[0]).toBe(
+      artwork,
+    );
+    expect(container.querySelector("aside")).toHaveAttribute("aria-hidden", "true");
+
+    fireEvent.wheel(viewport, { deltaY: -240 });
+    fireEvent.wheel(viewport, { deltaY: 240 });
+
+    expect(main).toHaveAttribute("data-view-mode", "grid");
+
+    fireEvent.click(artwork);
+
+    expect(main).toHaveAttribute("data-view-mode", "floating");
+    expect(screen.getAllByRole("button")).toHaveLength(artworkCount);
+  });
+
+  it("moves the artwork plane directly while dragging without replacing artworks", () => {
+    const { container } = render(
+      <FloatingCollectionDemo initialPages={[{ page: initialPage, pageNumber: 1 }]} locale="zh" />,
+    );
+    const viewport = container.querySelector("main > div:first-child") as HTMLDivElement;
+    const plane = viewport.firstElementChild as HTMLDivElement;
+    const artwork = screen.getAllByRole("button", {
+      name: "安静的室内, Test Artist, 1892",
+    })[0]!;
+    const initialTransform = plane.style.transform;
+    Object.defineProperty(viewport, "setPointerCapture", { value: vi.fn() });
+
+    fireEvent.pointerDown(viewport, { button: 0, clientX: 600, clientY: 400, pointerId: 7 });
+    fireEvent.pointerMove(viewport, { clientX: 240, clientY: 160, pointerId: 7 });
+
+    expect(plane.style.transform).not.toBe(initialTransform);
+    expect(screen.getAllByRole("button", { name: "安静的室内, Test Artist, 1892" })[0]).toBe(
+      artwork,
+    );
+
+    fireEvent.pointerUp(viewport, { pointerId: 7 });
   });
 });
