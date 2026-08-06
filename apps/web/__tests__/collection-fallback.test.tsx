@@ -26,16 +26,32 @@ const catalogPage = {
   pageInfo: { totalEligible: 100, hasNextPage: true, nextCursor: null },
 } as unknown as CatalogPage;
 
-describe("collection page fallback", () => {
+describe("collection page initial load", () => {
   beforeEach(() => getCatalogCollection.mockReset());
 
-  it("keeps successful preload pages when one museum request fails", async () => {
-    let requestNumber = 0;
-    getCatalogCollection.mockImplementation(() =>
-      ++requestNumber === 2
-        ? Promise.reject(new TypeError("fetch failed"))
-        : Promise.resolve(catalogPage),
+  it("only blocks navigation on the first two catalog pages", async () => {
+    getCatalogCollection.mockResolvedValue(catalogPage);
+
+    const page = await CollectionPage({
+      params: Promise.resolve({
+        locale: "zh",
+        museumSlug: "art-institute-of-chicago",
+      }),
+      searchParams: Promise.resolve({}),
+    });
+    render(page);
+
+    expect(screen.getByText("loaded pages: 2")).toBeInTheDocument();
+    expect(getCatalogCollection).toHaveBeenCalledTimes(2);
+    expect(getCatalogCollection.mock.calls.map(([, query]) => query.page)).toEqual(
+      expect.arrayContaining([1, 2]),
     );
+  });
+
+  it("keeps the successful page when the other initial request fails", async () => {
+    getCatalogCollection
+      .mockResolvedValueOnce(catalogPage)
+      .mockRejectedValueOnce(new TypeError("fetch failed"));
     const consoleError = vi.spyOn(console, "error").mockImplementation(() => undefined);
 
     const page = await CollectionPage({
@@ -47,7 +63,7 @@ describe("collection page fallback", () => {
     });
     render(page);
 
-    expect(screen.getByText("loaded pages: 13")).toBeInTheDocument();
+    expect(screen.getByText("loaded pages: 1")).toBeInTheDocument();
     expect(consoleError).toHaveBeenCalledOnce();
     consoleError.mockRestore();
   });

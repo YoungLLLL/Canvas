@@ -9,7 +9,7 @@ import { sourceForMuseumSlug } from "@/src/lib/catalog-source";
 import { museumById } from "@/src/lib/museum-directory";
 import { collectionQuerySchema, museumSlugSchema } from "@/src/schemas/routes";
 
-export const dynamic = "force-dynamic";
+const initialPageCount = 2;
 
 export async function generateMetadata({
   params,
@@ -43,7 +43,7 @@ export default async function CollectionPage({
 
   if (source === "artic") {
     const results = await Promise.allSettled(
-      Array.from({ length: 14 }, (_, index) => index + 1).map(async (pageNumber) => ({
+      Array.from({ length: initialPageCount }, (_, index) => index + 1).map(async (pageNumber) => ({
         page: await getCatalogCollection(source, { ...query, page: pageNumber }),
         pageNumber,
       })),
@@ -58,9 +58,9 @@ export default async function CollectionPage({
     if (!initialPages.length && failures[0]) throw failures[0].reason;
   } else {
     let cursor: string | undefined;
-    for (let pageNumber = 1; pageNumber <= 14; pageNumber += 1) {
+    for (let pageNumber = 1; pageNumber <= initialPageCount; pageNumber += 1) {
       try {
-        const page = await getCatalogCollection(source, query, cursor);
+        const page = await getCatalogCollection(source, { ...query, page: pageNumber }, cursor);
         initialPages.push({ page, pageNumber });
         cursor = page.pageInfo.nextCursor ?? undefined;
         if (!cursor) break;
