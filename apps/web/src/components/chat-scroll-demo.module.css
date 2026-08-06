@@ -1,0 +1,689 @@
+@font-face {
+  font-family: "Canvium Khyay";
+  src:
+    url("/fonts/myanmar-khyay.ttf") format("truetype"),
+    local("Khyay"),
+    local("Myanmar Khyay");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.loadingPage {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 67% 45%, rgba(110, 170, 160, 0.28), transparent 26%),
+    linear-gradient(135deg, #183534, #091615 68%);
+  color: white;
+  font-family: "Canvium Khyay", Khyay, "Myanmar Khyay", sans-serif;
+}
+
+.loadingArtwork {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.04), transparent 35%),
+    repeating-radial-gradient(
+      ellipse at 65% 52%,
+      rgba(111, 178, 162, 0.08) 0 18px,
+      transparent 20px 42px
+    );
+  animation: loadingBreathe 1.8s ease-in-out infinite alternate;
+}
+
+.loadingWordmark {
+  position: fixed;
+  z-index: 2;
+  top: clamp(14px, 2.4vw, 32px);
+  left: clamp(16px, 2.3vw, 36px);
+  font-family: var(--font-logo), var(--font-body-latin), sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  letter-spacing: -0.06em;
+}
+
+.loadingCaption {
+  position: fixed;
+  bottom: clamp(22px, 3.5vw, 42px);
+  left: clamp(20px, 2.5vw, 40px);
+  display: grid;
+  width: min(330px, calc(100vw - 80px));
+  gap: 6px;
+}
+
+.loadingCaption i {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.loadingCaption i:nth-child(2) {
+  width: 72%;
+}
+
+.loadingCaption i:nth-child(3) {
+  width: 54%;
+}
+
+.loadingCaption i:nth-child(4) {
+  width: 88%;
+}
+
+.page {
+  --white: rgba(255, 255, 255, 0.94);
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #0d1717;
+  color: var(--white);
+  font-family:
+    "Canvium Khyay", Khyay, "Myanmar Khyay", var(--font-body-zh), var(--font-body-latin), sans-serif;
+}
+
+.artworkCanvas {
+  position: relative;
+  min-height: 100svh;
+  background: #0d1717;
+}
+
+.artworkImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.artworkUnavailable {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 40px;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-body-zh), var(--font-body-latin), sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.artworkWash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 16, 17, 0.2),
+      transparent 20%,
+      transparent 67%,
+      rgba(4, 13, 14, 0.42)
+    ),
+    linear-gradient(90deg, rgba(4, 15, 16, 0.18), transparent 38%);
+}
+
+.topBar,
+.chatDock,
+.artworkCaption {
+  position: fixed;
+  z-index: 4;
+}
+
+.galleryExit {
+  position: fixed;
+  z-index: 6;
+  top: clamp(16px, 2.4vw, 32px);
+  right: clamp(16px, 2.3vw, 36px);
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 50%;
+  background: rgba(7, 14, 14, 0.48);
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.galleryExit:hover {
+  background: rgba(7, 14, 14, 0.72);
+  transform: translateY(-1px);
+}
+
+.topBar {
+  top: clamp(14px, 2.4vw, 32px);
+  left: clamp(16px, 2.3vw, 36px);
+}
+
+.wordmark {
+  color: white;
+  font-family: var(--font-logo), var(--font-body-latin), sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  letter-spacing: -0.06em;
+  text-decoration: none;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
+}
+
+.chatDock {
+  z-index: 5;
+  top: clamp(86px, 15vh, 178px);
+  left: clamp(20px, 3.2vw, 50px);
+  width: min(410px, calc(100vw - 40px));
+}
+
+.chatShell {
+  position: relative;
+  width: clamp(220px, 17.2vw, 260px);
+  height: 76px;
+  transition:
+    width 680ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 680ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.chatShellOpen {
+  width: 100%;
+  height: min(600px, calc(100dvh - clamp(86px, 15vh, 178px) - 154px));
+}
+
+.chatSurface {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247, 255, 252, 0.3) 0%,
+      rgba(225, 237, 234, 0.2) 24%,
+      rgba(112, 136, 134, 0.22) 68%,
+      rgba(170, 207, 211, 0.2) 100%
+    ),
+    rgba(142, 159, 156, 0.5);
+  box-shadow:
+    0 18px 32px rgba(7, 24, 25, 0.18),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.8),
+    inset -1px -1px 0 rgba(72, 180, 198, 0.34),
+    inset 0 0 32px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(92%) brightness(1.03);
+  -webkit-backdrop-filter: blur(12px) saturate(92%) brightness(1.03);
+  transition:
+    border-radius 680ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 420ms ease,
+    box-shadow 420ms ease;
+}
+
+.chatShellOpen .chatSurface {
+  overflow: visible;
+  border-radius: 38px;
+}
+
+.chatTitle:focus-visible,
+.composer button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+.chatSurface::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 22%,
+    rgba(255, 255, 255, 0.24) 46%,
+    transparent 67%
+  );
+  content: "";
+  transform: translateX(-125%);
+  animation: glassSweep 5.5s ease-in-out infinite;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.chatShellOpen .chatSurface::after {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+.squareArrow {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 29px;
+  height: 29px;
+  flex: 0 0 29px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.chatTitle > span:last-child {
+  position: relative;
+  z-index: 1;
+}
+
+.chatBody {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  grid-template-rows: minmax(0, 1fr) auto;
+  padding: 0 20px 16px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition:
+    opacity 220ms ease,
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 520ms;
+}
+
+.chatShellOpen .chatBody {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: 150ms, 100ms, 0s;
+}
+
+.glassGlow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(255, 255, 255, 0.08) 24%,
+      transparent 44%
+    ),
+    linear-gradient(315deg, rgba(69, 184, 202, 0.15), transparent 29%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.chatHeader,
+.chatBody,
+.messageFeed,
+.composer {
+  position: relative;
+  z-index: 2;
+}
+
+.chatHeader {
+  display: flex;
+  height: 76px;
+  flex: 0 0 76px;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.chatTitle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.chatTitle .squareArrow {
+  width: 38px;
+  height: 38px;
+  flex-basis: 38px;
+  stroke-width: 2.8;
+}
+
+.messageFeed {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 8px 20px;
+  scroll-behavior: smooth;
+  scrollbar-color: rgba(255, 255, 255, 0.45) transparent;
+  scrollbar-width: thin;
+}
+
+.message {
+  display: block;
+  margin: 0 0 30px;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.message p {
+  margin: 0;
+}
+
+.message .chineseMessage {
+  margin-top: 30px;
+}
+
+.annotationMarker {
+  display: inline-grid;
+  width: 16px;
+  height: 16px;
+  margin: 0 3px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  background: #050606;
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-body-latin), sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: 0.36em;
+}
+
+.annotationAnchor {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.annotationPopover {
+  position: fixed;
+  z-index: 5;
+  display: grid;
+  width: min(300px, calc(100vw - 24px));
+  max-height: min(220px, calc(100vh - 24px));
+  overflow-y: auto;
+  gap: 5px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(8, 12, 12, 0.92);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-body-zh), var(--font-body-latin), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.annotationPopover strong {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.annotationPopover a {
+  color: white;
+  font-size: 0.74rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.messageMarker {
+  display: inline;
+  margin-right: 8px;
+  color: #060807;
+  font-size: 0.92em;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.userMessage {
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.assistantMessage + .assistantMessage {
+  margin-top: 0;
+}
+
+.replying {
+  display: flex;
+  gap: 5px;
+  padding: 10px 0 18px 39px;
+}
+
+.replying span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+  animation: dotPulse 900ms ease-in-out infinite;
+}
+
+.replying span:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.replying span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px;
+  gap: 4px;
+  min-height: 50px;
+  padding: 2px 5px 2px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 20px rgba(0, 22, 22, 0.12);
+}
+
+.composer input {
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #182422;
+  font-size: 0.96rem;
+}
+
+.composer input::placeholder {
+  color: rgba(24, 36, 34, 0.57);
+}
+
+.composer button {
+  display: grid;
+  width: 48px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  color: #050606;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.composer button .squareArrow {
+  width: 37px;
+  height: 37px;
+  flex-basis: 37px;
+  stroke-width: 2.9;
+  transform: rotate(-90deg);
+}
+
+.composer button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.composer button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.chatError {
+  margin: 8px 8px 0;
+  color: rgba(255, 238, 232, 0.94);
+  font-family: var(--font-body-zh), var(--font-body-latin), sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.artworkCaption {
+  left: clamp(20px, 2.5vw, 40px);
+  bottom: clamp(22px, 3.5vw, 42px);
+  max-width: min(610px, calc(100vw - 120px));
+  color: white;
+  font-size: clamp(0.78rem, 1.05vw, 1rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.32);
+  text-transform: none;
+  transition:
+    opacity 260ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.captionLine {
+  white-space: nowrap;
+}
+
+.captionLine span,
+.artistLine span:last-child {
+  margin-left: 5px;
+  font-size: 0.92em;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.artistLine {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-bottom: 9px;
+}
+
+.artistLine em {
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.07em;
+}
+
+.artistLine span {
+  font-size: clamp(1rem, 1.55vw, 1.35rem);
+}
+
+@keyframes glassSweep {
+  0%,
+  20% {
+    transform: translateX(-125%);
+  }
+  65%,
+  100% {
+    transform: translateX(125%);
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes loadingBreathe {
+  from {
+    opacity: 0.62;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.025);
+  }
+}
+
+@media (max-width: 600px) {
+  .topBar {
+    top: 16px;
+    left: 18px;
+  }
+
+  .chatDock {
+    top: 74px;
+    left: 18px;
+    width: min(410px, calc(100vw - 36px));
+  }
+
+  .chatShell {
+    width: min(220px, calc(100vw - 36px));
+    height: 64px;
+  }
+
+  .chatShellOpen {
+    width: 100%;
+    height: min(600px, calc(100dvh - 224px));
+  }
+
+  .chatShellOpen .chatSurface {
+    border-radius: 32px;
+  }
+
+  .chatHeader {
+    height: 64px;
+    flex-basis: 64px;
+    padding: 0 18px;
+  }
+
+  .chatBody {
+    padding: 0 14px 14px;
+  }
+
+  .artworkCaption {
+    right: 18px;
+    bottom: 22px;
+    left: 22px;
+    max-width: none;
+    font-size: 0.78rem;
+  }
+
+  .artistLine em {
+    font-size: 1.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chatSurface::after,
+  .chatBody,
+  .loadingArtwork,
+  .replying span {
+    animation: none;
+    transition: none;
+  }
+}

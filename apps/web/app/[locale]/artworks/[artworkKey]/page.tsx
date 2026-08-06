@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { ChatPrototype } from "@/src/components/chat-prototype";
+import { ChatScrollDemo } from "@/src/components/chat-scroll-demo";
 import { isLocale } from "@/src/i18n/locales";
 import { getCatalogArtwork } from "@/src/lib/catalog";
 import { museumSlugForSource, parseArtworkKey } from "@/src/lib/catalog-source";
@@ -46,24 +46,28 @@ export default async function ArtworkPage({
     ? null
     : await getWikipediaArtistProfile(artwork.display.artistDisplay, artwork.artist?.name);
   const opening = reviewedOpening || buildDynamicPersonaOpening(artwork, wikipediaProfile);
-  const knownTitle =
-    locale === "zh" ? resolveChineseArtworkTitle(artwork).text : artwork.display.title;
+  const localizedTitle = locale === "zh" ? resolveChineseArtworkTitle(artwork).text : undefined;
   return (
-    <ChatPrototype
+    <ChatScrollDemo
       locale={locale}
       opening={opening}
       artworkId={source === "artic" ? artwork.id : undefined}
       collectionHref={`/${locale}/museums/${museumSlugForSource(source)}/collection`}
       artwork={{
-        artistProfile: wikipediaProfile || undefined,
-        sourceUrl: artwork.source.recordUrl,
         imageUrl: image ? image.directUrl2x || image.directUrl || iiifImageUrl(image, 1686) : null,
-        title: knownTitle,
-        artist: artwork.display.artistDisplay,
+        title: artwork.display.title,
+        localizedTitle,
+        artist: artwork.artist?.name || artwork.display.artistDisplay,
+        localizedArtist:
+          wikipediaProfile?.localizedName ||
+          (/vincent van gogh/i.test(artwork.display.artistDisplay) ? "文森特·梵高" : undefined),
         year: artwork.display.dateDisplay || "",
         medium: artwork.display.mediumDisplay || "—",
         dimensions: artwork.display.dimensionsDisplay || "—",
         collection: artwork.source.label.toUpperCase(),
+        localizedCollection: /art institute of chicago/i.test(artwork.source.label)
+          ? "芝加哥艺术学院"
+          : undefined,
       }}
     />
   );
