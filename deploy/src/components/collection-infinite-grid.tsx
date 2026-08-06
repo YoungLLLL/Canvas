@@ -69,6 +69,7 @@ export function CollectionInfiniteGrid({
               params.delete("source");
               params.delete("cursor");
               params.set("page", cursor);
+              params.set("fast", "1");
               return `/api/catalog?${params}`;
             })()
           : (() => {

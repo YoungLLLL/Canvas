@@ -9,6 +9,9 @@ import { sourceForMuseumSlug } from "@/src/lib/catalog-source";
 import { museumById } from "@/src/lib/museum-directory";
 import { collectionQuerySchema, museumSlugSchema } from "@/src/schemas/routes";
 
+const INITIAL_ARTIC_PAGE_COUNT = 6;
+const ARTIC_PRELOAD_BATCH_SIZE = 3;
+
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
@@ -42,19 +45,45 @@ export default async function CollectionPage({
   const initialPages = [];
 
   if (source === "artic") {
-    const results = await Promise.allSettled(
-      Array.from({ length: 14 }, (_, index) => index + 1).map(async (pageNumber) => ({
-        page: await getCatalogCollection(source, { ...query, page: pageNumber }),
-        pageNumber,
-      })),
-    );
+    const results: PromiseSettledResult<{
+      page: Awaited<ReturnType<typeof getCatalogCollection>>;
+      pageNumber: number;
+    }>[] = [];
+    for (
+      let firstPageNumber = 1;
+      firstPageNumber <= INITIAL_ARTIC_PAGE_COUNT;
+      firstPageNumber += ARTIC_PRELOAD_BATCH_SIZE
+    ) {
+      const batch = await Promise.allSettled(
+        Array.from(
+          {
+            length: Math.min(
+              ARTIC_PRELOAD_BATCH_SIZE,
+              INITIAL_ARTIC_PAGE_COUNT - firstPageNumber + 1,
+            ),
+          },
+          (_, index) => firstPageNumber + index,
+        ).map(async (pageNumber) => ({
+          page: await getCatalogCollection(source, { ...query, page: pageNumber }, undefined, {
+            enrichArticImages: false,
+          }),
+          pageNumber,
+        })),
+      );
+      results.push(...batch);
+    }
     const failures = results.filter(
       (result): result is PromiseRejectedResult => result.status === "rejected",
     );
     initialPages.push(
       ...results.flatMap((result) => (result.status === "fulfilled" ? [result.value] : [])),
     );
-    failures.forEach(({ reason }) => console.error("Unable to preload a collection page", reason));
+    failures.forEach(({ reason }) =>
+      console.error(
+        "Unable to preload a collection page",
+        reason instanceof Error ? `${reason.name}: ${reason.message}` : String(reason),
+      ),
+    );
     if (!initialPages.length && failures[0]) throw failures[0].reason;
   } else {
     let cursor: string | undefined;

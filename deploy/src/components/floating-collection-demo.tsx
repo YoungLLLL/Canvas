@@ -359,7 +359,7 @@ export function FloatingCollectionDemo({
           const cursor = ((pageNumber - 1) * PAGE_SIZE) % 4800;
           const request =
             source === "artic"
-              ? `/api/catalog?page=${pageNumber}`
+              ? `/api/catalog?page=${pageNumber}&fast=1`
               : `/api/catalog?source=${source}&cursor=${cursor}`;
           try {
             const response = await fetch(request, {
@@ -775,6 +775,7 @@ export function FloatingCollectionDemo({
             params.delete("cursor");
             params.delete("source");
             params.set("page", String(pageNumber));
+            if (source === "artic") params.set("fast", "1");
             const response = await fetch(`/api/catalog?${params}`, {
               headers: { Accept: "application/json" },
             });
@@ -790,6 +791,7 @@ export function FloatingCollectionDemo({
           const pageNumber = gridNextPageNumberRef.current + loaded.length;
           const params = new URLSearchParams(window.location.search);
           params.delete("page");
+          params.set("fast", "1");
           params.set("source", source);
           params.set("cursor", cursor);
           const response = await fetch(`/api/catalog?${params}`, {

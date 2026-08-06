@@ -7,6 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "build:vinext": "vinext build",
+    "start:vinext": "vinext start",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
@@ -23,11 +25,12 @@
     "@gsap/react": "^2.1.2",
     "gsap": "^3.15.0",
     "next": "16.2.10",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.37.1",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
     "@testing-library/dom": "^10.4.1",
@@ -37,12 +40,16 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.3",
+    "@vitejs/plugin-rsc": "^0.5.26",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "jsdom": "^29.1.1",
     "prettier": "^3.9.5",
+    "react-server-dom-webpack": "^19.2.6",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "vinext": "^1.0.0-beta.2",
+    "vite": "^8.0.13",
     "vitest": "^4.1.10"
   }
 }

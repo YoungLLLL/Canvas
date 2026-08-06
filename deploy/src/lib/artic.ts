@@ -121,6 +121,10 @@ type CollectionPageCacheEntry = {
   freshUntil: number;
 };
 
+export type ArticCollectionOptions = {
+  enrichCommons?: boolean;
+};
+
 const responseCache = new Map<string, CacheEntry>();
 const collectionPageCache = new Map<string, CollectionPageCacheEntry>();
 
@@ -342,7 +346,6 @@ async function fetchArtic(url: string, tag = "artic-catalog") {
         headers: {
           "AIC-User-Agent": process.env.ARTIC_USER_AGENT ?? "Canvium Gallery (local showcase)",
         },
-        next: { revalidate: 300, tags: [tag] },
       });
       if (!response.ok) throw new ArticRequestError(response.status);
       const payload = responseSchema.parse(await response.json());
@@ -468,16 +471,18 @@ async function attachCommonsImages(items: Artwork[]) {
   });
 }
 
-async function loadArticCollection(query: CollectionQuery): Promise<CatalogPage> {
+async function loadArticCollection(
+  query: CollectionQuery,
+  { enrichCommons = true }: ArticCollectionOptions = {},
+): Promise<CatalogPage> {
   const response = await fetchArtic(buildArticCollectionUrl(query));
   const { payload } = response;
   const data = Array.isArray(payload.data) ? payload.data : [payload.data];
   const normalized = data.map((item) =>
     normalizeArticArtwork(item, payload.config, response.fetchedAt),
   );
-  const items = (
-    await attachProvisionalChineseTitles(await attachCommonsImages(normalized))
-  ).filter((item) => {
+  const imageEnriched = enrichCommons ? await attachCommonsImages(normalized) : normalized;
+  const items = (await attachProvisionalChineseTitles(imageEnriched)).filter((item) => {
     if (query.availability === "image") return item.eligibility.status === "image_displayable";
     if (query.availability === "metadata") {
       return item.eligibility.status === "metadata_only_no_image";
@@ -512,12 +517,15 @@ async function loadArticCollection(query: CollectionQuery): Promise<CatalogPage>
   });
 }
 
-export function getArticCollection(query: CollectionQuery): Promise<CatalogPage> {
-  const key = buildArticCollectionUrl(query);
+export function getArticCollection(
+  query: CollectionQuery,
+  options: ArticCollectionOptions = {},
+): Promise<CatalogPage> {
+  const key = `${options.enrichCommons === false ? "direct" : "enriched"}:${buildArticCollectionUrl(query)}`;
   const cached = collectionPageCache.get(key);
   if (cached && Date.now() < cached.freshUntil) return cached.promise;
 
-  const promise = loadArticCollection(query).catch((error) => {
+  const promise = loadArticCollection(query, options).catch((error) => {
     if (collectionPageCache.get(key)?.promise === promise) {
       collectionPageCache.delete(key);
     }
