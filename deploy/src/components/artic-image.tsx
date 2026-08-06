@@ -36,8 +36,8 @@ export function ArticImage({
     : `${iiifImageUrl(asset, 200)} 200w, ${iiifImageUrl(asset, 400)} 400w, ${iiifImageUrl(asset, 600)} 600w, ${iiifImageUrl(asset, 843)} 843w, ${iiifImageUrl(asset, 1686)} 1686w`;
 
   return (
-    // ARTIC explicitly supports IIIF hotlinking. A native responsive image lets the
-    // browser choose a size without routing museum images through our deployment.
+    // Route Art Institute IIIF images through our server so the upstream request can
+    // include its required project identifier before the browser receives the image.
     // eslint-disable-next-line @next/next/no-img-element
     <img
       alt={asset.altText ?? alt}
