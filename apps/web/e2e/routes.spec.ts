@@ -208,22 +208,33 @@ test("scrubs the featured collection into the waterfall instead of jumping", asy
 test("restores collection URL, scroll position, and card focus after opening an artwork", async ({
   page,
 }) => {
+  test.setTimeout(90_000);
   await page.goto("/en/museums/art-institute-of-chicago/collection");
-  const card = page.locator(".collection-result-card").first();
-  await card.scrollIntoViewIfNeeded();
+  const card = page.locator("[data-floating-artwork]").first();
+  await card.click();
   const collectionUrl = page.url();
   const scrollBefore = await page.evaluate(() => window.scrollY);
   const cardId = await card.getAttribute("id");
-  await card.click();
-  await page
-    .getByRole("button", { name: "Exit the artwork conversation and return to the gallery" })
-    .click();
+  await page.getByRole("link", { name: /Enter the conversation about/ }).click();
+  await expect(page.locator("#canvium-artwork-transition")).toHaveAttribute(
+    "data-phase",
+    /entering|awaiting-detail/,
+  );
+  await expect(page).toHaveURL(/\/en\/artworks\//, { timeout: 30_000 });
+  await expect(page.locator("#canvium-artwork-transition")).toHaveCount(0, { timeout: 30_000 });
+  await page.getByRole("button", { name: "Return to the gallery" }).click();
+  await expect(page.locator("#canvium-artwork-transition")).toHaveAttribute(
+    "data-phase",
+    /exiting|returning/,
+  );
 
   await expect(page).toHaveURL(collectionUrl);
+  await expect(page.locator("#canvium-artwork-transition")).toHaveCount(0, { timeout: 30_000 });
   await expect
     .poll(() => page.evaluate(() => window.scrollY))
     .toBeGreaterThanOrEqual(scrollBefore - 2);
   await expect.poll(() => page.evaluate(() => document.activeElement?.id)).toBe(cardId);
+  await expect(page.locator('aside[aria-live="polite"]')).toHaveAttribute("aria-hidden", "true");
 });
 
 test("always re-enters the collection at its featured top from the museum screen", async ({

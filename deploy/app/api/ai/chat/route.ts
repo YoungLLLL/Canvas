@@ -1,0 +1,368 @@
+import {
+  assemblePersonaDialogue,
+  finalizePersonaDialogue,
+} from "../../../../ai/stage7/dialogue-assembler.mjs";
+import { z } from "zod";
+
+import { buildDynamicPersonaAssembly, parseDynamicDialogue } from "@/src/lib/dynamic-persona-chat";
+import { getArticArtwork } from "@/src/lib/artic";
+import {
+  getReviewedPersonaForArtwork,
+  getReviewedPersonaForCatalogArtwork,
+} from "@/src/lib/persona-openings";
+import { createQwenJsonResponse, QwenRequestError, type QwenMessage } from "@/src/lib/qwen";
+import { getWikipediaArtistProfile } from "@/src/lib/wikipedia-artist-profile";
+import type { ArtistPersonaPackage } from "@/src/schemas/ai-content";
+
+export const dynamic = "force-dynamic";
+
+const chatRequestSchema = z
+  .object({
+    artworkId: z.string().regex(/^artic:\d+$/),
+    message: z.string().trim().min(1).max(2_000),
+    history: z
+      .array(
+        z
+          .object({
+            role: z.enum(["user", "assistant"]),
+            content: z.string().trim().min(1).max(4_000),
+          })
+          .strict(),
+      )
+      .max(10)
+      .default([]),
+  })
+  .strict();
+
+function alignEnglishSegments(modelOutput: unknown) {
+  if (!modelOutput || typeof modelOutput !== "object") return modelOutput;
+  const output = modelOutput as {
+    answer?: unknown;
+    englishAnswer?: unknown;
+    englishSegments?: unknown;
+    segments?: unknown;
+  };
+  if (
+    typeof output.englishAnswer !== "string" ||
+    !Array.isArray(output.segments) ||
+    output.segments.length === 0
+  ) {
+    return modelOutput;
+  }
+
+  const requestedCount = output.segments.length;
+  if (
+    Array.isArray(output.englishSegments) &&
+    output.englishSegments.length === requestedCount &&
+    output.englishSegments.every((segment) => typeof segment === "string")
+  ) {
+    return {
+      ...output,
+      englishAnswer: output.englishSegments.join(""),
+    };
+  }
+
+  const sentences =
+    output.englishAnswer
+      .match(/[^.!?]+(?:[.!?]+|$)/g)
+      ?.map((sentence) => sentence.trim())
+      .filter(Boolean) || [];
+  const units =
+    sentences.length >= requestedCount
+      ? sentences
+      : output.englishAnswer.trim().split(/\s+/).filter(Boolean);
+  const aligned = Array.from({ length: requestedCount }, (_, index) => {
+    const start = Math.floor((index * units.length) / requestedCount);
+    const end = Math.floor(((index + 1) * units.length) / requestedCount);
+    const text = units.slice(start, end).join(" ");
+    return index < requestedCount - 1 && text ? `${text} ` : text;
+  });
+  return {
+    ...output,
+    englishSegments: aligned,
+    englishAnswer: aligned.join(""),
+  };
+}
+
+function completeUsedEvidence(
+  modelOutput: unknown,
+  assembly: {
+    claims: Array<{
+      claimId: string;
+      sourceRefs: Array<{ sourceRefId: string }>;
+    }>;
+  },
+) {
+  if (!modelOutput || typeof modelOutput !== "object") return modelOutput;
+  const output = modelOutput as {
+    segments?: unknown;
+    evidenceRefIds?: unknown;
+  };
+  if (!Array.isArray(output.segments)) return modelOutput;
+
+  const usedClaimIds = new Set(
+    output.segments.flatMap((segment) => {
+      if (!segment || typeof segment !== "object") return [];
+      const claimIds = (segment as { claimIds?: unknown }).claimIds;
+      return Array.isArray(claimIds)
+        ? claimIds.filter((claimId): claimId is string => typeof claimId === "string")
+        : [];
+    }),
+  );
+  const requiredEvidenceRefIds = assembly.claims
+    .filter((claim) => usedClaimIds.has(claim.claimId))
+    .flatMap((claim) => claim.sourceRefs.map((reference) => reference.sourceRefId));
+  const suppliedEvidenceRefIds = Array.isArray(output.evidenceRefIds)
+    ? output.evidenceRefIds.filter(
+        (referenceId): referenceId is string => typeof referenceId === "string",
+      )
+    : [];
+
+  return {
+    ...output,
+    evidenceRefIds: [...new Set([...suppliedEvidenceRefIds, ...requiredEvidenceRefIds])],
+  };
+}
+
+async function generateValidatedDialogue(
+  messages: QwenMessage[],
+  assembly: ReturnType<typeof assemblePersonaDialogue>,
+) {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      const generated = await createQwenJsonResponse(messages, (value) => value);
+      const alignedOutput = alignEnglishSegments(generated.data);
+      const completedOutput = completeUsedEvidence(alignedOutput, assembly);
+      const dialogue = finalizePersonaDialogue({
+        assembly,
+        modelOutput: completedOutput,
+        modelRevision: generated.model,
+      });
+      return { generated, dialogue, attempts: attempt };
+    } catch (error) {
+      lastError = error;
+      if (attempt === 2 || (error instanceof QwenRequestError && !error.retryable)) {
+        throw error;
+      }
+    }
+  }
+  throw lastError;
+}
+
+async function generateDynamicDialogue(messages: QwenMessage[], maxCitationNumber: number) {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      const generated = await createQwenJsonResponse(messages, (value) =>
+        parseDynamicDialogue(value, maxCitationNumber),
+      );
+      return { generated, dialogue: generated.data, attempts: attempt };
+    } catch (error) {
+      lastError = error;
+      if (attempt === 2 || (error instanceof QwenRequestError && !error.retryable)) {
+        throw error;
+      }
+    }
+  }
+  throw lastError;
+}
+
+function chatFailureResponse(error: unknown) {
+  if (error instanceof QwenRequestError) {
+    return Response.json(
+      {
+        error: error.message,
+        code: error.code,
+        retryable: error.retryable,
+      },
+      { status: error.status },
+    );
+  }
+  return Response.json(
+    {
+      error: "回答没有通过人格与证据校验，请重试。",
+      code: "persona_response_rejected",
+      retryable: true,
+      details:
+        process.env.NODE_ENV === "development" && error instanceof Error
+          ? error.message
+          : undefined,
+    },
+    { status: 502 },
+  );
+}
+
+async function respondWithReviewedPersona(
+  input: z.infer<typeof chatRequestSchema>,
+  persona: ArtistPersonaPackage,
+  personaMode: "reviewed_artwork" | "reviewed_artist",
+) {
+  const assembly = assemblePersonaDialogue({
+    persona,
+    artworkId: input.artworkId,
+  });
+  const messages: QwenMessage[] = [
+    {
+      role: "system",
+      content: `${assembly.instructions}\n\n输出必须符合此 JSON Schema：${JSON.stringify(assembly.outputSchema)}`,
+    },
+    ...input.history,
+    { role: "user", content: input.message },
+  ];
+
+  try {
+    const { generated, dialogue, attempts } = await generateValidatedDialogue(messages, assembly);
+    const citations = dialogue.evidence.map(
+      (
+        reference: {
+          sourceRefId: string;
+          sourceId: string;
+          locator?: Record<string, string>;
+          excerpt?: string;
+        },
+        index: number,
+      ) => {
+        const source = assembly.sources.find(
+          (candidate: { sourceId: string }) => candidate.sourceId === reference.sourceId,
+        );
+        const supportText = assembly.claims
+          .filter((claim: { sourceRefs: Array<{ sourceRefId: string }> }) =>
+            claim.sourceRefs.some((candidate) => candidate.sourceRefId === reference.sourceRefId),
+          )
+          .map((claim: { text: string }) => claim.text)
+          .join(" ");
+        return {
+          number: index + 1,
+          title: source?.title || reference.sourceId,
+          publisher: source?.publisher || "",
+          url: reference.locator?.fragmentUrl || source?.url || "",
+          locator: reference.locator || {},
+          excerpt: reference.excerpt || "",
+          supportText,
+        };
+      },
+    );
+    const citationNumberByRefId = new Map(
+      dialogue.evidence.map((reference: { sourceRefId: string }, index: number) => [
+        reference.sourceRefId,
+        index + 1,
+      ]),
+    );
+    const displaySegments = dialogue.segments.map(
+      (segment: { text: string; claimIds: string[] }, index: number) => {
+        const citationNumbers = [
+          ...new Set(
+            assembly.claims
+              .filter((claim: { claimId: string }) => segment.claimIds.includes(claim.claimId))
+              .flatMap((claim: { sourceRefs: Array<{ sourceRefId: string }> }) =>
+                claim.sourceRefs.map((reference) =>
+                  citationNumberByRefId.get(reference.sourceRefId),
+                ),
+              )
+              .filter((number: number | undefined): number is number => number !== undefined),
+          ),
+        ];
+        return {
+          chinese: segment.text,
+          english: dialogue.englishSegments[index],
+          citationNumbers,
+        };
+      },
+    );
+    return Response.json(
+      {
+        ...dialogue,
+        citations,
+        displaySegments,
+        requestId: generated.requestId,
+        usage: generated.usage,
+        attempts,
+        personaMode,
+      },
+      { headers: { "Cache-Control": "no-store" } },
+    );
+  } catch (error) {
+    return chatFailureResponse(error);
+  }
+}
+
+async function respondWithDynamicPersona(input: z.infer<typeof chatRequestSchema>) {
+  try {
+    const sourceId = input.artworkId.replace("artic:", "");
+    const artwork = await getArticArtwork(sourceId);
+    if (!artwork) {
+      return Response.json(
+        {
+          error: "找不到这件作品的馆藏资料。",
+          code: "artwork_context_unavailable",
+          retryable: false,
+        },
+        { status: 404 },
+      );
+    }
+    const reviewedResolution = getReviewedPersonaForCatalogArtwork(artwork);
+    if (reviewedResolution) {
+      return respondWithReviewedPersona(
+        input,
+        reviewedResolution.persona,
+        reviewedResolution.tier === "artwork" ? "reviewed_artwork" : "reviewed_artist",
+      );
+    }
+    const profile = await getWikipediaArtistProfile(
+      artwork.display.artistDisplay,
+      artwork.artist?.name,
+    );
+    const assembly = buildDynamicPersonaAssembly(artwork, profile);
+    if (!assembly) {
+      return Response.json(
+        {
+          error: "这件作品尚未开放艺术家对话。",
+          code: "persona_context_unavailable",
+          retryable: false,
+        },
+        { status: 404 },
+      );
+    }
+    const messages: QwenMessage[] = [
+      { role: "system", content: assembly.instructions },
+      ...input.history,
+      { role: "user", content: input.message },
+    ];
+    const { generated, dialogue, attempts } = await generateDynamicDialogue(
+      messages,
+      assembly.citations.length,
+    );
+    const citedNumbers = new Set(dialogue.segments.flatMap((segment) => segment.citationNumbers));
+    return Response.json(
+      {
+        ...dialogue,
+        citations: assembly.citations.filter((citation) => citedNumbers.has(citation.number)),
+        displaySegments: dialogue.segments,
+        requestId: generated.requestId,
+        usage: generated.usage,
+        attempts,
+        personaMode: "dynamic",
+      },
+      { headers: { "Cache-Control": "no-store" } },
+    );
+  } catch (error) {
+    return chatFailureResponse(error);
+  }
+}
+
+export async function POST(request: Request) {
+  const parsed = chatRequestSchema.safeParse(await request.json().catch(() => null));
+  if (!parsed.success) {
+    return Response.json(
+      { error: "聊天请求格式无效。", code: "invalid_chat_request", retryable: false },
+      { status: 400 },
+    );
+  }
+
+  const persona = getReviewedPersonaForArtwork(parsed.data.artworkId);
+  if (!persona) {
+    return respondWithDynamicPersona(parsed.data);
+  }
+  return respondWithReviewedPersona(parsed.data, persona, "reviewed_artwork");
+}

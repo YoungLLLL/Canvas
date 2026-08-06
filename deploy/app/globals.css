@@ -1,0 +1,2663 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Otomanopee One";
+  src: url("/fonts/otomanopee-one-v11.ttf") format("truetype");
+  font-display: block;
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+  --ink: #0d0e0d;
+  --paper: #f1eee7;
+  --paper-raised: #f7f4ee;
+  --paper-muted: #ddd7cd;
+  --line: rgba(13, 14, 13, 0.16);
+  --muted: #706d67;
+  --accent: #9a7142;
+  --ocean: #101719;
+  --graphite: #111312;
+  --font-display-zh: var(--font-body-zh);
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-state: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 76% 8%, rgba(154, 113, 66, 0.07), transparent 28rem), var(--paper);
+  color: var(--ink);
+  font-family: Inter, var(--font-body-zh), "Noto Sans SC", sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(154, 113, 66, 0.24);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.shell {
+  width: min(1440px, calc(100% - 96px));
+  margin-inline: auto;
+}
+
+.site-header {
+  position: relative;
+  z-index: 40;
+  display: flex;
+  min-height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-inline: 3vw;
+}
+
+.wordmark {
+  font-family: "Otomanopee One", "Noto Sans SC", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  text-decoration: none;
+}
+
+.nav small {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+}
+
+.site-actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 15px;
+}
+
+.site-actions > a:first-child,
+.site-actions > span:first-child {
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+}
+
+.search-pill {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--ink);
+  color: white;
+  padding: 0 22px;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.search-pill span {
+  margin-left: 0;
+}
+
+.search-pill small {
+  display: none;
+}
+
+.search-pill b {
+  margin-left: 8px;
+}
+
+.page {
+  min-height: calc(100vh - 77px);
+  padding: clamp(56px, 9vw, 120px) 0;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 850px;
+  margin: 0;
+  font-family: "Otomanopee One", var(--font-body-zh), "Noto Sans SC", sans-serif;
+  font-size: clamp(2.6rem, 7vw, 6.6rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.lede {
+  max-width: 640px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.28rem);
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  border: 1px solid var(--ink);
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+.button-primary {
+  background: var(--ink);
+  color: var(--paper-raised);
+}
+
+.status-card {
+  max-width: 720px;
+  margin-top: 48px;
+  border: 1px solid var(--line);
+  background: rgba(248, 245, 238, 0.72);
+  padding: 24px;
+}
+
+.status-card h2 {
+  margin: 0 0 8px;
+  font:
+    500 1.15rem/1.4 var(--font-body-zh),
+    "Noto Sans SC",
+    sans-serif;
+}
+
+.status-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.skeleton {
+  overflow: hidden;
+  background: linear-gradient(90deg, #ded9cf 20%, #ece8df 50%, #ded9cf 80%);
+  background-size: 240% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -240% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .nav a:not(:last-child) {
+    display: none;
+  }
+}
+
+/* The landing page intentionally preserves the original Canvas Demo DOM/CSS.
+   These rules only bridge its shared globe host to the reusable WebGL component. */
+body:has(.demo-faithful) .shell.site-header {
+  display: none;
+}
+
+.demo-faithful .shared-globe > .museum-globe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: opacity 420ms var(--ease-enter);
+}
+
+.demo-faithful .shared-globe.home-globe-focus > .museum-globe {
+  opacity: 1;
+  background: transparent;
+  box-shadow: none;
+}
+
+.demo-faithful .shared-globe > .museum-globe:not(.is-camera-calibrated) {
+  opacity: 0;
+}
+
+.demo-faithful .shared-globe:not(.home-globe-focus) > .museum-globe {
+  background: transparent;
+  box-shadow: none;
+}
+
+.demo-faithful .shared-globe .webgl-globe,
+.demo-faithful .shared-globe .webgl-globe > div,
+.demo-faithful .shared-globe canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Keep loading quiet: the old abstract continent fallback flashed before WebGL was ready. */
+.demo-faithful .shared-globe .globe-surface {
+  visibility: hidden;
+}
+
+/* Stage 5 collection migration: the approved Demo's quiet paper, oversized type,
+   image-led cards, and restrained museum labels, adapted for a real catalog grid. */
+.collection-page {
+  padding: clamp(54px, 7vw, 94px) 0 72px;
+}
+
+.collection-hero h1 {
+  max-width: 920px;
+  margin: 0;
+  font-family: "Otomanopee One", var(--font-body-zh), "Noto Sans SC", sans-serif;
+  font-size: clamp(3.2rem, 7.6vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.062em;
+  line-height: 0.91;
+}
+
+.catalog-stale {
+  margin: 0 0 22px;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  padding-left: 12px;
+  font-size: 0.72rem;
+}
+
+.collection-search {
+  display: flex;
+  max-width: 780px;
+  margin-top: clamp(36px, 6vw, 68px);
+  border-bottom: 1px solid var(--ink);
+}
+
+.collection-search input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 17px 2px;
+  outline: 0;
+  font-size: clamp(1rem, 1.6vw, 1.24rem);
+}
+
+.collection-search button {
+  border: 0;
+  background: transparent;
+  padding: 0 2px 0 28px;
+  cursor: pointer;
+}
+
+.collection-filter-form {
+  max-width: 980px;
+}
+
+.collection-filters {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(4, minmax(112px, 0.75fr));
+  align-items: end;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.filter-heading,
+.collection-filters label > span,
+.artist-filter summary {
+  color: var(--muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+}
+
+.collection-filters label {
+  display: grid;
+  gap: 7px;
+}
+
+.collection-filters input,
+.collection-filters select {
+  width: 100%;
+  min-height: 39px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  outline: 0;
+  font-size: 0.75rem;
+}
+
+.collection-filters > a {
+  align-self: center;
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-underline-offset: 4px;
+}
+
+.artist-filter {
+  grid-column: 2 / -1;
+  position: relative;
+}
+
+.artist-filter summary {
+  width: max-content;
+  cursor: pointer;
+  list-style-position: outside;
+}
+
+.artist-filter > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-top: 12px;
+}
+
+.artist-filter > div label {
+  display: flex;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.7rem;
+}
+
+.artist-filter input {
+  width: 14px;
+  min-height: 14px;
+}
+
+.collection-scope {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.45fr) minmax(300px, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.collection-scope > span:last-child {
+  text-align: right;
+}
+
+.collection-scope p {
+  max-width: 680px;
+  margin: 0;
+}
+
+.artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(42px, 6vw, 88px) clamp(18px, 3vw, 42px);
+  margin-top: clamp(64px, 9vw, 120px);
+}
+
+.artwork-card {
+  min-width: 0;
+  text-decoration: none;
+}
+
+.artwork-card:nth-child(3n + 2) {
+  margin-top: clamp(36px, 7vw, 92px);
+}
+
+.artwork-card figure,
+.artwork-stage figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: #ded9d0;
+}
+
+.artwork-card figure {
+  min-height: 0;
+  max-height: 570px;
+  aspect-ratio: 4 / 3;
+}
+
+.artic-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  filter: blur(12px);
+  opacity: 1;
+  transform: scale(1.025);
+  transition:
+    filter 0.35s,
+    transform 0.5s;
+}
+
+.artic-image.is-loaded {
+  filter: none;
+  transform: none;
+}
+
+.artwork-card img,
+.artwork-stage img {
+  object-fit: cover;
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s;
+}
+
+.artwork-card:hover img {
+  transform: scale(1.025);
+}
+
+.artwork-open {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  border-radius: 999px;
+  background: rgba(13, 14, 13, 0.82);
+  color: white;
+  padding: 9px 13px;
+  font-size: 0.66rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: 0.25s;
+}
+
+.artwork-card:hover .artwork-open,
+.artwork-card:focus-visible .artwork-open {
+  opacity: 1;
+  transform: none;
+}
+
+.artwork-card > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px 12px;
+  padding-top: 15px;
+  border-top: 1px solid var(--ink);
+}
+
+.artwork-card h2 {
+  overflow: hidden;
+  margin: 0;
+  font-family: var(--font-body-zh), "Noto Sans SC", sans-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+  font-weight: 500;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.artwork-card p,
+.artwork-card > div > span {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.artwork-card p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.artwork-card > div > span {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.image-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.72rem;
+}
+
+.image-fallback.has-preview {
+  background-position: center;
+  background-size: cover;
+}
+
+.image-fallback.has-preview::before {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 18, 0.32);
+  content: "";
+}
+
+.image-fallback > span {
+  position: relative;
+  z-index: 1;
+  max-width: 180px;
+  border-radius: 999px;
+  background: rgba(247, 244, 238, 0.86);
+  padding: 7px 10px;
+}
+
+.metadata-artwork-card {
+  display: flex;
+  min-height: 320px;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--line);
+  background: rgba(222, 217, 208, 0.48);
+  padding: 24px;
+}
+
+.metadata-artwork-card span {
+  color: var(--muted);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.metadata-artwork-card strong {
+  font-family: var(--font-body-zh), "Noto Sans SC", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 3.3rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.collection-empty {
+  min-height: 42vh;
+  padding-top: 90px;
+  text-align: center;
+}
+
+.collection-empty h2 {
+  margin: 0 auto 28px;
+  font-family: var(--font-body-zh), "Noto Sans SC", sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 500;
+}
+
+.collection-loading-head {
+  padding-top: 30px;
+}
+
+.collection-card-skeleton {
+  min-height: 360px;
+}
+
+.collection-query-error .title {
+  max-width: 760px;
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+}
+
+.pagination {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  margin-top: 100px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  font-size: 0.78rem;
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination a:last-child {
+  text-align: right;
+}
+
+.artwork-detail-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(310px, 0.9fr);
+  gap: clamp(40px, 5vw, 84px);
+  min-height: calc(100vh - 77px);
+  padding: clamp(42px, 5vh, 64px) 3vw;
+  background: #f7f4ee;
+}
+
+.detail-back {
+  position: fixed;
+  z-index: 3;
+  top: 96px;
+  left: 3vw;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 50%;
+  background: #0d0e0d;
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+.detail-back:hover {
+  transform: scale(1.06);
+}
+
+.artwork-stage {
+  display: grid;
+  min-height: 70vh;
+  place-items: center;
+  padding: 28px;
+  background: #e4dfd6;
+}
+
+.artwork-stage figure {
+  width: min(100%, 960px);
+  max-height: 75vh;
+  box-shadow: 0 18px 50px rgba(20, 18, 15, 0.13);
+}
+
+.viewer-controls {
+  position: absolute;
+  z-index: 2;
+  bottom: 16px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(13, 14, 13, 0.78);
+  color: white;
+  padding: 5px 8px;
+  backdrop-filter: blur(16px);
+  transform: translateX(-50%);
+}
+
+.viewer-controls button,
+.viewer-controls span {
+  min-width: 42px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 9px 10px;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.viewer-controls button {
+  cursor: pointer;
+}
+
+.viewer-controls button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.artwork-no-image {
+  display: grid;
+  width: 100%;
+  min-height: 62vh;
+  place-content: center;
+  gap: 14px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  text-align: center;
+}
+
+.artwork-no-image span {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.artwork-no-image p {
+  max-width: 360px;
+  margin: 0;
+  font-family: var(--font-body-zh), "Noto Sans SC", sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+
+.artwork-stage img {
+  object-fit: contain;
+}
+
+.artwork-context {
+  align-self: center;
+  max-width: 520px;
+}
+
+.artwork-index {
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+.artwork-context h1 {
+  margin: 18px 0 14px;
+  font-family: "Otomanopee One", var(--font-body-zh), "Noto Sans SC", sans-serif;
+  font-size: clamp(2.7rem, 5.2vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.artwork-byline {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.artwork-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 28px 0;
+  color: #4f4b45;
+  font-family: var(--font-body-zh), "Noto Sans SC", sans-serif;
+  line-height: 1.75;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.artwork-context h2 {
+  margin: 32px 0 10px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.artwork-context dl {
+  margin: 0;
+}
+
+.artwork-context dl div {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+  padding: 11px 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.artwork-context dt {
+  color: var(--muted);
+}
+
+.artwork-context dd {
+  margin: 0;
+}
+
+.source-note {
+  margin: 22px 0 12px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.6;
+}
+
+.source-link {
+  font-size: 0.72rem;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .collection-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-heading,
+  .artist-filter {
+    grid-column: 1 / -1;
+  }
+
+  .artwork-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .artwork-card:nth-child(3n + 2) {
+    margin-top: 0;
+  }
+
+  .artwork-card:nth-child(even) {
+    margin-top: 48px;
+  }
+
+  .artwork-detail-page {
+    grid-template-columns: 1fr;
+  }
+
+  .artwork-stage {
+    min-height: 58vh;
+  }
+
+  .artwork-context {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 600px) {
+  .collection-scope,
+  .artwork-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .collection-filter-form {
+    max-width: none;
+  }
+
+  .collection-scope > span:last-child {
+    text-align: left;
+  }
+
+  .artwork-card:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .artwork-card figure {
+    min-height: 0;
+  }
+
+  .artwork-detail-page {
+    gap: 30px;
+    padding: 72px 18px 42px;
+  }
+
+  .detail-back {
+    top: 88px;
+    left: 18px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .artwork-stage {
+    min-height: 44vh;
+    padding: 12px;
+  }
+
+  .viewer-controls button:nth-last-child(-n + 2) {
+    display: none;
+  }
+}
+
+/* Stage 8: approved Demo composition, rebuilt on the real route and data foundation. */
+.showcase-home {
+  margin-top: -89px;
+}
+
+.home-composition {
+  position: relative;
+  min-height: max(760px, 100svh);
+  overflow: hidden;
+  padding-top: 89px;
+}
+
+.home-side-label {
+  position: absolute;
+  top: 120px;
+  left: 3vw;
+  width: 140px;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+}
+
+.home-history {
+  position: absolute;
+  z-index: 3;
+  top: 25%;
+  left: 4vw;
+  width: 29vw;
+  height: 44vh;
+}
+
+.home-history figure {
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  background: var(--paper-muted);
+  box-shadow: 0 8px 18px rgba(13, 14, 13, 0.16);
+}
+
+.home-history img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.72);
+  transition:
+    transform 700ms var(--ease-enter),
+    filter 180ms var(--ease-state);
+}
+
+.home-history figure:hover img {
+  filter: saturate(1);
+  transform: scale(1.025);
+}
+
+.history-portrait {
+  top: 34%;
+  left: 0;
+  width: 31%;
+  height: 52%;
+}
+
+.history-landscape {
+  top: 8%;
+  right: 0;
+  width: 56%;
+  height: 78%;
+}
+
+.home-history > p {
+  position: absolute;
+  right: 0;
+  bottom: -44px;
+  display: grid;
+  margin: 0;
+  gap: 4px;
+}
+
+.home-history > p span {
+  color: #173c67;
+  font-size: 0.62rem;
+}
+
+.home-history > p strong {
+  font:
+    500 1.1rem/1.2 var(--font-body-zh),
+    "Noto Sans SC",
+    sans-serif;
+}
+
+.home-history > p small {
+  font-size: 0.74rem;
+}
+
+.home-daily-art {
+  position: absolute;
+  z-index: 4;
+  top: 11%;
+  left: 35.5%;
+  width: 27vw;
+  height: 57vh;
+  min-height: 430px;
+  border: 3px solid #171a18;
+  background: #111;
+  box-shadow: 0 7px 18px rgba(13, 14, 13, 0.22);
+  animation: artwork-enter 700ms var(--ease-enter) both;
+}
+
+.home-daily-art > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-daily-index {
+  position: absolute;
+  top: 19%;
+  left: calc(100% + 24px);
+  display: grid;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.home-daily-index b {
+  color: #173c67;
+  font-weight: 400;
+}
+
+.home-open-cue {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  border-radius: 999px;
+  background: rgba(13, 14, 13, 0.82);
+  color: white;
+  padding: 9px 13px;
+  font-size: 0.62rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 180ms,
+    transform 180ms var(--ease-state);
+}
+
+.home-daily-art:hover .home-open-cue,
+.home-daily-art:focus-visible .home-open-cue {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes artwork-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.99);
+  }
+}
+
+.home-entry {
+  position: absolute;
+  z-index: 4;
+  top: 12.7%;
+  right: 3vw;
+  display: grid;
+  width: min(27vw, 420px);
+  gap: clamp(14px, 3vh, 28px);
+}
+
+.home-recommendation {
+  display: grid;
+  min-height: clamp(156px, 21vh, 198px);
+  border-radius: 24px;
+  background: #d9d9d9;
+  padding: 20px 22px;
+  text-decoration: none;
+  transition:
+    transform 260ms var(--ease-state),
+    background 180ms;
+}
+
+.home-recommendation:hover {
+  background: #d2d2d2;
+  transform: translateY(-3px);
+}
+
+.home-recommendation > span,
+.home-artist-card span {
+  color: var(--muted);
+  font-size: 0.56rem;
+  letter-spacing: 0.05em;
+}
+
+.home-recommendation h2 {
+  margin: 9px 0 16px;
+  font:
+    400 clamp(1.6rem, 2.1vw, 2.1rem)/0.94 "Otomanopee One",
+    sans-serif;
+  letter-spacing: -0.05em;
+}
+
+.home-recommendation p {
+  position: relative;
+  display: grid;
+  margin: auto 0 0;
+  gap: 2px;
+}
+
+.home-recommendation p strong {
+  font:
+    500 0.84rem/1.2 var(--font-body-zh),
+    "Noto Sans SC",
+    sans-serif;
+}
+
+.home-recommendation p small {
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.home-recommendation p b {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.home-artist-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  min-height: clamp(210px, 28vh, 258px);
+  gap: 12px 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  background: rgba(195, 214, 211, 0.84);
+  padding: 18px 20px;
+  box-shadow: 0 16px 35px rgba(70, 60, 50, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+.home-avatar {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.home-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 48% 28%;
+  transform: scale(1.55);
+}
+
+.home-artist-card h2 {
+  max-width: 240px;
+  margin: 5px 0 0;
+  font:
+    400 clamp(1.55rem, 2.4vw, 2.35rem)/0.95 "Otomanopee One",
+    sans-serif;
+  letter-spacing: -0.045em;
+}
+
+.home-artist-card > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  font:
+    500 0.86rem/1.4 var(--font-body-zh),
+    "Noto Sans SC",
+    sans-serif;
+}
+
+.home-artist-card > a {
+  grid-column: 1 / -1;
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--ink);
+  color: white;
+  font-size: 0.65rem;
+  text-decoration: none;
+}
+
+.home-artist-card > a span {
+  margin-left: 14px;
+  color: white;
+  font-size: 0.9rem;
+  transition: transform 180ms var(--ease-state);
+}
+
+.home-artist-card > a:hover span {
+  transform: translateX(5px);
+}
+
+.home-globe-stage {
+  position: absolute;
+  z-index: 1;
+  right: -3vw;
+  bottom: -67vw;
+  left: -3vw;
+  height: 92vw;
+  pointer-events: none;
+}
+
+.home-globe-stage .museum-globe {
+  width: 106vw;
+  height: 106vw;
+}
+
+.home-globe-stage > p {
+  position: absolute;
+  z-index: 4;
+  top: 11%;
+  left: 10%;
+  display: grid;
+  margin: 0;
+  color: #f3efe7;
+}
+
+.home-globe-stage > p span {
+  font-size: 0.7rem;
+}
+
+.home-globe-stage > p strong {
+  font:
+    400 clamp(5rem, 10vw, 10rem)/0.9 "Otomanopee One",
+    serif;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.museum-page {
+  position: relative;
+  min-height: calc(100svh - 89px);
+  overflow: clip;
+  padding: 24px clamp(28px, 3vw, 54px) 44px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 35.8%,
+      rgba(13, 14, 13, 0.1) 35.8% 35.86%,
+      transparent 35.86%
+    ),
+    var(--paper);
+}
+
+.museum-masthead {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: clamp(18px, 2.2vh, 28px);
+}
+
+.museum-library-title {
+  margin: 0;
+  font:
+    400 clamp(4.2rem, 7.35vw, 7.4rem)/0.92 "Otomanopee One",
+    serif;
+  letter-spacing: -0.065em;
+}
+
+.museum-page-index {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  gap: 3px 8px;
+  margin: 5px 0 0;
+  color: var(--muted);
+  font: 500 0.68rem/1.2 var(--body);
+  letter-spacing: 0.09em;
+  text-align: right;
+}
+
+.museum-page-index span {
+  grid-column: 1 / -1;
+}
+
+.museum-page-index b {
+  color: var(--ink);
+  font: 400 1.55rem/1 var(--display);
+  letter-spacing: -0.03em;
+}
+
+.museum-page-index small {
+  font-size: 0.68rem;
+}
+
+.museum-summary {
+  position: relative;
+  z-index: 6;
+  width: min(31.5vw, 454px);
+  margin-top: clamp(30px, 4.5vh, 48px);
+}
+
+.museum-summary .eyebrow {
+  color: var(--muted);
+  font: 500 0.7rem/1.2 var(--body);
+  letter-spacing: 0.1em;
+}
+
+.museum-name-lockup {
+  margin-top: clamp(18px, 2.4vh, 26px);
+  border-top: 1px solid var(--ink);
+  padding-top: 15px;
+}
+
+.museum-summary h1 {
+  max-width: 12em;
+  margin: 0 0 4px;
+  font:
+    500 clamp(2.15rem, 3vw, 3rem)/1.08 var(--font-body-zh),
+    "Noto Sans SC",
+    sans-serif;
+  letter-spacing: -0.045em;
+}
+
+.museum-official-name {
+  margin: 0 0 14px;
+  font:
+    500 clamp(1.15rem, 1.55vw, 1.42rem)/1.3 var(--display),
+    serif;
+  letter-spacing: -0.015em;
+}
+
+.museum-name-lockup > a {
+  color: #173c67;
+  font: 500 0.72rem/1.3 var(--body);
+  letter-spacing: 0.045em;
+  text-decoration: none;
+}
+
+.museum-description {
+  margin: 18px 0 20px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  font:
+    400 0.94rem/1.68 var(--font-body-zh),
+    "Noto Sans SC",
+    sans-serif;
+}
+
+.museum-description p {
+  margin: 0;
+}
+
+.museum-description-secondary {
+  margin-top: 8px !important;
+  color: var(--muted);
+  font:
+    400 0.72rem/1.5 var(--font-body),
+    sans-serif !important;
+}
+
+.museum-feature {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.museum-feature figure {
+  position: relative;
+  width: 104px;
+  height: 132px;
+  margin: 0;
+  background: var(--paper-muted);
+}
+
+.museum-feature figure > span {
+  position: absolute;
+  z-index: 2;
+  top: 7px;
+  left: 7px;
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(13, 14, 13, 0.86);
+  color: white;
+  font: 500 0.63rem/1 var(--body);
+}
+
+.museum-feature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.museum-feature div {
+  display: grid;
+  gap: 4px;
+}
+
+.museum-feature small,
+.museum-feature em {
+  font-size: 0.75rem;
+  font-style: normal;
+}
+
+.museum-feature strong {
+  font:
+    500 1.22rem/1.2 var(--font-body-zh),
+    "Noto Sans SC",
+    sans-serif;
+}
+
+.museum-feature span {
+  font:
+    400 0.875rem/1.5 var(--font-body-zh),
+    "Noto Sans SC",
+    sans-serif;
+}
+
+.museum-feature em {
+  margin-top: 11px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.museum-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  margin-top: 21px;
+}
+
+.museum-enter {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ink);
+  color: white;
+  padding: 0 20px;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.museum-enter span {
+  margin-left: 22px;
+  transition: transform 180ms var(--ease-state);
+}
+
+.museum-enter:hover span {
+  transform: translateX(5px);
+}
+
+.museum-official {
+  width: max-content;
+  margin: 0;
+  color: var(--ink) !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.035em;
+}
+
+.museum-globe-stage {
+  position: absolute;
+  z-index: 2;
+  top: clamp(150px, 16vh, 182px);
+  right: max(-9vw, -150px);
+  width: min(69vw, 1050px);
+  height: min(69vw, 1050px);
+}
+
+.museum-globe-kicker {
+  position: absolute;
+  z-index: 5;
+  top: 1.5%;
+  left: 17%;
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  color: var(--ink);
+  font: 500 0.66rem/1.35 var(--body);
+  letter-spacing: 0.065em;
+}
+
+.museum-globe-kicker span {
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.museum-globe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 27%, #56584f, #252a28 44%, #101719 76%);
+  box-shadow:
+    inset 18px 10px 50px rgba(255, 255, 255, 0.12),
+    inset -80px -40px 110px rgba(0, 0, 0, 0.56),
+    0 15px 35px rgba(0, 0, 0, 0.15);
+  cursor: grab;
+  touch-action: none;
+}
+
+.museum-globe.is-dragging {
+  cursor: grabbing;
+}
+
+.museum-globe:focus-visible {
+  outline-offset: -8px;
+}
+
+.globe-surface {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--globe-angle, 0deg));
+  opacity: 1;
+  transition:
+    transform 260ms var(--ease-state),
+    opacity 420ms;
+}
+
+.museum-globe.is-dragging .globe-surface {
+  transition: none;
+}
+
+.museum-globe.is-webgl-ready .globe-surface {
+  opacity: 0;
+}
+
+.webgl-globe {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 420ms;
+}
+
+.museum-globe.is-webgl-ready .webgl-globe {
+  opacity: 1;
+}
+
+.webgl-globe > div,
+.webgl-globe canvas {
+  position: absolute !important;
+  inset: 0;
+}
+
+.globe-marker {
+  position: relative;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  padding: 0;
+  pointer-events: auto;
+}
+
+.globe-marker-callout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}
+
+.globe-marker-dot {
+  position: absolute;
+  z-index: 3;
+  top: -4.5px;
+  left: -4.5px;
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid #ddd9d1;
+  border-radius: 50%;
+  background: #171918;
+  box-shadow:
+    0 0 0 3px rgba(221, 217, 209, 0.2),
+    0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.globe-marker.open .globe-marker-dot {
+  border-color: #171918;
+  background: #f5f0e7;
+}
+
+.globe-marker.today .globe-marker-dot,
+.globe-marker.selected .globe-marker-dot {
+  border-color: white;
+  background: #d4ad69;
+  box-shadow:
+    0 0 0 5px rgba(212, 173, 105, 0.24),
+    0 2px 7px rgba(0, 0, 0, 0.4);
+}
+
+.globe-marker-label {
+  position: absolute;
+  z-index: 2;
+  top: -24px;
+  left: 22px;
+  display: none;
+  min-height: 30px;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  background: rgba(15, 16, 15, 0.82);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.22);
+  color: #f5f1e9;
+  padding: 7px 10px;
+  font: 500 12px/1.35 var(--body-zh);
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+.globe-marker-label small {
+  color: #bdb8b0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.globe-marker.selected .globe-marker-label {
+  display: flex;
+}
+
+.globe-marker:hover .globe-marker-label,
+.globe-marker:focus-visible .globe-marker-label {
+  transform: scale(1.04);
+}
+
+.museum-globe-compact .globe-marker:not(.selected) {
+  display: none;
+}
+
+.globe-museum-card {
+  position: fixed;
+  z-index: 100;
+  top: 20vh;
+  right: 5vw;
+  width: min(340px, calc(100vw - 40px));
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 2px;
+  background: rgba(246, 242, 234, 0.94);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  color: #171918;
+  padding: 22px;
+  text-align: left;
+  touch-action: auto;
+  backdrop-filter: blur(16px);
+}
+
+.globe-museum-card > p {
+  margin: 0 32px 10px 0;
+  color: #68655f;
+  font: 600 0.62rem/1.4 var(--body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.globe-museum-card h2 {
+  margin: 0;
+  font: 500 clamp(1.35rem, 2vw, 2rem) / 1.05 var(--title);
+}
+
+.globe-museum-card > small {
+  display: block;
+  margin-top: 5px;
+  color: #716e67;
+  font: 500 0.7rem/1.4 var(--body);
+  letter-spacing: 0.05em;
+}
+
+.globe-museum-card > div {
+  margin-top: 14px;
+  font: 400 0.78rem/1.65 var(--body-zh);
+}
+
+.globe-museum-card nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.globe-museum-card nav a {
+  color: inherit;
+  font: 600 0.66rem/1 var(--body-zh);
+  text-decoration: none;
+}
+
+.globe-museum-card .globe-museum-enter {
+  background: #171918;
+  color: #f7f3eb;
+  padding: 12px 14px;
+}
+
+.globe-museum-enter span {
+  margin-left: 14px;
+}
+
+.globe-museum-card-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(23, 25, 24, 0.08);
+  color: inherit;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.globe-grid {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    repeating-radial-gradient(
+      ellipse at 50% 50%,
+      transparent 0 58px,
+      rgba(220, 224, 218, 0.18) 59px 60px
+    ),
+    repeating-linear-gradient(
+      83deg,
+      transparent 0 10%,
+      rgba(220, 224, 218, 0.14) 10.1%,
+      transparent 10.3%
+    );
+}
+
+@media (max-width: 720px) {
+  .globe-museum-card {
+    top: auto;
+    right: 5vw;
+    bottom: 5vh;
+    width: 90vw;
+    padding: 18px;
+  }
+
+  .globe-museum-card > div {
+    display: none;
+  }
+
+  .globe-museum-card nav {
+    margin-top: 13px;
+  }
+}
+
+.globe-land {
+  position: absolute;
+  z-index: 1;
+  background: #59584f;
+  filter: drop-shadow(0 1px rgba(224, 218, 205, 0.38));
+}
+
+.land-north-america {
+  top: 24%;
+  left: 17%;
+  width: 32%;
+  height: 29%;
+  clip-path: polygon(0 13%, 28% 0, 70% 8%, 100% 45%, 74% 56%, 57% 94%, 27% 79%, 9% 50%);
+}
+.land-south-america {
+  top: 50%;
+  left: 38%;
+  width: 16%;
+  height: 32%;
+  clip-path: polygon(0 0, 92% 10%, 100% 33%, 56% 100%, 31% 77%);
+}
+.land-europe {
+  top: 30%;
+  left: 60%;
+  width: 14%;
+  height: 14%;
+  clip-path: polygon(0 14%, 66% 0, 100% 38%, 78% 100%, 28% 77%);
+}
+.land-africa {
+  top: 43%;
+  left: 59%;
+  width: 15%;
+  height: 25%;
+  clip-path: polygon(15% 0, 100% 16%, 74% 75%, 42% 100%, 12% 52%);
+}
+.land-asia {
+  top: 27%;
+  left: 68%;
+  width: 29%;
+  height: 29%;
+  clip-path: polygon(0 20%, 32% 0, 100% 18%, 82% 75%, 52% 67%, 20% 100%);
+}
+
+.globe-node {
+  position: absolute;
+  z-index: 3;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #eee8dc;
+  border-radius: 50%;
+}
+
+.node-chicago {
+  top: 41%;
+  left: 33%;
+  width: 38px;
+  height: 38px;
+  border-color: #d2a968;
+  box-shadow: 0 0 0 10px rgba(210, 169, 104, 0.12);
+}
+
+.node-chicago i {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #eee8dc;
+}
+
+.node-chicago b {
+  position: absolute;
+  top: 10px;
+  left: 54px;
+  width: 220px;
+  color: #f3efe7;
+  font-size: 0.75rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.node-west {
+  top: 33%;
+  left: 24%;
+  background: #eee8dc;
+}
+.node-east {
+  top: 46%;
+  left: 79%;
+}
+.node-europe {
+  top: 36%;
+  left: 66%;
+  background: #eee8dc;
+}
+
+.museum-region-stats {
+  position: absolute;
+  z-index: 4;
+  top: 1.5%;
+  right: 15%;
+  display: grid;
+  gap: 8px;
+  font-size: 0.75rem;
+}
+
+.museum-region-stats strong {
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.museum-globe-legend {
+  position: absolute;
+  z-index: 4;
+  top: 73%;
+  right: 13%;
+  display: flex;
+  gap: 22px;
+  color: #f3efe7;
+  font-size: 0.75rem;
+}
+
+.museum-drag-cue {
+  position: absolute;
+  z-index: 4;
+  top: 73%;
+  left: 8%;
+  margin: 0;
+  color: #f3efe7;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+/* Real paintings remain uncropped at every ratio. */
+.artwork-card img,
+.artwork-stage img {
+  object-fit: contain;
+}
+
+.artwork-card figure {
+  border: 1px solid rgba(13, 14, 13, 0.08);
+}
+
+.artwork-card:hover img {
+  transform: scale(1.015);
+}
+
+@media (max-width: 1050px) {
+  .home-history {
+    display: none;
+  }
+  .home-daily-art {
+    left: 7vw;
+    width: 42vw;
+  }
+  .home-entry {
+    width: 40vw;
+  }
+  .museum-summary {
+    width: 42vw;
+  }
+  .museum-globe-stage {
+    right: -24vw;
+    width: 76vw;
+    height: 76vw;
+  }
+  .museum-globe-kicker {
+    left: 12%;
+  }
+  .museum-region-stats {
+    right: 11%;
+  }
+}
+
+@media (max-width: 720px) {
+  .shell {
+    width: calc(100% - 36px);
+  }
+  .site-header {
+    min-height: 68px;
+  }
+  .wordmark {
+    font-size: 1.2rem;
+  }
+  .nav {
+    display: none;
+  }
+  .showcase-home {
+    margin-top: -69px;
+  }
+  .home-composition {
+    min-height: 1050px;
+    padding-top: 69px;
+  }
+  .home-side-label {
+    top: 88px;
+    left: 18px;
+  }
+  .home-daily-art {
+    top: 145px;
+    left: 8%;
+    width: 84%;
+    height: 46vh;
+    min-height: 390px;
+  }
+  .home-daily-index {
+    display: none;
+  }
+  .home-open-cue {
+    opacity: 1;
+  }
+  .home-entry {
+    top: 590px;
+    right: auto;
+    left: 8%;
+    width: 84%;
+  }
+  .home-recommendation {
+    min-height: 154px;
+  }
+  .home-artist-card {
+    min-height: 230px;
+  }
+  .home-globe-stage {
+    right: -35%;
+    bottom: -48vw;
+    left: -35%;
+    height: 600px;
+  }
+  .home-globe-stage .museum-globe {
+    width: 170vw;
+    height: 170vw;
+  }
+  .home-globe-stage > p {
+    top: 15%;
+    left: 22%;
+  }
+  .home-globe-stage > p span {
+    display: none;
+  }
+  .home-globe-stage > p strong {
+    font-size: 17vw;
+  }
+  .museum-page {
+    min-height: 0;
+    padding: 18px 18px 0;
+    background: var(--paper);
+  }
+  .museum-masthead {
+    align-items: flex-end;
+    padding-bottom: 18px;
+  }
+  .museum-library-title {
+    max-width: 258px;
+    font-size: clamp(2.85rem, 13vw, 3.55rem);
+    line-height: 0.9;
+  }
+  .museum-page-index {
+    gap: 2px 5px;
+    margin-bottom: 3px;
+    font-size: 0.55rem;
+  }
+  .museum-page-index span {
+    display: none;
+  }
+  .museum-page-index b {
+    font-size: 1.2rem;
+  }
+  .museum-summary {
+    width: 100%;
+    margin-top: 42px;
+  }
+  .museum-globe-stage {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: -18vw;
+    width: 136vw;
+    height: 136vw;
+    margin-top: 32px;
+  }
+  .museum-globe {
+    width: 100%;
+    height: 100%;
+  }
+  .museum-region-stats,
+  .museum-globe-legend {
+    display: none;
+  }
+  .museum-globe-kicker {
+    top: 10%;
+    left: 23%;
+    color: #f3efe7;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  }
+  .museum-globe-kicker span {
+    color: rgba(243, 239, 231, 0.7);
+  }
+  .museum-drag-cue {
+    top: 83%;
+    left: 23%;
+    display: block;
+    max-width: 230px;
+    font-size: 0.64rem;
+    line-height: 1.5;
+  }
+  .museum-globe-stage .globe-marker.selected .globe-marker-label {
+    right: 20px;
+    left: auto;
+    align-items: flex-end;
+    text-align: right;
+  }
+  .museum-name-lockup {
+    margin-top: 18px;
+    padding-top: 13px;
+  }
+  .museum-summary h1 {
+    margin-top: 0;
+    font-size: clamp(2.05rem, 9vw, 2.4rem);
+    line-height: 1.08;
+  }
+  .museum-official-name {
+    font-size: 1.2rem;
+  }
+  .museum-description {
+    margin: 20px 0;
+    padding-bottom: 20px;
+    font-size: 0.94rem;
+    line-height: 1.72;
+  }
+  .museum-feature {
+    grid-template-columns: 116px 1fr;
+    gap: 18px;
+  }
+  .museum-feature figure {
+    width: 116px;
+    height: 150px;
+  }
+  .museum-actions {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  .museum-enter {
+    width: 100%;
+    min-height: 54px;
+  }
+  .museum-official {
+    font-size: 0.72rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-daily-art {
+    animation: none;
+  }
+  .home-history img,
+  .home-open-cue,
+  .home-recommendation,
+  .home-artist-card > a span,
+  .museum-enter span {
+    transition: none;
+  }
+}
+
+/* Stage 8 typography: the Demo's editorial display face plus dedicated CJK faces. */
+:root {
+  --display: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --display-zh: var(--font-body-zh), "Noto Sans SC", sans-serif;
+  --body: var(--font-body-latin), Inter, "Helvetica Neue", sans-serif;
+  --body-zh: var(--font-body-zh), "Noto Sans SC", sans-serif;
+}
+
+body {
+  font-family: var(--body), var(--body-zh);
+}
+
+[lang="zh"] {
+  font-family: var(--body-zh), var(--body);
+}
+
+.wordmark,
+.museum-library-title,
+.home-globe-stage > p strong,
+.home-recommendation h2,
+.home-artist-card h2,
+.collection-hero h1,
+.artwork-context h1,
+.title {
+  font-family: var(--display);
+}
+
+.wordmark,
+.museum-library-title,
+.home-globe-stage > p strong {
+  font-family: "Otomanopee One", var(--body-zh), sans-serif;
+}
+
+[lang="zh"] .museum-summary h1,
+[lang="zh"] .museum-feature strong,
+[lang="zh"] .artwork-card h2,
+[lang="zh"] .artwork-context h1,
+[lang="zh"] .collection-empty h2 {
+  font-family: var(--display-zh);
+}
+
+.museum-official-name,
+.museum-description,
+.museum-feature span,
+.home-history > p strong,
+.home-artist-card > p,
+.artwork-description {
+  font-family: var(--display-zh), var(--display);
+}
+
+/* Stage 8 motion: layered entrance, restrained parallax, and a living globe. */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(241, 238, 231, 0);
+  transition:
+    min-height 260ms var(--ease-state),
+    background 260ms,
+    backdrop-filter 260ms;
+}
+
+.site-header.is-scrolled {
+  min-height: 68px;
+  background: rgba(241, 238, 231, 0.82);
+  backdrop-filter: blur(18px);
+}
+
+.home-composition {
+  --pointer-x: 0;
+  --pointer-y: 0;
+}
+
+.motion-ready .home-side-label {
+  animation: home-label-in 700ms 80ms var(--ease-enter) both;
+}
+
+.motion-ready .home-history {
+  animation: home-history-in 900ms 160ms var(--ease-enter) both;
+}
+
+.motion-ready .home-daily-art {
+  animation: home-art-in 1100ms 100ms var(--ease-enter) both;
+}
+
+.motion-ready .home-entry {
+  animation: home-entry-in 900ms 260ms var(--ease-enter) both;
+}
+
+.motion-ready .home-globe-stage {
+  animation: home-globe-in 1000ms 40ms var(--ease-enter) both;
+}
+
+.home-history {
+  transform: translate3d(calc(var(--pointer-x) * -4px), calc(var(--pointer-y) * -3px), 0);
+  transition: transform 420ms var(--ease-state);
+}
+
+.home-daily-art {
+  transform: translate3d(calc(var(--pointer-x) * 7px), calc(var(--pointer-y) * 5px), 0);
+  transition:
+    transform 420ms var(--ease-state),
+    box-shadow 260ms;
+}
+
+.home-daily-art:hover {
+  box-shadow: 0 16px 36px rgba(13, 14, 13, 0.26);
+}
+
+.home-entry {
+  transform: translate3d(calc(var(--pointer-x) * -5px), calc(var(--pointer-y) * -4px), 0);
+  transition: transform 520ms var(--ease-state);
+}
+
+.home-globe-stage {
+  transform: translate3d(calc(var(--pointer-x) * 3px), calc(var(--pointer-y) * 2px), 0);
+  transition: transform 700ms var(--ease-state);
+}
+
+@keyframes home-label-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes home-history-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-14px, 18px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(calc(var(--pointer-x) * -4px), calc(var(--pointer-y) * -3px), 0);
+  }
+}
+
+@keyframes home-art-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(calc(var(--pointer-x) * 7px), calc(var(--pointer-y) * 5px), 0);
+  }
+}
+
+@keyframes home-entry-in {
+  from {
+    opacity: 0;
+    transform: translate3d(18px, 22px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(calc(var(--pointer-x) * -5px), calc(var(--pointer-y) * -4px), 0);
+  }
+}
+
+@keyframes home-globe-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0) scale(1.025);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(calc(var(--pointer-x) * 3px), calc(var(--pointer-y) * 2px), 0);
+  }
+}
+
+.museum-globe {
+  animation: globe-breathe 9s ease-in-out infinite;
+}
+
+.globe-grid {
+  animation: globe-grid-drift 24s linear infinite;
+}
+
+.node-chicago {
+  animation: globe-node-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes globe-breathe {
+  0%,
+  100% {
+    transform: rotate(-0.6deg) scale(1);
+  }
+  50% {
+    transform: rotate(0.6deg) scale(1.006);
+  }
+}
+
+@keyframes globe-grid-drift {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes globe-node-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 10px rgba(210, 169, 104, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 18px rgba(210, 169, 104, 0.02);
+  }
+}
+
+.motion-ready .motion-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 800ms var(--ease-enter),
+    transform 800ms var(--ease-enter);
+}
+
+.motion-ready .artwork-grid .artwork-card {
+  opacity: 0;
+  transform: translateY(18px) scale(0.992);
+  transition:
+    opacity 700ms var(--ease-enter),
+    transform 700ms var(--ease-enter);
+}
+
+.motion-ready .artwork-grid .artwork-card.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.motion-ready .artwork-grid .artwork-card:nth-child(3n + 2) {
+  transition-delay: 80ms;
+}
+
+.motion-ready .artwork-grid .artwork-card:nth-child(3n + 3) {
+  transition-delay: 160ms;
+}
+
+.motion-ready .motion-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.motion-ready .museum-summary.is-visible {
+  transition-delay: 100ms;
+}
+
+.motion-ready .artwork-context.is-visible {
+  transition-delay: 160ms;
+}
+.motion-ready .museum-globe-stage.is-visible {
+  transition-delay: 180ms;
+}
+
+::view-transition-group(site-header) {
+  z-index: 100;
+  animation: none;
+}
+
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+::view-transition-old(.page-exit) {
+  animation: 180ms ease-in both page-fade-out;
+}
+
+::view-transition-new(.page-enter) {
+  animation: 420ms 120ms var(--ease-enter) both page-fade-in;
+}
+
+.route-transition-curtain {
+  position: fixed;
+  z-index: 240;
+  inset: 0;
+  visibility: hidden;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+html.collection-transitioning,
+html.collection-transitioning body {
+  overflow: hidden;
+}
+
+.route-transition-curtain.covering,
+.route-transition-curtain.revealing {
+  visibility: visible;
+}
+
+.route-transition-curtain .curtain-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 122vh;
+  fill: #080908;
+  transform: translateY(100vh);
+  will-change: transform;
+}
+
+.route-transition-curtain .route-curtain-title {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  color: #f2eee6;
+  font:
+    400 clamp(2rem, 9vw, 10.5rem) / 1 var(--font-cover-gallery),
+    sans-serif;
+  letter-spacing: -0.045em;
+  opacity: 0;
+  transform: translate(-50%, -30%);
+  white-space: nowrap;
+}
+
+.route-curtain-loading {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: calc(50% + clamp(58px, 7vw, 118px));
+  left: 50%;
+  color: rgba(242, 238, 230, 0.78);
+  font:
+    400 clamp(14px, 1.15vw, 19px) / 1 var(--font-display),
+    var(--font-display-zh),
+    serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translate(-50%, 12px);
+}
+
+.route-transition-curtain.covering .curtain-shape {
+  animation: route-curtain-cover 520ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.route-transition-curtain.revealing .curtain-shape {
+  animation: route-curtain-reveal 420ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.route-transition-curtain.covering .route-curtain-title {
+  animation: route-curtain-title-in 500ms var(--ease-enter) both;
+}
+
+.route-transition-curtain.revealing .route-curtain-title {
+  animation: route-curtain-title-out 400ms var(--ease-enter) both;
+}
+
+.route-transition-curtain.covering .route-curtain-loading {
+  animation: route-curtain-loading-in 320ms 140ms var(--ease-enter) both;
+}
+
+.route-transition-curtain.revealing .route-curtain-loading {
+  animation: route-curtain-loading-out 260ms var(--ease-enter) both;
+}
+
+@keyframes route-curtain-cover {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-22vh);
+  }
+}
+
+@keyframes route-curtain-reveal {
+  from {
+    transform: translateY(-22vh);
+  }
+  to {
+    transform: translateY(-145vh);
+  }
+}
+
+@keyframes route-curtain-title-in {
+  0%,
+  45% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes route-curtain-title-out {
+  0%,
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -90px);
+  }
+}
+
+@keyframes route-curtain-loading-in {
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes route-curtain-loading-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-transition-curtain.covering .curtain-shape,
+  .route-transition-curtain.revealing .curtain-shape,
+  .route-transition-curtain.covering .route-curtain-title,
+  .route-transition-curtain.revealing .route-curtain-title,
+  .route-transition-curtain.covering .route-curtain-loading,
+  .route-transition-curtain.revealing .route-curtain-loading {
+    animation-duration: 20ms;
+    animation-delay: 0ms;
+  }
+}
+
+::view-transition-group(.artwork-morph) {
+  z-index: 60;
+  animation-duration: 780ms;
+  animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .home-motion-item,
+  .museum-globe,
+  .globe-grid,
+  .node-chicago {
+    animation: none;
+  }
+
+  .home-history,
+  .home-daily-art,
+  .home-entry,
+  .home-globe-stage,
+  .motion-ready .motion-reveal,
+  .motion-ready .motion-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .motion-ready .artwork-card,
+  .motion-ready .artwork-card.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+}

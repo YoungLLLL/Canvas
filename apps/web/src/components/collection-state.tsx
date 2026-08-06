@@ -4,20 +4,35 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ComponentProps, useEffect } from "react";
 
+import {
+  finishArtworkExitTransition,
+  focusReturnedArtwork,
+  startArtworkEnterTransition,
+  startArtworkExitTransition,
+} from "@/src/components/artwork-shared-transition";
+
 const STORAGE_KEY = "canvium:collection-return";
 const RESTORE_REQUEST_KEY = "canvium:collection-restore-request";
 
 type ReturnState = {
   artworkKey: string;
+  cardId?: string;
   collectionUrl: string;
+  historyLength?: number;
   scrollY: number;
 };
 
-export function saveCollectionReturnState(artworkKey: string) {
+export function saveCollectionReturnState(artworkKey: string, cardId?: string) {
   const collectionUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
   sessionStorage.setItem(
     STORAGE_KEY,
-    JSON.stringify({ artworkKey, collectionUrl, scrollY: window.scrollY } satisfies ReturnState),
+    JSON.stringify({
+      artworkKey,
+      cardId,
+      collectionUrl,
+      historyLength: window.history.length,
+      scrollY: window.scrollY,
+    } satisfies ReturnState),
   );
 }
 
@@ -42,16 +57,30 @@ export function ArtworkCardLink({
   idSuffix?: string;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const href = `/${pathname.split("/")[1]}/artworks/${artworkKey}`;
 
   return (
     <Link
       {...linkProps}
       className={["artwork-card", className].filter(Boolean).join(" ")}
-      href={`/${pathname.split("/")[1]}/artworks/${artworkKey}`}
+      href={href}
       id={`card-${artworkKey}${idSuffix}`}
       onClick={(event) => {
-        saveCollectionReturnState(artworkKey);
         onClick?.(event);
+        if (event.defaultPrevented) return;
+        saveCollectionReturnState(artworkKey, event.currentTarget.id);
+        if (
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        ) {
+          return;
+        }
+        event.preventDefault();
+        startArtworkEnterTransition(event.currentTarget, () => router.push(href));
       }}
     >
       {children}
@@ -73,9 +102,10 @@ export function CollectionStateRestorer() {
     const currentUrl = `${pathname}${query ? `?${query}` : ""}`;
     if (`${savedUrl.pathname}${savedUrl.search}` !== currentUrl) return;
     const restore = () => {
-      const card = document.getElementById(`card-${state.artworkKey}`);
+      const card = document.getElementById(state.cardId || `card-${state.artworkKey}`);
       window.scrollTo({ top: state.scrollY, behavior: "auto" });
-      card?.focus({ preventScroll: true });
+      focusReturnedArtwork(card);
+      finishArtworkExitTransition(card);
       return Boolean(card);
     };
     const frame = requestAnimationFrame(restore);
@@ -99,45 +129,66 @@ export function CollectionBackLink({
   className = "detail-back",
   defaultHref,
   label,
+  style,
 }: {
   children?: React.ReactNode;
   className?: string;
   defaultHref: string;
   label: string;
+  style?: ComponentProps<"button">["style"];
 }) {
   const router = useRouter();
+  const navigateBack = () => {
+    const state = readState();
+    const destination = state?.collectionUrl ?? defaultHref;
+    if (state) sessionStorage.setItem(RESTORE_REQUEST_KEY, "1");
+    const canReturnThroughHistory =
+      typeof state?.historyLength === "number" && window.history.length > state.historyLength;
+    if (canReturnThroughHistory) {
+      const detailPath = window.location.pathname;
+      router.back();
+      window.setTimeout(() => {
+        if (window.location.pathname === detailPath) {
+          router.replace(destination, { scroll: false });
+        }
+      }, 2_500);
+    } else {
+      router.push(destination, { scroll: false });
+    }
+    if (!state) return;
+    const savedPath = new URL(state.collectionUrl, window.location.origin).pathname;
+    let attempts = 0;
+    const restoreAfterNavigation = () => {
+      attempts += 1;
+      if (window.location.pathname !== savedPath) {
+        if (attempts < 40) window.setTimeout(restoreAfterNavigation, 50);
+        return;
+      }
+      const card = document.getElementById(state.cardId || `card-${state.artworkKey}`);
+      if (!card) {
+        if (attempts < 40) window.setTimeout(restoreAfterNavigation, 50);
+        return;
+      }
+      const restore = () => {
+        window.scrollTo({ top: state.scrollY, behavior: "auto" });
+        focusReturnedArtwork(card);
+        finishArtworkExitTransition(card);
+      };
+      restore();
+      window.setTimeout(restore, 160);
+      window.setTimeout(restore, 480);
+    };
+    window.setTimeout(restoreAfterNavigation, 0);
+  };
   return (
     <button
       aria-label={label}
       className={className}
+      data-artwork-transition-ui
+      style={style}
       onClick={() => {
-        const state = readState();
-        const destination = state?.collectionUrl ?? defaultHref;
-        if (state) sessionStorage.setItem(RESTORE_REQUEST_KEY, "1");
-        router.push(destination, { scroll: false });
-        if (!state) return;
-        const savedPath = new URL(state.collectionUrl, window.location.origin).pathname;
-        let attempts = 0;
-        const restoreAfterNavigation = () => {
-          attempts += 1;
-          if (window.location.pathname !== savedPath) {
-            if (attempts < 40) window.setTimeout(restoreAfterNavigation, 50);
-            return;
-          }
-          const card = document.getElementById(`card-${state.artworkKey}`);
-          if (!card) {
-            if (attempts < 40) window.setTimeout(restoreAfterNavigation, 50);
-            return;
-          }
-          const restore = () => {
-            window.scrollTo({ top: state.scrollY, behavior: "auto" });
-            card.focus({ preventScroll: true });
-          };
-          restore();
-          window.setTimeout(restore, 160);
-          window.setTimeout(restore, 480);
-        };
-        window.setTimeout(restoreAfterNavigation, 0);
+        const image = document.querySelector<HTMLImageElement>("[data-artwork-detail-image]");
+        startArtworkExitTransition(image, navigateBack);
       }}
       type="button"
     >

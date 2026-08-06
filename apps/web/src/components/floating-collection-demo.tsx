@@ -6,6 +6,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { startArtworkEnterTransition } from "@/src/components/artwork-shared-transition";
 import { saveCollectionReturnState } from "@/src/components/collection-state";
 import styles from "@/src/components/floating-collection-demo.module.css";
 import { artworkKey, type CatalogSource } from "@/src/lib/catalog-source";
@@ -242,6 +243,7 @@ export function FloatingCollectionDemo({
     moved: boolean;
   } | null>(null);
   const suppressClickRef = useRef(false);
+  const transitionNavigationRef = useRef(false);
   const loadingPages = useRef(new Set<number>());
   const mountedRef = useRef(true);
   const sourceAvailableRef = useRef(true);
@@ -1049,6 +1051,7 @@ export function FloatingCollectionDemo({
                 activeInstanceKey === artwork.instanceKey ? ` ${styles.artworkFocused}` : ""
               }`}
               data-floating-artwork=""
+              id={`floating-card-${artwork.instanceKey}`}
               key={artwork.instanceKey}
               onBlur={() => {
                 if (viewMode !== "floating") return;
@@ -1074,6 +1077,13 @@ export function FloatingCollectionDemo({
               }}
               onFocus={() => {
                 if (viewMode !== "floating") return;
+                if (
+                  artworkElementsRef.current.get(artwork.instanceKey)?.dataset.collectionReturnFocus
+                ) {
+                  delete artworkElementsRef.current.get(artwork.instanceKey)?.dataset
+                    .collectionReturnFocus;
+                  return;
+                }
                 setDisplayedArtwork(artwork);
                 setHoveredInstanceKey(artwork.instanceKey);
               }}
@@ -1175,7 +1185,31 @@ export function FloatingCollectionDemo({
             }
             className={styles.chatEntry}
             href={`/${locale}/artworks/${detailArtwork.artworkKey}`}
-            onClick={() => saveCollectionReturnState(detailArtwork.artworkKey)}
+            onClick={(event) => {
+              if (transitionNavigationRef.current) {
+                transitionNavigationRef.current = false;
+                return;
+              }
+              const sourceCard = artworkElementsRef.current.get(detailArtwork.instanceKey);
+              saveCollectionReturnState(detailArtwork.artworkKey, sourceCard?.id);
+              if (
+                event.button !== 0 ||
+                event.metaKey ||
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.altKey
+              ) {
+                return;
+              }
+              const transitionSource = focusArtworkRef.current || sourceCard;
+              if (!transitionSource) return;
+              event.preventDefault();
+              const link = event.currentTarget;
+              startArtworkEnterTransition(transitionSource, () => {
+                transitionNavigationRef.current = true;
+                link.click();
+              });
+            }}
           >
             <span>{locale === "zh" ? "进入作品对话" : "Enter conversation"}</span>
             <small>{locale === "zh" ? "ENTER CONVERSATION" : "与作品对话"}</small>

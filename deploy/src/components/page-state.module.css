@@ -1,0 +1,119 @@
+.root {
+  position: fixed;
+  z-index: 210;
+  inset: 0;
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 64px);
+  background: #f2f0ea;
+  color: #151514;
+}
+
+.dark {
+  background: #080908;
+  color: #f2eee6;
+}
+
+.wordmark {
+  font-family: var(--font-logo), var(--font-body-latin), sans-serif;
+  font-size: clamp(1.25rem, 1.8vw, 2rem);
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+.content {
+  width: min(720px, 100%);
+  margin-block: auto;
+}
+
+.eyebrow,
+.meta {
+  font-family: var(--font-body-latin), var(--font-body-zh), sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 18px 0 20px;
+  font-family: var(--font-display), var(--font-body-zh), serif;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+}
+
+.body {
+  max-width: 620px;
+  margin: 0;
+  color: color-mix(in srgb, currentColor 68%, transparent);
+  font-family: var(--font-body-zh), var(--font-body-latin), sans-serif;
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.action {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0 22px;
+  background: transparent;
+  color: inherit;
+  font-family: var(--font-body-zh), var(--font-body-latin), sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: currentColor;
+  color: #f2f0ea;
+}
+
+.dark .primary {
+  color: #080908;
+}
+
+.loadingMark {
+  display: grid;
+  width: min(520px, 82vw);
+  gap: 14px;
+  margin: 34px 0;
+}
+
+.loadingMark i {
+  display: block;
+  height: 1px;
+  background: color-mix(in srgb, currentColor 24%, transparent);
+}
+
+.loadingMark i:nth-child(2) {
+  width: 72%;
+}
+
+.loadingMark i:nth-child(3) {
+  width: 42%;
+}
+
+@media (max-width: 640px) {
+  .root {
+    padding: 24px 20px;
+  }
+
+  .title {
+    font-size: clamp(2.8rem, 15vw, 5rem);
+  }
+}

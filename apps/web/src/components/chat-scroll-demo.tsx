@@ -1,12 +1,22 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Link from "next/link";
 import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
 
 import { CollectionBackLink } from "@/src/components/collection-state";
+import {
+  getArtworkEnterOverlay,
+  removeArtworkTransitionOverlay,
+} from "@/src/components/artwork-shared-transition";
 
 import styles from "./chat-scroll-demo.module.css";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP);
+}
 
 export type ChatCitation = {
   number: number;
@@ -128,6 +138,8 @@ export function ChatScrollDemo({
       : DEFAULT_ARTWORK.localizedCollection,
   };
   const messageFeedRef = useRef<HTMLDivElement>(null);
+  const pageRef = useRef<HTMLElement>(null);
+  const artworkImageRef = useRef<HTMLImageElement>(null);
   const [chatOpen, setChatOpen] = useState(false);
   const [introReady, setIntroReady] = useState(false);
   const [draft, setDraft] = useState("");
@@ -155,6 +167,63 @@ export function ChatScrollDemo({
       segments: initialOpening.segments,
     },
   ]);
+
+  useGSAP(
+    (_context, contextSafe) => {
+      const overlay = getArtworkEnterOverlay();
+      if (!overlay) return;
+
+      const interfaceElements = gsap.utils.toArray<HTMLElement>("[data-artwork-transition-ui]");
+      overlay.root.style.pointerEvents = "none";
+      gsap.set(interfaceElements, { autoAlpha: 0, y: 12 });
+      gsap.to(interfaceElements, {
+        autoAlpha: 1,
+        delay: 0.18,
+        duration: 0.52,
+        ease: "power3.out",
+        stagger: 0.055,
+        y: 0,
+      });
+      const revealTransition = () => {
+        const target = artworkImageRef.current;
+        if (!target || !overlay.root.isConnected) return;
+        const rect = target.getBoundingClientRect();
+        const timeline = gsap.timeline({
+          defaults: { ease: "power3.out" },
+          onComplete: removeArtworkTransitionOverlay,
+        });
+        if (rect.width > 0 && rect.height > 0) {
+          timeline.to(
+            overlay.image,
+            {
+              borderRadius: 0,
+              duration: 0.22,
+              height: rect.height,
+              left: rect.left,
+              top: rect.top,
+              width: rect.width,
+            },
+            0,
+          );
+        }
+        timeline.to(overlay.root, { autoAlpha: 0, duration: 0.18 }, 0.1);
+      };
+      const reveal = contextSafe?.(revealTransition) ?? revealTransition;
+
+      const target = artworkImageRef.current;
+      if (!target || target.complete) {
+        window.requestAnimationFrame(reveal);
+        return;
+      }
+      target.addEventListener("load", reveal, { once: true });
+      const fallbackTimer = window.setTimeout(reveal, 4_000);
+      return () => {
+        target.removeEventListener("load", reveal);
+        window.clearTimeout(fallbackTimer);
+      };
+    },
+    { scope: pageRef },
+  );
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -331,11 +400,13 @@ export function ChatScrollDemo({
   );
 
   return (
-    <main className={styles.page}>
+    <main className={styles.page} ref={pageRef}>
       <div className={styles.artworkCanvas}>
         {selectedArtwork.imageUrl ? (
           <img
             className={styles.artworkImage}
+            data-artwork-detail-image
+            ref={artworkImageRef}
             src={selectedArtwork.imageUrl}
             alt={`${selectedArtwork.artist}, ${selectedArtwork.title}`}
             draggable={false}
@@ -348,7 +419,7 @@ export function ChatScrollDemo({
         <div className={styles.artworkWash} aria-hidden="true" />
       </div>
 
-      <header className={styles.topBar}>
+      <header className={styles.topBar} data-artwork-transition-ui>
         <Link
           className={styles.wordmark}
           href={`/${locale}`}
@@ -362,13 +433,22 @@ export function ChatScrollDemo({
         className={styles.galleryExit}
         defaultHref={collectionHref ?? `/${locale}/museums/art-institute-of-chicago/collection`}
         label={locale === "zh" ? "返回画廊" : "Return to the gallery"}
+        style={{ backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}
       >
-        <span aria-hidden="true">←</span>
+        <svg aria-hidden="true" className={styles.backArrow} focusable="false" viewBox="0 0 24 24">
+          <path d="m14 6-6 6 6 6" />
+          <path d="M8 12h9" />
+        </svg>
       </CollectionBackLink>
 
-      <section className={styles.chatDock} aria-label="与作品对话">
+      <section className={styles.chatDock} data-artwork-transition-ui aria-label="与作品对话">
         <div className={`${styles.chatShell} ${chatOpen ? styles.chatShellOpen : ""}`}>
-          <div className={styles.chatSurface} role="dialog" aria-label="与 Canvium 对话">
+          <div
+            className={styles.chatSurface}
+            role="dialog"
+            aria-label="与 Canvium 对话"
+            style={{ backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}
+          >
             <div className={styles.glassGlow} aria-hidden="true" />
             <header className={styles.chatHeader}>
               <button
@@ -451,7 +531,7 @@ export function ChatScrollDemo({
         </div>
       </section>
 
-      <aside className={styles.artworkCaption} aria-label="作品信息">
+      <aside className={styles.artworkCaption} data-artwork-transition-ui aria-label="作品信息">
         <div className={styles.artistLine}>
           <em>{selectedArtwork.artist}</em>
           <span>/ {selectedArtwork.year}</span>
